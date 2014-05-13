@@ -87,7 +87,7 @@ public class Tag2OwlParser {
 		OWLAnnotationProperty commentProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT
 						.getIRI());
-
+		
 		OWLClass tagClass = factory.getOWLClass(IRI.create(ontologyUri + "#"
 				+ tag.getValue().getString()));
 		

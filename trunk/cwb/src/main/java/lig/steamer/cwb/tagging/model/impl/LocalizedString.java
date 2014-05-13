@@ -3,24 +3,33 @@ package lig.steamer.cwb.tagging.model.impl;
 import lig.steamer.cwb.tagging.model.ILocalizedString;
 
 
+/**
+ * @author Anthony Hombiat
+ * @see lig.steamer.cwb.tagging.model.ILocalizedString
+ */
 public class LocalizedString implements ILocalizedString {
 
 	private String language;
 	private String string;
 
 	/**
-	 * @param language
-	 * @param string
+	 * {@inheritDoc}
 	 */
 	public LocalizedString(String string, String language) {
 		this.string = string;
 		this.language = language;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getLanguage() {
 		return language;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public String getString() {
 		return string;
 	}
@@ -36,6 +45,9 @@ public class LocalizedString implements ILocalizedString {
 	}
 
 	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public int hashCode() {
 		return language.hashCode() + string.hashCode();
 	}

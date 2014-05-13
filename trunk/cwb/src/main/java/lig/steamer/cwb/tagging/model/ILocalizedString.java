@@ -1,18 +1,19 @@
 package lig.steamer.cwb.tagging.model;
 
 /**
+ * @author Anthony Hombiat
  * A LocalizedString is a String associated with a locale (language). 
  */
 public interface ILocalizedString {
 
 	/**
-	 * returns the language of this String
+	 * Returns the language of the String of the LocalizedString.
 	 * @return the language
 	 */
 	public String getLanguage();
 	
 	/**
-	 * returns the String
+	 * Returns the String of the LocalizedString.
 	 * @return the String
 	 */
 	public String getString();

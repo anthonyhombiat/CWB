@@ -1,5 +1,10 @@
 package lig.steamer.cwb.http;
 
+
+/**
+ * @author Anthony Hombiat
+ * Enumeration that gathers HTTP request vocabulary.
+ */
 public enum HttpRequest {
 
 	ACCEPT("Accept"), 

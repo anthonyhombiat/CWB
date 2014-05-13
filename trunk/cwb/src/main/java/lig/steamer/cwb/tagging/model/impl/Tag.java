@@ -5,6 +5,10 @@ import java.util.Date;
 import lig.steamer.cwb.tagging.model.ILocalizedString;
 import lig.steamer.cwb.tagging.model.ITag;
 
+/**
+ * @author Anthony Hombiat
+ * 
+ */
 public class Tag implements ITag {
 
 	private ILocalizedString key;
@@ -24,80 +28,92 @@ public class Tag implements ITag {
 	}
 
 	/**
-	 * @return the key
+	 * {@inheritDoc}
 	 */
 	public ILocalizedString getKey() {
 		return key;
 	}
 
 	/**
-	 * @param key
-	 *            the key to set
+	 * {@inheritDoc}
 	 */
 	public void setKey(ILocalizedString key) {
 		this.key = key;
 	}
 
 	/**
-	 * @return the value
+	 * {@inheritDoc}
 	 */
 	public ILocalizedString getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value
-	 *            the value to set
+	 * {@inheritDoc}
 	 */
 	public void setValue(ILocalizedString value) {
 		this.value = value;
 	}
+	
+	/**
+	 * @return the description
+	 */
+	public ILocalizedString getDescription() {
+		return description;
+	}
 
 	/**
-	 * @return the creationDate
+	 * {@inheritDoc}
+	 */
+	public void setDescription(ILocalizedString description) {
+		this.description = description;
+	}
+
+	/**
+	 * {@inheritDoc}
 	 */
 	public Date getCreationDate() {
 		return creationDate;
 	}
 
 	/**
-	 * @param creationDate
-	 *            the creationDate to set
+	 * {@inheritDoc}
 	 */
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 
 	/**
-	 * @return the modificationDate
+	 * {@inheritDoc}
 	 */
 	public Date getModificationDate() {
 		return modificationDate;
 	}
 
 	/**
-	 * @param modificationDate
-	 *            the modificationDate to set
+	 * {@inheritDoc}
 	 */
 	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
 	}
 
 	/**
-	 * @return the lastUsageDate
+	 * {@inheritDoc}
 	 */
 	public Date getLastUsageDate() {
 		return lastUsageDate;
 	}
 
 	/**
-	 * @param lastUsageDate
-	 *            the lastUsageDate to set
+	 * {@inheritDoc}
 	 */
 	public void setLastUsageDate(Date lastUsageDate) {
 		this.lastUsageDate = lastUsageDate;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public Date getLastModificationDate() {
 		return this.modificationDate;
 	}
@@ -107,7 +123,7 @@ public class Tag implements ITag {
 		return 0;
 	}
 
-	public int getCooccurence() {
+	public int getNumberOfCooccurences() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -115,21 +131,6 @@ public class Tag implements ITag {
 	public double getCooccurenceFrequency() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	/**
-	 * @return the description
-	 */
-	public ILocalizedString getDescription() {
-		return description;
-	}
-
-	/**
-	 * @param description
-	 *            the description to set
-	 */
-	public void setDescription(ILocalizedString description) {
-		this.description = description;
 	}
 
 	@Override

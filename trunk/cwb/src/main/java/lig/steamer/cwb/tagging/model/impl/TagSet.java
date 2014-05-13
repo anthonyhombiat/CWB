@@ -8,6 +8,10 @@ import lig.steamer.cwb.tagging.model.ILocalizedString;
 import lig.steamer.cwb.tagging.model.ITag;
 import lig.steamer.cwb.tagging.model.ITagSet;
 
+/**
+ * @author Anthony Hombiat
+ *
+ */
 public class TagSet implements ITagSet {
 	
 	private ILocalizedString description;
@@ -18,10 +22,16 @@ public class TagSet implements ITagSet {
 		tags = new ArrayList<ITag>();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public ILocalizedString getDescription() {
 		return this.description;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	public void setDescription(ILocalizedString description) {
 		this.description = description;
 	}
@@ -30,10 +40,16 @@ public class TagSet implements ITagSet {
 		return this.tags;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getTotalNumberOfTags() {
 		return tags.size();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public Collection<ITag> getTagsByKey(String key) {
 		Collection <ITag> matchingTags = new ArrayList<ITag>();
 		for(ITag tag:this.tags){
@@ -44,20 +60,32 @@ public class TagSet implements ITagSet {
 		return matchingTags;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public Date getLastModificationDate() {
 		return this.lastModificationDate;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getTagsTotalCooccurence() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getTagsTotalCooccurenceFrequency() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean addTag(ITag tag) {
 		if(!this.tags.contains(tag)){
 			this.tags.add(tag);
@@ -66,6 +94,9 @@ public class TagSet implements ITagSet {
 		return false;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean removeTag(ITag tag) {
 		if(this.tags.contains(tag)){
 			this.tags.remove(tag);
@@ -74,6 +105,9 @@ public class TagSet implements ITagSet {
 		return false;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean mergeTagSet(ITagSet tagSet) {
 		boolean hasChanged = false;
 		for(ITag tag: tagSet.getTags()){
@@ -84,6 +118,9 @@ public class TagSet implements ITagSet {
 		return hasChanged;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean addTags(Collection<ITag> tags) {
 		return this.tags.addAll(tags);
 	}

@@ -3,6 +3,10 @@ package lig.steamer.cwb.tagging.model;
 import java.util.Collection;
 import java.util.Date;
 
+/**
+ * @author Anthony Hombiat
+ * A TagSet is a collection of Tags.
+ */
 public interface ITagSet {
 	
 	public ILocalizedString getDescription();
