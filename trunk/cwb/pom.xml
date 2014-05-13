@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>lig.steamer.cwb</groupId>
+	<artifactId>cwb</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>CitizenWelfareBuilder</name>
+	<description>CitizenWelfareBuilder is a computing environment dedicated to building and analyzing citizen well-being indicators at the local level. This decision-making tool takes advantage from Open Data and Volunteered Geographic Information to assist land use planning. Its architecture is divided into 4 bundles. The first one is dedicated to the creation of a well-being ontology based on the alignment of concepts coming both from folksonomies and official nomenclatures. The cond one consist in supporting the creation of questionnaires by social sciences experts about the citizens' expectations and impressions regarding well-being. The third one is concerned with the confrontation of the citizens expectations to ground-truth. Finally, the fourth module focuses on the spatio-temporal analysis of the collected data.</description>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.semanticweb.owl</groupId>
+			<artifactId>align</artifactId>
+			<version>4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.inrialpes.exmo.align</groupId>
+			<artifactId>alignsvc</artifactId>
+			<version>4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.inrialpes.exmo.align</groupId>
+			<artifactId>procalign</artifactId>
+			<version>4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.inrialpes.exmo</groupId>
+			<artifactId>ontowrap</artifactId>
+			<version>4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.inrialpes.exmo</groupId>
+			<artifactId>ontosim</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-distribution</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hp.hpl.jena</groupId>
+			<artifactId>jena</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.3</version>
+		</dependency>
+	</dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<developers>
+		<developer>
+			<id>anthony.hombiat</id>
+			<name>Anthony Hombiat</name>
+			<email>anthony.hombiat@imag.fr</email>
+			<url>http://lig-membres.imag.fr/hombiat/</url>
+			<organization>LIG - STeamer</organization>
+			<organizationUrl>http://steamer.imag.fr/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>jerome.gensel</id>
+			<name>Jérôme Gensel</name>
+			<email>jerome.gensel@imag.fr</email>
+			<url>http://lig-membres.imag.fr/gensel/</url>
+			<organization>LIG - STeamer</organization>
+			<organizationUrl>http://steamer.imag.fr/</organizationUrl>
+			<roles>
+				<role>supervisor</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>marlene.villanova-oliver</id>
+			<name>Marlène Villanova-Oliver</name>
+			<email>marlene.villanova-oliver@imag.fr</email>
+			<url>http://lig-membres.imag.fr/villanova/</url>
+			<organization>LIG - STeamer</organization>
+			<organizationUrl>http://steamer.imag.fr/</organizationUrl>
+			<roles>
+				<role>co-supervisor</role>
+			</roles>
+		</developer>
+	</developers>
+	<organization>
+		<name>LIG - STeamer</name>
+		<url>http://steamer.imag.fr/</url>
+	</organization>
+</project>
