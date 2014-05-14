@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://osmtaginfo#"
+     xml:base="http://osmtaginfo"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://osmtaginfo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://osmtaginfo#bakery -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bakery">
+        <rdfs:label xml:lang="en">bakery</rdfs:label>
+        <rdfs:comment xml:lang="en">A shop selling bread.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bench -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bench">
+        <rdfs:label xml:lang="en">bench</rdfs:label>
+        <rdfs:comment xml:lang="en">A place for people to sit; allows room for several people.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#clothes -->
+
+    <owl:Class rdf:about="http://osmtaginfo#clothes">
+        <rdfs:label xml:lang="en">clothes</rdfs:label>
+        <rdfs:comment xml:lang="en">A shop to get clothes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#convenience -->
+
+    <owl:Class rdf:about="http://osmtaginfo#convenience">
+        <rdfs:label xml:lang="en">convenience</rdfs:label>
+        <rdfs:comment xml:lang="en">A convenience store. A small local shop carrying a small subset of the items you would find in a supermarket</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#garden -->
+
+    <owl:Class rdf:about="http://osmtaginfo#garden">
+        <rdfs:label xml:lang="en">garden</rdfs:label>
+        <rdfs:comment xml:lang="en">Place where flowers and other plants are grown in a decorative and structured manner or for scientific purposes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#hairdresser -->
+
+    <owl:Class rdf:about="http://osmtaginfo#hairdresser">
+        <rdfs:label xml:lang="en">hairdresser</rdfs:label>
+        <rdfs:comment xml:lang="en">A hairdressers shop where you can get your hair cut</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#park -->
+
+    <owl:Class rdf:about="http://osmtaginfo#park">
+        <rdfs:label xml:lang="en">park</rdfs:label>
+        <rdfs:comment xml:lang="en">A park. Open, green area for recreation, usually municipal</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#parking -->
+
+    <owl:Class rdf:about="http://osmtaginfo#parking">
+        <rdfs:label xml:lang="en">parking</rdfs:label>
+        <rdfs:comment xml:lang="en">A place for parking cars</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#pitch -->
+
+    <owl:Class rdf:about="http://osmtaginfo#pitch">
+        <rdfs:label xml:lang="en">pitch</rdfs:label>
+        <rdfs:comment xml:lang="en">An area designed for playing a particular sport, normally designated with appropriate markings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#place_of_worship -->
+
+    <owl:Class rdf:about="http://osmtaginfo#place_of_worship">
+        <rdfs:label xml:lang="en">place_of_worship</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where religious services are conducted</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#playground -->
+
+    <owl:Class rdf:about="http://osmtaginfo#playground">
+        <rdfs:label xml:lang="en">playground</rdfs:label>
+        <rdfs:comment xml:lang="en">Marks a children&apos;s playground.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#restaurant -->
+
+    <owl:Class rdf:about="http://osmtaginfo#restaurant">
+        <rdfs:label xml:lang="en">restaurant</rdfs:label>
+        <rdfs:comment xml:lang="en">Is for a generally formal place with sit-down facilities selling full meals served by waiters and often licensed (where allowed) to sell alcoholic drinks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#school -->
+
+    <owl:Class rdf:about="http://osmtaginfo#school">
+        <rdfs:label xml:lang="en">school</rdfs:label>
+        <rdfs:comment xml:lang="en">Institution designed for learning under the supervision of teachers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#supermarket -->
+
+    <owl:Class rdf:about="http://osmtaginfo#supermarket">
+        <rdfs:label xml:lang="en">supermarket</rdfs:label>
+        <rdfs:comment xml:lang="en">A large store for groceries and other goods.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#swimming_pool -->
+
+    <owl:Class rdf:about="http://osmtaginfo#swimming_pool">
+        <rdfs:label xml:lang="en">swimming_pool</rdfs:label>
+        <rdfs:comment xml:lang="en">A place built for swimming</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

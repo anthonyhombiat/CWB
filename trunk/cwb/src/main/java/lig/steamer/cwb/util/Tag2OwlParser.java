@@ -31,7 +31,8 @@ public class Tag2OwlParser {
 	private static Logger LOGGER = Logger
 			.getLogger("lig.steamer.cwb.io.tag2owlparser");
 
-	private static String DEFAULT_OUTPUT_DIR_NAME = "src/resources/ontologies/";
+	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/osm/taginfo/";
+	public static String DEFAULT_FILENAME = "taginfo.owl";
 
 	private String outputFileDirName;
 
@@ -43,7 +44,7 @@ public class Tag2OwlParser {
 
 	public Tag2OwlParser(String ontologyUri) {
 		this.ontologyUri = ontologyUri;
-		this.setOutputFileDirName(DEFAULT_OUTPUT_DIR_NAME);
+		this.setOutputFileDirName(DEFAULT_OUTPUT_DIRNAME);
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 		try {
@@ -63,7 +64,6 @@ public class Tag2OwlParser {
 		for (ITag tag : tagSet.getTags()) {
 			List<OWLAxiom> axioms = getAxiomsFromTag(tag);
 			for (OWLAxiom axiom : axioms) {
-				System.out.println(axiom.toString());
 				AddAxiom addAxiom = new AddAxiom(tagOntology, axiom);
 				ontologyChanges.add(addAxiom);
 			}
@@ -116,7 +116,7 @@ public class Tag2OwlParser {
 
 	public void printTagOntology(String outputFileName) {
 		try {
-			File output = new File(DEFAULT_OUTPUT_DIR_NAME, outputFileName);
+			File output = new File(DEFAULT_OUTPUT_DIRNAME, outputFileName);
 			SimpleIRIMapper iriMapper = new SimpleIRIMapper(
 					IRI.create(ontologyUri), IRI.create(output.getPath()));
 			manager.addIRIMapper(iriMapper);
