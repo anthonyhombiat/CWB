@@ -26,6 +26,10 @@ import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import lig.steamer.cwb.tagging.model.ITag;
 import lig.steamer.cwb.tagging.model.ITagSet;
 
+/**
+ * @author Anthony Hombiat
+ *  Parser that provides methods for converting a set of tags into a set of OWL classes in an ontology.
+ */
 public class Tag2OwlParser {
 
 	private static Logger LOGGER = Logger
@@ -54,6 +58,10 @@ public class Tag2OwlParser {
 		}
 	}
 
+	/**
+	 * Adds the given TagSet to the tag ontology.
+	 * @param tagSet, the TagSet
+	 */
 	public void addTagSet(ITagSet tagSet) {
 
 		LOGGER.log(Level.INFO, "Adding OWL classes corresponding to the tags ("
@@ -75,24 +83,32 @@ public class Tag2OwlParser {
 
 	}
 
+	/**
+	 * Returns the list of OWLAxioms (RDFS_LABEL, RDFS_COMMENT, OWL_CLASS)
+	 * 		built from the given Tag. 
+	 * @param tag, the Tag
+	 * @return the list of OWLAxioms
+	 */
 	public List<OWLAxiom> getAxiomsFromTag(ITag tag) {
 
 		LOGGER.log(Level.INFO, "Adding tag " + tag.toString());
 
 		List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
 
-		// Adding the OwlCalss corresponding to the OSM tag with its label
 		OWLAnnotationProperty labelProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_LABEL.getIRI());
+		
 		OWLAnnotationProperty commentProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT
 						.getIRI());
 		
+		// Decalaring the OWLClass
 		OWLClass tagClass = factory.getOWLClass(IRI.create(ontologyUri + "#"
 				+ tag.getValue().getString()));
 		
 		axioms.add(factory.getOWLDeclarationAxiom(tagClass));
 
+		// Adding the label
 		OWLLiteral tagLabelLiteral = factory.getOWLLiteral(tag.getValue()
 				.getString(), tag.getValue().getLanguage());
 		OWLAnnotation tagLabelAnnotation = factory.getOWLAnnotation(
@@ -101,6 +117,7 @@ public class Tag2OwlParser {
 		axioms.add(factory.getOWLAnnotationAssertionAxiom(tagClass.getIRI(),
 				tagLabelAnnotation));
 
+		// Adding the comment
 		OWLLiteral tagCommentLiteral = factory
 				.getOWLLiteral(tag.getDescription().getString(), tag
 						.getDescription().getLanguage());

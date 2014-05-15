@@ -25,6 +25,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+/**
+ * @author Anthony Hombiat
+ * OSM TagInfo client that provides methods to consume data from the restful Web Service OSM TagInfo API.
+ */
 public class TagInfoClient {
 
 	private static Logger LOGGER = Logger
@@ -53,7 +57,15 @@ public class TagInfoClient {
 
 	}
 
-	public ITagSet getTagsByKey(String key, String locale, double d) {
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given key 
+	 * 		for the given locale and for the given frequency of occurence threshold.
+	 * @param key, the key
+	 * @param locale, the locale
+	 * @param threshold, the threshold
+	 * @return the TagSet
+	 */
+	public ITagSet getTagsByKey(String key, String locale, double threshold) {
 
 		LOGGER.log(Level.INFO, "Querying the TagInfo database...");
 
@@ -140,14 +152,29 @@ public class TagInfoClient {
 
 	}
 
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given key.
+	 * @param key
+	 * @return the TagSet
+	 */
 	public ITagSet getTagsByKey(String key) {
 		return this.getTagsByKey(key, DEFAULT_LOCALE, DEFAULT_THRESHOLD);
 	}
 
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given key for the given locale.
+	 * @param key
+	 * @return the TagSet
+	 */
 	public ITagSet getTagsByKey(String key, String locale) {
 		return this.getTagsByKey(key, locale, DEFAULT_THRESHOLD);
 	}
 	
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given keys.
+	 * @param keys, the keys
+	 * @return the TagSet
+	 */
 	public ITagSet getTagsByKeys(String [] keys, String locale, double threshold){
 		ITagSet tagSet = new TagSet();
 		for(String key:keys){
@@ -156,10 +183,22 @@ public class TagInfoClient {
 		return tagSet;
 	}
 	
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given keys 
+	 * 		for the given locale.
+	 * @param keys, the keys
+	 * @param locale, the locale
+	 * @return the TagSet
+	 */
 	public ITagSet getTagsByKeys(String [] keys, String locale){
 		return getTagsByKeys(keys, locale, DEFAULT_THRESHOLD);
 	}
 	
+	/**
+	 * Returns the TagSet that gathers OSM tags corresponding to the given keys.
+	 * @param keys, the keys
+	 * @return the TagSet
+	 */
 	public ITagSet getTagsByKeys(String [] keys){
 		return getTagsByKeys(keys, DEFAULT_LOCALE, DEFAULT_THRESHOLD);
 	}

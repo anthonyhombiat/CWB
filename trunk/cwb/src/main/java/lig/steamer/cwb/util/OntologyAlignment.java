@@ -17,6 +17,10 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import de.tudarmstadt.ke.sw.matching.wikimatch.matcher.OaeiWikiMatch;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 
+/**
+ * @author Anthony Hombiat
+ * Ontology alignment process that provide a method for aligning ontologies.
+ */
 public class OntologyAlignment extends URIAlignment implements AlignmentProcess {
 
 	private static Logger LOGGER = Logger
@@ -26,6 +30,12 @@ public class OntologyAlignment extends URIAlignment implements AlignmentProcess 
 
 	}
 
+	/**
+	 * Aligns two ontologies with the given reference Alignment 
+	 * 		and the given matcher properties.
+	 * @param alignment, the reference alignment
+	 * @param param, the matcher properties parameters
+	 */
 	public void align(Alignment alignment, Properties param)
 			throws AlignmentException {
 

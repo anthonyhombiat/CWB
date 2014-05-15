@@ -23,13 +23,16 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Anthony Hombiat
+ * Ontology matcher that provides methods to generate alignments between ontologies.
+ */
 public class OntologyMatcher {
 
 	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/alignments/";
 	public static String DEFAULT_OUTPUT_FILENAME = "result.owl";
 	public static String DEFAULT_OUTPUT_CHARSET = StandardCharsets.UTF_8.toString();
 	public static String DEFAULT_OUTPUT_FORMAT = OntologyFormat.OWL.toString();
-	
 	
 	private static Logger LOGGER = Logger.getLogger("lig.steamer.cwb.io.ontologymatcher");
 	
@@ -39,6 +42,11 @@ public class OntologyMatcher {
 		alignment = new OntologyAlignment();
 	}
 	
+	/**
+	 * Matches the two ontologies referenced by the gievn URIs.
+	 * @param ontologyUri1, the first ontology URI
+	 * @param ontologyUri2, the second ontology URI
+	 */
 	public void match(String ontologyUri1, String ontologyUri2) {
 		
 		LOGGER.log(Level.INFO, "Matching the given ontologies...");
@@ -66,6 +74,13 @@ public class OntologyMatcher {
 		
 	}
 	
+	/**
+	 * Prints the resulting alignment to the given output file name, 
+	 * 		in the given output format and with the given charset.
+	 * @param outputFilename
+	 * @param outputFileFormat
+	 * @param outputFileCharset
+	 */
 	public void printAlignment(String outputFilename, String outputFileFormat, String outputFileCharset) {
 		
 		LOGGER.log(Level.INFO, "Printing ontology...");
@@ -102,10 +117,20 @@ public class OntologyMatcher {
 		
 	}
 	
+	/**
+	 * Prints the resulting alignment to the given output file name.
+	 * @param outputFilename
+	 */
 	public void printAlignment(String outputFilename){
 		printAlignment(outputFilename, DEFAULT_OUTPUT_FORMAT, DEFAULT_OUTPUT_CHARSET);
 	}
 	
+	/**
+	 * Prints the resulting alignment to the given output file name, 
+	 * 		in the given output format.
+	 * @param outputFilename
+	 * @param outputFileFormat
+	 */
 	public void printAlignment(String outputFilename, String outputFileFormat){
 		printAlignment(outputFilename, outputFileFormat, DEFAULT_OUTPUT_CHARSET);
 	}
