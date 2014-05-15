@@ -15,7 +15,7 @@ public class Main {
 		String [] keys = {"amenity","shop","leisure"}; 
 		ITagSet tagSet = tagInfoClient.getTagsByKeys(keys);
 //
-//		// Parses the Tags previously retrieved into a tag ontology.
+		// Parses the Tags previously retrieved into a tag ontology.
 		Tag2OwlParser tag2owlParser = new Tag2OwlParser(TagInfoClient.OSM_TAG_INFO_URI);
 		tag2owlParser.addTagSet(tagSet);
 		tag2owlParser.printTagOntology(Tag2OwlParser.DEFAULT_FILENAME);
@@ -23,9 +23,9 @@ public class Main {
 		// Matches the tag ontology previously created with the BPE nomenclature.
 		OntologyMatcher matcher = new OntologyMatcher();
 		matcher.match(
-				"file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe_test2.owl",
-				"file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo_test2.owl");
-		matcher.printAlignment(OntologyMatcher.DEFAULT_FILENAME);
+				"file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe_test.owl",
+				"file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo_test.owl");
+		matcher.printAlignment(OntologyMatcher.DEFAULT_OUTPUT_FILENAME);
 	}
 
 }

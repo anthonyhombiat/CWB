@@ -17,59 +17,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe#domaine -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#domaine">
-        <rdfs:label xml:lang="fr">domaine</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe#gamme -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#gamme">
-        <rdfs:label xml:lang="fr">gamme</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#A -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#A">
-        <rdfs:label xml:lang="fr">Services aux particuliers</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#B -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#B">
-        <rdfs:label xml:lang="fr">Commerces</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    
+   
     
   <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#B203 -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B203">
         <rdfs:label xml:lang="fr">Boulangerie</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
-    </owl:Class>
-	
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire">
-        <rdfs:label xml:lang="fr">intermédiaire</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#gamme"/>
     </owl:Class>
     
 
