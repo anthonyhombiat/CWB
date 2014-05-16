@@ -1,4 +1,4 @@
-package lig.steamer.cwb.util;
+package lig.steamer.cwb.util.matching;
 
 import java.util.Enumeration;
 import java.util.Properties;

@@ -16,8 +16,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+			<version>4.11</version>
 		</dependency>
 
 		<!-- Alignment API for matching ontologies and modeling the resulting alignments -->
@@ -54,8 +53,9 @@
 			<artifactId>ontosim</artifactId>
 			<version>2.4</version>
 		</dependency>
-		
-		<!-- Jena API for modeling and manipulating ontologies (required by the Alignment API) -->
+
+		<!-- Jena API for modeling and manipulating ontologies (required by the 
+			Alignment API) -->
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
 			<artifactId>jena</artifactId>
@@ -81,6 +81,13 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.3.3</version>
+		</dependency>
+
+		<!-- WikiMatch multilingual ontology matcher -->
+		<dependency>
+			<groupId>de.tudarmstadt.ke.sw.matching</groupId>
+			<artifactId>wikimatch</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 	</dependencies>

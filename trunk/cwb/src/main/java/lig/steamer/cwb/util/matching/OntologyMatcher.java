@@ -1,4 +1,4 @@
-package lig.steamer.cwb.util;
+package lig.steamer.cwb.util.matching;
 
 // Alignment API classes
 import org.semanticweb.owl.align.Alignment;
