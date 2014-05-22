@@ -23,8 +23,8 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
-import lig.steamer.cwb.tagging.model.ITag;
-import lig.steamer.cwb.tagging.model.ITagSet;
+import lig.steamer.cwb.model.tagging.ITag;
+import lig.steamer.cwb.model.tagging.ITagSet;
 
 /**
  * @author Anthony Hombiat

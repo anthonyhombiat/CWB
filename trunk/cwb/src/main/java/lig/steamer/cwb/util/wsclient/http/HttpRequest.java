@@ -1,4 +1,4 @@
-package lig.steamer.cwb.http;
+package lig.steamer.cwb.util.wsclient.http;
 
 
 /**

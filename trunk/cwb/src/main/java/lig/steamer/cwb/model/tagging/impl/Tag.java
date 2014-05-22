@@ -1,9 +1,9 @@
-package lig.steamer.cwb.tagging.model.impl;
+package lig.steamer.cwb.model.tagging.impl;
 
 import java.util.Date;
 
-import lig.steamer.cwb.tagging.model.ILocalizedString;
-import lig.steamer.cwb.tagging.model.ITag;
+import lig.steamer.cwb.model.tagging.ILocalizedString;
+import lig.steamer.cwb.model.tagging.ITag;
 
 /**
  * @author Anthony Hombiat

@@ -10,14 +10,14 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.http.HttpMethod;
-import lig.steamer.cwb.http.HttpRequest;
-import lig.steamer.cwb.tagging.model.ILocalizedString;
-import lig.steamer.cwb.tagging.model.ITag;
-import lig.steamer.cwb.tagging.model.ITagSet;
-import lig.steamer.cwb.tagging.model.impl.LocalizedString;
-import lig.steamer.cwb.tagging.model.impl.Tag;
-import lig.steamer.cwb.tagging.model.impl.TagSet;
+import lig.steamer.cwb.model.tagging.ILocalizedString;
+import lig.steamer.cwb.model.tagging.ITag;
+import lig.steamer.cwb.model.tagging.ITagSet;
+import lig.steamer.cwb.model.tagging.impl.LocalizedString;
+import lig.steamer.cwb.model.tagging.impl.Tag;
+import lig.steamer.cwb.model.tagging.impl.TagSet;
+import lig.steamer.cwb.util.wsclient.http.HttpMethod;
+import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

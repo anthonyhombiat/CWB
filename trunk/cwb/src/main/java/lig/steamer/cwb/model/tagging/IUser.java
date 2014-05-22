@@ -1,4 +1,4 @@
-package lig.steamer.cwb.tagging.model;
+package lig.steamer.cwb.model.tagging;
 
 /**
  * @author Anthony Hombiat

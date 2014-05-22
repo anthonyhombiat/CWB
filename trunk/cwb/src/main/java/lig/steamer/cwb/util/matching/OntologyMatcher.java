@@ -6,11 +6,14 @@ import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 
+import com.google.gwt.thirdparty.guava.common.base.Charsets;
+
 // Alignment API implementation classes
 import fr.inrialpes.exmo.align.impl.renderer.OWLAxiomsRendererVisitor;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+
 // Java standard classes
 import java.io.PrintWriter;
 import java.io.BufferedWriter;
@@ -18,7 +21,6 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +33,7 @@ public class OntologyMatcher {
 
 	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/alignments/";
 	public static String DEFAULT_OUTPUT_FILENAME = "result.owl";
-	public static String DEFAULT_OUTPUT_CHARSET = StandardCharsets.UTF_8.toString();
+	public static String DEFAULT_OUTPUT_CHARSET = Charsets.UTF_8.toString();
 	public static String DEFAULT_OUTPUT_FORMAT = OntologyFormat.OWL.toString();
 	
 	private static Logger LOGGER = Logger.getLogger("lig.steamer.cwb.io.ontologymatcher");
