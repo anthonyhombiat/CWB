@@ -1,6 +1,6 @@
 package lig.steamer.cwb;
 
-import lig.steamer.cwb.tagging.model.ITagSet;
+import lig.steamer.cwb.model.tagging.ITagSet;
 import lig.steamer.cwb.util.matching.OntologyMatcher;
 import lig.steamer.cwb.util.tag2owl.Tag2OwlParser;
 import lig.steamer.cwb.util.wsclient.taginfo.TagInfoClient;
