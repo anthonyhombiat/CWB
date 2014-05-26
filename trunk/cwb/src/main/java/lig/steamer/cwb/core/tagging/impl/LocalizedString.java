@@ -1,11 +1,11 @@
-package lig.steamer.cwb.model.tagging.impl;
+package lig.steamer.cwb.core.tagging.impl;
 
-import lig.steamer.cwb.model.tagging.ILocalizedString;
+import lig.steamer.cwb.core.tagging.ILocalizedString;
 
 
 /**
  * @author Anthony Hombiat
- * @see lig.steamer.cwb.model.tagging.ILocalizedString
+ * @see lig.steamer.cwb.core.tagging.ILocalizedString
  */
 public class LocalizedString implements ILocalizedString {
 

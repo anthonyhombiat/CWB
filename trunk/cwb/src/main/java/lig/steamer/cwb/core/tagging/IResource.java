@@ -1,4 +1,4 @@
-package lig.steamer.cwb.model.tagging;
+package lig.steamer.cwb.core.tagging;
 
 import java.net.URI;
 
