@@ -3,6 +3,7 @@ package lig.steamer.cwb.util.wsclient.taginfo;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Locale;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -23,14 +24,14 @@ public class TagInfoRequest {
 
 	public URL url;
 
-	public TagInfoRequest(String key, String locale) {
+	public TagInfoRequest(String key, Locale locale) {
 
 		try {
 
 			URIBuilder uriBuilder = new URIBuilder(TAGINFO_QUERY_BY_KEY_URL);
 
 			uriBuilder
-					.setParameter(TAGINFO_QUERY_PARAM_NAME_LANG, locale)
+					.setParameter(TAGINFO_QUERY_PARAM_NAME_LANG, locale.toString())
 					.setParameter(TAGINFO_QUERY_PARAM_NAME_SORT_BY,
 							TAGINFO_QUERY_DEFAULT_SORT_BY_VALUE)
 					.setParameter(TAGINFO_QUERY_PARAM_NAME_SORT_ORDER,

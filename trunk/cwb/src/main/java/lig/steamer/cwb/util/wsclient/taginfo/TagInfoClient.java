@@ -10,12 +10,15 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.model.tagging.ILocalizedString;
-import lig.steamer.cwb.model.tagging.ITag;
-import lig.steamer.cwb.model.tagging.ITagSet;
-import lig.steamer.cwb.model.tagging.impl.LocalizedString;
-import lig.steamer.cwb.model.tagging.impl.Tag;
-import lig.steamer.cwb.model.tagging.impl.TagSet;
+import lig.steamer.cwb.core.tagging.IFolksonomy;
+import lig.steamer.cwb.core.tagging.ILocalizedString;
+import lig.steamer.cwb.core.tagging.ITag;
+import lig.steamer.cwb.core.tagging.ITagSet;
+import lig.steamer.cwb.core.tagging.impl.Folksonomy;
+import lig.steamer.cwb.core.tagging.impl.LocalizedString;
+import lig.steamer.cwb.core.tagging.impl.Source;
+import lig.steamer.cwb.core.tagging.impl.Tag;
+import lig.steamer.cwb.core.tagging.impl.TagSet;
 import lig.steamer.cwb.util.wsclient.http.HttpMethod;
 import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 
@@ -24,7 +27,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 /**
- * @author Anthony Hombiat OSM TagInfo client that provides methods to consume
+ * @author Anthony Hombiat 
+ * OSM TagInfo client that provides methods to consume
  * data from the restful Web Service OSM TagInfo API.
  */
 public class TagInfoClient {
@@ -32,30 +36,31 @@ public class TagInfoClient {
 	private static Logger LOGGER = Logger
 			.getLogger("lig.steamer.cwb.io.taginfo");
 
-	private static String TAGINFO_RESULT_ARRAY_KEY = "data";
-	private static String TAGINFO_RESULT_VALUE_KEY = "value";
-	private static String TAGINFO_RESULT_DESCRIPTION_KEY = "description";
+	private static final String TAGINFO_RESULT_ARRAY_KEY = "data";
+	private static final String TAGINFO_RESULT_VALUE_KEY = "value";
+	private static final String TAGINFO_RESULT_DESCRIPTION_KEY = "description";
 
-	private static String TAGINFO_RESPONSE_FAILURE_MSG = "Failed: HTTP error code ";
+	private static final String TAGINFO_RESPONSE_FAILURE_MSG = "Failed: HTTP error code ";
 
-	private static String DEFAULT_LOCALE = Locale.ENGLISH.toString();
-	private static double DEFAULT_THRESHOLD = 0;
+	private static final Locale DEFAULT_LOCALE = Locale.ENGLISH;
+	private static final double DEFAULT_THRESHOLD = 0;
 
-	public static String OSM_TAG_INFO_URI = "http://osmtaginfo";
+	public static final String DEFAULT_TAG_KEY = "amenity";
+	public static final String OSM_TAG_INFO_URI = "http://osmtaginfo";
 
 	public TagInfoClient() {
 
 	}
 
 	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given key
+	 * Returns the Folksonomy that gathers OSM tags corresponding to the given key
 	 * for the given locale and for the given frequency of occurence threshold.
 	 * @param key , the key
 	 * @param locale , the locale
 	 * @param threshold , the threshold
-	 * @return the TagSet
+	 * @return the IFolksonomy
 	 */
-	public ITagSet getTagsByKey(String key, String locale, double threshold) {
+	public IFolksonomy getTagsByKey(String key, Locale locale, double threshold) {
 
 		LOGGER.log(Level.INFO, "Querying the TagInfo database...");
 
@@ -64,7 +69,8 @@ public class TagInfoClient {
 			TagInfoRequest tagInfoRequest = new TagInfoRequest(key, locale);
 			URL url = tagInfoRequest.getUrl();
 
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
 			connection.setRequestMethod(HttpMethod.GET.toString());
 			connection.setRequestProperty(HttpRequest.ACCEPT.toString(),
 					HttpRequest.APPLICATION_JSON.toString());
@@ -89,24 +95,25 @@ public class TagInfoClient {
 					.toString());
 			JSONArray array = (JSONArray) obj.get(TAGINFO_RESULT_ARRAY_KEY);
 
-			ITagSet tagSet = new TagSet();
+			ITagSet tagset = new TagSet();
 
 			for (int i = 0; i < array.size(); i++) {
 				JSONObject currentJSONObject = (JSONObject) ((JSONObject) array
 						.get(i));
 
-				ILocalizedString tagKey = new LocalizedString(key, locale);
+				ILocalizedString tagKey = new LocalizedString(key,
+						locale.toString());
 				ILocalizedString tagValue = new LocalizedString(
 						currentJSONObject.get(TAGINFO_RESULT_VALUE_KEY)
-								.toString(), locale);
+								.toString(), locale.toString());
 				ILocalizedString tagDescription = new LocalizedString(
 						currentJSONObject.get(TAGINFO_RESULT_DESCRIPTION_KEY)
-								.toString(), locale);
+								.toString(), locale.toString());
 
 				ITag currentTag = new Tag(tagKey, tagValue);
 				currentTag.setDescription(tagDescription);
 
-				tagSet.addTag(currentTag);
+				tagset.addTag(currentTag);
 				LOGGER.log(Level.INFO, currentTag.toString());
 
 			}
@@ -117,7 +124,7 @@ public class TagInfoClient {
 			LOGGER.log(Level.INFO,
 					"Connection to the TagInfo database is close.");
 
-			return tagSet;
+			return new Folksonomy(tagset, null, new Source(TagInfoClient.OSM_TAG_INFO_URI), null);
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -130,55 +137,22 @@ public class TagInfoClient {
 	}
 
 	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given key.
+	 * Returns the Folksonomy that gathers OSM tags corresponding to the given key.
 	 * @param key
-	 * @return the TagSet
+	 * @return the IFolksonomy
 	 */
-	public ITagSet getTagsByKey(String key) {
+	public IFolksonomy getTagsByKey(String key) {
 		return this.getTagsByKey(key, DEFAULT_LOCALE, DEFAULT_THRESHOLD);
 	}
 
 	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given key
+	 * Returns the Folksonomy that gathers OSM tags corresponding to the given key
 	 * for the given locale.
 	 * @param key
-	 * @return the TagSet
+	 * @return the IFolksonomy
 	 */
-	public ITagSet getTagsByKey(String key, String locale) {
+	public IFolksonomy getTagsByKey(String key, Locale locale) {
 		return this.getTagsByKey(key, locale, DEFAULT_THRESHOLD);
-	}
-
-	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given keys.
-	 * @param keys , the keys
-	 * @return the TagSet
-	 */
-	public ITagSet getTagsByKeys(String[] keys, String locale, double threshold) {
-		ITagSet tagSet = new TagSet();
-		for (String key : keys) {
-			tagSet.mergeTagSet(getTagsByKey(key, locale, threshold));
-		}
-		return tagSet;
-	}
-
-	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given keys
-	 * for the given locale.
-	 * @param keys , the keys
-	 * @param locale , the locale
-	 * @return the TagSet
-	 */
-	public ITagSet getTagsByKeys(String[] keys, String locale) {
-		return getTagsByKeys(keys, locale, DEFAULT_THRESHOLD);
-	}
-
-	/**
-	 * Returns the TagSet that gathers OSM tags corresponding to the given keys.
-	 * @param keys , the keys
-	 * @return the TagSet
-	 */
-	public ITagSet getTagsByKeys(String[] keys) {
-		return getTagsByKeys(keys, DEFAULT_LOCALE, DEFAULT_THRESHOLD);
 	}
 
 }

@@ -1,4 +1,4 @@
-package lig.steamer.cwb.ui;
+package lig.steamer.cwb.ui.panel;
 
 import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;

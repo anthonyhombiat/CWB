@@ -1,4 +1,4 @@
-package lig.steamer.cwb.util.tag2owl;
+package lig.steamer.cwb.util.parser;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,8 +23,9 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
-import lig.steamer.cwb.model.tagging.ITag;
-import lig.steamer.cwb.model.tagging.ITagSet;
+import lig.steamer.cwb.core.tagging.IFolksonomy;
+import lig.steamer.cwb.core.tagging.ITag;
+import lig.steamer.cwb.core.tagging.ITagSet;
 
 /**
  * @author Anthony Hombiat
@@ -33,10 +34,10 @@ import lig.steamer.cwb.model.tagging.ITagSet;
 public class Tag2OwlParser {
 
 	private static Logger LOGGER = Logger
-			.getLogger("lig.steamer.cwb.io.tag2owlparser");
+			.getLogger("lig.steamer.cwb.util.parser.tag2owlparser");
 
-	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/osm/taginfo/";
-	public static String DEFAULT_FILENAME = "taginfo.owl";
+	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/tag2owl/";
+	public static String DEFAULT_FILENAME = "tags.owl";
 
 	private String outputFileDirName;
 
@@ -57,19 +58,25 @@ public class Tag2OwlParser {
 			e.printStackTrace();
 		}
 	}
+	
+	public void init(){
+		
+	}
 
 	/**
 	 * Adds the given TagSet to the tag ontology.
 	 * @param tagSet, the TagSet
 	 */
-	public void addTagSet(ITagSet tagSet) {
+	public void addTagSet(IFolksonomy folksonomy) {
 
+		ITagSet tagset = folksonomy.getTagSet();
+		
 		LOGGER.log(Level.INFO, "Adding OWL classes corresponding to the tags ("
-				+ tagSet.getTags().size() + ") in the tag ontology...");
+				+ tagset.getTags().size() + ") in the tag ontology...");
 
 		List<OWLOntologyChange> ontologyChanges = new ArrayList<OWLOntologyChange>();
 
-		for (ITag tag : tagSet.getTags()) {
+		for (ITag tag : tagset.getTags()) {
 			List<OWLAxiom> axioms = getAxiomsFromTag(tag);
 			for (OWLAxiom axiom : axioms) {
 				AddAxiom addAxiom = new AddAxiom(tagOntology, axiom);
