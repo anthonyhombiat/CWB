@@ -1,21 +1,34 @@
 package lig.steamer.cwb.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public class CWBDataModel {
+import org.semanticweb.owlapi.model.IRI;
 
+public class CWBDataModel implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	private String namespace;
 	private CWBDataProvider dataProvider;
 	private Collection<CWBConcept> concepts;
 	private Date creationDate;
 	private Date lastUpdate;
 	
-	public CWBDataModel(CWBDataProvider dataProvider){
-		this.dataProvider = dataProvider;
+	public CWBDataModel(IRI namespace){
+		this.namespace = namespace.toString();
 		concepts = new ArrayList<CWBConcept>();
 		creationDate = new Date();
 		lastUpdate = new Date();
+	}
+	
+	/**
+	 * @return the namespace
+	 */
+	public String getNamespace() {
+		return namespace;
 	}
 
 	/**

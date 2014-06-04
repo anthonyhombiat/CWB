@@ -6,14 +6,14 @@ import java.util.LinkedList;
 import com.vaadin.data.Container.Hierarchical;
 import com.vaadin.data.util.BeanItemContainer;
 
-public class HierarchicalDataModelContainer<BEANTYPE> extends
+public class CWBHierarchicalDataModelContainer<BEANTYPE> extends
 		BeanItemContainer<BEANTYPE> implements Hierarchical {
 
 	private static final long serialVersionUID = 1L;
 
 	private Object parentPID;
 
-	public HierarchicalDataModelContainer(Class<BEANTYPE> type, Object parentPID)
+	public CWBHierarchicalDataModelContainer(Class<BEANTYPE> type, Object parentPID)
 			throws IllegalArgumentException {
 		super(type);
 		this.parentPID = parentPID;

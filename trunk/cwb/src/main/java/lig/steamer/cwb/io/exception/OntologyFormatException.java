@@ -1,4 +1,4 @@
-package lig.steamer.cwb.util.parser.exception;
+package lig.steamer.cwb.io.exception;
 
 public class OntologyFormatException extends Exception {
 

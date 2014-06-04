@@ -24,7 +24,7 @@ import fr.inrialpes.exmo.align.impl.URIAlignment;
 public class OntologyAlignment extends URIAlignment implements AlignmentProcess {
 
 	private static Logger LOGGER = Logger
-			.getLogger("lig.steamer.cwb.util.ontologyalignment");
+			.getLogger(OntologyAlignment.class.getName());
 
 	public OntologyAlignment() {
 

@@ -7,5 +7,6 @@
 @mixin cwbtheme {
   /* Include all the styles from the reindeer theme */
   @include reindeer;
+  @include fonticons;
   
 }

@@ -34,7 +34,7 @@ import lig.steamer.cwb.core.tagging.ITagSet;
 public class Tag2OwlParser {
 
 	private static Logger LOGGER = Logger
-			.getLogger("lig.steamer.cwb.util.parser.tag2owlparser");
+			.getLogger(Tag2OwlParser.class.getName());
 
 	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/tag2owl/";
 	public static String DEFAULT_FILENAME = "tags.owl";
@@ -48,6 +48,7 @@ public class Tag2OwlParser {
 	private String ontologyUri;
 
 	public Tag2OwlParser(String ontologyUri) {
+		
 		this.ontologyUri = ontologyUri;
 		this.setOutputFileDirName(DEFAULT_OUTPUT_DIRNAME);
 		this.manager = OWLManager.createOWLOntologyManager();
@@ -57,9 +58,6 @@ public class Tag2OwlParser {
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void init(){
 		
 	}
 

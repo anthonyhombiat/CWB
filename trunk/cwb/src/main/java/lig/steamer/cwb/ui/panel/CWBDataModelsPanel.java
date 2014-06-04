@@ -35,7 +35,7 @@ public class CWBDataModelsPanel extends Panel {
 
 	public void addDataModelTreeTable(CWBDataModel dataModel) {
 		
-		HierarchicalDataModelContainer<CWBConcept> dataModelContainer = new HierarchicalDataModelContainer<CWBConcept>(CWBConcept.class, "parent");
+		CWBHierarchicalDataModelContainer<CWBConcept> dataModelContainer = new CWBHierarchicalDataModelContainer<CWBConcept>(CWBConcept.class, "parent");
 
 		for (CWBConcept concept : dataModel.getConcepts()) {
 			dataModelContainer.addBean(concept);
@@ -65,9 +65,9 @@ public class CWBDataModelsPanel extends Panel {
 		treeTable.setColumnCollapsed(Messages
 				.getString("accordion.table.column.descriptions"), true);
 		
-//		treeTable.setSortContainerPropertyId(Messages
-//				.getString("accordion.table.column.fragment"));
-//		treeTable.sort();
+		treeTable.setSortContainerPropertyId(Messages
+				.getString("accordion.table.column.fragment"));
+		treeTable.sort();
 
 		VerticalLayout accordionElementLayout = new VerticalLayout();
 		accordionElementLayout.setSizeFull();
@@ -81,7 +81,11 @@ public class CWBDataModelsPanel extends Panel {
 				accordionPanel,
 				Messages.getString("accordion.tab.caption")
 						+ (accordion.getComponentCount() + 1) + " - "
-						+ dataModel.getDataProvider().getName(), null);
+						+ dataModel.getNamespace(), null);
+	}
+	
+	public Accordion getAccordion(){
+		return accordion;
 	}
 
 }

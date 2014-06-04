@@ -36,7 +36,7 @@ public class OntologyMatcher {
 	public static String DEFAULT_OUTPUT_CHARSET = Charsets.UTF_8.toString();
 	public static String DEFAULT_OUTPUT_FORMAT = OntologyFormat.OWL.toString();
 	
-	private static Logger LOGGER = Logger.getLogger("lig.steamer.cwb.io.ontologymatcher");
+	private static Logger LOGGER = Logger.getLogger(OntologyMatcher.class.getName());
 	
 	private AlignmentProcess alignment;
 	
@@ -49,21 +49,16 @@ public class OntologyMatcher {
 	 * @param ontologyUri1, the first ontology URI
 	 * @param ontologyUri2, the second ontology URI
 	 */
-	public void match(String ontologyUri1, String ontologyUri2) {
+	public void match(URI ontologyUri1, URI ontologyUri2) {
 		
 		LOGGER.log(Level.INFO, "Matching the given ontologies...");
 		
-		URI onto1 = null;
-		URI onto2 = null;
+		URI onto1 = ontologyUri1;
+		URI onto2 = ontologyUri2;
 
 		Properties params = new Properties();
 
 		try {
-			
-			// Loading ontologies
-			onto1 = new URI(ontologyUri1);
-			onto2 = new URI(ontologyUri2);
-			
 			// Run alignment
 			alignment.init(onto1, onto2);
 			alignment.align((Alignment) null, params);
@@ -71,8 +66,22 @@ public class OntologyMatcher {
 			LOGGER.log(Level.INFO, "Matching done.");
 			
 		} catch (AlignmentException e) { e.printStackTrace();
-		} catch (URISyntaxException e) { e.printStackTrace();
 		} 
+		
+	}
+	
+	/**
+	 * Matches the two ontologies referenced by the gievn URIs.
+	 * @param ontologyUri1, the first ontology URI
+	 * @param ontologyUri2, the second ontology URI
+	 */
+	public void match(String ontologyUri1, String ontologyUri2) {
+		
+		try {
+			match(new URI(ontologyUri1), new URI(ontologyUri2));
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	

@@ -8,8 +8,6 @@ public class CWBModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static String DEFAULT_IRI = "http://cwb.imag.fr/";
-
 	private Collection<CWBDataModel> dataModels;
 	private Collection<CWBDataSet> dataSets;
 	private Collection<CWBIndicatorModel> indicatorModels;

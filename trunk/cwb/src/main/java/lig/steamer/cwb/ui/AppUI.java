@@ -3,30 +3,35 @@ package lig.steamer.cwb.ui;
 import javax.servlet.annotation.WebServlet;
 
 import lig.steamer.cwb.controller.CWBController;
+import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.menu.CWBMenuBar;
 import lig.steamer.cwb.ui.panel.CWBDataModelsPanel;
 import lig.steamer.cwb.ui.panel.CWBMapPanel;
 import lig.steamer.cwb.ui.window.CWBLoadNomenclatureFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadTagsetWindow;
+import lig.steamer.cwb.ui.window.CWBMatchingWindow;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.vaadin.server.FileResource;
+import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.event.dd.DropHandler;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Accordion;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Upload.FailedListener;
 import com.vaadin.ui.Upload.FinishedListener;
@@ -38,7 +43,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Reindeer;
 
-@Theme("reindeer")
+@Theme("cwbtheme")
 @Title("Citizen Welfare Builder")
 @SuppressWarnings("serial")
 public class AppUI extends UI {
@@ -49,6 +54,7 @@ public class AppUI extends UI {
 	private CWBLoadTagsetWindow loadTagsetWindow;
 	private CWBDataModelsPanel dataModelsPanel;
 	private CWBLoadNomenclatureFromFileWindow loadNomenclatureFromFileWindow;
+	private CWBMatchingWindow matchingWindow;
 
 	@WebServlet(value = "/*", asyncSupported = true)
 	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "lig.steamer.cwb.ui.AppWidgetSet")
@@ -127,6 +133,7 @@ public class AppUI extends UI {
 
 		loadTagsetWindow = new CWBLoadTagsetWindow();
 		loadNomenclatureFromFileWindow = new CWBLoadNomenclatureFromFileWindow();
+		matchingWindow = new CWBMatchingWindow();
 
 		/*
 		 * Notification
@@ -174,12 +181,40 @@ public class AppUI extends UI {
 	}
 	
 	/**
+	 * @return the dataModelsPanel accordion
+	 */
+	public Accordion getDataModelsPanelAccordion() {
+		return dataModelsPanel.getAccordion();
+	}
+	
+	/**
 	 * @return the loadNomenclatureFromFileWindow
 	 */
 	public CWBLoadNomenclatureFromFileWindow getLoadNomenclatureFromFileWindow() {
 		return loadNomenclatureFromFileWindow;
 	}
 
+	/**
+	 * @return the matchingWindow
+	 */
+	public CWBMatchingWindow getMatchWindow() {
+		return matchingWindow;
+	}
+
+	/**
+	 * @return the matchingWindow table
+	 */
+	public Table getMatchWindowTable(){
+		return matchingWindow.getTable();
+	}
+	
+	/**
+	 * @return the matchingWindow table container
+	 */
+	public BeanItemContainer<CWBDataModel> getMatchWindowTableContainer(){
+		return matchingWindow.getContainer();
+	}
+	
 	/*
 	 * Add listener methods
 	 */
@@ -206,6 +241,10 @@ public class AppUI extends UI {
 	
 	public void addDataModelsMenuItemCommand(Command command){
 		menuBar.getDataModelsMenuItem().setCommand(command);
+	}
+	
+	public void addMatchMenuItemCommand(Command command){
+		menuBar.getMatchMenuItem().setCommand(command);
 	}
 	
 	public void addTagWebServiceComboBoxListener(ValueChangeListener listener){
@@ -235,7 +274,19 @@ public class AppUI extends UI {
 	public void addLoadNomenclatureFileUploadComponentStartedListener(StartedListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addStartedListener(listener);
 	}
+	
+	public void addLoadNomenclatureFileDropBoxDropHandler(DropHandler dropHandler){
+		loadNomenclatureFromFileWindow.getDropBox().setDropHandler(dropHandler);
+	}
 
+	public void addMatchingWindowTableValueChangeListener(ValueChangeListener listener){
+		matchingWindow.getTable().addValueChangeListener(listener);
+	}
+	
+	public void addMatchingWindowButtonClickListener(ClickListener listener){
+		matchingWindow.getButton().addClickListener(listener);
+	}
+	
 	/**
 	 * @return the controller
 	 */

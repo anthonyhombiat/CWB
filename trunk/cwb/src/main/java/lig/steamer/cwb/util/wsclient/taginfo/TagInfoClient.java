@@ -34,7 +34,7 @@ import org.json.simple.JSONValue;
 public class TagInfoClient {
 
 	private static Logger LOGGER = Logger
-			.getLogger("lig.steamer.cwb.io.taginfo");
+			.getLogger(TagInfoClient.class.getName());
 
 	private static final String TAGINFO_RESULT_ARRAY_KEY = "data";
 	private static final String TAGINFO_RESULT_VALUE_KEY = "value";

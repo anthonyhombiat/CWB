@@ -1,6 +1,7 @@
-package lig.steamer.cwb.util.parser;
+package lig.steamer.cwb.io;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -19,49 +20,68 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import com.vaadin.ui.Html5File;
 
+import lig.steamer.cwb.io.exception.OntologyFormatException;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.model.CWBDataProvider;
-import lig.steamer.cwb.util.parser.exception.OntologyFormatException;
 
-public class Owl2ConceptParser {
+public class CWBDataModelReader {
 
 	private static Logger LOGGER = Logger
-			.getLogger("lig.steamer.cwb.util.parser.owl2conceptparser");
+			.getLogger(CWBDataModelReader.class.getName());
 
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 
-	public Owl2ConceptParser() {
+	public CWBDataModelReader() {
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 	}
+	
+	public CWBDataModel read(OWLOntology ontology) throws OntologyFormatException {
 
-	public CWBDataModel parse(Html5File file) throws OntologyFormatException {
+		LOGGER.log(Level.INFO, "Parsing ontology...");
+		
+		CWBDataModel dataModel = new CWBDataModel(ontology.getOntologyID().getOntologyIRI());
 
-		return parse(new File(file.getFileName()));
+		dataModel = createDataModel(ontology, dataModel, findRootClasses(ontology), null);
+		
+		LOGGER.log(Level.INFO, "Parsing done");
+		
+		return dataModel;
 
 	}
 
-	public CWBDataModel parse(File file) throws OntologyFormatException {
-
-		CWBDataModel dataModel = new CWBDataModel(new CWBDataProvider("user"));
-
-		LOGGER.log(Level.INFO, "Parsing owl file " + file.getAbsolutePath() + "...");
+	public CWBDataModel read(File file) throws OntologyFormatException {
 		
 		try {
 			OWLOntology ontology = manager
 					.loadOntologyFromOntologyDocument(file);
-
-			dataModel = createDataModel(ontology, dataModel, findRootClasses(ontology), null);
 			
-			LOGGER.log(Level.INFO, "Parsing done");
-			
-			return dataModel;
+			return read(ontology);
 
 		} catch (OWLOntologyCreationException e) {
 			throw new OntologyFormatException(e);
 		}
+
+	}
+	
+	public CWBDataModel read(InputStream inputStream) throws OntologyFormatException {
+		
+		try {
+			OWLOntology ontology = manager
+					.loadOntologyFromOntologyDocument(inputStream);
+			
+			return read(ontology);
+
+		} catch (OWLOntologyCreationException e) {
+			throw new OntologyFormatException(e);
+		}
+
+	}
+	
+	public CWBDataModel read(Html5File file) throws OntologyFormatException {
+
+		return read(new File(file.getFileName()));
 
 	}
 
@@ -128,8 +148,7 @@ public class Owl2ConceptParser {
 		for (OWLClass clazz : ontology.getClassesInSignature()) {
 			if (clazz.getSuperClasses(ontology).size() == 0) {
 				rootClasses.add(clazz);
-				LOGGER.log(Level.INFO, "> " + clazz.getIRI().getFragment()
-						+ " added to data model.");
+				LOGGER.log(Level.INFO, "> " + clazz.getIRI().getFragment());
 			}
 		}
 
