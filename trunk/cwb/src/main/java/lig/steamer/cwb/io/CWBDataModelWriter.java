@@ -8,8 +8,10 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import lig.steamer.cwb.CWBProperties;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBEquivalence;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AddAxiom;
@@ -19,126 +21,211 @@ import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
+
+import com.vaadin.server.VaadinService;
 
 /**
  * Class that gathers methods to write CWB data model into OWL format.
  * @author Anthony Hombiat
  */
 public class CWBDataModelWriter {
-	
-	private static Logger LOGGER = Logger
-			.getLogger(CWBDataModelWriter.class.getName());
 
-	public static String DEFAULT_OUTPUT_DIR = ""; 
-	public static String DEFAULT_FILE_NAME = ""; 
-	
+	private static Logger LOGGER = Logger.getLogger(CWBDataModelWriter.class
+			.getName());
+
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 
-	public CWBDataModelWriter(){
+	private OWLOntology ontology;
+	private CWBDataModel dataModel;
+
+	private File outputFile;
+
+	public CWBDataModelWriter(CWBDataModel dataModel, String filename) {
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
-	}
-	
-	/**
-	 * Returns the file containing the CWBDataModel in owl format.
-	 * @param dataModel, the CWBDataModel to write
-	 * @param filename, the name of the output file
-	 * @return the file
-	 */
-	public File write(CWBDataModel dataModel, String filename){
-		
-		LOGGER.log(Level.INFO, "Writing CWBDataModel to " + DEFAULT_OUTPUT_DIR + filename + "...");
-		
-		OWLOntology ontology = null;
-		
+		this.dataModel = dataModel;
+
+		outputFile = new File(VaadinService.getCurrent().getBaseDirectory()
+				.getAbsolutePath()
+				+ CWBProperties.getProperty(CWBProperties.OUTPUT_DIR)
+				+ filename
+				+ CWBProperties.getProperty(CWBProperties.OWL_FILE_FORMAT));
+
 		try {
-			ontology = manager.createOntology(IRI.create(dataModel.getNamespace()));
+			ontology = manager.createOntology(dataModel.getNamespace());
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
-		
-		File file = new File(DEFAULT_OUTPUT_DIR + filename);
-		
+	}
+
+	/**
+	 * Returns the file containing the CWBDataModel in owl format.
+	 * @param dataModel, the CWBDataModel to write
+	 */
+	public void write() {
+
+		LOGGER.log(Level.INFO,
+				"Writing CWBDataModel " + dataModel.getNamespace() + "...");
+
 		List<OWLOntologyChange> ontologyChanges = new ArrayList<OWLOntologyChange>();
-		
-		for(CWBConcept concept : dataModel.getConcepts()){
-			List<OWLAxiom> axioms = getAxiomsFromConcept(concept);
+
+		for (CWBConcept concept : dataModel.getConcepts()) {
+
+			List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
+
+			axioms.add(getOWLClassFromCWBConcept(concept));
+			axioms.addAll(getRDFSLabelsFromCWBConcept(concept));
+			axioms.addAll(getRDFSCommentsFromCWBConcept(concept));
+
 			for (OWLAxiom axiom : axioms) {
 				AddAxiom addAxiom = new AddAxiom(ontology, axiom);
 				ontologyChanges.add(addAxiom);
 			}
 		}
-		
+
+		for (CWBEquivalence equivalence : dataModel.getEquivalences()) {
+			ontologyChanges.add(new AddAxiom(ontology,
+					getOWLEquivalentClassFromCWBEquivalence(equivalence)));
+		}
+
 		manager.applyChanges(ontologyChanges);
-		
+
 		LOGGER.log(Level.INFO, "Writing done.");
-		
-		return file;
-		
+
 	}
-	
+
+	public void flush() {
+		LOGGER.log(Level.INFO,
+				"Flushing data to " + outputFile.getAbsolutePath() + "...");
+
+		try {
+			SimpleIRIMapper iriMapper = new SimpleIRIMapper(ontology
+					.getOntologyID().getOntologyIRI(), IRI.create(outputFile));
+			manager.addIRIMapper(iriMapper);
+			manager.saveOntology(ontology, IRI.create(outputFile));
+		} catch (OWLOntologyStorageException e) {
+			e.printStackTrace();
+		}
+
+		LOGGER.log(Level.INFO, "Writing done.");
+	}
+
 	/**
-	 * Returns the file containing the CWBDataModel in owl format.
-	 * @param dataModel, the CWBDataModel to write
-	 * @return the file
+	 * Returns the OWLAxiom containing the OWL equivalent class from the given
+	 * CWBEquivalence.
+	 * @param concept, the CWBEquivalence
+	 * @return the OWLAxiom
 	 */
-	public File write(CWBDataModel dataModel){
-		return write(dataModel, DEFAULT_FILE_NAME);
+	private OWLAxiom getOWLEquivalentClassFromCWBEquivalence(
+			CWBEquivalence equivalence) {
+
+		LOGGER.log(Level.INFO, "Adding OWL equivalent class between concepts "
+				+ equivalence.getConcept1().getFragment() + " and "
+				+ equivalence.getConcept2().getFragment());
+
+		OWLEquivalentClassesAxiom axiom = factory.getOWLEquivalentClassesAxiom(
+				factory.getOWLClass(equivalence.getConcept1().getUri()),
+				factory.getOWLClass(equivalence.getConcept1().getUri()));
+
+		return axiom;
 	}
-	
+
 	/**
-	 * Returns the list of OWLAxioms (RDFS_LABEL, RDFS_COMMENT, OWL_CLASS)
-	 * 		built from the given CWBConcept. 
+	 * Returns the OWLAxiom declaring the OWL class corresponding to the given
+	 * CWBConcept.
+	 * @param concept, the CWBConcept
+	 * @return the OWLAxiom
+	 */
+	private OWLAxiom getOWLClassFromCWBConcept(CWBConcept concept) {
+		LOGGER.log(Level.INFO,
+				"Declaring OWL class for concept " + concept.getFragment());
+		OWLClass conceptClass = factory.getOWLClass(concept.getUri());
+		return factory.getOWLDeclarationAxiom(conceptClass);
+	}
+
+	/**
+	 * Returns the list of OWLAxioms containing RDFS labels from the given
+	 * CWBConcept.
 	 * @param concept, the CWBConcept
 	 * @return the list of OWLAxioms
 	 */
-	public List<OWLAxiom> getAxiomsFromConcept(CWBConcept concept) {
+	private List<OWLAxiom> getRDFSLabelsFromCWBConcept(CWBConcept concept) {
 
-		LOGGER.log(Level.INFO, "Adding tag " + concept.toString());
+		LOGGER.log(Level.INFO,
+				"Adding RDFS labels from concept " + concept.getFragment());
 
 		List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
 
 		OWLAnnotationProperty labelProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_LABEL.getIRI());
-		
-		OWLAnnotationProperty commentProperty = factory
-				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT
-						.getIRI());
-		
-		// Decalaring the OWLClass
-		OWLClass tagClass = factory.getOWLClass(concept.getUri());
-		
-		axioms.add(factory.getOWLDeclarationAxiom(tagClass));
 
-		// Adding the label
-		for(Entry<Locale, String> entry : concept.getNames().entrySet()){
-			OWLLiteral label = factory.getOWLLiteral(entry.getKey().toString(), entry.getValue());
+		for (Entry<Locale, String> entry : concept.getNames().entrySet()) {
+
+			LOGGER.log(Level.INFO,
+					"> \"" + entry.getValue() + "\" (" + entry.getKey() + ")");
+
+			OWLLiteral label = factory.getOWLLiteral(entry.getValue(), entry
+					.getKey().toString());
 			OWLAnnotation labelAnnotation = factory.getOWLAnnotation(
 					labelProperty, label);
 
-			axioms.add(factory.getOWLAnnotationAssertionAxiom(tagClass.getIRI(),
+			axioms.add(factory.getOWLAnnotationAssertionAxiom(concept.getUri(),
 					labelAnnotation));
 		}
-		
-		// Adding the comment
-		for(Entry<Locale, String> entry : concept.getDescriptions().entrySet()){
-			OWLLiteral comment = factory.getOWLLiteral(entry.getKey().toString(), entry.getValue());
-			OWLAnnotation commentAnnotation = factory.getOWLAnnotation(
-					commentProperty, comment);
 
-			axioms.add(factory.getOWLAnnotationAssertionAxiom(tagClass.getIRI(),
-					commentAnnotation));
-		}
+		LOGGER.log(Level.INFO, "RDFS labels added.");
 
 		return axioms;
+	}
 
+	/**
+	 * Returns the list of OWLAxioms containing RDFS comments from the given
+	 * CWBConcept.
+	 * @param concept, the CWBConcept
+	 * @return the list of OWLAxioms
+	 */
+	private List<OWLAxiom> getRDFSCommentsFromCWBConcept(CWBConcept concept) {
+
+		LOGGER.log(Level.INFO,
+				"Adding RDFS comments from concept " + concept.getFragment());
+
+		List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
+
+		OWLAnnotationProperty commentProperty = factory
+				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT
+						.getIRI());
+
+		for (Entry<Locale, String> entry : concept.getDescriptions().entrySet()) {
+
+			LOGGER.log(Level.INFO,
+					"> \"" + entry.getValue() + "\" (" + entry.getKey() + ")");
+
+			OWLLiteral comment = factory.getOWLLiteral(entry.getValue(), entry
+					.getKey().toString());
+			OWLAnnotation labelAnnotation = factory.getOWLAnnotation(
+					commentProperty, comment);
+
+			axioms.add(factory.getOWLAnnotationAssertionAxiom(concept.getUri(),
+					labelAnnotation));
+		}
+
+		LOGGER.log(Level.INFO, "RDFS comments added.");
+
+		return axioms;
+	}
+
+	public File getFile() {
+		return outputFile;
 	}
 
 }

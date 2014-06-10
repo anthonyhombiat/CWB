@@ -11,15 +11,17 @@ public class CWBDataModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String namespace;
+	private IRI namespace;
 	private CWBDataProvider dataProvider;
 	private Collection<CWBConcept> concepts;
+	private Collection<CWBEquivalence> equivalences;
 	private Date creationDate;
 	private Date lastUpdate;
 	
 	public CWBDataModel(IRI namespace){
-		this.namespace = namespace.toString();
+		this.namespace = namespace;
 		concepts = new ArrayList<CWBConcept>();
+		equivalences = new ArrayList<CWBEquivalence>();
 		creationDate = new Date();
 		lastUpdate = new Date();
 	}
@@ -27,7 +29,7 @@ public class CWBDataModel implements Serializable {
 	/**
 	 * @return the namespace
 	 */
-	public String getNamespace() {
+	public IRI getNamespace() {
 		return namespace;
 	}
 
@@ -117,6 +119,56 @@ public class CWBDataModel implements Serializable {
 		boolean hasChanged = false;
 		for(CWBConcept concept : concepts){
 			if(removeConcept(concept)){
+				hasChanged = true;
+			}
+		}
+		return hasChanged;
+	}
+
+	/**
+	 * @return the equivalences
+	 */
+	public Collection<CWBEquivalence> getEquivalences() {
+		return equivalences;
+	}
+
+	/**
+	 * @param equivalences the equivalences to set
+	 */
+	public void setEquivalences(Collection<CWBEquivalence> equivalences) {
+		this.equivalences = equivalences;
+	}
+	
+	public boolean addEquivalence(CWBEquivalence equivalence){
+		if(!equivalences.contains(equivalence)){
+			equivalences.add(equivalence);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean removeEquivalence(CWBEquivalence equivalence){
+		if(equivalences.contains(equivalence)){
+			equivalences.remove(equivalence);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean addEquivalences(Collection<CWBEquivalence> equivalences){
+		boolean hasChanged = false;
+		for(CWBEquivalence equivalence : equivalences){
+			if(addEquivalence(equivalence)){
+				hasChanged = true;
+			}
+		}
+		return hasChanged;
+	}
+	
+	public boolean removeEquivalences(Collection<CWBEquivalence> equivalences){
+		boolean hasChanged = false;
+		for(CWBEquivalence equivalence : equivalences){
+			if(removeEquivalence(equivalence)){
 				hasChanged = true;
 			}
 		}

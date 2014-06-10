@@ -125,7 +125,7 @@ public class CWBDataModelReader {
 
 		for (OWLAnnotation label : labels) {
 			OWLLiteral literal = (OWLLiteral) label.getValue();
-			concept.addName(literal.toString(), new Locale(literal.getLang()));
+			concept.addName(literal.getLiteral().toString(), new Locale(literal.getLang()));
 		}
 
 		Set<OWLAnnotation> comments = clazz.getAnnotations(ontology,
@@ -133,13 +133,13 @@ public class CWBDataModelReader {
 
 		for (OWLAnnotation comment : comments) {
 			OWLLiteral literal = (OWLLiteral) comment.getValue();
-			concept.addName(literal.toString(), new Locale(literal.getLang()));
+			concept.addDescription(literal.getLiteral().toString(), new Locale(literal.getLang()));
 		}
 
 		return concept;
 	}
 
-	public Set<OWLClass> findRootClasses(OWLOntology ontology) {
+	private Set<OWLClass> findRootClasses(OWLOntology ontology) {
 		
 		LOGGER.log(Level.INFO, "Searching for root classes...");
 		

@@ -8,6 +8,9 @@ import org.semanticweb.owl.align.AlignmentVisitor;
 
 import com.google.gwt.thirdparty.guava.common.base.Charsets;
 
+
+
+
 // Alignment API implementation classes
 import fr.inrialpes.exmo.align.impl.renderer.OWLAxiomsRendererVisitor;
 
@@ -21,9 +24,13 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import lig.steamer.cwb.model.CWBEquivalence;
 
 /**
  * @author Anthony Hombiat
@@ -158,6 +165,19 @@ public class OntologyMatcher {
 	 */
 	public void setAlignment(AlignmentProcess alignment) {
 		this.alignment = alignment;
+	}
+	
+	public Collection<CWBEquivalence> getEquivalences(){
+		Collection<CWBEquivalence> equivalences = new ArrayList<CWBEquivalence>();
+		
+		CWBAlignmentVisitor visitor = new CWBAlignmentVisitor();
+		try {
+			alignment.accept(visitor);
+		} catch (AlignmentException e) {
+			e.printStackTrace();
+		}
+		
+		return equivalences;
 	}
 	
 }

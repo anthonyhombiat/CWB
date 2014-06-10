@@ -1,6 +1,5 @@
 package lig.steamer.cwb.util.parser;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,8 +18,6 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
 import lig.steamer.cwb.core.tagging.IFolksonomy;
@@ -39,8 +36,6 @@ public class Tag2OwlParser {
 	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/tag2owl/";
 	public static String DEFAULT_FILENAME = "tags.owl";
 
-	private String outputFileDirName;
-
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 	private OWLOntology tagOntology;
@@ -50,7 +45,6 @@ public class Tag2OwlParser {
 	public Tag2OwlParser(String ontologyUri) {
 		
 		this.ontologyUri = ontologyUri;
-		this.setOutputFileDirName(DEFAULT_OUTPUT_DIRNAME);
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 		try {
@@ -136,28 +130,8 @@ public class Tag2OwlParser {
 
 	}
 
-	public void printTagOntology(String outputFileName) {
-		try {
-			File output = new File(DEFAULT_OUTPUT_DIRNAME, outputFileName);
-			SimpleIRIMapper iriMapper = new SimpleIRIMapper(
-					IRI.create(ontologyUri), IRI.create(output.getPath()));
-			manager.addIRIMapper(iriMapper);
-			manager.saveOntology(tagOntology, IRI.create(output));
-		} catch (OWLOntologyStorageException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public OWLOntology getTagOntology() {
 		return tagOntology;
-	}
-
-	public String getOutputFileDirName() {
-		return outputFileDirName;
-	}
-
-	public void setOutputFileDirName(String outputFileDirName) {
-		this.outputFileDirName = outputFileDirName;
 	}
 
 }
