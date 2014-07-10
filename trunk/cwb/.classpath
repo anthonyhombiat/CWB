@@ -39,6 +39,47 @@
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.5.8/slf4j-log4j12-1.5.8.jar" sourcepath="M2_REPO/org/slf4j/slf4j-log4j12/1.5.8/slf4j-log4j12-1.5.8-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.13/log4j-1.2.13.jar" sourcepath="M2_REPO/log4j/log4j/1.2.13/log4j-1.2.13-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-api/3.5.0/owlapi-api-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-api/3.5.0/owlapi-api-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-api/3.5.0/owlapi-api-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-impl/3.5.0/owlapi-impl-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-impl/3.5.0/owlapi-impl-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-impl/3.5.0/owlapi-impl-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-parsers/3.5.0/owlapi-parsers-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-parsers/3.5.0/owlapi-parsers-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-parsers/3.5.0/owlapi-parsers-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-oboformat/3.5.0/owlapi-oboformat-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-oboformat/3.5.0/owlapi-oboformat-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-oboformat/3.5.0/owlapi-oboformat-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-tools/3.5.0/owlapi-tools-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-tools/3.5.0/owlapi-tools-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-tools/3.5.0/owlapi-tools-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/felix/org.osgi.core/1.4.0/org.osgi.core-1.4.0.jar" sourcepath="M2_REPO/org/apache/felix/org.osgi.core/1.4.0/org.osgi.core-1.4.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-contract/3.5.0/owlapi-contract-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-contract/3.5.0/owlapi-contract-3.5.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-contract/3.5.0/owlapi-contract-3.5.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3-sources.jar">
     <attributes>
       <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3-javadoc.jar!/" name="javadoc_location"/>
@@ -104,14 +145,6 @@
   <classpathentry kind="var" path="M2_REPO/com/github/ansell/pellet/pellet-el/2.3.6-ansell/pellet-el-2.3.6-ansell.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/github/ansell/pellet/pellet-cli/2.3.6-ansell/pellet-cli-2.3.6-ansell.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/github/ansell/pellet/pellet-owlapiv3/2.3.6-ansell/pellet-owlapiv3-2.3.6-ansell.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/github/ansell/owlapi/owlapi-api/3.4.9.2-ansell/owlapi-api-3.4.9.2-ansell.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/github/ansell/abstract-service-loader/abstract-service-loader/0.4/abstract-service-loader-0.4.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/openrdf/sesame/sesame-model/2.7.8/sesame-model-2.7.8.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/openrdf/sesame/sesame-util/2.7.8/sesame-util-2.7.8.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/openrdf/sesame/sesame-rio-api/2.7.8/sesame-rio-api-2.7.8.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/github/ansell/owlapi/owlapi-impl/3.4.9.2-ansell/owlapi-impl-3.4.9.2-ansell.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/github/ansell/owlapi/owlapi-parsers/3.4.9.2-ansell/owlapi-parsers-3.4.9.2-ansell.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/github/ansell/owlapi/owlapi-tools/3.4.9.2-ansell/owlapi-tools-3.4.9.2-ansell.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/github/ansell/pellet/pellet-query/2.3.6-ansell/pellet-query-2.3.6-ansell.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/hp/hpl/jena/arq/2.8.7/arq-2.8.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-core/3.0.1/lucene-core-3.0.1.jar"/>

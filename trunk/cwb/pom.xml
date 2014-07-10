@@ -35,11 +35,11 @@
 		</dependency>
 
 		<!-- OWL API for modeling and manipulating ontologies -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>net.sourceforge.owlapi</groupId> -->
-<!-- 			<artifactId>owlapi-distribution</artifactId> -->
-<!-- 			<version>3.5.0</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-distribution</artifactId>
+			<version>3.5.0</version>
+		</dependency>
 
 		<!-- Apache HttpClient for wrapping Http GET request to restful Web Services -->
 		<dependency>
