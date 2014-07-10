@@ -4,6 +4,7 @@
 package yamSS.tools;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.Properties;
 
 import main.YAMOptions;
@@ -23,10 +24,8 @@ public class PropertiesHelper {
 			// ////////////////////////////////////////
 			// CHANGE (Anthony Hombiat, 03/07/2014) //
 			// ////////////////////////////////////////
-			
-			properties.load(PropertiesHelper.class.getClassLoader()
-					.getResourceAsStream(propFN));
-			// properties.load(new FileInputStream(propFN));
+
+			properties.load(new FileInputStream(propFN));
 
 			Configs.WNVER = "2.1";// properties.getProperty("WNVER");
 			
