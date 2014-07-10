@@ -31,8 +31,6 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
-import com.vaadin.server.VaadinService;
-
 /**
  * Class that gathers methods to write CWB data model into OWL format.
  * @author Anthony Hombiat
@@ -50,22 +48,34 @@ public class CWBDataModelWriter {
 
 	private File outputFile;
 
-	public CWBDataModelWriter(CWBDataModel dataModel, String filename) {
+	public CWBDataModelWriter(CWBDataModel dataModel, File ouputFile) {
+
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
-		this.dataModel = dataModel;
 
-		outputFile = new File(VaadinService.getCurrent().getBaseDirectory()
-				.getAbsolutePath()
-				+ CWBProperties.getProperty(CWBProperties.OUTPUT_DIR)
-				+ filename
-				+ CWBProperties.getProperty(CWBProperties.OWL_FILE_FORMAT));
+		this.dataModel = dataModel;
+		this.outputFile = ouputFile;
 
 		try {
 			ontology = manager.createOntology(dataModel.getNamespace());
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public CWBDataModelWriter(CWBDataModel dataModel, String filename,
+			String outputDir, String outputFormat) {
+		this(dataModel, new File(outputDir
+				+ File.separatorChar + filename + outputFormat));
+	}
+
+	public CWBDataModelWriter(CWBDataModel dataModel, String filename,
+			String outputDir) {
+		this(dataModel, filename, outputDir, CWBProperties.OWL_FILE_FORMAT);
+	}
+
+	public CWBDataModelWriter(CWBDataModel dataModel, String filename) {
+		this(dataModel, filename, CWBProperties.CWB_OUTPUT_DIR);
 	}
 
 	/**

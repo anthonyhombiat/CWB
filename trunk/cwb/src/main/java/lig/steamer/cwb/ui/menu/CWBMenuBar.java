@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.menu;
 
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.ui.MenuBar;
 
@@ -37,75 +37,75 @@ public class CWBMenuBar extends MenuBar {
 		 * File
 		 */
 
-		MenuItem fileItem = this.addItem(Messages.getString("main.menu.file"),
+		MenuItem fileItem = this.addItem(Msg.get("main.menu.file"),
 				null, null);
 
 		openMenuItem = fileItem.addItem(
-				Messages.getString("main.menu.file.open"), null);
+				Msg.get("main.menu.file.open"), null);
 		saveAsMenuItem = fileItem.addItem(
-				Messages.getString("main.menu.file.saveas"), null);
+				Msg.get("main.menu.file.saveas"), null);
 		saveMenuItem = fileItem.addItem(
-				Messages.getString("main.menu.file.save"), null);
+				Msg.get("main.menu.file.save"), null);
 		
 		fileItem.addSeparator();
 
 		quitMenuItem = fileItem.addItem(
-				Messages.getString("main.menu.file.quit"), null);
+				Msg.get("main.menu.file.quit"), null);
 
 		/*
 		 * Edit
 		 */
 
-		MenuItem editItem = this.addItem(Messages.getString("main.menu.edit"),
+		MenuItem editItem = this.addItem(Msg.get("main.menu.edit"),
 				null, null);
 
 		undoMenuItem = editItem.addItem(
-				Messages.getString("main.menu.edit.undo"), null);
+				Msg.get("main.menu.edit.undo"), null);
 		undoMenuItem.setEnabled(false);
 
 		redoMenuItem = editItem.addItem(
-				Messages.getString("main.menu.edit.redo"), null);
+				Msg.get("main.menu.edit.redo"), null);
 		redoMenuItem.setEnabled(false);
 
 		/*
 		 * Data
 		 */
 
-		MenuItem dataItem = this.addItem(Messages.getString("main.menu.data"),
+		MenuItem dataItem = this.addItem(Msg.get("main.menu.data"),
 				null);
 
 		loadTagsetFromWSMenuItem = dataItem.addItem(
-				Messages.getString("main.menu.data.load.tagset.ws"), null);
+				Msg.get("main.menu.data.load.tagset.ws"), null);
 		
 		loadTagsetFromFileMenuItem = dataItem.addItem(
-				Messages.getString("main.menu.data.load.tagset.file"), null);
+				Msg.get("main.menu.data.load.tagset.file"), null);
 		
 		dataItem.addSeparator();
 		
 		loadNomenclatureFromWSMenuItem = dataItem.addItem(
-				Messages.getString("main.menu.data.load.nomenclature.ws"), null);
+				Msg.get("main.menu.data.load.nomenclature.ws"), null);
 
 		loadNomenclatureFromFileMenuItem = dataItem.addItem(
-				Messages.getString("main.menu.data.load.nomenclature.file"), null);
+				Msg.get("main.menu.data.load.nomenclature.file"), null);
 
 		dataItem.addSeparator();
 		
 		matchMenuItem = dataItem.addItem(
-				Messages.getString("main.menu.data.match"), null);
+				Msg.get("main.menu.data.match"), null);
 
 		/*
 		 * Indicators
 		 */
 
-		this.addItem(Messages.getString("main.menu.indicators"), null);
+		this.addItem(Msg.get("main.menu.indicators"), null);
 
 		/*
 		 * Window
 		 */
 
-		MenuItem windowItem = this.addItem(Messages.getString("main.menu.window"), null);
+		MenuItem windowItem = this.addItem(Msg.get("main.menu.window"), null);
 
-		dataModelsMenuItem = windowItem.addItem(Messages.getString("main.menu.window.datamodels.caption"), null);
+		dataModelsMenuItem = windowItem.addItem(Msg.get("main.menu.window.datamodels.caption"), null);
 		dataModelsMenuItem.setCheckable(true);
 		dataModelsMenuItem.setChecked(true);
 		
@@ -113,16 +113,16 @@ public class CWBMenuBar extends MenuBar {
 		 * Help
 		 */
 
-		MenuItem helpItem = this.addItem(Messages.getString("main.menu.help"),
+		MenuItem helpItem = this.addItem(Msg.get("main.menu.help"),
 				null, null);
 
 		docMenuItem = helpItem.addItem(
-				Messages.getString("main.menu.help.doc"), null);
+				Msg.get("main.menu.help.doc"), null);
 		
 		helpItem.addSeparator();
 		
 		aboutMenuItem = helpItem.addItem(
-				Messages.getString("main.menu.help.about"), null);
+				Msg.get("main.menu.help.about"), null);
 	}
 
 	/**

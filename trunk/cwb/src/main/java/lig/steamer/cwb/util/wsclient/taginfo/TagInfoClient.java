@@ -22,9 +22,9 @@ import lig.steamer.cwb.core.tagging.impl.TagSet;
 import lig.steamer.cwb.util.wsclient.http.HttpMethod;
 import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * @author Anthony Hombiat 
@@ -91,15 +91,23 @@ public class TagInfoClient {
 
 			System.out.println(stringBuilder.toString());
 
-			JSONObject obj = (JSONObject) JSONValue.parse(stringBuilder
-					.toString());
-			JSONArray array = (JSONArray) obj.get(TAGINFO_RESULT_ARRAY_KEY);
+			JSONArray array = new JSONArray();
+			try {
+				JSONObject obj = new JSONObject(stringBuilder
+						.toString());
+				array = (JSONArray) obj.get(TAGINFO_RESULT_ARRAY_KEY);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 
 			ITagSet tagset = new TagSet();
 
-			for (int i = 0; i < array.size(); i++) {
-				JSONObject currentJSONObject = (JSONObject) ((JSONObject) array
-						.get(i));
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject currentJSONObject;
+				try {
+					currentJSONObject = (JSONObject) ((JSONObject) array
+							.get(i));
+				
 
 				ILocalizedString tagKey = new LocalizedString(key,
 						locale.toString());
@@ -114,7 +122,11 @@ public class TagInfoClient {
 				currentTag.setDescription(tagDescription);
 
 				tagset.addTag(currentTag);
-				LOGGER.log(Level.INFO, currentTag.toString());
+				LOGGER.log(Level.INFO, currentTag.toString());				
+				
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
 
 			}
 

@@ -18,7 +18,7 @@ public class TagInfoRequest {
 	private static String TAGINFO_QUERY_PARAM_NAME_KEY = "key";
 
 	private static String TAGINFO_QUERY_DEFAULT_PAGE_NB_VALUE = "1";
-	private static String TAGINFO_QUERY_DEFAULT_RESULTS_PER_PAGE_VALUE = "10";
+	private static String TAGINFO_QUERY_DEFAULT_RESULTS_PER_PAGE_VALUE = "100";
 	private static String TAGINFO_QUERY_DEFAULT_SORT_BY_VALUE = "count_all";
 	private static String TAGINFO_QUERY_DEFAULT_SORT_ORDER_VALUE = "desc";
 

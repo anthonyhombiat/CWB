@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.window;
 
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 import lig.steamer.cwb.util.wsclient.TaggingWebService;
 
 import com.vaadin.shared.ui.combobox.FilteringMode;
@@ -20,22 +20,22 @@ public class CWBLoadTagsetWindow extends Window {
 
 	public CWBLoadTagsetWindow() {
 
-		super(Messages.getString("load.tagset.ws.caption"));
+		super(Msg.get("load.tagset.ws.caption"));
 
-		Label loadFromText = new Label(Messages.getString("load.tagset.ws.from"));
+		Label loadFromText = new Label(Msg.get("load.tagset.ws.from"));
 		loadFromText.setSizeUndefined();
 		
 		tagWebServiceComboBox = new ComboBox();
 		tagWebServiceComboBox.setTextInputAllowed(true);
 		tagWebServiceComboBox.setFilteringMode(FilteringMode.CONTAINS);
-		tagWebServiceComboBox.setInputPrompt(Messages
-				.getString("load.tagset.ws.combo.placeholder"));
+		tagWebServiceComboBox.setInputPrompt(Msg
+				.get("load.tagset.ws.combo.placeholder"));
 
 		for (TaggingWebService ws : TaggingWebService.values()) {
 			tagWebServiceComboBox.addItem(ws);
 		}
 
-		loadButton = new Button(Messages.getString("load.tagset.ws.button"));
+		loadButton = new Button(Msg.get("load.tagset.ws.button"));
 		loadButton.setEnabled(false);
 		
 		VerticalLayout rootLayout = new VerticalLayout();

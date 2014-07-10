@@ -25,25 +25,22 @@ import lig.steamer.cwb.core.tagging.ITag;
 import lig.steamer.cwb.core.tagging.ITagSet;
 
 /**
- * @author Anthony Hombiat
- *  Parser that provides methods for converting a set of tags into a set of OWL classes in an ontology.
+ * @author Anthony Hombiat Parser that provides methods for converting a set of
+ * tags into a set of OWL classes in an ontology.
  */
 public class Tag2OwlParser {
 
-	private static Logger LOGGER = Logger
-			.getLogger(Tag2OwlParser.class.getName());
-
-	public static String DEFAULT_OUTPUT_DIRNAME = "src/resources/ontologies/tag2owl/";
-	public static String DEFAULT_FILENAME = "tags.owl";
+	private static Logger LOGGER = Logger.getLogger(Tag2OwlParser.class
+			.getName());
 
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 	private OWLOntology tagOntology;
-	
+
 	private String ontologyUri;
 
 	public Tag2OwlParser(String ontologyUri) {
-		
+
 		this.ontologyUri = ontologyUri;
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
@@ -52,7 +49,7 @@ public class Tag2OwlParser {
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
@@ -62,7 +59,7 @@ public class Tag2OwlParser {
 	public void addTagSet(IFolksonomy folksonomy) {
 
 		ITagSet tagset = folksonomy.getTagSet();
-		
+
 		LOGGER.log(Level.INFO, "Adding OWL classes corresponding to the tags ("
 				+ tagset.getTags().size() + ") in the tag ontology...");
 
@@ -83,8 +80,8 @@ public class Tag2OwlParser {
 	}
 
 	/**
-	 * Returns the list of OWLAxioms (RDFS_LABEL, RDFS_COMMENT, OWL_CLASS)
-	 * 		built from the given Tag. 
+	 * Returns the list of OWLAxioms (RDFS_LABEL, RDFS_COMMENT, OWL_CLASS) built
+	 * from the given Tag.
 	 * @param tag, the Tag
 	 * @return the list of OWLAxioms
 	 */
@@ -96,20 +93,24 @@ public class Tag2OwlParser {
 
 		OWLAnnotationProperty labelProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_LABEL.getIRI());
-		
+
 		OWLAnnotationProperty commentProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_COMMENT
 						.getIRI());
-		
+
+		// Removing special chars from tag value
+		String value = tag.getValue().getString()
+				.replaceAll("[^a-zA-Z0-9]+", "_");
+
 		// Decalaring the OWLClass
 		OWLClass tagClass = factory.getOWLClass(IRI.create(ontologyUri + "#"
-				+ tag.getValue().getString()));
-		
+				+ value));
+
 		axioms.add(factory.getOWLDeclarationAxiom(tagClass));
 
 		// Adding the label
-		OWLLiteral tagLabelLiteral = factory.getOWLLiteral(tag.getValue()
-				.getString(), tag.getValue().getLanguage());
+		OWLLiteral tagLabelLiteral = factory.getOWLLiteral(value, tag
+				.getValue().getLanguage());
 		OWLAnnotation tagLabelAnnotation = factory.getOWLAnnotation(
 				labelProperty, tagLabelLiteral);
 
@@ -117,9 +118,9 @@ public class Tag2OwlParser {
 				tagLabelAnnotation));
 
 		// Adding the comment
-		OWLLiteral tagCommentLiteral = factory
-				.getOWLLiteral(tag.getDescription().getString(), tag
-						.getDescription().getLanguage());
+		OWLLiteral tagCommentLiteral = factory.getOWLLiteral(tag
+				.getDescription().getString(), tag.getDescription()
+				.getLanguage());
 		OWLAnnotation tagCommentAnnotation = factory.getOWLAnnotation(
 				commentProperty, tagCommentLiteral);
 

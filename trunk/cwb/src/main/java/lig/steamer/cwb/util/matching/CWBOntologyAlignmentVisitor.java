@@ -14,11 +14,11 @@ import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owl.align.Relation;
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBAlignmentVisitor implements AlignmentVisitor {
+public class CWBOntologyAlignmentVisitor implements AlignmentVisitor {
 
 	private Collection<CWBEquivalence> equivalences;
 	
-	public CWBAlignmentVisitor(){
+	public CWBOntologyAlignmentVisitor(){
 		this.equivalences = new ArrayList<CWBEquivalence>();
 	}
 	
@@ -41,9 +41,10 @@ public class CWBAlignmentVisitor implements AlignmentVisitor {
 	public void visit(Cell cell) throws AlignmentException {
 		
 		CWBConcept concept1 = new CWBConcept(IRI.create(cell.getObject1AsURI()));
+//		for(cell.getObject1())
 		CWBConcept concept2 = new CWBConcept(IRI.create(cell.getObject2AsURI()));
 		
-		equivalences.add(new CWBEquivalence(concept1, concept2, 1));
+		equivalences.add(new CWBEquivalence(concept1, concept2, cell.getStrength()));
 		
 	}
 
@@ -51,4 +52,8 @@ public class CWBAlignmentVisitor implements AlignmentVisitor {
 	public void visit(Relation arg0) throws AlignmentException {
 	}
 
+	public Collection<CWBEquivalence> getEquivalences(){
+		return equivalences;
+	}
+	
 }

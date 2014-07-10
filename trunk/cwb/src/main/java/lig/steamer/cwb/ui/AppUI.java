@@ -4,12 +4,14 @@ import javax.servlet.annotation.WebServlet;
 
 import lig.steamer.cwb.controller.CWBController;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.menu.CWBMenuBar;
 import lig.steamer.cwb.ui.panel.CWBDataModelsPanel;
 import lig.steamer.cwb.ui.panel.CWBMapPanel;
 import lig.steamer.cwb.ui.window.CWBLoadNomenclatureFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadTagsetWindow;
+import lig.steamer.cwb.ui.window.CWBMatchingResultsWindow;
 import lig.steamer.cwb.ui.window.CWBMatchingWindow;
 
 import com.vaadin.annotations.Theme;
@@ -22,9 +24,9 @@ import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.MarginInfo;
+import com.vaadin.ui.Accordion;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Accordion;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -50,11 +52,14 @@ public class AppUI extends UI {
 
 	private CWBController controller;
 
-	private CWBMenuBar menuBar;
-	private CWBLoadTagsetWindow loadTagsetWindow;
-	private CWBDataModelsPanel dataModelsPanel;
-	private CWBLoadNomenclatureFromFileWindow loadNomenclatureFromFileWindow;
-	private CWBMatchingWindow matchingWindow;
+	private final CWBMenuBar menuBar = new CWBMenuBar();
+	
+	private final CWBDataModelsPanel dataModelsPanel = new CWBDataModelsPanel();
+	
+	private final CWBLoadTagsetWindow loadTagsetWindow = new CWBLoadTagsetWindow();
+	private final CWBLoadNomenclatureFromFileWindow loadNomenclatureFromFileWindow = new CWBLoadNomenclatureFromFileWindow();
+	private final CWBMatchingWindow matchingWindow = new CWBMatchingWindow();
+	private final CWBMatchingResultsWindow matchingResultsWindow = new CWBMatchingResultsWindow();
 
 	@WebServlet(value = "/*", asyncSupported = true)
 	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "lig.steamer.cwb.ui.AppWidgetSet")
@@ -62,29 +67,17 @@ public class AppUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest request) {
-		
-		/*
-		 * Menubar
-		 */
 
-		menuBar = new CWBMenuBar();
-
-		Label mainTitle = new Label(Messages.getString("main.title"));
+		Label mainTitle = new Label(Msg.get("main.title"));
 		mainTitle.setStyleName(Reindeer.LABEL_H1);
 
-		Label mainSubtitle = new Label(Messages.getString("main.subtitle"));
+		Label mainSubtitle = new Label(Msg.get("main.subtitle"));
 		mainSubtitle.setStyleName(Reindeer.LABEL_SMALL);
 
 		final VerticalLayout titleLayout = new VerticalLayout();
 		titleLayout.addComponent(mainTitle);
 		titleLayout.addComponent(mainSubtitle);
 		titleLayout.setMargin(new MarginInfo(true, false, false, true));
-
-		/*
-		 * Accordion
-		 */
-
-		dataModelsPanel = new CWBDataModelsPanel();
 
 		/*
 		 * Tabsheet
@@ -102,17 +95,17 @@ public class AppUI extends UI {
 		CWBMapPanel map = new CWBMapPanel();
 		map.setSizeFull();
 
-		tabSheet.addTab(dataTab, Messages.getString("tabsheet.data.caption"));
+		tabSheet.addTab(dataTab, Msg.get("tabsheet.data.caption"));
 		tabSheet.addTab(indicatorsTab,
-				Messages.getString("tabsheet.indicators.caption"));
-		tabSheet.addTab(map, Messages.getString("tabsheet.map.caption"));
+				Msg.get("tabsheet.indicators.caption"));
+		tabSheet.addTab(map, Msg.get("tabsheet.map.caption"));
 		tabSheet.setSelectedTab(map);
 
 		final HorizontalLayout centralLayout = new HorizontalLayout();
 		centralLayout.addComponent(dataModelsPanel);
 		centralLayout.addComponent(tabSheet);
-		centralLayout.setExpandRatio(dataModelsPanel, 0.2f);
-		centralLayout.setExpandRatio(tabSheet, 0.8f);
+		centralLayout.setExpandRatio(dataModelsPanel, 0.25f);
+		centralLayout.setExpandRatio(tabSheet, 0.75f);
 		centralLayout.setSizeFull();
 		centralLayout.setSpacing(true);
 		centralLayout.setMargin(true);
@@ -128,19 +121,11 @@ public class AppUI extends UI {
 		setContent(rootLayout);
 
 		/*
-		 * Pop-up windows
-		 */
-
-		loadTagsetWindow = new CWBLoadTagsetWindow();
-		loadNomenclatureFromFileWindow = new CWBLoadNomenclatureFromFileWindow();
-		matchingWindow = new CWBMatchingWindow();
-
-		/*
 		 * Notification
 		 */
 
-		Notification welcomeNotification = new Notification(Messages.getString("notif.welcome.title"),
-				Messages.getString("notif.welcome.text"));
+		Notification welcomeNotification = new Notification(Msg.get("notif.welcome.title"),
+				Msg.get("notif.welcome.text"));
 
 		welcomeNotification.show(Page.getCurrent());
 		welcomeNotification.setDelayMsec(Notification.DELAY_NONE);
@@ -204,15 +189,36 @@ public class AppUI extends UI {
 	/**
 	 * @return the matchingWindow table
 	 */
-	public Table getMatchWindowTable(){
+	public Table getMatchingWindowTable(){
 		return matchingWindow.getTable();
 	}
 	
 	/**
 	 * @return the matchingWindow table container
 	 */
-	public BeanItemContainer<CWBDataModel> getMatchWindowTableContainer(){
+	public BeanItemContainer<CWBDataModel> getMatchingWindowTableContainer(){
 		return matchingWindow.getContainer();
+	}
+	
+	/**
+	 * @return the matchingResultsWindow
+	 */
+	public CWBMatchingResultsWindow getMatchingResultsWindow() {
+		return matchingResultsWindow;
+	}
+	
+	/**
+	 * @return the matchingResultsWindow table container
+	 */
+	public BeanItemContainer<CWBEquivalence> getMatchingResultsWindowTableContainer(){
+		return matchingResultsWindow.getContainer();
+	}
+	
+	/**
+	 * @return the matchingResultsWindow table
+	 */
+	public Table getMatchingResultsWindowTable(){
+		return matchingResultsWindow.getTable();
 	}
 	
 	/*
@@ -285,6 +291,14 @@ public class AppUI extends UI {
 	
 	public void addMatchingWindowButtonClickListener(ClickListener listener){
 		matchingWindow.getButton().addClickListener(listener);
+	}
+	
+	public void addMatchingResultsWindowButtonClickListener(ClickListener listener){
+		matchingResultsWindow.getButton().addClickListener(listener);
+	}
+	
+	public void addMatchingResultsWindowTableValueChangeListener(ValueChangeListener listener){
+		matchingResultsWindow.getTable().addValueChangeListener(listener);
 	}
 	
 	/**

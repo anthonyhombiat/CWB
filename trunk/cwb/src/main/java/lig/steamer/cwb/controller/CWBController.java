@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -17,12 +18,13 @@ import lig.steamer.cwb.io.CWBDataModelReader;
 import lig.steamer.cwb.io.CWBDataModelWriter;
 import lig.steamer.cwb.io.exception.OntologyFormatException;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBMatchedDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.AppUI;
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
-import lig.steamer.cwb.util.matching.OntologyMatcher;
+import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
 import lig.steamer.cwb.util.wsclient.TaggingWebService;
 import lig.steamer.cwb.util.wsclient.taginfo.TagInfoClient;
@@ -40,7 +42,6 @@ import com.vaadin.server.Page;
 import com.vaadin.server.StreamResource;
 import com.vaadin.server.StreamResource.StreamSource;
 import com.vaadin.server.StreamVariable;
-import com.vaadin.server.VaadinService;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.DragAndDropWrapper.WrapperTransferable;
@@ -89,8 +90,10 @@ public class CWBController implements Serializable {
 		view.addLoadNomenclatureFileUploadComponentFailedListener(new CWBLoadNomenclatureFromFileUploader());
 		view.addLoadNomenclatureFileUploadComponentSucceededListener(new CWBLoadNomenclatureFromFileUploader());
 		view.addLoadNomenclatureFileDropBoxDropHandler(new CWBLoadNomenclatureFromFileDropHandler());
-		view.addMatchingWindowTableValueChangeListener(new CWBDataModelsTableValueChangeListener());
+		view.addMatchingWindowTableValueChangeListener(new CWBMatchingTableValueChangeListener());
 		view.addMatchingWindowButtonClickListener(new CWBMatchingButtonListener());
+		view.addMatchingResultsWindowButtonClickListener(new CWBMatchingResultsButtonListener());
+		view.addMatchingResultsWindowTableValueChangeListener(new CWBMatchingResultsTableValueChangeListener());
 
 	}
 
@@ -140,8 +143,8 @@ public class CWBController implements Serializable {
 			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 
 			// Notify
-			new Notification(Messages.getString("notif.loading.done.title"),
-					Messages.getString("notif.loading.done.text"),
+			new Notification(Msg.get("notif.loading.done.title"),
+					Msg.get("notif.loading.done.text"),
 					Notification.Type.HUMANIZED_MESSAGE)
 					.show(Page.getCurrent());
 
@@ -205,8 +208,7 @@ public class CWBController implements Serializable {
 		public void menuSelected(MenuItem selectedItem) {
 
 			JavaScript.getCurrent().execute(
-					"window.open('" + Messages.getString("doc.url")
-							+ "', '_blank')");
+					"window.open('" + Msg.get("doc.url") + "', '_blank')");
 		}
 
 	}
@@ -229,7 +231,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 			UI.getCurrent().addWindow(view.getMatchWindow());
-			view.getMatchWindowTableContainer().addAll(model.getDataModels());
+			view.getMatchingWindowTableContainer()
+					.addAll(model.getDataModels());
 		}
 
 	}
@@ -248,15 +251,9 @@ public class CWBController implements Serializable {
 
 			try {
 
-				file = new File(
-						VaadinService.getCurrent().getBaseDirectory()
-								.getAbsolutePath()
-								+ CWBProperties
-										.getProperty(CWBProperties.TMP_DIR)
-								+ CWBProperties
-										.getProperty(CWBProperties.TMP_FILE_NAME)
-								+ CWBProperties
-										.getProperty(CWBProperties.OWL_FILE_FORMAT));
+				file = new File(CWBProperties.CWB_TMP_DIR + File.separator
+						+ CWBProperties.TMP_FILE_NAME
+						+ CWBProperties.OWL_FILE_FORMAT);
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
@@ -278,11 +275,9 @@ public class CWBController implements Serializable {
 		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
-			File file = new File(VaadinService.getCurrent().getBaseDirectory()
-					.getAbsolutePath()
-					+ CWBProperties.getProperty(CWBProperties.TMP_DIR)
-					+ CWBProperties.getProperty(CWBProperties.TMP_FILE_NAME)
-					+ CWBProperties.getProperty(CWBProperties.OWL_FILE_FORMAT));
+			File file = new File(CWBProperties.CWB_TMP_DIR + File.separatorChar
+					+ CWBProperties.TMP_FILE_NAME
+					+ CWBProperties.OWL_FILE_FORMAT);
 
 			CWBDataModelReader parser = new CWBDataModelReader();
 			CWBDataModel dataModel = null;
@@ -305,8 +300,8 @@ public class CWBController implements Serializable {
 					view.getDataModelsPanelAccordion().getComponentCount() - 1);
 
 			// Notify
-			new Notification(Messages.getString("notif.loading.done.title"),
-					Messages.getString("notif.loading.done.text"),
+			new Notification(Msg.get("notif.loading.done.title"),
+					Msg.get("notif.loading.done.text"),
 					Notification.Type.HUMANIZED_MESSAGE)
 					.show(Page.getCurrent());
 
@@ -433,8 +428,8 @@ public class CWBController implements Serializable {
 
 								// Notify
 								new Notification(
-										Messages.getString("notif.loading.done.title"),
-										Messages.getString("notif.loading.done.text"),
+										Msg.get("notif.loading.done.title"),
+										Msg.get("notif.loading.done.text"),
 										Notification.Type.HUMANIZED_MESSAGE)
 										.show(Page.getCurrent());
 
@@ -469,24 +464,22 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBDataModelsTableValueChangeListener implements ValueChangeListener {
+	class CWBMatchingTableValueChangeListener implements ValueChangeListener {
 
 		private static final long serialVersionUID = 1L;
 
 		@SuppressWarnings("unchecked")
 		@Override
 		public void valueChange(ValueChangeEvent event) {
-			for (Object itemId : (Set<Object>) view.getMatchWindowTable()
+			for (Object itemId : (Set<Object>) view.getMatchingWindowTable()
 					.getValue()) {
-				view.getMatchWindowTable()
+				view.getMatchingWindowTable()
 						.getColumnGenerator(
-								Messages.getString("match.sources.table.column.select"))
-						.generateCell(
-								view.getMatchWindowTable(),
-								itemId,
-								Messages.getString("match.sources.table.column.select"));
+								Msg.get("match.sources.table.column.select"))
+						.generateCell(view.getMatchingWindowTable(), itemId,
+								Msg.get("match.sources.table.column.select"));
 			}
-			view.getMatchWindowTable().refreshRowCache();
+			view.getMatchingWindowTable().refreshRowCache();
 
 		}
 
@@ -500,13 +493,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
-//			RiMOM r = new RiMOM();
-//			r.align(URI
-//					.create("file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe_test2.owl"),
-//					URI.create("file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe_test2.owl"));
-			
-			Set<Object> dataModels = (Set<Object>) view.getMatchWindowTable()
-					.getValue();
+			Set<Object> dataModels = (Set<Object>) view
+					.getMatchingWindowTable().getValue();
 
 			Iterator<Object> iterator = dataModels.iterator();
 
@@ -514,46 +502,85 @@ public class CWBController implements Serializable {
 			CWBDataModel dataModel2 = (CWBDataModel) iterator.next();
 
 			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
-					IRI.create(CWBProperties
-							.getProperty(CWBProperties.CWB_NAMESPACE)),
+					IRI.create(CWBProperties.CWB_NAMESPACE),
 					dataModel1.getNamespace(), dataModel2.getNamespace());
 
 			dataModel.addConcepts(dataModel1.getConcepts());
 			dataModel.addConcepts(dataModel2.getConcepts());
 
 			CWBDataModelWriter writer1 = new CWBDataModelWriter(dataModel1,
-					"onto1");
+					CWBProperties.SOURCE_ONTOLOGY_FILE_NAME);
 			writer1.write();
 			writer1.flush();
 
 			CWBDataModelWriter writer2 = new CWBDataModelWriter(dataModel2,
-					"onto2");
+					CWBProperties.TARGET_ONTOLOGY_FILE_NAME);
 			writer2.write();
 			writer2.flush();
-			
-			OntologyMatcher matcher = new OntologyMatcher();
-			matcher.match( writer2.getFile().toURI(),writer1.getFile().toURI());
 
-			dataModel.addEquivalences(matcher.getEquivalences());
+			String targetOntologyPath = CWBProperties.CWB_OUTPUT_DIR
+					+ File.separatorChar
+					+ CWBProperties.TARGET_ONTOLOGY_FILE_NAME
+					+ CWBProperties.OWL_FILE_FORMAT;
 
-			model.addDataModel(dataModel);
+			String sourceOntologyPath = CWBProperties.CWB_OUTPUT_DIR
+					+ File.separatorChar
+					+ CWBProperties.SOURCE_ONTOLOGY_FILE_NAME
+					+ CWBProperties.OWL_FILE_FORMAT;
 
-			// Update view
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
-
-			view.getDataModelsPanelAccordion().setSelectedTab(
-					view.getDataModelsPanelAccordion().getComponentCount() - 1);
+			YamOntologyMatcher matcher = new YamOntologyMatcher();
+			Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
+					sourceOntologyPath, targetOntologyPath);
 
 			// Notify
-			new Notification(Messages.getString("notif.loading.done.title"),
-					Messages.getString("notif.loading.done.text"),
+			new Notification(Msg.get("notif.loading.done.title"),
+					Msg.get("notif.loading.done.text"),
 					Notification.Type.HUMANIZED_MESSAGE)
 					.show(Page.getCurrent());
 
 			// Close pop-up window
 			view.getMatchWindow().close();
 
+			// Open the matching results window
+			UI.getCurrent().addWindow(view.getMatchingResultsWindow());
+
+			view.getMatchingResultsWindowTableContainer().removeAllItems();
+			view.getMatchingResultsWindowTableContainer().addAll(equivalences);
+
 		}
+	}
+
+	class CWBMatchingResultsButtonListener implements ClickListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+
+		}
+	}
+
+	class CWBMatchingResultsTableValueChangeListener implements
+			ValueChangeListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public void valueChange(ValueChangeEvent event) {
+			for (Object itemId : (Set<Object>) view
+					.getMatchingResultsWindowTable().getValue()) {
+				view.getMatchingResultsWindowTable()
+						.getColumnGenerator(
+								Msg.get("matching.results.table.column.select"))
+						.generateCell(view.getMatchingResultsWindowTable(),
+								itemId,
+								Msg.get("matching.results.table.column.select"));
+			}
+			view.getMatchingResultsWindowTable().refreshRowCache();
+
+		}
+
 	}
 
 }

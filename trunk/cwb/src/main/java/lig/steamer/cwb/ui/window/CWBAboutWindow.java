@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.window;
 
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -16,12 +16,12 @@ public class CWBAboutWindow extends Window {
 
 	public CWBAboutWindow() {
 
-		super(Messages.getString("about.caption"));
+		super(Msg.get("about.caption"));
 
-		Label aboutText = new Label(Messages.getString("about.text"));
+		Label aboutText = new Label(Msg.get("about.text"));
 
 		Button closeButton = new Button(
-				Messages.getString("about.button.caption"),
+				Msg.get("about.button.caption"),
 				new ClickListener() {
 
 					private static final long serialVersionUID = 1L;

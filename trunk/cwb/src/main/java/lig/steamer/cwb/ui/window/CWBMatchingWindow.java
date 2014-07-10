@@ -3,7 +3,7 @@ package lig.steamer.cwb.ui.window;
 import java.util.Set;
 
 import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.FontAwesome;
@@ -29,18 +29,18 @@ public class CWBMatchingWindow extends Window {
 
 	public CWBMatchingWindow() {
 
-		super(Messages.getString("match.caption"));
+		super(Msg.get("match.caption"));
 
 		final Label aboutText = new Label(
-				Messages.getString("match.sources.text"));
+				Msg.get("match.sources.text"));
 		aboutText.setSizeUndefined();
 
 		container = new BeanItemContainer<CWBDataModel>(CWBDataModel.class);
 
-		table = new Table(Messages.getString("match.sources.table.caption"),
+		table = new Table(Msg.get("match.sources.table.caption"),
 				container);
 		table.setSizeFull();
-		table.setHeight(150, Unit.PIXELS);
+		table.setHeight(200, Unit.PIXELS);
 		table.setColumnCollapsingAllowed(true);
 		table.setColumnReorderingAllowed(true);
 		table.setSelectable(true);
@@ -48,18 +48,18 @@ public class CWBMatchingWindow extends Window {
 		table.setMultiSelectMode(MultiSelectMode.SIMPLE);
 		table.setImmediate(true);
 		table.addGeneratedColumn(
-				Messages.getString("match.sources.table.column.select"),
+				Msg.get("match.sources.table.column.select"),
 				new CWBCheckBoxColumnGenerator());
 		table.setVisibleColumns(
-				Messages.getString("match.sources.table.column.select"),
-				Messages.getString("match.sources.table.column.namespace"),
-				Messages.getString("match.sources.table.column.creationdate"),
-				Messages.getString("match.sources.table.column.lastupdate"));
+				Msg.get("match.sources.table.column.select"),
+				Msg.get("match.sources.table.column.namespace"),
+				Msg.get("match.sources.table.column.creationdate"),
+				Msg.get("match.sources.table.column.lastupdate"));
 		table.setColumnAlignments(Align.CENTER, Align.LEFT, Align.CENTER,
 				Align.CENTER);
 		
 		matchButton = new Button(
-				Messages.getString("match.button.caption"));
+				Msg.get("match.button.caption"));
 
 		VerticalLayout rootLayout = new VerticalLayout();
 		rootLayout.setMargin(true);
@@ -75,7 +75,7 @@ public class CWBMatchingWindow extends Window {
 		rootLayout.setExpandRatio(matchButton, 0.15f);
 
 		this.setWidth(600, Unit.PIXELS);
-		this.setHeight(350, Unit.PIXELS);
+		this.setHeight(400, Unit.PIXELS);
 		this.center();
 		this.setModal(true);
 		this.setContent(rootLayout);

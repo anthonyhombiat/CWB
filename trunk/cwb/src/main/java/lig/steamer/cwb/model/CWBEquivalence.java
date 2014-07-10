@@ -1,15 +1,19 @@
 package lig.steamer.cwb.model;
 
-public class CWBEquivalence {
+import java.io.Serializable;
 
+public class CWBEquivalence implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	private CWBConcept concept1;
 	private CWBConcept concept2;
-	private double strength;
+	private double confidence;
 	
-	public CWBEquivalence(CWBConcept concept1, CWBConcept concept2, double strength){
+	public CWBEquivalence(CWBConcept concept1, CWBConcept concept2, double confidence){
 		this.concept1 = concept1;
 		this.concept2 = concept2;
-		this.strength = strength;
+		this.confidence = confidence;
 	}
 
 	/**
@@ -29,8 +33,8 @@ public class CWBEquivalence {
 	/**
 	 * @return the strength
 	 */
-	public double getStrength() {
-		return strength;
+	public double getConfidence() {
+		return confidence;
 	}
 	
 }

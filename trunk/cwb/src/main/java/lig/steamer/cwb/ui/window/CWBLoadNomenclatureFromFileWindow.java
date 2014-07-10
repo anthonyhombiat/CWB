@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.window;
 
-import lig.steamer.cwb.ui.Messages;
+import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.DragAndDropWrapper;
@@ -22,7 +22,7 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 
 	public CWBLoadNomenclatureFromFileWindow() {
 
-		super(Messages.getString("load.nomenclature.file.caption"));
+		super(Msg.get("load.nomenclature.file.caption"));
 
 		uploadComponent = new Upload("Upload your local ontology", null);
 
@@ -34,12 +34,12 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 				Alignment.MIDDLE_CENTER);
 
 		Panel uploadPanel = new Panel(
-				Messages.getString("load.nomenclature.file.explorer"));
+				Msg.get("load.nomenclature.file.explorer"));
 		uploadPanel.setSizeFull();
 		uploadPanel.setContent(uploadLayout);
 
 		final Label infoLabel = new Label(
-				Messages.getString("load.nomenclature.file.dragndrop.dropbox"));
+				Msg.get("load.nomenclature.file.dragndrop.dropbox"));
 		infoLabel.setStyleName(Reindeer.LABEL_SMALL);
 		infoLabel.setWidth(300, Unit.PIXELS);
 
@@ -58,7 +58,7 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 		dropBoxLayout.addComponent(progress);
 
 		final Panel dropPanel = new Panel(
-				Messages.getString("load.nomenclature.file.dragndrop"));
+				Msg.get("load.nomenclature.file.dragndrop"));
 		dropPanel.setSizeFull();
 		dropPanel.setContent(dropBox);
 
