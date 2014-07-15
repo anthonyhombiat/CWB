@@ -23,17 +23,22 @@ public class CWBModelReader {
 
 	}
 
-	public CWBModel read(String path) {
+	public CWBModel read(String projectPath) {
 
-		LOGGER.log(Level.INFO, "Loading CWB project from " + path + "...");
+		LOGGER.log(Level.INFO, "Loading CWB project from " + projectPath
+				+ "...");
 
 		CWBModel model = new CWBModel();
+		String destinationPath = CWBProperties.CWB_TMP_DIR + File.separatorChar
+				+ CWBProperties.DEFAULT_PROJECT_NAME;
 
-		File tmpFile = ZipUtility.unzip(new File(path));
+		ZipUtility zipUtil = new ZipUtility();
+		zipUtil.unzip(projectPath, destinationPath);
 
-		model.addDataModels(loadDataModels(tmpFile.getAbsolutePath()));
-		
-		FileUtils.deleteQuietly(tmpFile);
+		model.addDataModels(loadDataModels(destinationPath));
+
+		FileUtils.deleteQuietly(new File(projectPath));
+		FileUtils.deleteQuietly(new File(destinationPath));
 
 		LOGGER.log(Level.INFO, "CWB Project loaded.");
 
@@ -41,17 +46,16 @@ public class CWBModelReader {
 
 	}
 
-	private Collection<CWBDataModel> loadDataModels(String basePath) {
+	private Collection<CWBDataModel> loadDataModels(String projectRootDir) {
 
-		String path = basePath + File.separatorChar
-				+ CWBProperties.ROOT_DIR_NAME + File.separatorChar
-				+ CWBProperties.DATAMODELS_DIR_NAME;
+		File dataModelsDir = new File(projectRootDir + File.separatorChar
+				+ CWBProperties.DATAMODELS_DIR_NAME);
 
-		LOGGER.log(Level.INFO, "Loading data models from " + path + "...");
+		LOGGER.log(Level.INFO,
+				"Loading data models from " + dataModelsDir.getAbsolutePath()
+						+ "...");
 
 		Collection<CWBDataModel> dataModels = new ArrayList<CWBDataModel>();
-
-		File dataModelsDir = new File(path);
 
 		for (File file : dataModelsDir.listFiles()) {
 			CWBDataModelReader dataModelReader = new CWBDataModelReader();

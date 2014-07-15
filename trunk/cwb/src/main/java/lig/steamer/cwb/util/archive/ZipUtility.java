@@ -1,168 +1,113 @@
 package lig.steamer.cwb.util.archive;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.Calendar;
-import java.util.Enumeration;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
-import lig.steamer.cwb.CWBProperties;
 
 /**
  * Utility that zip or unzip files and directories.
- * @author Federico Paolantoni	
- * http://paolantoni.wordpress.com/2011/03/22/java-zip-and-unzip-function/
+ * http://www.journaldev.com/957/java-zip-example-to-zip-single-file-and-a-directory-recursively
  */
 public class ZipUtility {
 
-	private static Logger LOGGER = Logger.getLogger(ZipUtility.class
-			.getName());
+	private static Logger LOGGER = Logger.getLogger(ZipUtility.class.getName());
+
+	List<String> filesListInDir = new ArrayList<String>();
+	
+	public void unzip(String zipFilePath, String destDir) {
+        File dir = new File(destDir);
+        // create output directory if it doesn't exist
+        if(!dir.exists()) dir.mkdirs();
+        FileInputStream fis;
+        //buffer for read and write data to file
+        byte[] buffer = new byte[1024];
+        try {
+            fis = new FileInputStream(zipFilePath);
+            ZipInputStream zis = new ZipInputStream(fis);
+            ZipEntry ze = zis.getNextEntry();
+            while(ze != null){
+                String fileName = ze.getName();
+                File newFile = new File(destDir + File.separator + fileName);
+                System.out.println("Unzipping to "+newFile.getAbsolutePath());
+                //create directories for sub directories in zip
+                new File(newFile.getParent()).mkdirs();
+                FileOutputStream fos = new FileOutputStream(newFile);
+                int len;
+                while ((len = zis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len);
+                }
+                fos.close();
+                //close this ZipEntry
+                zis.closeEntry();
+                ze = zis.getNextEntry();
+            }
+            //close last ZipEntry
+            zis.closeEntry();
+            zis.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         
+    }
 
 	/**
-	 * Create a zip file that contains the files passed trough the argument
-	 * List<File>.
-	 * @param Stirng destPath : if destination path is not specified (is null)
-	 * creates a file in temporary directory.
-	 * @param String name : the name of the zip file
-	 * @param List<File> files to compress.
-	 * @return the path of the file .zip.
+	 * This method zips the directory
+	 * @param dir
+	 * @param zipDirName
 	 */
-	public static String zip(String destPath, String name, List<File> files) {
-
-		int BUFFER = 2048;
-		String fileName = null;
-
-		// if destination path is not specified creates a file in temporary
-		// directory
-		if (destPath == null) {
-			destPath = CWBProperties.CWB_TMP_DIR;
-		}
-
-		if (destPath.endsWith("\\") || destPath.endsWith("/")) {
-			fileName = String.format("%s%s.%s", destPath, name, "zip");
-		} else {
-			fileName = String.format("%s%s%s.%s", destPath, File.separator,
-					name, "zip");
-		}
-
+	public void zipDirectory(File dir, String zipDirName) {
 		try {
-			BufferedInputStream origin = null;
-			FileOutputStream dest = new FileOutputStream(fileName);
-			ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(
-					dest));
-
-			out.setMethod(ZipOutputStream.DEFLATED);
-			byte data[] = new byte[BUFFER];
-
-			if (files != null) {
-
-				for (int i = 0; i < files.size(); i++) {
-					LOGGER.log(Level.INFO, "Checking read permission of file "
-							+ files.get(i).canRead());
-					LOGGER.log(Level.INFO, "Adding: "
-							+ files.get(i).getAbsolutePath());
-
-					FileInputStream fi = new FileInputStream(files.get(i)
-							.getAbsolutePath());
-					origin = new BufferedInputStream(fi);
-					ZipEntry entry = new ZipEntry(files.get(i).getName());
-					out.putNextEntry(entry);
-					int count;
-					while ((count = origin.read(data, 0, BUFFER)) != -1) {
-						out.write(data, 0, count);
-					}
-					origin.close();
-					out.flush();
+			populateFilesList(dir);
+			// now zip files one by one
+			// create ZipOutputStream to write to the zip file
+			FileOutputStream fos = new FileOutputStream(zipDirName);
+			ZipOutputStream zos = new ZipOutputStream(fos);
+			for (String filePath : filesListInDir) {
+				LOGGER.log(Level.INFO, "Zipping " + filePath);
+				// for ZipEntry we need to keep only relative file path, so we
+				// used substring on absolute path
+				ZipEntry ze = new ZipEntry(filePath.substring(dir
+						.getAbsolutePath().length() + 1, filePath.length()));
+				zos.putNextEntry(ze);
+				// read the file and write to ZipOutputStream
+				FileInputStream fis = new FileInputStream(filePath);
+				byte[] buffer = new byte[1024];
+				int len;
+				while ((len = fis.read(buffer)) > 0) {
+					zos.write(buffer, 0, len);
 				}
-			} else {
-				LOGGER.log(Level.SEVERE,
-						"doZip(String , List<File>) : Cannot create zip from NULL files");
-
+				zos.closeEntry();
+				fis.close();
 			}
-			out.close();
-		} catch (Exception e) {
+			zos.close();
+			fos.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return fileName;
 	}
 
 	/**
-	 * Extract zip source to a folder and return the path of the folder
-	 * @param File zipSource
-	 * @return File the Directory with extracted files.
+	 * This method populates all the files in a directory to a List
+	 * @param dir
+	 * @throws IOException
 	 */
-	public static File unzip(File zipSource) {
-
-		ZipFile zipfile;
-		Enumeration e;
-		String tempDirName = null;
-		FileOutputStream fos = null;
-		File fe = null;
-		byte data[] = null;
-		ZipEntry entry = null;
-		String name = "";
-		String baseTempPath = "";
-
-		if (zipSource != null && zipSource.length() != 0) {
-
-			int BUFFER = 2048;
-			Calendar cal = Calendar.getInstance();
-			try {
-
-				name = String.format("%s", cal.getTimeInMillis());
-				baseTempPath = CWBProperties.CWB_TMP_DIR + File.separatorChar;
-				tempDirName = String.format("%s%s", baseTempPath, name);
-				new File(tempDirName).mkdir();
-
-				zipfile = new ZipFile(zipSource);
-				e = zipfile.entries();
-
-				while (e.hasMoreElements()) {
-
-					entry = (ZipEntry) e.nextElement();
-
-					if (entry.isDirectory()) {
-						new File(tempDirName, entry.getName()).mkdirs();
-					} else {
-
-						BufferedOutputStream dest = null;
-						BufferedInputStream is = null;
-						System.out.println("Extracting: " + entry);
-						is = new BufferedInputStream(
-								zipfile.getInputStream(entry));
-						int count;
-						data = new byte[BUFFER];
-						fe = new File(tempDirName, entry.getName());
-						fos = new FileOutputStream(fe);
-						dest = new BufferedOutputStream(fos, BUFFER);
-
-						while ((count = is.read(data, 0, BUFFER)) != -1) {
-							dest.write(data, 0, count);
-						}
-
-						dest.flush();
-						dest.close();
-						is.close();
-						fos.close();
-					}
-				}
-
-			} catch (Exception ex) {
-				ex.printStackTrace();
-				LOGGER.log(Level.SEVERE, "doUnzip(File) exception " + ex);
-				System.err.println("doUnzip(File) exception " + ex);
-			}
-
+	private void populateFilesList(File dir) throws IOException {
+		File[] files = dir.listFiles();
+		for (File file : files) {
+			if (file.isFile())
+				filesListInDir.add(file.getAbsolutePath());
+			else
+				populateFilesList(file);
 		}
-		LOGGER.log(Level.INFO, "doUnZip(File) return dir " + tempDirName);
-		return new File(tempDirName);
 	}
+
 }

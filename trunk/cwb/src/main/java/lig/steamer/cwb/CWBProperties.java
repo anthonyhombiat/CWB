@@ -43,7 +43,6 @@ public class CWBProperties {
 
 	public static final String DEFAULT_PROJECT_NAME = "cwb-project";
 	
-	public static final String ROOT_DIR_NAME = "cwb";
 	public static final String DATAMODELS_DIR_NAME = "datamodels";
 	public static final String INDICATORS_DIR_NAME = "indicators";
 	public static final String MEASURES_DIR_NAME = "measures";

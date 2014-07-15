@@ -18,6 +18,7 @@ import lig.steamer.cwb.core.tagging.IFolksonomy;
 import lig.steamer.cwb.io.CWBDataModelReader;
 import lig.steamer.cwb.io.CWBDataModelWriter;
 import lig.steamer.cwb.io.CWBModelReader;
+import lig.steamer.cwb.io.CWBModelWriter;
 import lig.steamer.cwb.io.exception.OntologyFormatException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -39,6 +40,7 @@ import com.vaadin.event.dd.DragAndDropEvent;
 import com.vaadin.event.dd.DropHandler;
 import com.vaadin.event.dd.acceptcriteria.AcceptAll;
 import com.vaadin.event.dd.acceptcriteria.AcceptCriterion;
+import com.vaadin.server.FileResource;
 import com.vaadin.server.Page;
 import com.vaadin.server.StreamResource;
 import com.vaadin.server.StreamResource.StreamSource;
@@ -76,6 +78,7 @@ public class CWBController implements Serializable {
 		this.view = view;
 
 		view.addOpenProjectMenuItemCommand(new CWBOpenProjectMenuItemCommand());
+		view.addSaveProjectMenuItemCommand(new CWBSaveProjectMenuItemCommand());
 		view.addDocMenuItemCommand(new CWBDocMenuItemCommand());
 		view.addAboutMenuItemCommand(new CWBAboutMenuItemCommand());
 		view.addLoadTagsetFromWSMenuItemCommand(new CWBLoadTagsetMenuItemCommand());
@@ -205,6 +208,27 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 			UI.getCurrent().addWindow(view.getOpenProjectWindow());
+		}
+
+	}
+
+	class CWBSaveProjectMenuItemCommand implements Command {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+
+			CWBModelWriter writer = new CWBModelWriter();
+			writer.write(model);
+
+			FileResource resource = new FileResource(new File(
+								CWBProperties.CWB_OUTPUT_DIR + File.separatorChar
+										+ CWBProperties.DEFAULT_PROJECT_NAME
+										+ CWBProperties.CWB_PROJECT_FORMAT));
+
+			Page.getCurrent().open(resource, "http://cwb.imag.fr/download", false);
+
 		}
 
 	}
@@ -415,7 +439,7 @@ public class CWBController implements Serializable {
 										+ CWBProperties.CWB_PROJECT_FORMAT;
 
 								File f = new File(path);
-								
+
 								try {
 									OutputStream os = new FileOutputStream(f);
 									int read = 0;
@@ -429,7 +453,7 @@ public class CWBController implements Serializable {
 								} catch (IOException e) {
 									e.printStackTrace();
 								}
-								
+
 								CWBModelReader reader = new CWBModelReader();
 								model = reader.read(f.getAbsolutePath());
 

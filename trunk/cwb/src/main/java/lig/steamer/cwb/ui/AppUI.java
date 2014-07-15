@@ -243,6 +243,10 @@ public class AppUI extends UI {
 		menuBar.getOpenMenuItem().setCommand(command);
 	}
 	
+	public void addSaveProjectMenuItemCommand(Command command){
+		menuBar.getSaveMenuItem().setCommand(command);
+	}
+	
 	public void addAboutMenuItemCommand(Command command){
 		menuBar.getAboutMenuItem().setCommand(command);
 	}
