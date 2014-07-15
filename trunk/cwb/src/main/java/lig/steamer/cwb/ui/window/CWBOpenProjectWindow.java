@@ -12,7 +12,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Reindeer;
 
-public class CWBLoadNomenclatureFromFileWindow extends Window {
+public class CWBOpenProjectWindow extends Window {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,9 +20,9 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 	private final Upload uploadComponent;
 	private final DragAndDropWrapper dropBox;
 
-	public CWBLoadNomenclatureFromFileWindow() {
+	public CWBOpenProjectWindow() {
 
-		super(Msg.get("load.nomenclature.file.caption"));
+		super(Msg.get("open.caption"));
 
 		uploadComponent = new Upload("", null);
 
@@ -34,12 +34,12 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 				Alignment.MIDDLE_CENTER);
 
 		Panel uploadPanel = new Panel(
-				Msg.get("load.nomenclature.file.explorer"));
+				Msg.get("open.explorer"));
 		uploadPanel.setSizeFull();
 		uploadPanel.setContent(uploadLayout);
 
 		final Label infoLabel = new Label(
-				Msg.get("load.nomenclature.file.dragndrop.dropbox"));
+				Msg.get("open.dragndrop.dropbox"));
 		infoLabel.setStyleName(Reindeer.LABEL_SMALL);
 		infoLabel.setWidth(300, Unit.PIXELS);
 
@@ -58,7 +58,7 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 		dropBoxLayout.addComponent(progress);
 
 		final Panel dropPanel = new Panel(
-				Msg.get("load.nomenclature.file.dragndrop"));
+				Msg.get("open.dragndrop"));
 		dropPanel.setSizeFull();
 		dropPanel.setContent(dropBox);
 

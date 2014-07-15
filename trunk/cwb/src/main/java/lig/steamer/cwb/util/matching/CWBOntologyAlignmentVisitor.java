@@ -41,7 +41,7 @@ public class CWBOntologyAlignmentVisitor implements AlignmentVisitor {
 	public void visit(Cell cell) throws AlignmentException {
 		
 		CWBConcept concept1 = new CWBConcept(IRI.create(cell.getObject1AsURI()));
-//		for(cell.getObject1())
+
 		CWBConcept concept2 = new CWBConcept(IRI.create(cell.getObject2AsURI()));
 		
 		equivalences.add(new CWBEquivalence(concept1, concept2, cell.getStrength()));

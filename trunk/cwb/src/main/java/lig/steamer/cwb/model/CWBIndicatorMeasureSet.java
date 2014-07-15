@@ -3,7 +3,10 @@ package lig.steamer.cwb.model;
 import java.util.Collection;
 import java.util.Date;
 
-public class CWBIndicatorMeasureSet {
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
+public class CWBIndicatorMeasureSet implements CWBVisitable {
 
 	private CWBIndicatorModel indicatorModel;
 	private Date creationDate;
@@ -53,6 +56,11 @@ public class CWBIndicatorMeasureSet {
 	 */
 	public void setMeasures(Collection<CWBIndicatorMeasure> measures) {
 		this.measures = measures;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitIndicatorMeasureSet(this);
 	}
 	
 }

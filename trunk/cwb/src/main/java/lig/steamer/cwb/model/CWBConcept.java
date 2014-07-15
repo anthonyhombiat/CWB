@@ -5,13 +5,16 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBConcept implements Serializable {
+public class CWBConcept implements Serializable, CWBVisitable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private IRI uri;
+	private IRI iri;
 	private Map<Locale, String> names;
 	private Map<Locale, String> descriptions;
 
@@ -20,22 +23,22 @@ public class CWBConcept implements Serializable {
 	
 	private CWBConcept parent;
 	
-	public CWBConcept(IRI uri, CWBConcept parent) {
-		this.uri = uri;
+	public CWBConcept(IRI iri, CWBConcept parent) {
+		this.iri = iri;
 		names = new HashMap<Locale, String>();
 		descriptions = new HashMap<Locale, String>();
 		parent = null;
 	}
 	
-	public CWBConcept(IRI uri) {
-		this(uri, null);
+	public CWBConcept(IRI iri) {
+		this(iri, null);
 	}
 
 	/**
 	 * @return the uri
 	 */
-	public IRI getUri() {
-		return uri;
+	public IRI getIri() {
+		return iri;
 	}
 
 	/**
@@ -91,7 +94,7 @@ public class CWBConcept implements Serializable {
 	}
 	
 	public String getFragment(){
-		return uri.getFragment();
+		return iri.getFragment();
 	}
 	
 	public CWBConcept getParent(){
@@ -108,9 +111,14 @@ public class CWBConcept implements Serializable {
 	@Override
 	public boolean equals(Object o){
 		if(o instanceof CWBConcept){
-			return this.getUri().equals(((CWBConcept)o).getUri());
+			return this.getIri().equals(((CWBConcept)o).getIri());
 		}
 		return false;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitConcept(this);
 	}
 
 //	/**

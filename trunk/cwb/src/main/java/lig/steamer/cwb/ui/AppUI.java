@@ -13,6 +13,7 @@ import lig.steamer.cwb.ui.window.CWBLoadNomenclatureFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadTagsetWindow;
 import lig.steamer.cwb.ui.window.CWBMatchingResultsWindow;
 import lig.steamer.cwb.ui.window.CWBMatchingWindow;
+import lig.steamer.cwb.ui.window.CWBOpenProjectWindow;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
@@ -56,6 +57,7 @@ public class AppUI extends UI {
 	
 	private final CWBDataModelsPanel dataModelsPanel = new CWBDataModelsPanel();
 	
+	private final CWBOpenProjectWindow openProjectWindow = new CWBOpenProjectWindow();
 	private final CWBLoadTagsetWindow loadTagsetWindow = new CWBLoadTagsetWindow();
 	private final CWBLoadNomenclatureFromFileWindow loadNomenclatureFromFileWindow = new CWBLoadNomenclatureFromFileWindow();
 	private final CWBMatchingWindow matchingWindow = new CWBMatchingWindow();
@@ -131,11 +133,19 @@ public class AppUI extends UI {
 		welcomeNotification.setDelayMsec(Notification.DELAY_NONE);
 
 		controller = new CWBController(new CWBModel(), this);
+		
 	}
 
 	/*
 	 * Embedded component getter
 	 */
+	
+	/**
+	 * @return the openProjectWindow
+	 */
+	public Window getOpenProjectWindow() {
+		return openProjectWindow;
+	}
 	
 	/**
 	 * @return the loadTagsetWindow
@@ -229,6 +239,10 @@ public class AppUI extends UI {
 		loadTagsetWindow.getLoadButton().addClickListener(listener);
 	}
 	
+	public void addOpenProjectMenuItemCommand(Command command){
+		menuBar.getOpenMenuItem().setCommand(command);
+	}
+	
 	public void addAboutMenuItemCommand(Command command){
 		menuBar.getAboutMenuItem().setCommand(command);
 	}
@@ -257,34 +271,62 @@ public class AppUI extends UI {
 		loadTagsetWindow.getTagWebServiceComboBox().addValueChangeListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentReceiver(Receiver receiver){
+	public void addOpenProjectUploadComponentReceiver(Receiver receiver){
+		openProjectWindow.getUploadComponent().setReceiver(receiver);
+	}
+	
+	public void addOpenProjectUploadComponentSucceededListener(SucceededListener listener){
+		openProjectWindow.getUploadComponent().addSucceededListener(listener);
+	}
+	
+	public void addOpenProjectUploadComponentFailedListener(FailedListener listener){
+		openProjectWindow.getUploadComponent().addFailedListener(listener);
+	}
+	
+	public void addOpenProjectUploadComponentProgressListener(ProgressListener listener){
+		openProjectWindow.getUploadComponent().addProgressListener(listener);
+	}
+	
+	public void addOpenProjectUploadComponentFinishedListener(FinishedListener listener){
+		openProjectWindow.getUploadComponent().addFinishedListener(listener);
+	}
+	
+	public void addOpenProjectUploadComponentStartedListener(StartedListener listener){
+		openProjectWindow.getUploadComponent().addStartedListener(listener);
+	}
+	
+	public void addOpenProjectDropBoxDropHandler(DropHandler dropHandler){
+		openProjectWindow.getDropBox().setDropHandler(dropHandler);
+	}
+
+	public void addLoadNomenclatureFromFileUploadComponentReceiver(Receiver receiver){
 		loadNomenclatureFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentSucceededListener(SucceededListener listener){
+	public void addLoadNomenclatureFromFileUploadComponentSucceededListener(SucceededListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addSucceededListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentFailedListener(FailedListener listener){
+	public void addLoadNomenclatureFromFileUploadComponentFailedListener(FailedListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addFailedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentProgressListener(ProgressListener listener){
+	public void addLoadNomenclatureFromFileUploadComponentProgressListener(ProgressListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addProgressListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentFinishedListener(FinishedListener listener){
+	public void addLoadNomenclatureFromFileUploadComponentFinishedListener(FinishedListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addFinishedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileUploadComponentStartedListener(StartedListener listener){
+	public void addLoadNomenclatureFromFileUploadComponentStartedListener(StartedListener listener){
 		loadNomenclatureFromFileWindow.getUploadComponent().addStartedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFileDropBoxDropHandler(DropHandler dropHandler){
+	public void addLoadNomenclatureFromFileDropBoxDropHandler(DropHandler dropHandler){
 		loadNomenclatureFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
-
+	
 	public void addMatchingWindowTableValueChangeListener(ValueChangeListener listener){
 		matchingWindow.getTable().addValueChangeListener(listener);
 	}

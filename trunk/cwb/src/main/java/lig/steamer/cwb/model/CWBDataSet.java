@@ -3,7 +3,10 @@ package lig.steamer.cwb.model;
 import java.util.Collection;
 import java.util.Date;
 
-public class CWBDataSet {
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
+public class CWBDataSet implements CWBVisitable {
 
 	private Date creationDate;
 	private Date lastUpdate;
@@ -150,6 +153,11 @@ public class CWBDataSet {
 	 */
 	public void setDataModel(CWBDataModel dataModel) {
 		this.dataModel = dataModel;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitDataSet(this);
 	}
 	
 }

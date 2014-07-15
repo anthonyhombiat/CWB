@@ -2,15 +2,19 @@ package lig.steamer.cwb.model;
 
 import java.io.Serializable;
 
-public class CWBEquivalence implements Serializable {
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
+public class CWBEquivalence implements Serializable, CWBVisitable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private CWBConcept concept1;
 	private CWBConcept concept2;
 	private double confidence;
-	
-	public CWBEquivalence(CWBConcept concept1, CWBConcept concept2, double confidence){
+
+	public CWBEquivalence(CWBConcept concept1, CWBConcept concept2,
+			double confidence) {
 		this.concept1 = concept1;
 		this.concept2 = concept2;
 		this.confidence = confidence;
@@ -36,5 +40,23 @@ public class CWBEquivalence implements Serializable {
 	public double getConfidence() {
 		return confidence;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof CWBEquivalence) {
+			CWBEquivalence equivalence = (CWBEquivalence) o;
+			return ((this.concept1.equals(equivalence.getConcept1()) && this.concept2
+					.equals(equivalence.getConcept2()))
+					|| (this.concept1.equals(equivalence.getConcept2()) && this.concept2
+							.equals(equivalence.getConcept1())))
+					&& this.confidence == equivalence.getConfidence();
+		}
+		return false;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitEquivalence(this);
+	}
+
 }

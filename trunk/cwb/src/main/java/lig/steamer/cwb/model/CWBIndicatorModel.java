@@ -2,25 +2,28 @@ package lig.steamer.cwb.model;
 
 import java.util.Date;
 
-public class CWBIndicatorModel {
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
+public class CWBIndicatorModel implements CWBVisitable {
 
 	private String name;
 	private CWBDataModel dataModel;
 	private Date creationDate;
-	private Date LastUpdate; 
-	
-	public CWBIndicatorModel(){
-		
+	private Date LastUpdate;
+
+	public CWBIndicatorModel() {
+
 	}
-	
-	public CWBIndicatorModel(String name){
+
+	public CWBIndicatorModel(String name) {
 		this.name = name;
 	}
 
-	public CWBIndicatorMeasureSet calculate(){
+	public CWBIndicatorMeasureSet calculate() {
 		return null;
 	}
-	
+
 	/**
 	 * @return the name
 	 */
@@ -76,5 +79,10 @@ public class CWBIndicatorModel {
 	public void setLastUpdate(Date lastUpdate) {
 		LastUpdate = lastUpdate;
 	}
-	
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitIndicatorModel(this);
+	}
+
 }

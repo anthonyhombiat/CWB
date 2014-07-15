@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class CWBModel implements Serializable {
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
+public class CWBModel implements Serializable, CWBVisitable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -219,6 +222,11 @@ public class CWBModel implements Serializable {
 			}
 		}
 		return hasChanged;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor) {
+		visitor.visitModel(this);
 	}
 
 }

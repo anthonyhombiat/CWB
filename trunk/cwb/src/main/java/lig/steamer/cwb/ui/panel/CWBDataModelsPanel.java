@@ -53,13 +53,13 @@ public class CWBDataModelsPanel extends Panel {
 		treeTable.setSelectable(true);
 		
 		treeTable.setVisibleColumns(Msg
-				.get("accordion.table.column.uri"), Msg
+				.get("accordion.table.column.iri"), Msg
 				.get("accordion.table.column.fragment"), Msg
 				.get("accordion.table.column.names"), Msg
 				.get("accordion.table.column.descriptions"));
 		
 		treeTable.setColumnCollapsed(Msg
-				.get("accordion.table.column.uri"), true);
+				.get("accordion.table.column.iri"), true);
 		treeTable.setColumnCollapsed(Msg
 				.get("accordion.table.column.descriptions"), true);
 		

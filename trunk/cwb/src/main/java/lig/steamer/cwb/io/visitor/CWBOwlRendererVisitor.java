@@ -1,17 +1,13 @@
-package lig.steamer.cwb.io;
+package lig.steamer.cwb.io.visitor;
 
-import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import lig.steamer.cwb.CWBProperties;
-import lig.steamer.cwb.model.CWBConcept;
-import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.model.CWBEquivalence;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AddAxiom;
@@ -27,109 +23,154 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
-/**
- * Class that gathers methods to write CWB data model into OWL format.
- * @author Anthony Hombiat
- */
-public class CWBDataModelWriter {
+import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.model.CWBConcept;
+import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBDataSet;
+import lig.steamer.cwb.model.CWBEquivalence;
+import lig.steamer.cwb.model.CWBIndicatorMeasure;
+import lig.steamer.cwb.model.CWBIndicatorMeasureSet;
+import lig.steamer.cwb.model.CWBIndicatorModel;
+import lig.steamer.cwb.model.CWBModel;
 
-	private static Logger LOGGER = Logger.getLogger(CWBDataModelWriter.class
+public class CWBOwlRendererVisitor implements CWBVisitor {
+
+	private static Logger LOGGER = Logger.getLogger(CWBOwlRendererVisitor.class
 			.getName());
-
+	
+	private PrintWriter writer;
+	
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
-
-	private OWLOntology ontology;
-	private CWBDataModel dataModel;
-
-	private File outputFile;
-
-	public CWBDataModelWriter(CWBDataModel dataModel, File ouputFile) {
-
+	
+	private OWLOntology currentDataModelOntology;
+	private OWLOntology currentDataSetOntology;
+	private OWLOntology currentIndicatorModelOntology;
+	private OWLOntology currentIndicatorMeasureOntology;
+	
+	private Collection<OWLOntology> dataModelOntologies;
+	private Collection<OWLOntology> dataSetOntologies;
+	private Collection<OWLOntology> indicatorModelOntologies;
+	private Collection<OWLOntology> indicatorMeasureOntologies;
+	
+	public CWBOwlRendererVisitor(PrintWriter writer){
+		
+		this.writer = writer;
+		
+		this.dataModelOntologies = new ArrayList<OWLOntology>();
+		this.dataSetOntologies = new ArrayList<OWLOntology>();
+		this.indicatorModelOntologies = new ArrayList<>();
+		this.indicatorMeasureOntologies = new ArrayList<OWLOntology>();
+		
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 
-		this.dataModel = dataModel;
-		this.outputFile = ouputFile;
-
-		try {
-			ontology = manager.createOntology(dataModel.getNamespace());
-		} catch (OWLOntologyCreationException e) {
-			e.printStackTrace();
+	}
+	
+	@Override
+	public void visitModel(CWBModel model) {
+		
+		for(CWBDataModel dataModel : model.getDataModels()){
+			
+			try {
+				currentDataModelOntology = manager.createOntology(CWBProperties.CWB_NAMESPACE);
+				dataModel.acceptCWBVisitor(this);
+				dataModelOntologies.add(currentDataModelOntology);
+			} catch (OWLOntologyCreationException e) {
+				e.printStackTrace();
+			}
+			
 		}
+		
+		for(CWBIndicatorModel indicatorModel : model.getIndicatorModels()){
+			indicatorModel.acceptCWBVisitor(this);
+		}
+		
+		for(CWBIndicatorMeasureSet indicatorMeasureSet : model.getIndicatorMeasureSets()){
+			indicatorMeasureSet.acceptCWBVisitor(this);
+		}
+		
+		for(CWBDataSet dataSet : model.getDataSets()){
+			dataSet.acceptCWBVisitor(this);
+		}
+		
+	}
+	
+	@Override
+	public void visitDataModel(CWBDataModel dataModel) {
+		
+		for(CWBConcept concept : dataModel.getConcepts()){
+			concept.acceptCWBVisitor(this);
+		}
+		
+		for(CWBEquivalence equivalence : dataModel.getEquivalences()){
+			equivalence.acceptCWBVisitor(this);
+		}
+		
 	}
 
-	public CWBDataModelWriter(CWBDataModel dataModel, String filename,
-			String outputDir, String outputFormat) {
-		this(dataModel, new File(outputDir
-				+ File.separatorChar + filename + outputFormat));
-	}
-
-	public CWBDataModelWriter(CWBDataModel dataModel, String filename,
-			String outputDir) {
-		this(dataModel, filename, outputDir, CWBProperties.OWL_FILE_FORMAT);
-	}
-
-	public CWBDataModelWriter(CWBDataModel dataModel, String filename) {
-		this(dataModel, filename, CWBProperties.CWB_OUTPUT_DIR);
-	}
-
-	/**
-	 * Returns the file containing the CWBDataModel in owl format.
-	 * @param dataModel, the CWBDataModel to write
-	 */
-	public void write() {
-
-		LOGGER.log(Level.INFO,
-				"Writing CWBDataModel " + dataModel.getNamespace() + "...");
-
+	@Override
+	public void visitConcept(CWBConcept concept) {
+		
 		List<OWLOntologyChange> ontologyChanges = new ArrayList<OWLOntologyChange>();
 
-		for (CWBConcept concept : dataModel.getConcepts()) {
+		List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
 
-			List<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
+		axioms.add(getOWLClassFromCWBConcept(concept));
+		axioms.addAll(getRDFSLabelsFromCWBConcept(concept));
+		axioms.addAll(getRDFSCommentsFromCWBConcept(concept));
 
-			axioms.add(getOWLClassFromCWBConcept(concept));
-			axioms.addAll(getRDFSLabelsFromCWBConcept(concept));
-			axioms.addAll(getRDFSCommentsFromCWBConcept(concept));
-			
-			for (OWLAxiom axiom : axioms) {
-				AddAxiom addAxiom = new AddAxiom(ontology, axiom);
-				ontologyChanges.add(addAxiom);
-			}
+		if(concept.getParent() != null){
+			axioms.add(getOWLSuperClassFromCWBConcept(concept));
 		}
-
-		for (CWBEquivalence equivalence : dataModel.getEquivalences()) {
-			ontologyChanges.add(new AddAxiom(ontology,
-					getOWLEquivalentClassFromCWBEquivalence(equivalence)));
+		
+		for (OWLAxiom axiom : axioms) {
+			AddAxiom addAxiom = new AddAxiom(currentDataModelOntology, axiom);
+			ontologyChanges.add(addAxiom);
 		}
 
 		manager.applyChanges(ontologyChanges);
-
-		LOGGER.log(Level.INFO, "Writing done.");
-
+		
 	}
 
-	public void flush() {
-		LOGGER.log(Level.INFO,
-				"Flushing data to " + outputFile.getAbsolutePath() + "...");
+	@Override
+	public void visitEquivalence(CWBEquivalence equivalence) {
+		
+		List<OWLOntologyChange> ontologyChanges = new ArrayList<OWLOntologyChange>();
+		
+		ontologyChanges.add(new AddAxiom(currentDataModelOntology,
+					getOWLEquivalentClassFromCWBEquivalence(equivalence)));
+		
+		manager.applyChanges(ontologyChanges);
+		
+	}
 
-		try {
-			SimpleIRIMapper iriMapper = new SimpleIRIMapper(ontology
-					.getOntologyID().getOntologyIRI(), IRI.create(outputFile));
-			manager.addIRIMapper(iriMapper);
-			manager.saveOntology(ontology, IRI.create(outputFile));
-		} catch (OWLOntologyStorageException e) {
-			e.printStackTrace();
+	@Override
+	public void visitIndicatorMeasureSet(CWBIndicatorMeasureSet measureSet) {
+
+		for(CWBIndicatorMeasure indicatorMeasure : measureSet.getMeasures()){
+			indicatorMeasure.acceptCWBVisitor(this);
 		}
-
-		LOGGER.log(Level.INFO, "Writing done.");
+		
 	}
 
+	@Override
+	public void visitIndicatorMeasure(CWBIndicatorMeasure indicatorMeasure) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void visitIndicatorModel(CWBIndicatorModel indicatorModel) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void visitDataSet(CWBDataSet dataSet) {
+		// TODO Auto-generated method stub
+	}
+	
 	/**
 	 * Returns the OWLAxiom containing the OWL equivalent class from the given
 	 * CWBEquivalence.
@@ -161,6 +202,20 @@ public class CWBDataModelWriter {
 				"Declaring OWL class for concept " + concept.getFragment());
 		OWLClass conceptClass = factory.getOWLClass(concept.getIri());
 		return factory.getOWLDeclarationAxiom(conceptClass);
+	}
+	
+	/**
+	 * Returns the OWLAxiom declaring the super OWL class corresponding to the given
+	 * CWBConcept.
+	 * @param concept, the CWBConcept
+	 * @return the OWLAxiom
+	 */
+	private OWLAxiom getOWLSuperClassFromCWBConcept(CWBConcept concept) {
+		LOGGER.log(Level.INFO,
+				"Declaring super OWL class for concept " + concept.getFragment());
+		OWLClass subClass = factory.getOWLClass(concept.getIri());
+		OWLClass superClass = factory.getOWLClass(concept.getParent().getIri());
+		return factory.getOWLSubClassOfAxiom(subClass, superClass);
 	}
 
 	/**
@@ -232,10 +287,6 @@ public class CWBDataModelWriter {
 		LOGGER.log(Level.INFO, "RDFS comments added.");
 
 		return axioms;
-	}
-
-	public File getFile() {
-		return outputFile;
 	}
 
 }

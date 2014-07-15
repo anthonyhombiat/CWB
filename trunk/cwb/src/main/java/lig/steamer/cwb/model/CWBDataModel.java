@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import lig.steamer.cwb.io.visitor.CWBVisitable;
+import lig.steamer.cwb.io.visitor.CWBVisitor;
+
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBDataModel implements Serializable {
+public class CWBDataModel implements Serializable, CWBVisitable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -124,6 +127,15 @@ public class CWBDataModel implements Serializable {
 		}
 		return hasChanged;
 	}
+	
+	public CWBConcept getConceptFromIRI(IRI iri){
+		for(CWBConcept concept : concepts){
+			if(concept.getIri().equals(iri)){
+				return concept;
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * @return the equivalences
@@ -173,6 +185,23 @@ public class CWBDataModel implements Serializable {
 			}
 		}
 		return hasChanged;
+	}
+	
+	public Collection<CWBConcept> getRootConcepts(){
+		Collection<CWBConcept> rootConcepts = new ArrayList<>();
+		
+		for(CWBConcept concept : this.concepts){
+			if(concept.getParent() == null){
+				rootConcepts.add(concept);
+			}
+		}
+		
+		return rootConcepts;
+	}
+
+	@Override
+	public void acceptCWBVisitor(CWBVisitor visitor){
+		visitor.visitDataModel(this);
 	}
 	
 }
