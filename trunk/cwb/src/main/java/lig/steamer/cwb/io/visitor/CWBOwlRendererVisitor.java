@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataSet;
@@ -46,7 +46,7 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 
-	private String destPath;
+	private String projectRootDir;
 
 	private OWLOntology currentDataModelOntology;
 	private OWLOntology currentDataSetOntology;
@@ -58,9 +58,9 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 	private Collection<OWLOntology> indicatorModelOntologies;
 	private Collection<OWLOntology> indicatorMeasureOntologies;
 
-	public CWBOwlRendererVisitor(String destPath) {
+	public CWBOwlRendererVisitor(String projectRootDir) {
 
-		this.destPath = destPath;
+		this.projectRootDir = projectRootDir;
 
 		this.dataModelOntologies = new ArrayList<OWLOntology>();
 		this.dataSetOntologies = new ArrayList<OWLOntology>();
@@ -101,20 +101,16 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 			dataSet.acceptCWBVisitor(this);
 		}
 
-		File project = new File(destPath + File.separatorChar
-				+ CWBProperties.DEFAULT_PROJECT_NAME);
-		project.mkdir();
-
-		File dataModelsDir = new File(project.getAbsolutePath()
-				+ File.separatorChar + CWBProperties.DATAMODELS_DIR_NAME);
+		File dataModelsDir = new File(projectRootDir
+				+ File.separatorChar + Prop.DIRNAME_DATAMODELS);
 		dataModelsDir.mkdir();
 		
-		File indicatorsDir = new File(project.getAbsolutePath()
-				+ File.separatorChar + CWBProperties.INDICATORS_DIR_NAME);
+		File indicatorsDir = new File(projectRootDir
+				+ File.separatorChar + Prop.DIRNAME_INDICATORS);
 		indicatorsDir.mkdir();
 	
-		File measuresDir = new File(project.getAbsolutePath()
-				+ File.separatorChar + CWBProperties.MEASURES_DIR_NAME);
+		File measuresDir = new File(projectRootDir
+				+ File.separatorChar + Prop.DIRNAME_MEASURES);
 		measuresDir.mkdir();
 	
 		RDFXMLOntologyStorer storer = new RDFXMLOntologyStorer();
@@ -122,7 +118,7 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 		for (OWLOntology ontology : dataModelOntologies) {
 			IRI iri = IRI.create(new File(dataModelsDir.getAbsolutePath()
 					+ File.separatorChar + i
-					+ CWBProperties.OWL_FILE_FORMAT));
+					+ Prop.FMT_OWL));
 			try {
 				storer.storeOntology(ontology, iri,
 						new PrefixOWLOntologyFormat());

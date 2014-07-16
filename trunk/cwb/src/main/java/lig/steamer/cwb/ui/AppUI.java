@@ -2,6 +2,7 @@ package lig.steamer.cwb.ui;
 
 import javax.servlet.annotation.WebServlet;
 
+import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;

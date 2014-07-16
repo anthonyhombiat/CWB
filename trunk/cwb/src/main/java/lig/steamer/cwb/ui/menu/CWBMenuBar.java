@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.menu;
 
-import lig.steamer.cwb.ui.Msg;
+import lig.steamer.cwb.Msg;
 
 import com.vaadin.ui.MenuBar;
 

@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.window;
 
-import lig.steamer.cwb.ui.Msg;
+import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.util.wsclient.TaggingWebService;
 
 import com.vaadin.shared.ui.combobox.FilteringMode;

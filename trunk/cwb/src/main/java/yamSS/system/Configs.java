@@ -2,11 +2,11 @@ package yamSS.system;
 
 import java.io.File;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
 
 public class Configs {
-	public static String BASEDIR = CWBProperties.CLASSES_DIR + File.separatorChar
-			+ CWBProperties.YAM_RESOURCES_PACKAGE + File.separatorChar;
+	public static String BASEDIR = Prop.DIR_CLASSES + File.separatorChar
+			+ Prop.PACK_YAM_RESOURCES + File.separatorChar;
 
 	public static boolean RUNFAST = false;
 	public static boolean USING_ML = false;

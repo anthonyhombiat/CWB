@@ -17,7 +17,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.util.matching.CWBOntologyAlignmentVisitor;
 import lig.steamer.cwb.util.matching.CWBOntologyMatcher;
@@ -29,7 +29,6 @@ import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 
-import com.google.gwt.thirdparty.guava.common.base.Charsets;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -104,9 +103,9 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 	public void printAlignment(String outputFilename, String outputFileFormat,
 			String outputFileCharset) {
 
-		String absolutePath = CWBProperties.CWB_OUTPUT_DIR + File.separatorChar
-				+ CWBProperties.ONTOLOGY_ALIGNMENT_FILE_NAME
-				+ CWBProperties.OWL_FILE_FORMAT;
+		String absolutePath = Prop.DIR_OUTPUT + File.separatorChar
+				+ Prop.FILENAME_ONTO_ALIGNMENT
+				+ Prop.FMT_OWL;
 
 		LOGGER.log(Level.INFO, "Printing alignment to " + absolutePath + "...");
 
@@ -152,8 +151,8 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 	 * @param outputFilename
 	 */
 	public void printAlignment(String outputFilename) {
-		printAlignment(outputFilename, CWBProperties.DEFAULT_OUTPUT_FORMAT,
-				CWBProperties.DEFAULT_OUTPUT_CHARSET);
+		printAlignment(outputFilename, Prop.DEFAULT_ONTO_FMT,
+				Prop.DEFAULT_CHARSET);
 	}
 
 	/**
@@ -163,7 +162,7 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 	 * @param outputFileFormat
 	 */
 	public void printAlignment(String outputFilename, String outputFileFormat) {
-		printAlignment(outputFilename, outputFileFormat, CWBProperties.DEFAULT_OUTPUT_CHARSET);
+		printAlignment(outputFilename, outputFileFormat, Prop.DEFAULT_CHARSET);
 	}
 
 	/**

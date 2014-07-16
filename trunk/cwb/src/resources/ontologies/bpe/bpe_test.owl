@@ -17,25 +17,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
     <!-- http://rdf.insee.fr/def/territoire/bpe#domaine -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#domaine">
         <rdfs:label xml:lang="fr">domaine</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe#gamme -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#gamme">
-        <rdfs:label xml:lang="fr">gamme</rdfs:label>
-    </owl:Class>
-    
-
-
+   
     <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#A -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#A">
@@ -43,48 +30,10 @@
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
     </owl:Class>
     
-
-
     <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#B -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#B">
         <rdfs:label xml:lang="fr">Commerces</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#C -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#C">
-        <rdfs:label xml:lang="fr">Enseignement</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#D -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#D">
-        <rdfs:label xml:lang="fr">Santé</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#E -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#E">
-        <rdfs:label xml:lang="fr">Transports et déplacements</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#F -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#F">
-        <rdfs:label xml:lang="fr">Sports, loisirs et culture</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
     </owl:Class>
     
@@ -93,7 +42,6 @@
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B203">
         <rdfs:label xml:lang="fr">Boulangerie</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
     </owl:Class>
 	
 	 <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#B302 -->
@@ -101,16 +49,13 @@
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B302">
         <rdfs:label xml:lang="fr">Magasin de vêtements</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire"/>
     </owl:Class>
-	
 	
 	<!-- http://rdf.insee.fr/def/territoire/bpe/equipement#B202 -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B202">
         <rdfs:label xml:lang="fr">Epicerie, supérette</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
     </owl:Class>
     
  <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#A501 -->
@@ -118,7 +63,6 @@
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#A501">
         <rdfs:label xml:lang="fr">Coiffeur</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#A"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
     </owl:Class>
 	
 	 <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#A504 -->
@@ -126,25 +70,6 @@
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#A504">
         <rdfs:label xml:lang="fr">Restaurant</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#A"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
-    </owl:Class>
-    
-	<!-- http://rdf.insee.fr/def/territoire/bpe/equipement#C101 -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#C101">
-        <rdfs:label xml:lang="fr">Ecole maternelle</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#C"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#C104 -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#C104">
-        <rdfs:label xml:lang="fr">Ecole élémentaire</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#C"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité"/>
     </owl:Class>
 	
 	<!-- http://rdf.insee.fr/def/territoire/bpe/equipement#B101 -->
@@ -152,47 +77,16 @@
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B101">
         <rdfs:label xml:lang="fr">Hypermarché</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#supérieure"/>
     </owl:Class>
     
-
-
     <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#B102 -->
 
     <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#B102">
         <rdfs:label xml:lang="fr">Supermarché</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#B"/>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire"/>
     </owl:Class>
-    
 
-    <!-- http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/gamme#intermédiaire">
-        <rdfs:label xml:lang="fr">intermédiaire</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#gamme"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/gamme#proximité -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/gamme#proximité">
-        <rdfs:label xml:lang="fr">proximité</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#gamme"/>
-    </owl:Class>
-    
-
-
-    <!-- http://rdf.insee.fr/def/territoire/bpe/gamme#supérieure -->
-
-    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/gamme#supérieure">
-        <rdfs:label xml:lang="fr">supérieure</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#gamme"/>
-    </owl:Class>
 </rdf:RDF>
-
-
 
 <!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 

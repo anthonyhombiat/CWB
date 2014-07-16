@@ -1,6 +1,6 @@
 package lig.steamer.cwb.ui.window;
 
-import lig.steamer.cwb.ui.Msg;
+import lig.steamer.cwb.Msg;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.DragAndDropWrapper;

@@ -1,8 +1,8 @@
 package lig.steamer.cwb.ui.panel;
 
+import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.Accordion;

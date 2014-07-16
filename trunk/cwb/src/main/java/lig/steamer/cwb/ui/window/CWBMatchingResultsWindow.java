@@ -2,8 +2,8 @@ package lig.steamer.cwb.ui.window;
 
 import java.util.Set;
 
+import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBEquivalence;
-import lig.steamer.cwb.ui.Msg;
 
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.FontAwesome;

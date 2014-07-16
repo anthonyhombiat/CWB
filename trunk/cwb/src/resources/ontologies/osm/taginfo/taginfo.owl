@@ -20,11 +20,56 @@
     
 
 
-    <!-- http://osmtaginfo#bakery -->
+    <!-- http://osmtaginfo#Residential -->
 
-    <owl:Class rdf:about="http://osmtaginfo#bakery">
-        <rdfs:label xml:lang="en">bakery</rdfs:label>
-        <rdfs:comment xml:lang="en">A shop selling bread.</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#Residential">
+        <rdfs:label xml:lang="en">Residential</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#arts_centre -->
+
+    <owl:Class rdf:about="http://osmtaginfo#arts_centre">
+        <rdfs:label xml:lang="en">arts_centre</rdfs:label>
+        <rdfs:comment xml:lang="en">An arts centre. A venue where a variety of arts are performed or conducted</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#atm -->
+
+    <owl:Class rdf:about="http://osmtaginfo#atm">
+        <rdfs:label xml:lang="en">atm</rdfs:label>
+        <rdfs:comment xml:lang="en">A device that provides the clients of a financial institution with access to financial transactions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bank -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bank">
+        <rdfs:label xml:lang="en">bank</rdfs:label>
+        <rdfs:comment xml:lang="en">Shows the location of a bank branch.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bar -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bar">
+        <rdfs:label xml:lang="en">bar</rdfs:label>
+        <rdfs:comment xml:lang="en">A location for &apos;party&apos; drinking</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bbq -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bbq">
+        <rdfs:label xml:lang="en">bbq</rdfs:label>
+        <rdfs:comment xml:lang="en">A permanently built place for having a BBQ</rdfs:comment>
     </owl:Class>
     
 
@@ -38,47 +83,452 @@
     
 
 
-    <!-- http://osmtaginfo#clothes -->
+    <!-- http://osmtaginfo#bicycle_parking -->
 
-    <owl:Class rdf:about="http://osmtaginfo#clothes">
-        <rdfs:label xml:lang="en">clothes</rdfs:label>
-        <rdfs:comment xml:lang="en">A shop to get clothes</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#bicycle_parking">
+        <rdfs:label xml:lang="en">bicycle_parking</rdfs:label>
+        <rdfs:comment xml:lang="en">A place for parking bicycles.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://osmtaginfo#convenience -->
+    <!-- http://osmtaginfo#bicycle_rental -->
 
-    <owl:Class rdf:about="http://osmtaginfo#convenience">
-        <rdfs:label xml:lang="en">convenience</rdfs:label>
-        <rdfs:comment xml:lang="en">A convenience store. A small local shop carrying a small subset of the items you would find in a supermarket</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#bicycle_rental">
+        <rdfs:label xml:lang="en">bicycle_rental</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where you can pick up and drop off rented bikes.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://osmtaginfo#garden -->
+    <!-- http://osmtaginfo#biergarten -->
 
-    <owl:Class rdf:about="http://osmtaginfo#garden">
-        <rdfs:label xml:lang="en">garden</rdfs:label>
-        <rdfs:comment xml:lang="en">Place where flowers and other plants are grown in a decorative and structured manner or for scientific purposes.</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#biergarten">
+        <rdfs:label xml:lang="en">biergarten</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where beverages (beer) and prepared food are served.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://osmtaginfo#hairdresser -->
+    <!-- http://osmtaginfo#boat_storage -->
 
-    <owl:Class rdf:about="http://osmtaginfo#hairdresser">
-        <rdfs:label xml:lang="en">hairdresser</rdfs:label>
-        <rdfs:comment xml:lang="en">A hairdressers shop where you can get your hair cut</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#boat_storage">
+        <rdfs:label xml:lang="en">boat_storage</rdfs:label>
+        <rdfs:comment xml:lang="en">A place to store boats out of the water.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://osmtaginfo#park -->
+    <!-- http://osmtaginfo#brothel -->
 
-    <owl:Class rdf:about="http://osmtaginfo#park">
-        <rdfs:label xml:lang="en">park</rdfs:label>
-        <rdfs:comment xml:lang="en">A park. Open, green area for recreation, usually municipal</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#brothel">
+        <rdfs:label xml:lang="en">brothel</rdfs:label>
+        <rdfs:comment xml:lang="en">An establishment specifically dedicated to prostitution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#building -->
+
+    <owl:Class rdf:about="http://osmtaginfo#building">
+        <rdfs:label xml:lang="en">building</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bureau_de_change -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bureau_de_change">
+        <rdfs:label xml:lang="en">bureau_de_change</rdfs:label>
+        <rdfs:comment xml:lang="en">A Bureau de Change (using the widest accepted international name) is a generally small office or kiosk that changes foreign bank notes and travellers cheques and usually does nothing else.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#bus_station -->
+
+    <owl:Class rdf:about="http://osmtaginfo#bus_station">
+        <rdfs:label xml:lang="en">bus_station</rdfs:label>
+        <rdfs:comment xml:lang="en">A &quot;bus stop&quot; would be a place on a particular bus route where the bus regularly stops to pick up / drop off passengers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#cafe -->
+
+    <owl:Class rdf:about="http://osmtaginfo#cafe">
+        <rdfs:label xml:lang="en">cafe</rdfs:label>
+        <rdfs:comment xml:lang="en">Generally informal place with sit-down facilities selling beverages and light meals and/or snacks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#car_rental -->
+
+    <owl:Class rdf:about="http://osmtaginfo#car_rental">
+        <rdfs:label xml:lang="en">car_rental</rdfs:label>
+        <rdfs:comment xml:lang="en">Marks a place from which motor cars / automobiles can be rented.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#car_sharing -->
+
+    <owl:Class rdf:about="http://osmtaginfo#car_sharing">
+        <rdfs:label xml:lang="en">car_sharing</rdfs:label>
+        <rdfs:comment xml:lang="en">Carsharing station, where you get your booked car, often separate areas on parking places.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#car_wash -->
+
+    <owl:Class rdf:about="http://osmtaginfo#car_wash">
+        <rdfs:label xml:lang="en">car_wash</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where you can wash your car.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#casino -->
+
+    <owl:Class rdf:about="http://osmtaginfo#casino">
+        <rdfs:label xml:lang="en">casino</rdfs:label>
+        <rdfs:comment xml:lang="en">A shop that takes bets on sporting and other events at agreed upon odds.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#charging_station -->
+
+    <owl:Class rdf:about="http://osmtaginfo#charging_station">
+        <rdfs:label xml:lang="en">charging_station</rdfs:label>
+        <rdfs:comment xml:lang="en">Charging station</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#childcare -->
+
+    <owl:Class rdf:about="http://osmtaginfo#childcare">
+        <rdfs:label xml:lang="en">childcare</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#cinema -->
+
+    <owl:Class rdf:about="http://osmtaginfo#cinema">
+        <rdfs:label xml:lang="en">cinema</rdfs:label>
+        <rdfs:comment xml:lang="en">Cinema/movie theater - place for showing movies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#clinic -->
+
+    <owl:Class rdf:about="http://osmtaginfo#clinic">
+        <rdfs:label xml:lang="en">clinic</rdfs:label>
+        <rdfs:comment xml:lang="en">Medium-sized medical centres with tens of staff; smaller than a hospital and larger than a doctor&apos;s practice.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#clock -->
+
+    <owl:Class rdf:about="http://osmtaginfo#clock">
+        <rdfs:label xml:lang="en">clock</rdfs:label>
+        <rdfs:comment xml:lang="en">Publicly visible clock.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#college -->
+
+    <owl:Class rdf:about="http://osmtaginfo#college">
+        <rdfs:label xml:lang="en">college</rdfs:label>
+        <rdfs:comment xml:lang="en">A college campus or buildings</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#community_centre -->
+
+    <owl:Class rdf:about="http://osmtaginfo#community_centre">
+        <rdfs:label xml:lang="en">community_centre</rdfs:label>
+        <rdfs:comment xml:lang="en">A place mostly used for local events and festivities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#compressed_air -->
+
+    <owl:Class rdf:about="http://osmtaginfo#compressed_air">
+        <rdfs:label xml:lang="en">compressed_air</rdfs:label>
+        <rdfs:comment xml:lang="en">A device to inflate tires/tyres (e.g. motorcar, bicycle).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#courthouse -->
+
+    <owl:Class rdf:about="http://osmtaginfo#courthouse">
+        <rdfs:label xml:lang="en">courthouse</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a courthouse.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#dentist -->
+
+    <owl:Class rdf:about="http://osmtaginfo#dentist">
+        <rdfs:label xml:lang="en">dentist</rdfs:label>
+        <rdfs:comment xml:lang="en">A dentist practice / surgery.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#doctors -->
+
+    <owl:Class rdf:about="http://osmtaginfo#doctors">
+        <rdfs:label xml:lang="en">doctors</rdfs:label>
+        <rdfs:comment xml:lang="en">A Doctor&apos;s Office is a place you can go to get medical attention or a check up.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#drinking_water -->
+
+    <owl:Class rdf:about="http://osmtaginfo#drinking_water">
+        <rdfs:label xml:lang="en">drinking_water</rdfs:label>
+        <rdfs:comment xml:lang="en">A tap or other source of potable drinking water.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#driving_school -->
+
+    <owl:Class rdf:about="http://osmtaginfo#driving_school">
+        <rdfs:label xml:lang="en">driving_school</rdfs:label>
+        <rdfs:comment xml:lang="en">Driving School</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#embassy -->
+
+    <owl:Class rdf:about="http://osmtaginfo#embassy">
+        <rdfs:label xml:lang="en">embassy</rdfs:label>
+        <rdfs:comment xml:lang="en">A representation of a country in another country.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#emergency_phone -->
+
+    <owl:Class rdf:about="http://osmtaginfo#emergency_phone">
+        <rdfs:label xml:lang="en">emergency_phone</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#fast_food -->
+
+    <owl:Class rdf:about="http://osmtaginfo#fast_food">
+        <rdfs:label xml:lang="en">fast_food</rdfs:label>
+        <rdfs:comment xml:lang="en">Is for a place concentrating on very fast counter-only service and take-away food.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#ferry_terminal -->
+
+    <owl:Class rdf:about="http://osmtaginfo#ferry_terminal">
+        <rdfs:label xml:lang="en">ferry_terminal</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where people/cars/etc. can board and leave a [[ferries</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#fire_hydrant -->
+
+    <owl:Class rdf:about="http://osmtaginfo#fire_hydrant">
+        <rdfs:label xml:lang="en">fire_hydrant</rdfs:label>
+        <rdfs:comment xml:lang="en">A fire hydrant is an active fire protection measure, and a source of water provided in most urban, suburban and rural areas with municipal water service to enable firefighters to tap into the municipal water supply to assist in extinguishing a fire.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#fire_station -->
+
+    <owl:Class rdf:about="http://osmtaginfo#fire_station">
+        <rdfs:label xml:lang="en">fire_station</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a fire station.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#food_court -->
+
+    <owl:Class rdf:about="http://osmtaginfo#food_court">
+        <rdfs:label xml:lang="en">food_court</rdfs:label>
+        <rdfs:comment xml:lang="en">A generally informal place with sit-down facilities that is contiguous with the counters of multiple food vendors and provides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#fountain -->
+
+    <owl:Class rdf:about="http://osmtaginfo#fountain">
+        <rdfs:label xml:lang="en">fountain</rdfs:label>
+        <rdfs:comment xml:lang="en">A fountain for cultural / decorational / recreational purposes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#fuel -->
+
+    <owl:Class rdf:about="http://osmtaginfo#fuel">
+        <rdfs:label xml:lang="en">fuel</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark filling stations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#gambling -->
+
+    <owl:Class rdf:about="http://osmtaginfo#gambling">
+        <rdfs:label xml:lang="en">gambling</rdfs:label>
+        <rdfs:comment xml:lang="en">A place for gambling, not being a bookmaker, lottery shop, casino, or adult gaming centre.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#garages -->
+
+    <owl:Class rdf:about="http://osmtaginfo#garages">
+        <rdfs:label xml:lang="en">garages</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#grave_yard -->
+
+    <owl:Class rdf:about="http://osmtaginfo#grave_yard">
+        <rdfs:label xml:lang="en">grave_yard</rdfs:label>
+        <rdfs:comment xml:lang="en">To mark places where people, or sometimes animals are buried which is close to a place of worship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#grit_bin -->
+
+    <owl:Class rdf:about="http://osmtaginfo#grit_bin">
+        <rdfs:label xml:lang="en">grit_bin</rdfs:label>
+        <rdfs:comment xml:lang="en">A container that hold grit or a mixture from salt and grit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#gym -->
+
+    <owl:Class rdf:about="http://osmtaginfo#gym">
+        <rdfs:label xml:lang="en">gym</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#hospital -->
+
+    <owl:Class rdf:about="http://osmtaginfo#hospital">
+        <rdfs:label xml:lang="en">hospital</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a hospital. Image shows mapnik rendering</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#hunting_stand -->
+
+    <owl:Class rdf:about="http://osmtaginfo#hunting_stand">
+        <rdfs:label xml:lang="en">hunting_stand</rdfs:label>
+        <rdfs:comment xml:lang="en">Hunting stands are open or enclosed platforms used by hunters to place themselves at an elevated height above the terrain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#ice_cream -->
+
+    <owl:Class rdf:about="http://osmtaginfo#ice_cream">
+        <rdfs:label xml:lang="en">ice_cream</rdfs:label>
+        <rdfs:comment xml:lang="en">A place that sells ice cream and frozen yoghurt over the counter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#kindergarten -->
+
+    <owl:Class rdf:about="http://osmtaginfo#kindergarten">
+        <rdfs:label xml:lang="en">kindergarten</rdfs:label>
+        <rdfs:comment xml:lang="en">A place for looking after preschool children and (typically) giving early education.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#kitchen -->
+
+    <owl:Class rdf:about="http://osmtaginfo#kitchen">
+        <rdfs:label xml:lang="en">kitchen</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#library -->
+
+    <owl:Class rdf:about="http://osmtaginfo#library">
+        <rdfs:label xml:lang="en">library</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a library.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#marketplace -->
+
+    <owl:Class rdf:about="http://osmtaginfo#marketplace">
+        <rdfs:label xml:lang="en">marketplace</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where trade is regulated.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#motorcycle_parking -->
+
+    <owl:Class rdf:about="http://osmtaginfo#motorcycle_parking">
+        <rdfs:label xml:lang="en">motorcycle_parking</rdfs:label>
+        <rdfs:comment xml:lang="en">A place which is desginated for parking motorcycles</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#nightclub -->
+
+    <owl:Class rdf:about="http://osmtaginfo#nightclub">
+        <rdfs:label xml:lang="en">nightclub</rdfs:label>
+        <rdfs:comment xml:lang="en">A nightclub is a place to dance and drink at night.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#nursing_home -->
+
+    <owl:Class rdf:about="http://osmtaginfo#nursing_home">
+        <rdfs:label xml:lang="en">nursing_home</rdfs:label>
+        <rdfs:comment xml:lang="en">A home for disabled/elderly persons who need permanent care.</rdfs:comment>
     </owl:Class>
     
 
@@ -92,11 +542,47 @@
     
 
 
-    <!-- http://osmtaginfo#pitch -->
+    <!-- http://osmtaginfo#parking_entrance -->
 
-    <owl:Class rdf:about="http://osmtaginfo#pitch">
-        <rdfs:label xml:lang="en">pitch</rdfs:label>
-        <rdfs:comment xml:lang="en">An area designed for playing a particular sport, normally designated with appropriate markings.</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#parking_entrance">
+        <rdfs:label xml:lang="en">parking_entrance</rdfs:label>
+        <rdfs:comment xml:lang="en">A entrance to an underground or multi storey parking facility</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#parking_fuel -->
+
+    <owl:Class rdf:about="http://osmtaginfo#parking_fuel">
+        <rdfs:label xml:lang="en">parking_fuel</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#parking_space -->
+
+    <owl:Class rdf:about="http://osmtaginfo#parking_space">
+        <rdfs:label xml:lang="en">parking_space</rdfs:label>
+        <rdfs:comment xml:lang="en">A single parking space on a parking lot</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#payment_terminal -->
+
+    <owl:Class rdf:about="http://osmtaginfo#payment_terminal">
+        <rdfs:label xml:lang="en">payment_terminal</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#pharmacy -->
+
+    <owl:Class rdf:about="http://osmtaginfo#pharmacy">
+        <rdfs:label xml:lang="en">pharmacy</rdfs:label>
+        <rdfs:comment xml:lang="en">A shop where a pharmacist sells medications</rdfs:comment>
     </owl:Class>
     
 
@@ -110,11 +596,92 @@
     
 
 
-    <!-- http://osmtaginfo#playground -->
+    <!-- http://osmtaginfo#police -->
 
-    <owl:Class rdf:about="http://osmtaginfo#playground">
-        <rdfs:label xml:lang="en">playground</rdfs:label>
-        <rdfs:comment xml:lang="en">Marks a children&apos;s playground.</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#police">
+        <rdfs:label xml:lang="en">police</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a police station.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#post_box -->
+
+    <owl:Class rdf:about="http://osmtaginfo#post_box">
+        <rdfs:label xml:lang="en">post_box</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark the location of a postbox.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#post_office -->
+
+    <owl:Class rdf:about="http://osmtaginfo#post_office">
+        <rdfs:label xml:lang="en">post_office</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where letters and parcels may be sent or collected.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#prison -->
+
+    <owl:Class rdf:about="http://osmtaginfo#prison">
+        <rdfs:label xml:lang="en">prison</rdfs:label>
+        <rdfs:comment xml:lang="en">A prison.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#pub -->
+
+    <owl:Class rdf:about="http://osmtaginfo#pub">
+        <rdfs:label xml:lang="en">pub</rdfs:label>
+        <rdfs:comment xml:lang="en">A pub</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#public_building -->
+
+    <owl:Class rdf:about="http://osmtaginfo#public_building">
+        <rdfs:label xml:lang="en">public_building</rdfs:label>
+        <rdfs:comment xml:lang="en">Used to mark a public building.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#public_hall -->
+
+    <owl:Class rdf:about="http://osmtaginfo#public_hall">
+        <rdfs:label xml:lang="en">public_hall</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#recycling -->
+
+    <owl:Class rdf:about="http://osmtaginfo#recycling">
+        <rdfs:label xml:lang="en">recycling</rdfs:label>
+        <rdfs:comment xml:lang="en">Container or centre where you can take waste for recycling.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#refugee_housing -->
+
+    <owl:Class rdf:about="http://osmtaginfo#refugee_housing">
+        <rdfs:label xml:lang="en">refugee_housing</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#residential -->
+
+    <owl:Class rdf:about="http://osmtaginfo#residential">
+        <rdfs:label xml:lang="en">residential</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
     </owl:Class>
     
 
@@ -128,6 +695,24 @@
     
 
 
+    <!-- http://osmtaginfo#retirement_home -->
+
+    <owl:Class rdf:about="http://osmtaginfo#retirement_home">
+        <rdfs:label xml:lang="en">retirement_home</rdfs:label>
+        <rdfs:comment xml:lang="en">A home for elderly persons.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#sauna -->
+
+    <owl:Class rdf:about="http://osmtaginfo#sauna">
+        <rdfs:label xml:lang="en">sauna</rdfs:label>
+        <rdfs:comment xml:lang="en">Small room or house to experience dry or wet heat sessions.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://osmtaginfo#school -->
 
     <owl:Class rdf:about="http://osmtaginfo#school">
@@ -137,11 +722,56 @@
     
 
 
-    <!-- http://osmtaginfo#supermarket -->
+    <!-- http://osmtaginfo#shelter -->
 
-    <owl:Class rdf:about="http://osmtaginfo#supermarket">
-        <rdfs:label xml:lang="en">supermarket</rdfs:label>
-        <rdfs:comment xml:lang="en">A large store for groceries and other goods.</rdfs:comment>
+    <owl:Class rdf:about="http://osmtaginfo#shelter">
+        <rdfs:label xml:lang="en">shelter</rdfs:label>
+        <rdfs:comment xml:lang="en">Small place to protect against bad weather conditions</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#shop -->
+
+    <owl:Class rdf:about="http://osmtaginfo#shop">
+        <rdfs:label xml:lang="en">shop</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#shower -->
+
+    <owl:Class rdf:about="http://osmtaginfo#shower">
+        <rdfs:label xml:lang="en">shower</rdfs:label>
+        <rdfs:comment xml:lang="en">Public showers</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#social_centre -->
+
+    <owl:Class rdf:about="http://osmtaginfo#social_centre">
+        <rdfs:label xml:lang="en">social_centre</rdfs:label>
+        <rdfs:comment xml:lang="en">A centre of fraternities, sororities, professional societies, union halls and other nonprofit organization.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#social_facility -->
+
+    <owl:Class rdf:about="http://osmtaginfo#social_facility">
+        <rdfs:label xml:lang="en">social_facility</rdfs:label>
+        <rdfs:comment xml:lang="en">A facility that provides social services</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#studio -->
+
+    <owl:Class rdf:about="http://osmtaginfo#studio">
+        <rdfs:label xml:lang="en">studio</rdfs:label>
+        <rdfs:comment xml:lang="en">A studio used for creating radio or television programmes and broadcasting them.  It can also be used to mark a music recording studio.</rdfs:comment>
     </owl:Class>
     
 
@@ -151,6 +781,141 @@
     <owl:Class rdf:about="http://osmtaginfo#swimming_pool">
         <rdfs:label xml:lang="en">swimming_pool</rdfs:label>
         <rdfs:comment xml:lang="en">A place built for swimming</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#taxi -->
+
+    <owl:Class rdf:about="http://osmtaginfo#taxi">
+        <rdfs:label xml:lang="en">taxi</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where taxis wait for passengers. Often found at airports, hotels, railway/bus/subway stations, large shopping centers...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#telephone -->
+
+    <owl:Class rdf:about="http://osmtaginfo#telephone">
+        <rdfs:label xml:lang="en">telephone</rdfs:label>
+        <rdfs:comment xml:lang="en">A Public telephone</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#theatre -->
+
+    <owl:Class rdf:about="http://osmtaginfo#theatre">
+        <rdfs:label xml:lang="en">theatre</rdfs:label>
+        <rdfs:comment xml:lang="en">Place where live theatrical performances are held.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#toilets -->
+
+    <owl:Class rdf:about="http://osmtaginfo#toilets">
+        <rdfs:label xml:lang="en">toilets</rdfs:label>
+        <rdfs:comment xml:lang="en">Publicly accessible toilets</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#townhall -->
+
+    <owl:Class rdf:about="http://osmtaginfo#townhall">
+        <rdfs:label xml:lang="en">townhall</rdfs:label>
+        <rdfs:comment xml:lang="en">A building where the administration of a village, town or city may be located, or it may just serve as a community meeting place.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#university -->
+
+    <owl:Class rdf:about="http://osmtaginfo#university">
+        <rdfs:label xml:lang="en">university</rdfs:label>
+        <rdfs:comment xml:lang="en">An educational institution designed for instruction, examination, or both, of students in many branches of advanced learning.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#vending_machine -->
+
+    <owl:Class rdf:about="http://osmtaginfo#vending_machine">
+        <rdfs:label xml:lang="en">vending_machine</rdfs:label>
+        <rdfs:comment xml:lang="en">A machine to vend goods, tickets and so on</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#veterinary -->
+
+    <owl:Class rdf:about="http://osmtaginfo#veterinary">
+        <rdfs:label xml:lang="en">veterinary</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where a veterinary surgeon / veterinarian (vet) practices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#wash_center -->
+
+    <owl:Class rdf:about="http://osmtaginfo#wash_center">
+        <rdfs:label xml:lang="en">wash_center</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#waste_basket -->
+
+    <owl:Class rdf:about="http://osmtaginfo#waste_basket">
+        <rdfs:label xml:lang="en">waste_basket</rdfs:label>
+        <rdfs:comment xml:lang="en">A single small container for depositing garbage that is easily accesible for pedestrians.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#waste_disposal -->
+
+    <owl:Class rdf:about="http://osmtaginfo#waste_disposal">
+        <rdfs:label xml:lang="en">waste_disposal</rdfs:label>
+        <rdfs:comment xml:lang="en">A place where canal boaters, caravaners etc. can dispose of rubbish (trash/waste).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#water -->
+
+    <owl:Class rdf:about="http://osmtaginfo#water">
+        <rdfs:label xml:lang="en">water</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#watering_place -->
+
+    <owl:Class rdf:about="http://osmtaginfo#watering_place">
+        <rdfs:label xml:lang="en">watering_place</rdfs:label>
+        <rdfs:comment xml:lang="en">Place where water is contained and animals can drink.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#yes -->
+
+    <owl:Class rdf:about="http://osmtaginfo#yes">
+        <rdfs:label xml:lang="en">yes</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://osmtaginfo#youth_centre -->
+
+    <owl:Class rdf:about="http://osmtaginfo#youth_centre">
+        <rdfs:label xml:lang="en">youth_centre</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

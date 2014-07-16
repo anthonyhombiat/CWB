@@ -13,7 +13,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
+import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.core.tagging.IFolksonomy;
 import lig.steamer.cwb.io.CWBDataModelReader;
 import lig.steamer.cwb.io.CWBDataModelWriter;
@@ -25,13 +26,13 @@ import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBMatchedDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.AppUI;
-import lig.steamer.cwb.ui.Msg;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
 import lig.steamer.cwb.util.wsclient.TaggingWebService;
 import lig.steamer.cwb.util.wsclient.taginfo.TagInfoClient;
 
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import com.vaadin.data.Property.ValueChangeEvent;
@@ -223,11 +224,11 @@ public class CWBController implements Serializable {
 			writer.write(model);
 
 			FileResource resource = new FileResource(new File(
-								CWBProperties.CWB_OUTPUT_DIR + File.separatorChar
-										+ CWBProperties.DEFAULT_PROJECT_NAME
-										+ CWBProperties.CWB_PROJECT_FORMAT));
+					Prop.DIR_OUTPUT + File.separatorChar
+							+ Prop.DEFAULT_PROJECT_NAME + Prop.FMT_CWB));
 
-			Page.getCurrent().open(resource, "http://cwb.imag.fr/download", false);
+			Page.getCurrent().open(resource, "http://cwb.imag.fr/download",
+					false);
 
 		}
 
@@ -295,9 +296,8 @@ public class CWBController implements Serializable {
 
 			try {
 
-				file = new File(CWBProperties.CWB_TMP_DIR + File.separator
-						+ CWBProperties.TMP_FILE_NAME
-						+ CWBProperties.CWB_PROJECT_FORMAT);
+				file = new File(Prop.DIR_TMP + File.separator
+						+ Prop.FILENAME_TMP + Prop.FMT_CWB);
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
@@ -314,9 +314,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
-			String path = CWBProperties.CWB_TMP_DIR + File.separator
-					+ CWBProperties.TMP_FILE_NAME
-					+ CWBProperties.CWB_PROJECT_FORMAT;
+			String path = Prop.DIR_TMP + File.separator
+					+ Prop.FILENAME_TMP + Prop.FMT_CWB;
 
 			CWBModelReader reader = new CWBModelReader();
 			model = reader.read(path);
@@ -433,10 +432,9 @@ public class CWBController implements Serializable {
 								InputStream is = resource.getStreamSource()
 										.getStream();
 
-								String path = CWBProperties.CWB_TMP_DIR
-										+ File.separator
-										+ CWBProperties.DEFAULT_PROJECT_NAME
-										+ CWBProperties.CWB_PROJECT_FORMAT;
+								String path = Prop.DIR_TMP + File.separator
+										+ Prop.DEFAULT_PROJECT_NAME
+										+ Prop.FMT_CWB;
 
 								File f = new File(path);
 
@@ -520,9 +518,8 @@ public class CWBController implements Serializable {
 
 			try {
 
-				file = new File(CWBProperties.CWB_TMP_DIR + File.separator
-						+ CWBProperties.TMP_FILE_NAME
-						+ CWBProperties.OWL_FILE_FORMAT);
+				file = new File(Prop.DIR_TMP + File.separator
+						+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
@@ -544,9 +541,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
-			File file = new File(CWBProperties.CWB_TMP_DIR + File.separatorChar
-					+ CWBProperties.TMP_FILE_NAME
-					+ CWBProperties.OWL_FILE_FORMAT);
+			File file = new File(Prop.DIR_TMP + File.separatorChar
+					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
 			CWBDataModelReader parser = new CWBDataModelReader();
 			CWBDataModel dataModel = null;
@@ -771,19 +767,19 @@ public class CWBController implements Serializable {
 			CWBDataModel dataModel2 = (CWBDataModel) iterator.next();
 
 			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
-					CWBProperties.CWB_NAMESPACE, dataModel1.getNamespace(),
-					dataModel2.getNamespace());
+					IRI.create(Prop.CWB_NAMESPACE),
+					dataModel1.getNamespace(), dataModel2.getNamespace());
 
 			dataModel.addConcepts(dataModel1.getConcepts());
 			dataModel.addConcepts(dataModel2.getConcepts());
 
 			CWBDataModelWriter writer1 = new CWBDataModelWriter(dataModel1,
-					CWBProperties.SOURCE_ONTOLOGY_FILE_NAME);
+					Prop.FILENAME_SOURCE_ONTO);
 			writer1.write();
 			writer1.flush();
 
 			CWBDataModelWriter writer2 = new CWBDataModelWriter(dataModel2,
-					CWBProperties.TARGET_ONTOLOGY_FILE_NAME);
+					Prop.FILENAME_TARGET_ONTO);
 			writer2.write();
 			writer2.flush();
 

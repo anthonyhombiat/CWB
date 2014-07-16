@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.io.exception.OntologyFormatException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBModel;
@@ -29,8 +29,8 @@ public class CWBModelReader {
 				+ "...");
 
 		CWBModel model = new CWBModel();
-		String destinationPath = CWBProperties.CWB_TMP_DIR + File.separatorChar
-				+ CWBProperties.DEFAULT_PROJECT_NAME;
+		String destinationPath = Prop.DIR_TMP + File.separatorChar
+				+ Prop.DEFAULT_PROJECT_NAME;
 
 		ZipUtility zipUtil = new ZipUtility();
 		zipUtil.unzip(projectPath, destinationPath);
@@ -49,7 +49,7 @@ public class CWBModelReader {
 	private Collection<CWBDataModel> loadDataModels(String projectRootDir) {
 
 		File dataModelsDir = new File(projectRootDir + File.separatorChar
-				+ CWBProperties.DATAMODELS_DIR_NAME);
+				+ Prop.DIRNAME_DATAMODELS);
 
 		LOGGER.log(Level.INFO,
 				"Loading data models from " + dataModelsDir.getAbsolutePath()

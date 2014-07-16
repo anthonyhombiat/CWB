@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.CWBProperties;
+import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -71,11 +71,11 @@ public class CWBDataModelWriter {
 
 	public CWBDataModelWriter(CWBDataModel dataModel, String filename,
 			String outputDir) {
-		this(dataModel, filename, outputDir, CWBProperties.OWL_FILE_FORMAT);
+		this(dataModel, filename, outputDir, Prop.FMT_OWL);
 	}
 
 	public CWBDataModelWriter(CWBDataModel dataModel, String filename) {
-		this(dataModel, filename, CWBProperties.CWB_OUTPUT_DIR);
+		this(dataModel, filename, Prop.DIR_OUTPUT);
 	}
 
 	/**
