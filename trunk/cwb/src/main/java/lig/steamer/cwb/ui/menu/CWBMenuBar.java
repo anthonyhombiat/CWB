@@ -10,7 +10,7 @@ public class CWBMenuBar extends MenuBar {
 
 	private final MenuItem openMenuItem;
 	private final MenuItem saveMenuItem;
-	private final MenuItem saveAsMenuItem;
+	private final MenuItem closeMenuItem;
 	private final MenuItem quitMenuItem;
 
 	private final MenuItem undoMenuItem;
@@ -23,6 +23,8 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem matchMenuItem;
 	
 	private final MenuItem dataModelsMenuItem;
+	private final MenuItem indicatorsMenuItem;
+	private final MenuItem mapMenuItem;
 
 	private final MenuItem aboutMenuItem;
 	private final MenuItem docMenuItem;
@@ -42,10 +44,12 @@ public class CWBMenuBar extends MenuBar {
 
 		openMenuItem = fileItem.addItem(
 				Msg.get("main.menu.file.open"), null);
-		saveAsMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.saveas"), null);
+		
 		saveMenuItem = fileItem.addItem(
 				Msg.get("main.menu.file.save"), null);
+		
+		closeMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.close"), null);
 		
 		fileItem.addSeparator();
 
@@ -98,6 +102,12 @@ public class CWBMenuBar extends MenuBar {
 		 */
 
 		this.addItem(Msg.get("main.menu.indicators"), null);
+		
+		/*
+		 * Map
+		 */
+
+		this.addItem(Msg.get("main.menu.map"), null);
 
 		/*
 		 * Window
@@ -108,6 +118,14 @@ public class CWBMenuBar extends MenuBar {
 		dataModelsMenuItem = windowItem.addItem(Msg.get("main.menu.window.datamodels.caption"), null);
 		dataModelsMenuItem.setCheckable(true);
 		dataModelsMenuItem.setChecked(true);
+		
+		indicatorsMenuItem = windowItem.addItem(Msg.get("main.menu.window.indicators.caption"), null);
+		indicatorsMenuItem.setCheckable(true);
+		indicatorsMenuItem.setChecked(true);
+		
+		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.caption"), null);
+		mapMenuItem.setCheckable(true);
+		mapMenuItem.setChecked(true);
 		
 		/*
 		 * Help
@@ -166,12 +184,12 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getSaveMenuItem() {
 		return saveMenuItem;
 	}
-
+	
 	/**
-	 * @return the saveAsMenuItem
+	 * @return the closeMenuItem
 	 */
-	public MenuItem getSaveAsMenuItem() {
-		return saveAsMenuItem;
+	public MenuItem getCloseMenuItem() {
+		return closeMenuItem;
 	}
 
 	/**
@@ -191,7 +209,7 @@ public class CWBMenuBar extends MenuBar {
 	/**
 	 * @return the loadNomenclatureMenuItem
 	 */
-	public MenuItem getLoadNomenclatureFromFileMenuItem() {
+	public MenuItem getLoadNomenFromFileMenuItem() {
 		return loadNomenclatureFromFileMenuItem;
 	}
 	
@@ -221,6 +239,20 @@ public class CWBMenuBar extends MenuBar {
 	 */
 	public MenuItem getDataModelsMenuItem() {
 		return dataModelsMenuItem;
+	}
+	
+	/**
+	 * @return the indicatorsMenuItem
+	 */
+	public MenuItem getIndicatorsMenuItem() {
+		return indicatorsMenuItem;
+	}
+	
+	/**
+	 * @return the mapMenuItem
+	 */
+	public MenuItem getMapMenuItem() {
+		return mapMenuItem;
 	}
 	
 }

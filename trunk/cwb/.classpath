@@ -31,11 +31,6 @@
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4.jar" sourcepath="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/xerces/xercesImpl/2.7.1/xercesImpl-2.7.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0-sources.jar">
-    <attributes>
-      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-distribution/3.5.0/owlapi-distribution-3.5.0-javadoc.jar!/" name="javadoc_location"/>
-    </attributes>
-  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0.jar" sourcepath="M2_REPO/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0-sources.jar">
     <attributes>
       <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/net/sourceforge/owlapi/owlapi-apibinding/3.5.0/owlapi-apibinding-3.5.0-javadoc.jar!/" name="javadoc_location"/>
@@ -92,22 +87,11 @@
       <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/commons-codec/commons-codec/1.6/commons-codec-1.6-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/commons-configuration/commons-configuration/1.9/commons-configuration-1.9.jar" sourcepath="M2_REPO/commons-configuration/commons-configuration/1.9/commons-configuration-1.9-sources.jar">
-    <attributes>
-      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/commons-configuration/commons-configuration/1.9/commons-configuration-1.9-javadoc.jar!/" name="javadoc_location"/>
-    </attributes>
-  </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar">
-    <attributes>
-      <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/commons-lang/commons-lang/2.6/commons-lang-2.6-javadoc.jar!/" name="javadoc_location"/>
-    </attributes>
-  </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/semanticweb/owl/align/4.6/align-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/align/alignsvc/4.6/alignsvc-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/align/procalign/4.6/procalign-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/ontowrap/4.6/ontowrap-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/ontosim/2.4/ontosim-2.4.jar"/>
-  <classpathentry kind="var" path="M2_REPO/de/tudarmstadt/ke/sw/matching/wikimatch/1.0/wikimatch-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/ekaw/bda/yam/2012/yam-2012.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sf/jung/jung-3d-demos/2.0.1/jung-3d-demos-2.0.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01.jar"/>
@@ -154,7 +138,6 @@
   <classpathentry kind="var" path="M2_REPO/com/memetix/microsoft-translator-java-api/0.6.2/microsoft-translator-java-api-0.6.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-snowball/3.0.1/lucene-snowball-3.0.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/edu/thu/keg/rimom2/1.0/rimom2-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/vaadin/vaadin-server/7.2.0/vaadin-server-7.2.0.jar" sourcepath="M2_REPO/com/vaadin/vaadin-server/7.2.0/vaadin-server-7.2.0-sources.jar">
     <attributes>
       <attribute value="jar:file:/D:/DevelopmentSoftware/mvn_repos/com/vaadin/vaadin-server/7.2.0/vaadin-server-7.2.0-javadoc.jar!/" name="javadoc_location"/>

@@ -122,7 +122,7 @@ public class CWBModel implements Serializable, CWBVisitable {
 		}
 		return hasChanged;
 	}
-	
+
 	/**
 	 * @return the indicatorModels
 	 */
@@ -136,7 +136,7 @@ public class CWBModel implements Serializable, CWBVisitable {
 	public void setIndicatorModels(Collection<CWBIndicatorModel> indicatorModels) {
 		this.indicatorModels = indicatorModels;
 	}
-	
+
 	public boolean addIndicatorModel(CWBIndicatorModel indicatorModel) {
 		if (!indicatorModels.contains(indicatorModel)) {
 			indicatorModels.add(indicatorModel);
@@ -153,7 +153,8 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return false;
 	}
 
-	public boolean addIndicatorModels(Collection<CWBIndicatorModel> indicatorModels) {
+	public boolean addIndicatorModels(
+			Collection<CWBIndicatorModel> indicatorModels) {
 		boolean hasChanged = false;
 		for (CWBIndicatorModel indicatorModel : indicatorModels) {
 			if (addIndicatorModel(indicatorModel)) {
@@ -163,7 +164,8 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return hasChanged;
 	}
 
-	public boolean removeIndicatorModels(Collection<CWBIndicatorModel> indicatorModels) {
+	public boolean removeIndicatorModels(
+			Collection<CWBIndicatorModel> indicatorModels) {
 		boolean hasChanged = false;
 		for (CWBIndicatorModel indicatorModel : indicatorModels) {
 			if (removeIndicatorModel(indicatorModel)) {
@@ -187,8 +189,9 @@ public class CWBModel implements Serializable, CWBVisitable {
 			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
 		this.indicatorMeasureSets = indicatorMeasureSets;
 	}
-	
-	public boolean addIndicatorMeasureSet(CWBIndicatorMeasureSet indicatorMeasureSet) {
+
+	public boolean addIndicatorMeasureSet(
+			CWBIndicatorMeasureSet indicatorMeasureSet) {
 		if (!indicatorMeasureSets.contains(indicatorMeasureSet)) {
 			indicatorMeasureSets.add(indicatorMeasureSet);
 			return true;
@@ -196,7 +199,8 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return false;
 	}
 
-	public boolean removeIndicatorMeasureSet(CWBIndicatorMeasureSet indicatorMeasureSet) {
+	public boolean removeIndicatorMeasureSet(
+			CWBIndicatorMeasureSet indicatorMeasureSet) {
 		if (indicatorMeasureSets.contains(indicatorMeasureSet)) {
 			indicatorMeasureSets.remove(indicatorMeasureSet);
 			return true;
@@ -204,7 +208,8 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return false;
 	}
 
-	public boolean addIndicatorMeasureSets(Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
+	public boolean addIndicatorMeasureSets(
+			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
 		boolean hasChanged = false;
 		for (CWBIndicatorMeasureSet indicatorMeasureSet : indicatorMeasureSets) {
 			if (addIndicatorMeasureSet(indicatorMeasureSet)) {
@@ -214,7 +219,8 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return hasChanged;
 	}
 
-	public boolean removeIndicatorMeasureSets(Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
+	public boolean removeIndicatorMeasureSets(
+			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
 		boolean hasChanged = false;
 		for (CWBIndicatorMeasureSet indicatorMeasureSet : indicatorMeasureSets) {
 			if (removeIndicatorMeasureSet(indicatorMeasureSet)) {
@@ -227,6 +233,11 @@ public class CWBModel implements Serializable, CWBVisitable {
 	@Override
 	public void acceptCWBVisitor(CWBVisitor visitor) {
 		visitor.visitModel(this);
+	}
+
+	public boolean isEmpty() {
+		return dataModels.isEmpty() && dataSets.isEmpty()
+				&& indicatorModels.isEmpty() && indicatorMeasureSets.isEmpty();
 	}
 
 }

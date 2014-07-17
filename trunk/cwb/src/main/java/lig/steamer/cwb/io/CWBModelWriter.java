@@ -1,8 +1,11 @@
 package lig.steamer.cwb.io;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.apache.commons.io.FileUtils;
 
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.io.visitor.CWBOwlRendererVisitor;
@@ -24,11 +27,16 @@ public class CWBModelWriter {
 	 */
 	public File write(CWBModel model) {
 
-		LOGGER.log(Level.INFO, "Saving project to " + Prop.DIR_TMP
+		LOGGER.log(Level.INFO, "Saving project to " + Prop.DIR_OUTPUT
 				+ "...");
 
 		File projectRootDir = new File(Prop.DIR_TMP + File.separatorChar
 				+ Prop.DEFAULT_PROJECT_NAME);
+		
+		File zipFile = new File(Prop.DIR_OUTPUT + File.separatorChar
+				+ Prop.DEFAULT_PROJECT_NAME
+				+ Prop.FMT_CWB);
+		
 		projectRootDir.mkdir();
 		
 		CWBOwlRendererVisitor visitor = new CWBOwlRendererVisitor(
@@ -36,19 +44,20 @@ public class CWBModelWriter {
 
 		model.acceptCWBVisitor(visitor);
 
-		File zip = new File(Prop.DIR_OUTPUT + File.separatorChar
-				+ Prop.DEFAULT_PROJECT_NAME
-				+ Prop.FMT_CWB);
+		ZipUtility zipUtil = new ZipUtility();
+		zipUtil.zipDirectory(projectRootDir,
+				zipFile.getAbsolutePath());
 
-		ZipUtility ziputil = new ZipUtility();
-		ziputil.zipDirectory(new File(Prop.DIR_TMP
-				+ File.separatorChar + Prop.DEFAULT_PROJECT_NAME),
-				zip.getAbsolutePath());
-
-		LOGGER.log(Level.INFO, "Project saved to " + Prop.DIR_TMP
+		try {
+			FileUtils.deleteDirectory(projectRootDir);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		LOGGER.log(Level.INFO, "Project saved to " + Prop.DIR_OUTPUT
 				+ ".");
 
-		return zip;
+		return zipFile;
 
 	}
 }

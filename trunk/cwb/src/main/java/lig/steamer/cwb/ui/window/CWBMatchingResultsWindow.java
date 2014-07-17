@@ -25,7 +25,7 @@ public class CWBMatchingResultsWindow extends Window {
 
 	private final Table table;
 	private final Button confirmButton;
-	private BeanItemContainer<CWBEquivalence> container;
+	private final BeanItemContainer<CWBEquivalence> container;
 
 	public CWBMatchingResultsWindow() {
 
@@ -126,6 +126,10 @@ public class CWBMatchingResultsWindow extends Window {
 		this.setModal(true);
 		this.setContent(rootLayout);
 
+	}
+	
+	public void reset(){
+		table.removeAllItems();
 	}
 
 	class CWBCheckBoxColumnGenerator implements ColumnGenerator {

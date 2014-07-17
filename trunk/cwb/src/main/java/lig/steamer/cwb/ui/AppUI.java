@@ -9,9 +9,11 @@ import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.menu.CWBMenuBar;
 import lig.steamer.cwb.ui.panel.CWBDataModelsPanel;
+import lig.steamer.cwb.ui.panel.CWBIndicatorsPanel;
 import lig.steamer.cwb.ui.panel.CWBMapPanel;
-import lig.steamer.cwb.ui.window.CWBLoadNomenclatureFromFileWindow;
-import lig.steamer.cwb.ui.window.CWBLoadTagsetWindow;
+import lig.steamer.cwb.ui.window.CWBLoadNomenFromFileWindow;
+import lig.steamer.cwb.ui.window.CWBLoadTagsetFromFileWindow;
+import lig.steamer.cwb.ui.window.CWBLoadTagsetFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBMatchingResultsWindow;
 import lig.steamer.cwb.ui.window.CWBMatchingWindow;
 import lig.steamer.cwb.ui.window.CWBOpenProjectWindow;
@@ -33,6 +35,7 @@ import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar.Command;
+import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.Table;
@@ -55,12 +58,17 @@ public class AppUI extends UI {
 	private CWBController controller;
 
 	private final CWBMenuBar menuBar = new CWBMenuBar();
+	private final VerticalLayout leftLayout = new VerticalLayout();
+	private final TabSheet tabSheet = new TabSheet();
 	
 	private final CWBDataModelsPanel dataModelsPanel = new CWBDataModelsPanel();
+	private final CWBIndicatorsPanel indicatorsPanel = new CWBIndicatorsPanel();
+	CWBMapPanel map = new CWBMapPanel();
 	
 	private final CWBOpenProjectWindow openProjectWindow = new CWBOpenProjectWindow();
-	private final CWBLoadTagsetWindow loadTagsetWindow = new CWBLoadTagsetWindow();
-	private final CWBLoadNomenclatureFromFileWindow loadNomenclatureFromFileWindow = new CWBLoadNomenclatureFromFileWindow();
+	private final CWBLoadTagsetFromWSWindow loadTagsetFromWSWindow = new CWBLoadTagsetFromWSWindow();
+	private final CWBLoadNomenFromFileWindow loadNomenFromFileWindow = new CWBLoadNomenFromFileWindow();
+	private final CWBLoadTagsetFromFileWindow loadTagsetFromFileWindow = new CWBLoadTagsetFromFileWindow();
 	private final CWBMatchingWindow matchingWindow = new CWBMatchingWindow();
 	private final CWBMatchingResultsWindow matchingResultsWindow = new CWBMatchingResultsWindow();
 
@@ -86,29 +94,25 @@ public class AppUI extends UI {
 		 * Tabsheet
 		 */
 
-		final TabSheet tabSheet = new TabSheet();
 		tabSheet.setSizeFull();
 
-		VerticalLayout dataTab = new VerticalLayout();
-		dataTab.setSizeFull();
-
-		VerticalLayout indicatorsTab = new VerticalLayout();
-		indicatorsTab.setSizeFull();
-
-		CWBMapPanel map = new CWBMapPanel();
 		map.setSizeFull();
 
-		tabSheet.addTab(dataTab, Msg.get("tabsheet.data.caption"));
-		tabSheet.addTab(indicatorsTab,
-				Msg.get("tabsheet.indicators.caption"));
 		tabSheet.addTab(map, Msg.get("tabsheet.map.caption"));
 		tabSheet.setSelectedTab(map);
 
+		leftLayout.addComponent(dataModelsPanel);
+		leftLayout.addComponent(indicatorsPanel);
+		leftLayout.setExpandRatio(dataModelsPanel, 0.5f);
+		leftLayout.setExpandRatio(indicatorsPanel, 0.5f);
+		leftLayout.setSizeFull();
+		leftLayout.setSpacing(true);
+		
 		final HorizontalLayout centralLayout = new HorizontalLayout();
-		centralLayout.addComponent(dataModelsPanel);
+		centralLayout.addComponent(leftLayout);
 		centralLayout.addComponent(tabSheet);
-		centralLayout.setExpandRatio(dataModelsPanel, 0.25f);
-		centralLayout.setExpandRatio(tabSheet, 0.75f);
+		centralLayout.setExpandRatio(leftLayout, 0.3f);
+		centralLayout.setExpandRatio(tabSheet, 0.7f);
 		centralLayout.setSizeFull();
 		centralLayout.setSpacing(true);
 		centralLayout.setMargin(true);
@@ -136,10 +140,23 @@ public class AppUI extends UI {
 		controller = new CWBController(new CWBModel(), this);
 		
 	}
-
-	/*
-	 * Embedded component getter
+	
+	public void clear(){
+		dataModelsPanel.clear();
+		indicatorsPanel.clear();
+		map.clear();
+	}
+	
+	/**********************************/
+	/*** EMBEDDED COMPONENT GETTERS ***/
+	/**********************************/
+	
+	/**
+	 * @return the saveMenuItem
 	 */
+	public MenuItem getSaveMenuItem() {
+		return menuBar.getSaveMenuItem();
+	}
 	
 	/**
 	 * @return the openProjectWindow
@@ -149,24 +166,31 @@ public class AppUI extends UI {
 	}
 	
 	/**
-	 * @return the loadTagsetWindow
+	 * @return the loadTagsetFromWSWindow
 	 */
-	public Window getLoadTagsetWindow() {
-		return loadTagsetWindow;
+	public Window getLoadTagsetFromWSWindow() {
+		return loadTagsetFromWSWindow;
 	}
 	
 	/**
-	 * @return the loadTagsetWindow tagWebServiceCombobox
+	 * @return the loadTagsetFromWSWindow tagWSCombobox
 	 */
-	public ComboBox getTagWebServiceCombobox(){
-		return loadTagsetWindow.getTagWebServiceComboBox();
+	public ComboBox getTagWSCombobox(){
+		return loadTagsetFromWSWindow.getTagWSComboBox();
 	}
 	
 	/**
-	 * @return the loadTagsetWindow loadButton
+	 * @return the loadTagsetFromWSWindow loadButton
 	 */
-	public Button getLoadTagsetButton(){
-		return loadTagsetWindow.getLoadButton();
+	public Button getLoadTagsetFromWSButton(){
+		return loadTagsetFromWSWindow.getLoadButton();
+	}
+	
+	/**
+	 * @return the leftLayout
+	 */
+	public VerticalLayout getLeftLayout() {
+		return leftLayout;
 	}
 	
 	/**
@@ -177,6 +201,13 @@ public class AppUI extends UI {
 	}
 	
 	/**
+	 * @return the indicatorsPanel
+	 */
+	public CWBIndicatorsPanel getIndicatorsPanel() {
+		return indicatorsPanel;
+	}
+	
+	/**
 	 * @return the dataModelsPanel accordion
 	 */
 	public Accordion getDataModelsPanelAccordion() {
@@ -184,10 +215,17 @@ public class AppUI extends UI {
 	}
 	
 	/**
+	 * @return the loadTagsetFromFileWindow
+	 */
+	public CWBLoadTagsetFromFileWindow getLoadTagsetFromFileWindow() {
+		return loadTagsetFromFileWindow;
+	}
+	
+	/**
 	 * @return the loadNomenclatureFromFileWindow
 	 */
-	public CWBLoadNomenclatureFromFileWindow getLoadNomenclatureFromFileWindow() {
-		return loadNomenclatureFromFileWindow;
+	public CWBLoadNomenFromFileWindow getLoadNomenFromFileWindow() {
+		return loadNomenFromFileWindow;
 	}
 
 	/**
@@ -232,20 +270,31 @@ public class AppUI extends UI {
 		return matchingResultsWindow.getTable();
 	}
 	
-	/*
-	 * Add listener methods
+	/**
+	 * @return the tabSheet
 	 */
-	
-	public void addLoadTagsetButtonListener(ClickListener listener) {
-		loadTagsetWindow.getLoadButton().addClickListener(listener);
+	public TabSheet getTabSheet(){
+		return tabSheet;
 	}
 	
-	public void addOpenProjectMenuItemCommand(Command command){
+	/****************************/
+	/*** ADD LISTENER METHODS ***/
+	/****************************/
+	
+	public void addLoadTagsetButtonListener(ClickListener listener) {
+		loadTagsetFromWSWindow.getLoadButton().addClickListener(listener);
+	}
+	
+	public void addOpenMenuItemCommand(Command command){
 		menuBar.getOpenMenuItem().setCommand(command);
 	}
 	
-	public void addSaveProjectMenuItemCommand(Command command){
+	public void addSaveMenuItemCommand(Command command){
 		menuBar.getSaveMenuItem().setCommand(command);
+	}
+	
+	public void addCloseMenuItemCommand(Command command){
+		menuBar.getCloseMenuItem().setCommand(command);
 	}
 	
 	public void addAboutMenuItemCommand(Command command){
@@ -260,43 +309,54 @@ public class AppUI extends UI {
 		menuBar.getLoadTagsetFromWSMenuItem().setCommand(command);
 	}
 	
-	public void addLoadNomenclatureFromFileMenuItemCommand(Command command){
-		menuBar.getLoadNomenclatureFromFileMenuItem().setCommand(command);
+	public void addLoadTagsetFromFileMenuItemCommand(Command command){
+		menuBar.getLoadTagsetFromFileMenuItem().setCommand(command);
+	}
+	
+	public void addLoadNomenFromFileMenuItemCommand(Command command){
+		menuBar.getLoadNomenFromFileMenuItem().setCommand(command);
 	}
 	
 	public void addDataModelsMenuItemCommand(Command command){
 		menuBar.getDataModelsMenuItem().setCommand(command);
 	}
 	
+	public void addIndicatorsMenuItemCommand(Command command){
+		menuBar.getIndicatorsMenuItem().setCommand(command);
+	}
+	public void addMapMenuItemCommand(Command command){
+		menuBar.getMapMenuItem().setCommand(command);
+	}
+	
 	public void addMatchMenuItemCommand(Command command){
 		menuBar.getMatchMenuItem().setCommand(command);
 	}
 	
-	public void addTagWebServiceComboBoxListener(ValueChangeListener listener){
-		loadTagsetWindow.getTagWebServiceComboBox().addValueChangeListener(listener);
+	public void addTagWSComboBoxListener(ValueChangeListener listener){
+		loadTagsetFromWSWindow.getTagWSComboBox().addValueChangeListener(listener);
 	}
 	
-	public void addOpenProjectUploadComponentReceiver(Receiver receiver){
+	public void addOpenProjectUploadReceiver(Receiver receiver){
 		openProjectWindow.getUploadComponent().setReceiver(receiver);
 	}
 	
-	public void addOpenProjectUploadComponentSucceededListener(SucceededListener listener){
+	public void addOpenProjectUploadSucceededListener(SucceededListener listener){
 		openProjectWindow.getUploadComponent().addSucceededListener(listener);
 	}
 	
-	public void addOpenProjectUploadComponentFailedListener(FailedListener listener){
+	public void addOpenProjectUploadFailedListener(FailedListener listener){
 		openProjectWindow.getUploadComponent().addFailedListener(listener);
 	}
 	
-	public void addOpenProjectUploadComponentProgressListener(ProgressListener listener){
+	public void addOpenProjectUploadProgressListener(ProgressListener listener){
 		openProjectWindow.getUploadComponent().addProgressListener(listener);
 	}
 	
-	public void addOpenProjectUploadComponentFinishedListener(FinishedListener listener){
+	public void addOpenProjectUploadFinishedListener(FinishedListener listener){
 		openProjectWindow.getUploadComponent().addFinishedListener(listener);
 	}
 	
-	public void addOpenProjectUploadComponentStartedListener(StartedListener listener){
+	public void addOpenProjectUploadStartedListener(StartedListener listener){
 		openProjectWindow.getUploadComponent().addStartedListener(listener);
 	}
 	
@@ -304,32 +364,60 @@ public class AppUI extends UI {
 		openProjectWindow.getDropBox().setDropHandler(dropHandler);
 	}
 
-	public void addLoadNomenclatureFromFileUploadComponentReceiver(Receiver receiver){
-		loadNomenclatureFromFileWindow.getUploadComponent().setReceiver(receiver);
+	public void addLoadNomenFromFileUploadReceiver(Receiver receiver){
+		loadNomenFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
 	
-	public void addLoadNomenclatureFromFileUploadComponentSucceededListener(SucceededListener listener){
-		loadNomenclatureFromFileWindow.getUploadComponent().addSucceededListener(listener);
+	public void addLoadNomenFromFileUploadSucceededListener(SucceededListener listener){
+		loadNomenFromFileWindow.getUploadComponent().addSucceededListener(listener);
 	}
 	
-	public void addLoadNomenclatureFromFileUploadComponentFailedListener(FailedListener listener){
-		loadNomenclatureFromFileWindow.getUploadComponent().addFailedListener(listener);
+	public void addLoadNomenFromFileUploadFailedListener(FailedListener listener){
+		loadNomenFromFileWindow.getUploadComponent().addFailedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFromFileUploadComponentProgressListener(ProgressListener listener){
-		loadNomenclatureFromFileWindow.getUploadComponent().addProgressListener(listener);
+	public void addLoadNomenFromFileUploadProgressListener(ProgressListener listener){
+		loadNomenFromFileWindow.getUploadComponent().addProgressListener(listener);
 	}
 	
-	public void addLoadNomenclatureFromFileUploadComponentFinishedListener(FinishedListener listener){
-		loadNomenclatureFromFileWindow.getUploadComponent().addFinishedListener(listener);
+	public void addLoadNomenFromFileUploadFinishedListener(FinishedListener listener){
+		loadNomenFromFileWindow.getUploadComponent().addFinishedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFromFileUploadComponentStartedListener(StartedListener listener){
-		loadNomenclatureFromFileWindow.getUploadComponent().addStartedListener(listener);
+	public void addLoadNomenFromFileUploadStartedListener(StartedListener listener){
+		loadNomenFromFileWindow.getUploadComponent().addStartedListener(listener);
 	}
 	
-	public void addLoadNomenclatureFromFileDropBoxDropHandler(DropHandler dropHandler){
-		loadNomenclatureFromFileWindow.getDropBox().setDropHandler(dropHandler);
+	public void addLoadNomenFromFileDropBoxDropHandler(DropHandler dropHandler){
+		loadNomenFromFileWindow.getDropBox().setDropHandler(dropHandler);
+	}
+	
+	public void addLoadTagsetFromFileUploadReceiver(Receiver receiver){
+		loadTagsetFromFileWindow.getUploadComponent().setReceiver(receiver);
+	}
+	
+	public void addLoadTagsetFromFileUploadSucceededListener(SucceededListener listener){
+		loadTagsetFromFileWindow.getUploadComponent().addSucceededListener(listener);
+	}
+	
+	public void addLoadTagsetFromFileUploadFailedListener(FailedListener listener){
+		loadTagsetFromFileWindow.getUploadComponent().addFailedListener(listener);
+	}
+	
+	public void addLoadTagsetFromFileUploadProgressListener(ProgressListener listener){
+		loadTagsetFromFileWindow.getUploadComponent().addProgressListener(listener);
+	}
+	
+	public void addLoadTagsetFromFileUploadFinishedListener(FinishedListener listener){
+		loadTagsetFromFileWindow.getUploadComponent().addFinishedListener(listener);
+	}
+	
+	public void addLoadTagsetFromFileUploadStartedListener(StartedListener listener){
+		loadTagsetFromFileWindow.getUploadComponent().addStartedListener(listener);
+	}
+	
+	public void addLoadTagsetFromFileDropBoxDropHandler(DropHandler dropHandler){
+		loadTagsetFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
 	
 	public void addMatchingWindowTableValueChangeListener(ValueChangeListener listener){

@@ -11,11 +11,11 @@ public class CWBMapPanel extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static Coordinate DEFAULT_CENTER = new Coordinate(45.1841656,5.7155425);
-	public static int DEFAULT_ZOOM_LEVEL = 12;
-	public static String ATTRIBUTION_PREFIX = "Powered by Leaflet with v-leaflet";
+	public static final Coordinate DEFAULT_CENTER = new Coordinate(45.1841656,5.7155425);
+	public static final int DEFAULT_ZOOM_LEVEL = 12;
+	public static final String ATTRIBUTION_PREFIX = "Powered by Leaflet with v-leaflet";
 	
-	private LMap map;
+	private final LMap map;
 	
 	public CWBMapPanel(){
 		
@@ -33,6 +33,11 @@ public class CWBMapPanel extends Panel {
 		layout.addComponent(map);
 		
 		this.setContent(layout);
+	}
+	
+	public void clear(){
+	
+		
 		
 	}
 

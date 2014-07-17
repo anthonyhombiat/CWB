@@ -12,7 +12,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.Reindeer;
 
-public class CWBLoadNomenclatureFromFileWindow extends Window {
+public class CWBLoadNomenFromFileWindow extends Window {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class CWBLoadNomenclatureFromFileWindow extends Window {
 	private final Upload uploadComponent;
 	private final DragAndDropWrapper dropBox;
 
-	public CWBLoadNomenclatureFromFileWindow() {
+	public CWBLoadNomenFromFileWindow() {
 
 		super(Msg.get("load.nomenclature.file.caption"));
 

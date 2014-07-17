@@ -29,11 +29,12 @@ import lig.steamer.cwb.ui.AppUI;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
-import lig.steamer.cwb.util.wsclient.TaggingWebService;
+import lig.steamer.cwb.util.wsclient.TaggingWS;
 import lig.steamer.cwb.util.wsclient.taginfo.TagInfoClient;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.vaadin.dialogs.ConfirmDialog;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
@@ -78,31 +79,42 @@ public class CWBController implements Serializable {
 		this.model = model;
 		this.view = view;
 
-		view.addOpenProjectMenuItemCommand(new CWBOpenProjectMenuItemCommand());
-		view.addSaveProjectMenuItemCommand(new CWBSaveProjectMenuItemCommand());
+		view.addOpenMenuItemCommand(new CWBOpenMenuItemCommand());
+		view.addSaveMenuItemCommand(new CWBSaveMenuItemCommand());
+		view.addCloseMenuItemCommand(new CWBCloseMenuItemCommand());
 		view.addDocMenuItemCommand(new CWBDocMenuItemCommand());
 		view.addAboutMenuItemCommand(new CWBAboutMenuItemCommand());
 		view.addLoadTagsetFromWSMenuItemCommand(new CWBLoadTagsetMenuItemCommand());
-		view.addLoadNomenclatureFromFileMenuItemCommand(new CWBLoadNomenclatureFromFileMenuItemCommand());
+		view.addLoadTagsetFromFileMenuItemCommand(new CWBLoadTagsetFromFileMenuItemCommand());
+		view.addLoadNomenFromFileMenuItemCommand(new CWBLoadNomenFromFileMenuItemCommand());
 		view.addDataModelsMenuItemCommand(new CWBDataModelsMenuItemCommand());
+		view.addIndicatorsMenuItemCommand(new CWBIndicatorsMenuItemCommand());
+		view.addMapMenuItemCommand(new CWBMapMenuItemCommand());
 		view.addMatchMenuItemCommand(new CWBMatchMenuItemCommand());
 
-		view.addOpenProjectUploadComponentReceiver(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadComponentStartedListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadComponentFinishedListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadComponentProgressListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadComponentFailedListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadComponentSucceededListener(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadReceiver(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadStartedListener(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadFinishedListener(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadProgressListener(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadFailedListener(new CWBOpenProjectUploader());
+		view.addOpenProjectUploadSucceededListener(new CWBOpenProjectUploader());
 		view.addOpenProjectDropBoxDropHandler(new CWBOpenProjectDropHandler());
 		view.addLoadTagsetButtonListener(new CWBLoadTagButtonListener());
-		view.addTagWebServiceComboBoxListener(new CWBTagWebServiceComboBoxListener());
-		view.addLoadNomenclatureFromFileUploadComponentReceiver(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileUploadComponentStartedListener(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileUploadComponentFinishedListener(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileUploadComponentProgressListener(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileUploadComponentFailedListener(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileUploadComponentSucceededListener(new CWBLoadNomenclatureFromFileUploader());
-		view.addLoadNomenclatureFromFileDropBoxDropHandler(new CWBLoadNomenclatureFromFileDropHandler());
+		view.addTagWSComboBoxListener(new CWBTagWSComboBoxListener());
+		view.addLoadTagsetFromFileUploadReceiver(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileUploadStartedListener(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileUploadFinishedListener(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileUploadProgressListener(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileUploadFailedListener(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileUploadSucceededListener(new CWBLoadTagsetFromFileUploader());
+		view.addLoadTagsetFromFileDropBoxDropHandler(new CWBLoadTagsetFromFileDropHandler());
+		view.addLoadNomenFromFileUploadReceiver(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadStartedListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadFinishedListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadProgressListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadFailedListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadSucceededListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileDropBoxDropHandler(new CWBLoadNomenFromFileDropHandler());
 		view.addMatchingWindowTableValueChangeListener(new CWBMatchingTableValueChangeListener());
 		view.addMatchingWindowButtonClickListener(new CWBMatchingButtonListener());
 		view.addMatchingResultsWindowButtonClickListener(new CWBMatchingResultsButtonListener());
@@ -110,72 +122,88 @@ public class CWBController implements Serializable {
 
 	}
 
-	class CWBLoadTagButtonListener implements ClickListener {
+	/*********************/
+	/*** MENU COMMANDS ***/
+	/*********************/
+
+	class CWBOpenMenuItemCommand implements Command {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
-		public void buttonClick(ClickEvent event) {
+		public void menuSelected(MenuItem selectedItem) {
+			if (!model.isEmpty()) {
+				ConfirmDialog.show(view, Msg.get("confirm.close.caption"),
+						Msg.get("confirm.close.text"),
+						Msg.get("confirm.close.ok"),
+						Msg.get("confirm.close.ko"),
+						new ConfirmDialog.Listener() {
 
-			TaggingWebService selectedWebService = (TaggingWebService) view
-					.getTagWebServiceCombobox().getValue();
+							private static final long serialVersionUID = 1L;
 
-			CWBDataModel dataModel = null;
-
-			switch (selectedWebService) {
-
-			case TAG_INFO:
-
-				// Requesting tags from OSM TAGINFO Web Service
-				TagInfoClient tagInfoClient = new TagInfoClient();
-				IFolksonomy folksonomy = tagInfoClient
-						.getTagsByKey(TagInfoClient.DEFAULT_TAG_KEY);
-
-				Tag2OwlParser tag2owl = new Tag2OwlParser(
-						TagInfoClient.OSM_TAG_INFO_URI);
-				tag2owl.addTagSet(folksonomy);
-				OWLOntology ontology = tag2owl.getTagOntology();
-
-				CWBDataModelReader reader = new CWBDataModelReader();
-				try {
-					dataModel = reader.read(ontology);
-				} catch (OntologyFormatException e) {
-					e.printStackTrace();
-				}
-				break;
-
-			default:
-				return;
-
+							public void onClose(ConfirmDialog dialog) {
+								if (dialog.isConfirmed()) {
+									view.getSaveMenuItem()
+											.getCommand()
+											.menuSelected(
+													view.getSaveMenuItem());
+								}
+								UI.getCurrent().addWindow(
+										view.getOpenProjectWindow());
+							}
+						});
+			} else {
+				UI.getCurrent().addWindow(view.getOpenProjectWindow());
 			}
+		}
 
-			// Update model
-			model.addDataModel(dataModel);
+	}
 
-			// Update view
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+	class CWBSaveMenuItemCommand implements Command {
 
-			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+		private static final long serialVersionUID = 1L;
 
-			// Close pop-up window
-			view.getLoadTagsetWindow().close();
+		@SuppressWarnings("deprecation")
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+
+			CWBModelWriter writer = new CWBModelWriter();
+			writer.write(model);
+
+			FileResource resource = new FileResource(new File(Prop.DIR_OUTPUT
+					+ File.separatorChar + Prop.DEFAULT_PROJECT_NAME
+					+ Prop.FMT_CWB));
+
+			Page.getCurrent().open(resource, "http://cwb.imag.fr/download",
+					false);
 
 		}
 
 	}
 
-	class CWBTagWebServiceComboBoxListener implements ValueChangeListener {
+	class CWBCloseMenuItemCommand implements Command {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
-		public void valueChange(ValueChangeEvent event) {
-			view.getLoadTagsetButton().setEnabled(
-					event.getProperty().getValue() != null);
+		public void menuSelected(MenuItem selectedItem) {
+
+			ConfirmDialog.show(view, Msg.get("confirm.close.caption"),
+					Msg.get("confirm.close.text"), Msg.get("confirm.close.ok"),
+					Msg.get("confirm.close.ko"), new ConfirmDialog.Listener() {
+
+						private static final long serialVersionUID = 1L;
+
+						public void onClose(ConfirmDialog dialog) {
+							if (dialog.isConfirmed()) {
+								view.getSaveMenuItem().getCommand()
+										.menuSelected(view.getSaveMenuItem());
+							}
+							model = new CWBModel();
+							view.clear();
+						}
+					});
+
 		}
 
 	}
@@ -186,50 +214,29 @@ public class CWBController implements Serializable {
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getLoadTagsetWindow());
+			UI.getCurrent().addWindow(view.getLoadTagsetFromWSWindow());
 		}
 
 	}
 
-	class CWBLoadNomenclatureFromFileMenuItemCommand implements Command {
+	class CWBLoadTagsetFromFileMenuItemCommand implements Command {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getLoadNomenclatureFromFileWindow());
+			UI.getCurrent().addWindow(view.getLoadTagsetFromFileWindow());
 		}
 
 	}
 
-	class CWBOpenProjectMenuItemCommand implements Command {
+	class CWBLoadNomenFromFileMenuItemCommand implements Command {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getOpenProjectWindow());
-		}
-
-	}
-
-	class CWBSaveProjectMenuItemCommand implements Command {
-
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public void menuSelected(MenuItem selectedItem) {
-
-			CWBModelWriter writer = new CWBModelWriter();
-			writer.write(model);
-
-			FileResource resource = new FileResource(new File(
-					Prop.DIR_OUTPUT + File.separatorChar
-							+ Prop.DEFAULT_PROJECT_NAME + Prop.FMT_CWB));
-
-			Page.getCurrent().open(resource, "http://cwb.imag.fr/download",
-					false);
-
+			UI.getCurrent().addWindow(view.getLoadNomenFromFileWindow());
 		}
 
 	}
@@ -265,6 +272,34 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 			view.getDataModelsPanel().setVisible(selectedItem.isChecked());
+			view.getLeftLayout().setVisible(
+					view.getIndicatorsPanel().isVisible()
+							|| view.getDataModelsPanel().isVisible());
+		}
+
+	}
+
+	class CWBIndicatorsMenuItemCommand implements Command {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+			view.getIndicatorsPanel().setVisible(selectedItem.isChecked());
+			view.getLeftLayout().setVisible(
+					view.getIndicatorsPanel().isVisible()
+							|| view.getDataModelsPanel().isVisible());
+		}
+
+	}
+
+	class CWBMapMenuItemCommand implements Command {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+			view.getTabSheet().setVisible(selectedItem.isChecked());
 		}
 
 	}
@@ -275,9 +310,12 @@ public class CWBController implements Serializable {
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getMatchWindow());
+
+			view.getMatchingWindowTableContainer().removeAllItems();
 			view.getMatchingWindowTableContainer()
 					.addAll(model.getDataModels());
+
+			UI.getCurrent().addWindow(view.getMatchWindow());
 		}
 
 	}
@@ -314,11 +352,13 @@ public class CWBController implements Serializable {
 		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
-			String path = Prop.DIR_TMP + File.separator
-					+ Prop.FILENAME_TMP + Prop.FMT_CWB;
+			String path = Prop.DIR_TMP + File.separator + Prop.FILENAME_TMP
+					+ Prop.FMT_CWB;
 
 			CWBModelReader reader = new CWBModelReader();
 			model = reader.read(path);
+
+			view.clear();
 
 			for (CWBDataModel dataModel : model.getDataModels()) {
 				// Update view
@@ -448,12 +488,16 @@ public class CWBController implements Serializable {
 										os.write(bytes, 0, read);
 
 									}
+
+									os.close();
 								} catch (IOException e) {
 									e.printStackTrace();
 								}
 
 								CWBModelReader reader = new CWBModelReader();
 								model = reader.read(f.getAbsolutePath());
+
+								view.clear();
 
 								for (CWBDataModel dataModel : model
 										.getDataModels()) {
@@ -504,9 +548,9 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBLoadNomenclatureFromFileUploader implements Receiver,
-			ProgressListener, FailedListener, SucceededListener,
-			StartedListener, FinishedListener {
+	class CWBLoadNomenFromFileUploader implements Receiver, ProgressListener,
+			FailedListener, SucceededListener, StartedListener,
+			FinishedListener {
 
 		private static final long serialVersionUID = 1L;
 
@@ -571,7 +615,7 @@ public class CWBController implements Serializable {
 					.show(Page.getCurrent());
 
 			// Close pop-up window
-			view.getLoadNomenclatureFromFileWindow().close();
+			view.getLoadNomenFromFileWindow().close();
 
 		}
 
@@ -591,7 +635,7 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBLoadNomenclatureFromFileDropHandler implements DropHandler {
+	class CWBLoadNomenFromFileDropHandler implements DropHandler {
 
 		private static final long serialVersionUID = 1L;
 
@@ -699,8 +743,7 @@ public class CWBController implements Serializable {
 										.show(Page.getCurrent());
 
 								// Close pop-up window
-								view.getLoadNomenclatureFromFileWindow()
-										.close();
+								view.getLoadNomenFromFileWindow().close();
 
 							}
 
@@ -728,6 +771,308 @@ public class CWBController implements Serializable {
 			return AcceptAll.get();
 		}
 	}
+
+	class CWBLoadTagsetFromFileUploader implements Receiver, ProgressListener,
+			FailedListener, SucceededListener, StartedListener,
+			FinishedListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public OutputStream receiveUpload(String filename, String mimeType) {
+
+			File file = null;
+			FileOutputStream fos = null;
+
+			try {
+
+				file = new File(Prop.DIR_TMP + File.separator
+						+ Prop.FILENAME_TMP + Prop.FMT_OWL);
+				fos = new FileOutputStream(file);
+
+			} catch (FileNotFoundException e) {
+				new Notification("Could not open file "
+						+ file.getAbsolutePath(), e.getMessage(),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+				return null;
+			}
+
+			return fos;
+		}
+
+		@Override
+		public void uploadFinished(FinishedEvent event) {
+
+		}
+
+		@Override
+		public void uploadSucceeded(SucceededEvent event) {
+
+			File file = new File(Prop.DIR_TMP + File.separatorChar
+					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
+
+			CWBDataModelReader parser = new CWBDataModelReader();
+			CWBDataModel dataModel = null;
+			try {
+				dataModel = parser.read(file);
+			} catch (OntologyFormatException e) {
+				new Notification("Could not parse ontology "
+						+ file.getAbsolutePath(), e.getMessage(),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
+
+			// Update model
+			model.addDataModel(dataModel);
+
+			// Update view
+			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+
+			view.getDataModelsPanelAccordion().setSelectedTab(
+					view.getDataModelsPanelAccordion().getComponentCount() - 1);
+
+			// Notify
+			new Notification(Msg.get("notif.loading.done.title"),
+					Msg.get("notif.loading.done.text"),
+					Notification.Type.HUMANIZED_MESSAGE)
+					.show(Page.getCurrent());
+
+			// Close pop-up window
+			view.getLoadTagsetFromFileWindow().close();
+
+		}
+
+		@Override
+		public void uploadFailed(FailedEvent event) {
+
+		}
+
+		@Override
+		public void updateProgress(long readBytes, long contentLength) {
+
+		}
+
+		@Override
+		public void uploadStarted(StartedEvent event) {
+
+		}
+	}
+
+	class CWBLoadTagsetFromFileDropHandler implements DropHandler {
+
+		private static final long serialVersionUID = 1L;
+
+		private static final long FILE_SIZE_LIMIT = 2 * 1024 * 1024; // 2MB
+
+		@Override
+		public void drop(final DragAndDropEvent dropEvent) {
+
+			// expecting this to be an html5 drag
+			final WrapperTransferable tr = (WrapperTransferable) dropEvent
+					.getTransferable();
+			final Html5File[] files = tr.getFiles();
+			if (files != null) {
+				for (final Html5File html5File : files) {
+					final String fileName = html5File.getFileName();
+
+					if (html5File.getFileSize() > FILE_SIZE_LIMIT) {
+						Notification
+								.show("File rejected. Max 2Mb files are accepted by Sampler",
+										Notification.Type.WARNING_MESSAGE);
+					} else {
+
+						final ByteArrayOutputStream bas = new ByteArrayOutputStream();
+						final StreamVariable streamVariable = new StreamVariable() {
+
+							private static final long serialVersionUID = 1L;
+
+							@Override
+							public OutputStream getOutputStream() {
+								return bas;
+							}
+
+							@Override
+							public boolean listenProgress() {
+								return false;
+							}
+
+							@Override
+							public void onProgress(
+									final StreamingProgressEvent event) {
+							}
+
+							@Override
+							public void streamingStarted(
+									final StreamingStartEvent event) {
+							}
+
+							@Override
+							public void streamingFinished(
+									final StreamingEndEvent event) {
+
+								// progress.setVisible(false);
+
+								final StreamSource streamSource = new StreamSource() {
+									//
+									private static final long serialVersionUID = 1L;
+
+									@SuppressWarnings("unused")
+									@Override
+									public InputStream getStream() {
+										if (bas != null) {
+											final byte[] byteArray = bas
+													.toByteArray();
+											return new ByteArrayInputStream(
+													byteArray);
+										}
+										return null;
+									}
+								};
+								final StreamResource resource = new StreamResource(
+										streamSource, fileName);
+
+								InputStream is = resource.getStreamSource()
+										.getStream();
+
+								CWBDataModelReader parser = new CWBDataModelReader();
+								CWBDataModel dataModel = null;
+								try {
+									dataModel = parser.read(is);
+								} catch (OntologyFormatException e) {
+									new Notification(
+											"Could not parse ontology.",
+											e.getMessage(),
+											Notification.Type.ERROR_MESSAGE)
+											.show(Page.getCurrent());
+								}
+
+								// Update model
+								model.addDataModel(dataModel);
+
+								// Update view
+								view.getDataModelsPanel()
+										.addDataModelTreeTable(dataModel);
+
+								view.getDataModelsPanelAccordion()
+										.setSelectedTab(
+												view.getDataModelsPanelAccordion()
+														.getComponentCount() - 1);
+
+								// Notify
+								new Notification(
+										Msg.get("notif.loading.done.title"),
+										Msg.get("notif.loading.done.text"),
+										Notification.Type.HUMANIZED_MESSAGE)
+										.show(Page.getCurrent());
+
+								// Close pop-up window
+								view.getLoadTagsetFromFileWindow().close();
+
+							}
+
+							@Override
+							public void streamingFailed(
+									final StreamingErrorEvent event) {
+								// progress.setVisible(false);
+							}
+
+							@Override
+							public boolean isInterrupted() {
+								return false;
+							}
+						};
+						html5File.setStreamVariable(streamVariable);
+						// progress.setVisible(true);
+					}
+				}
+
+			}
+		}
+
+		@Override
+		public AcceptCriterion getAcceptCriterion() {
+			return AcceptAll.get();
+		}
+	}
+
+	/***********************/
+	/*** LOAD TAG WINDOW ***/
+	/***********************/
+
+	class CWBLoadTagButtonListener implements ClickListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+
+			TaggingWS selectedWS = (TaggingWS) view.getTagWSCombobox()
+					.getValue();
+
+			CWBDataModel dataModel = null;
+
+			switch (selectedWS) {
+
+			case TAG_INFO:
+
+				// Requesting tags from OSM TAGINFO Web Service
+				TagInfoClient tagInfoClient = new TagInfoClient();
+				IFolksonomy folksonomy = tagInfoClient
+						.getTagsByKey(TagInfoClient.DEFAULT_TAG_KEY);
+
+				Tag2OwlParser tag2owl = new Tag2OwlParser(
+						TagInfoClient.OSM_TAG_INFO_URI);
+				tag2owl.addTagSet(folksonomy);
+				OWLOntology ontology = tag2owl.getTagOntology();
+
+				CWBDataModelReader reader = new CWBDataModelReader();
+				try {
+					dataModel = reader.read(ontology);
+				} catch (OntologyFormatException e) {
+					e.printStackTrace();
+				}
+				break;
+
+			default:
+				return;
+
+			}
+
+			// Update model
+			model.addDataModel(dataModel);
+
+			// Update view
+			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+
+			// Notify
+			new Notification(Msg.get("notif.loading.done.title"),
+					Msg.get("notif.loading.done.text"),
+					Notification.Type.HUMANIZED_MESSAGE)
+					.show(Page.getCurrent());
+
+			// Close pop-up window
+			view.getLoadTagsetFromWSWindow().close();
+
+		}
+
+	}
+
+	class CWBTagWSComboBoxListener implements ValueChangeListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void valueChange(ValueChangeEvent event) {
+			view.getLoadTagsetFromWSButton().setEnabled(
+					event.getProperty().getValue() != null);
+		}
+
+	}
+
+	/***********************/
+	/*** MATCHING WINDOW ***/
+	/***********************/
 
 	class CWBMatchingTableValueChangeListener implements ValueChangeListener {
 
@@ -767,8 +1112,8 @@ public class CWBController implements Serializable {
 			CWBDataModel dataModel2 = (CWBDataModel) iterator.next();
 
 			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
-					IRI.create(Prop.CWB_NAMESPACE),
-					dataModel1.getNamespace(), dataModel2.getNamespace());
+					IRI.create(Prop.CWB_NAMESPACE), dataModel1.getNamespace(),
+					dataModel2.getNamespace());
 
 			dataModel.addConcepts(dataModel1.getConcepts());
 			dataModel.addConcepts(dataModel2.getConcepts());
@@ -814,11 +1159,12 @@ public class CWBController implements Serializable {
 			// Close pop-up window
 			view.getMatchWindow().close();
 
-			// Open the matching results window
-			UI.getCurrent().addWindow(view.getMatchingResultsWindow());
-
+			// update matching results table
 			view.getMatchingResultsWindowTableContainer().removeAllItems();
 			view.getMatchingResultsWindowTableContainer().addAll(equivalences);
+
+			// Open the matching results window
+			UI.getCurrent().addWindow(view.getMatchingResultsWindow());
 
 		}
 	}

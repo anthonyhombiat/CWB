@@ -25,10 +25,10 @@ public class CWBMatchingWindow extends Window {
 
 	private final Table table;
 	private final Button matchButton;
-	private BeanItemContainer<CWBDataModel> container;
+	private final BeanItemContainer<CWBDataModel> container;
 
 	public CWBMatchingWindow() {
-
+		
 		super(Msg.get("match.caption"));
 
 		final Label aboutText = new Label(
@@ -79,7 +79,11 @@ public class CWBMatchingWindow extends Window {
 		this.center();
 		this.setModal(true);
 		this.setContent(rootLayout);
-
+		
+	}
+	
+	public void reset(){
+		table.removeAllItems();
 	}
 
 	class CWBCheckBoxColumnGenerator implements ColumnGenerator {

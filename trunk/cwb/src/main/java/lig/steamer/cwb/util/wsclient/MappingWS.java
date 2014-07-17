@@ -1,12 +1,12 @@
 package lig.steamer.cwb.util.wsclient;
 
-public enum MappingWebService {
+public enum MappingWS {
 
 	OPEN_STREET_MAP("OpenStreetMap");
 	
 	private String name = "";
 
-	MappingWebService(String name) {
+	MappingWS(String name) {
 		this.name = name;
 	}
 

@@ -17,10 +17,9 @@ public class CWBDataModelsPanel extends Panel {
 	private final Accordion accordion;
 
 	public CWBDataModelsPanel() {
-
-		super();
-		this.setCaption(Msg.get("accordion.caption"));
-
+		
+		super(Msg.get("accordion.datamodels.caption"));
+		
 		accordion = new Accordion();
 		accordion.setSizeFull();
 
@@ -30,12 +29,18 @@ public class CWBDataModelsPanel extends Panel {
 
 		this.setSizeFull();
 		this.setContent(accordionPanelLayout);
+	}
 
+	public void clear() {
+		
+		accordion.removeAllComponents();
+		
 	}
 
 	public void addDataModelTreeTable(CWBDataModel dataModel) {
-		
-		CWBHierarchicalDataModelContainer<CWBConcept> dataModelContainer = new CWBHierarchicalDataModelContainer<CWBConcept>(CWBConcept.class, "parent");
+
+		CWBHierarchicalDataModelContainer<CWBConcept> dataModelContainer = new CWBHierarchicalDataModelContainer<CWBConcept>(
+				CWBConcept.class, "parent");
 
 		for (CWBConcept concept : dataModel.getConcepts()) {
 			dataModelContainer.addBean(concept);
@@ -45,26 +50,28 @@ public class CWBDataModelsPanel extends Panel {
 		treeTable.setContainerDataSource(dataModelContainer);
 		treeTable.setItemCaptionMode(ItemCaptionMode.PROPERTY);
 		treeTable.setItemCaptionPropertyId(Msg
-				.get("accordion.table.column.fragment"));
+				.get("accordion.datamodels.table.column.fragment"));
 
 		treeTable.setColumnCollapsingAllowed(true);
 		treeTable.setColumnReorderingAllowed(true);
 		treeTable.setSizeFull();
 		treeTable.setSelectable(true);
-		
-		treeTable.setVisibleColumns(Msg
-				.get("accordion.table.column.iri"), Msg
-				.get("accordion.table.column.fragment"), Msg
-				.get("accordion.table.column.names"), Msg
-				.get("accordion.table.column.descriptions"));
-		
-		treeTable.setColumnCollapsed(Msg
-				.get("accordion.table.column.iri"), true);
-		treeTable.setColumnCollapsed(Msg
-				.get("accordion.table.column.descriptions"), true);
-		
+
+		treeTable.setVisibleColumns(
+				Msg.get("accordion.datamodels.table.column.iri"),
+				Msg.get("accordion.datamodels.table.column.fragment"),
+				Msg.get("accordion.datamodels.table.column.names"),
+				Msg.get("accordion.datamodels.table.column.descriptions"));
+
+		treeTable.setColumnCollapsed(
+				Msg.get("accordion.datamodels.table.column.iri"), true);
+		treeTable
+				.setColumnCollapsed(Msg
+						.get("accordion.datamodels.table.column.descriptions"),
+						true);
+
 		treeTable.setSortContainerPropertyId(Msg
-				.get("accordion.table.column.fragment"));
+				.get("accordion.datamodels.table.column.fragment"));
 		treeTable.sort();
 
 		VerticalLayout accordionElementLayout = new VerticalLayout();
@@ -77,12 +84,12 @@ public class CWBDataModelsPanel extends Panel {
 
 		accordion.addTab(
 				accordionPanel,
-				Msg.get("accordion.tab.caption")
+				Msg.get("accordion.datamodels.tab.caption")
 						+ (accordion.getComponentCount() + 1) + " - "
 						+ dataModel.getNamespace(), null);
 	}
-	
-	public Accordion getAccordion(){
+
+	public Accordion getAccordion() {
 		return accordion;
 	}
 

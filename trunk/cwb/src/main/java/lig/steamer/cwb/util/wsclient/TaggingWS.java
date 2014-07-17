@@ -1,12 +1,12 @@
 package lig.steamer.cwb.util.wsclient;
 
-public enum TaggingWebService {
+public enum TaggingWS {
 	
 	TAG_INFO("OpenStreetMap TagInfo");
 	
 	private String name = "";
 
-	TaggingWebService(String name) {
+	TaggingWS(String name) {
 		this.name = name;
 	}
 

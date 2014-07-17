@@ -1,6 +1,7 @@
 package lig.steamer.cwb.io;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;
@@ -37,8 +38,12 @@ public class CWBModelReader {
 
 		model.addDataModels(loadDataModels(destinationPath));
 
-		FileUtils.deleteQuietly(new File(projectPath));
-		FileUtils.deleteQuietly(new File(destinationPath));
+		new File(projectPath).delete();
+		try {
+			FileUtils.deleteDirectory(new File(destinationPath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		LOGGER.log(Level.INFO, "CWB Project loaded.");
 
