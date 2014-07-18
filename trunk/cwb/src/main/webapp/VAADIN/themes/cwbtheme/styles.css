@@ -7082,3 +7082,8 @@ body .cwbtheme.v-app .v-app-loading {
 	-moz-osx-font-smoothing: grayscale;
 	display: inline-block;
 }
+
+.cwbtheme .v-spacing {
+	height: 7px;
+	width: 14px;
+}
