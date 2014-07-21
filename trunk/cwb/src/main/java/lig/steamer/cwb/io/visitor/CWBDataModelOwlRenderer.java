@@ -1,23 +1,15 @@
 package lig.steamer.cwb.io.visitor;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.model.CWBDataSet;
 import lig.steamer.cwb.model.CWBEquivalence;
-import lig.steamer.cwb.model.CWBIndicatorMeasure;
-import lig.steamer.cwb.model.CWBIndicatorMeasureSet;
-import lig.steamer.cwb.model.CWBIndicatorModel;
-import lig.steamer.cwb.model.CWBModel;
 
 import org.coode.owlapi.rdf.rdfxml.RDFXMLOntologyStorer;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -38,107 +30,49 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 
-public class CWBOwlRendererVisitor implements CWBVisitor {
+public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 
-	private static Logger LOGGER = Logger.getLogger(CWBOwlRendererVisitor.class
+	private static Logger LOGGER = Logger.getLogger(CWBDataModelOwlRenderer.class
 			.getName());
 
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
 
-	private String projectRootDir;
+	private OWLOntology dataModelOntology;
+	
+	private IRI iri;
 
-	private OWLOntology currentDataModelOntology;
-	private OWLOntology currentDataSetOntology;
-	private OWLOntology currentIndicatorModelOntology;
-	private OWLOntology currentIndicatorMeasureOntology;
+	public CWBDataModelOwlRenderer(IRI iri) {
 
-	private Collection<OWLOntology> dataModelOntologies;
-	private Collection<OWLOntology> dataSetOntologies;
-	private Collection<OWLOntology> indicatorModelOntologies;
-	private Collection<OWLOntology> indicatorMeasureOntologies;
-
-	public CWBOwlRendererVisitor(String projectRootDir) {
-
-		this.projectRootDir = projectRootDir;
-
-		this.dataModelOntologies = new ArrayList<OWLOntology>();
-		this.dataSetOntologies = new ArrayList<OWLOntology>();
-		this.indicatorModelOntologies = new ArrayList<OWLOntology>();
-		this.indicatorMeasureOntologies = new ArrayList<OWLOntology>();
-
+		this.iri = iri;
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 
 	}
 
 	@Override
-	public void visitModel(CWBModel model) {
-
-		for (CWBDataModel dataModel : model.getDataModels()) {
-
-			try {
-				currentDataModelOntology = manager
-						.createOntology(dataModel.getNamespace());
-				dataModel.acceptCWBVisitor(this);
-				dataModelOntologies.add(currentDataModelOntology);
-			} catch (OWLOntologyCreationException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		for (CWBIndicatorModel indicatorModel : model.getIndicatorModels()) {
-			indicatorModel.acceptCWBVisitor(this);
-		}
-
-		for (CWBIndicatorMeasureSet indicatorMeasureSet : model
-				.getIndicatorMeasureSets()) {
-			indicatorMeasureSet.acceptCWBVisitor(this);
-		}
-
-		for (CWBDataSet dataSet : model.getDataSets()) {
-			dataSet.acceptCWBVisitor(this);
-		}
-
-		File dataModelsDir = new File(projectRootDir
-				+ File.separatorChar + Prop.DIRNAME_DATAMODELS);
-		dataModelsDir.mkdir();
-		
-		File indicatorsDir = new File(projectRootDir
-				+ File.separatorChar + Prop.DIRNAME_INDICATORS);
-		indicatorsDir.mkdir();
-	
-		File measuresDir = new File(projectRootDir
-				+ File.separatorChar + Prop.DIRNAME_MEASURES);
-		measuresDir.mkdir();
-	
-		RDFXMLOntologyStorer storer = new RDFXMLOntologyStorer();
-		int i = 1;
-		for (OWLOntology ontology : dataModelOntologies) {
-			IRI iri = IRI.create(new File(dataModelsDir.getAbsolutePath()
-					+ File.separatorChar + i
-					+ Prop.FMT_OWL));
-			try {
-				storer.storeOntology(ontology, iri,
-						new PrefixOWLOntologyFormat());
-			} catch (OWLOntologyStorageException e) {
-				e.printStackTrace();
-			}
-			i++;
-		}
-
-	}
-
-	@Override
 	public void visitDataModel(CWBDataModel dataModel) {
-
+		
+		try {
+			dataModelOntology = manager.createOntology(dataModel.getNamespace());
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		}
+		
 		for (CWBConcept concept : dataModel.getConcepts()) {
-			concept.acceptCWBVisitor(this);
+			concept.acceptCWBDataModelVisitor(this);
 		}
 
 		for (CWBEquivalence equivalence : dataModel.getEquivalences()) {
-			equivalence.acceptCWBVisitor(this);
+			equivalence.acceptCWBDataModelVisitor(this);
+		}
+		
+		RDFXMLOntologyStorer storer = new RDFXMLOntologyStorer();
+		try {
+			storer.storeOntology(dataModelOntology, iri,
+					 new PrefixOWLOntologyFormat());
+		} catch (OWLOntologyStorageException e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -159,7 +93,7 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 		}
 
 		for (OWLAxiom axiom : axioms) {
-			AddAxiom addAxiom = new AddAxiom(currentDataModelOntology, axiom);
+			AddAxiom addAxiom = new AddAxiom(dataModelOntology, axiom);
 			ontologyChanges.add(addAxiom);
 		}
 
@@ -172,35 +106,11 @@ public class CWBOwlRendererVisitor implements CWBVisitor {
 
 		List<OWLOntologyChange> ontologyChanges = new ArrayList<OWLOntologyChange>();
 
-		ontologyChanges.add(new AddAxiom(currentDataModelOntology,
+		ontologyChanges.add(new AddAxiom(dataModelOntology,
 				getOWLEquivalentClassFromCWBEquivalence(equivalence)));
 
 		manager.applyChanges(ontologyChanges);
 
-	}
-
-	@Override
-	public void visitIndicatorMeasureSet(CWBIndicatorMeasureSet measureSet) {
-
-		for (CWBIndicatorMeasure indicatorMeasure : measureSet.getMeasures()) {
-			indicatorMeasure.acceptCWBVisitor(this);
-		}
-
-	}
-
-	@Override
-	public void visitIndicatorMeasure(CWBIndicatorMeasure indicatorMeasure) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void visitIndicatorModel(CWBIndicatorModel indicatorModel) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void visitDataSet(CWBDataSet dataSet) {
-		// TODO Auto-generated method stub
 	}
 
 	/**

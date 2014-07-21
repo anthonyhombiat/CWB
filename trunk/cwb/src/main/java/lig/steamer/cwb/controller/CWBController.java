@@ -13,13 +13,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.Msg;
+import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.core.tagging.IFolksonomy;
 import lig.steamer.cwb.io.CWBDataModelReader;
-import lig.steamer.cwb.io.CWBDataModelWriter;
-import lig.steamer.cwb.io.CWBModelReader;
-import lig.steamer.cwb.io.CWBModelWriter;
+import lig.steamer.cwb.io.CWBReader;
+import lig.steamer.cwb.io.CWBWriter;
 import lig.steamer.cwb.io.exception.OntologyFormatException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -27,6 +26,8 @@ import lig.steamer.cwb.model.CWBMatchedDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.AppUI;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
+import lig.steamer.cwb.util.browser.BrowserHomepageProvider;
+import lig.steamer.cwb.util.browser.UnsupportedBrowserException;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
 import lig.steamer.cwb.util.wsclient.TaggingWS;
@@ -84,6 +85,7 @@ public class CWBController implements Serializable {
 		view.addCloseMenuItemCommand(new CWBCloseMenuItemCommand());
 		view.addDocMenuItemCommand(new CWBDocMenuItemCommand());
 		view.addAboutMenuItemCommand(new CWBAboutMenuItemCommand());
+		view.addLogoutMenuItemCommand(new CWBLogoutMenuItemCommand());
 		view.addLoadTagsetFromWSMenuItemCommand(new CWBLoadTagsetMenuItemCommand());
 		view.addLoadTagsetFromFileMenuItemCommand(new CWBLoadTagsetFromFileMenuItemCommand());
 		view.addLoadNomenFromFileMenuItemCommand(new CWBLoadNomenFromFileMenuItemCommand());
@@ -167,7 +169,7 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 
-			CWBModelWriter writer = new CWBModelWriter();
+			CWBWriter writer = new CWBWriter();
 			writer.write(model);
 
 			FileResource resource = new FileResource(new File(Prop.DIR_OUTPUT
@@ -188,24 +190,77 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 
-			ConfirmDialog.show(view, Msg.get("confirm.close.caption"),
-					Msg.get("confirm.close.text"), Msg.get("confirm.close.ok"),
-					Msg.get("confirm.close.ko"), new ConfirmDialog.Listener() {
+			if (!model.isEmpty()) {
+				ConfirmDialog.show(view, Msg.get("confirm.close.caption"),
+						Msg.get("confirm.close.text"),
+						Msg.get("confirm.close.ok"),
+						Msg.get("confirm.close.ko"),
+						new ConfirmDialog.Listener() {
 
-						private static final long serialVersionUID = 1L;
+							private static final long serialVersionUID = 1L;
 
-						public void onClose(ConfirmDialog dialog) {
-							if (dialog.isConfirmed()) {
-								view.getSaveMenuItem().getCommand()
-										.menuSelected(view.getSaveMenuItem());
+							public void onClose(ConfirmDialog dialog) {
+								if (dialog.isConfirmed()) {
+									view.getSaveMenuItem()
+											.getCommand()
+											.menuSelected(
+													view.getSaveMenuItem());
+								}
+								model = new CWBModel();
+								view.clear();
 							}
-							model = new CWBModel();
-							view.clear();
-						}
-					});
+						});
+			}
 
 		}
 
+	}
+
+	class CWBLogoutMenuItemCommand implements Command {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+
+			if (!model.isEmpty()) {
+				ConfirmDialog.show(view, Msg.get("confirm.close.caption"),
+						Msg.get("confirm.close.text"),
+						Msg.get("confirm.close.ok"),
+						Msg.get("confirm.close.ko"),
+						new ConfirmDialog.Listener() {
+
+							private static final long serialVersionUID = 1L;
+
+							public void onClose(ConfirmDialog dialog) {
+								if (dialog.isConfirmed()) {
+									view.getSaveMenuItem()
+											.getCommand()
+											.menuSelected(
+													view.getSaveMenuItem());
+								} else {
+									view.getUI().getSession().close();
+									try {
+										Page.getCurrent().setLocation(
+												BrowserHomepageProvider
+														.getUrl());
+									} catch (UnsupportedBrowserException e) {
+										e.printStackTrace();
+									}
+								}
+							}
+						});
+			} else {
+				view.getUI().getSession().close();
+				try {
+					Page.getCurrent().setLocation(
+							BrowserHomepageProvider.getUrl());
+				} catch (UnsupportedBrowserException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
 	}
 
 	class CWBLoadTagsetMenuItemCommand implements Command {
@@ -241,17 +296,6 @@ public class CWBController implements Serializable {
 
 	}
 
-	class CWBAboutMenuItemCommand implements Command {
-
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(new CWBAboutWindow());
-		}
-
-	}
-
 	class CWBDocMenuItemCommand implements Command {
 
 		private static final long serialVersionUID = 1L;
@@ -261,6 +305,17 @@ public class CWBController implements Serializable {
 
 			JavaScript.getCurrent().execute(
 					"window.open('" + Msg.get("doc.url") + "', '_blank')");
+		}
+
+	}
+
+	class CWBAboutMenuItemCommand implements Command {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+			UI.getCurrent().addWindow(new CWBAboutWindow());
 		}
 
 	}
@@ -355,7 +410,7 @@ public class CWBController implements Serializable {
 			String path = Prop.DIR_TMP + File.separator + Prop.FILENAME_TMP
 					+ Prop.FMT_CWB;
 
-			CWBModelReader reader = new CWBModelReader();
+			CWBReader reader = new CWBReader();
 			model = reader.read(path);
 
 			view.clear();
@@ -494,7 +549,7 @@ public class CWBController implements Serializable {
 									e.printStackTrace();
 								}
 
-								CWBModelReader reader = new CWBModelReader();
+								CWBReader reader = new CWBReader();
 								model = reader.read(f.getAbsolutePath());
 
 								view.clear();
@@ -1111,22 +1166,18 @@ public class CWBController implements Serializable {
 			CWBDataModel dataModel1 = (CWBDataModel) iterator.next();
 			CWBDataModel dataModel2 = (CWBDataModel) iterator.next();
 
-			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
-					IRI.create(Prop.CWB_NAMESPACE), dataModel1.getNamespace(),
-					dataModel2.getNamespace());
+			CWBWriter writer = new CWBWriter();
 
-			dataModel.addConcepts(dataModel1.getConcepts());
-			dataModel.addConcepts(dataModel2.getConcepts());
+			File onto1 = new File(Prop.DIR_TMP
+					+ File.separatorChar + Prop.FILENAME_SOURCE_ONTO
+					+ Prop.FMT_OWL);
 
-			CWBDataModelWriter writer1 = new CWBDataModelWriter(dataModel1,
-					Prop.FILENAME_SOURCE_ONTO);
-			writer1.write();
-			writer1.flush();
-
-			CWBDataModelWriter writer2 = new CWBDataModelWriter(dataModel2,
-					Prop.FILENAME_TARGET_ONTO);
-			writer2.write();
-			writer2.flush();
+			File onto2 = new File(Prop.DIR_TMP
+					+ File.separatorChar + Prop.FILENAME_TARGET_ONTO
+					+ Prop.FMT_OWL);
+			
+			writer.writeDataModel(dataModel2, onto2);
+			writer.writeDataModel(dataModel1, onto1);
 
 			// WikimatchOntologyMatcher matcher = new
 			// WikimatchOntologyMatcher();
@@ -1136,19 +1187,12 @@ public class CWBController implements Serializable {
 
 			YamOntologyMatcher matcher = new YamOntologyMatcher();
 			Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
-					writer1.getFile().getAbsolutePath(), writer2.getFile()
-							.getAbsolutePath());
+					onto1.getAbsolutePath(), onto2.getAbsolutePath());
 
-			matcher.printAlignment();
+//			matcher.printAlignment();
 
-			dataModel.addConcepts(dataModel1.getConcepts());
-			dataModel.addConcepts(dataModel2.getConcepts());
-			dataModel.addEquivalences(equivalences);
-
-			CWBDataModelWriter writer = new CWBDataModelWriter(dataModel,
-					"super_onto");
-			writer.write();
-			writer.flush();
+			model.setSourceDataModel(dataModel1);
+			model.setTargetDataModel(dataModel2);
 
 			// Notify
 			new Notification(Msg.get("notif.loading.done.title"),
@@ -1176,6 +1220,27 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
+			Set<CWBEquivalence> equivalences = (Set<CWBEquivalence>) view
+					.getMatchingResultsWindowTable().getValue();
+			
+			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
+					IRI.create(Prop.CWB_NAMESPACE), model.getSourceDataModel().getNamespace(),
+					model.getTargetDataModel().getNamespace());
+
+			dataModel.addConcepts(model.getSourceDataModel().getConcepts());
+			dataModel.addConcepts(model.getTargetDataModel().getConcepts());
+			dataModel.addEquivalences(equivalences);
+
+			CWBWriter writer = new CWBWriter();
+			
+			writer.writeDataModel(dataModel, Prop.DIR_TMP
+					+ File.separatorChar + "matched_data_model"
+					+ Prop.FMT_OWL);
+			
+			model.addMatchedDataModel(dataModel);
+			
+			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+			view.getMatchingResultsWindow().close();
 		}
 	}
 

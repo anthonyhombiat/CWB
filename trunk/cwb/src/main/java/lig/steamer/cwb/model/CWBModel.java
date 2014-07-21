@@ -4,20 +4,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import lig.steamer.cwb.io.visitor.CWBVisitable;
-import lig.steamer.cwb.io.visitor.CWBVisitor;
-
-public class CWBModel implements Serializable, CWBVisitable {
+public class CWBModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Collection<CWBDataModel> dataModels;
+	private Collection<CWBMatchedDataModel> matchedDataModels;
 	private Collection<CWBDataSet> dataSets;
 	private Collection<CWBIndicatorModel> indicatorModels;
 	private Collection<CWBIndicatorMeasureSet> indicatorMeasureSets;
+	
+	private CWBDataModel sourceDataModel;
+	private CWBDataModel targetDataModel;
 
 	public CWBModel() {
 		dataModels = new ArrayList<CWBDataModel>();
+		matchedDataModels = new ArrayList<CWBMatchedDataModel>();
 		dataSets = new ArrayList<CWBDataSet>();
 		indicatorModels = new ArrayList<CWBIndicatorModel>();
 		indicatorMeasureSets = new ArrayList<CWBIndicatorMeasureSet>();
@@ -230,14 +232,91 @@ public class CWBModel implements Serializable, CWBVisitable {
 		return hasChanged;
 	}
 
-	@Override
-	public void acceptCWBVisitor(CWBVisitor visitor) {
-		visitor.visitModel(this);
-	}
-
 	public boolean isEmpty() {
 		return dataModels.isEmpty() && dataSets.isEmpty()
 				&& indicatorModels.isEmpty() && indicatorMeasureSets.isEmpty();
+	}
+
+	/**
+	 * @return the matchedDataModels
+	 */
+	public Collection<CWBMatchedDataModel> getMatchedDataModels() {
+		return matchedDataModels;
+	}
+
+	/**
+	 * @param matchedDataModels the matchedDataModels to set
+	 */
+	public void setMatchedDataModels(Collection<CWBMatchedDataModel> matchedDataModels) {
+		this.matchedDataModels = matchedDataModels;
+	}
+	
+	public boolean addMatchedDataModel(
+			CWBMatchedDataModel matchedDataModel) {
+		if (!matchedDataModels.contains(matchedDataModel)) {
+			matchedDataModels.add(matchedDataModel);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean removeMatchedDataModel(
+			CWBMatchedDataModel matchedDataModel) {
+		if (matchedDataModels.contains(matchedDataModel)) {
+			matchedDataModels.remove(matchedDataModel);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean addMatchedDataModels(
+			Collection<CWBMatchedDataModel> matchedDataModels) {
+		boolean hasChanged = false;
+		for (CWBMatchedDataModel matchedDataModel : matchedDataModels) {
+			if (addMatchedDataModel(matchedDataModel)) {
+				hasChanged = true;
+			}
+		}
+		return hasChanged;
+	}
+
+	public boolean removeMatchedDataModels(
+			Collection<CWBMatchedDataModel> matchedDataModels) {
+		boolean hasChanged = false;
+		for (CWBMatchedDataModel matchedDataModel : matchedDataModels) {
+			if (removeMatchedDataModel(matchedDataModel)) {
+				hasChanged = true;
+			}
+		}
+		return hasChanged;
+	}
+
+	/**
+	 * @return the sourceDataModel
+	 */
+	public CWBDataModel getSourceDataModel() {
+		return sourceDataModel;
+	}
+
+	/**
+	 * @param sourceDataModel the sourceDataModel to set
+	 */
+	public void setSourceDataModel(CWBDataModel sourceDataModel) {
+		this.sourceDataModel = sourceDataModel;
+	}
+
+	/**
+	 * @return the targetDataModel
+	 */
+	public CWBDataModel getTargetDataModel() {
+		return targetDataModel;
+	}
+
+	/**
+	 * @param targetDataModel the targetDataModel to set
+	 */
+	public void setTargetDataModel(CWBDataModel targetDataModel) {
+		this.targetDataModel = targetDataModel;
 	}
 
 }

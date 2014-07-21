@@ -84,9 +84,7 @@ public class CWBDataModelsPanel extends Panel {
 
 		accordion.addTab(
 				accordionPanel,
-				Msg.get("accordion.datamodels.tab.caption")
-						+ (accordion.getComponentCount() + 1) + " - "
-						+ dataModel.getNamespace(), null);
+				dataModel.getNamespace().toString(), null);
 	}
 
 	public Accordion getAccordion() {

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import lig.steamer.cwb.io.visitor.CWBVisitable;
-import lig.steamer.cwb.io.visitor.CWBVisitor;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitable;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitor;
 
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBDataModel implements Serializable, CWBVisitable {
+public class CWBDataModel implements Serializable, CWBDataModelVisitable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -200,7 +200,7 @@ public class CWBDataModel implements Serializable, CWBVisitable {
 	}
 
 	@Override
-	public void acceptCWBVisitor(CWBVisitor visitor){
+	public void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor){
 		visitor.visitDataModel(this);
 	}
 	

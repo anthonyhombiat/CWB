@@ -3,10 +3,7 @@ package lig.steamer.cwb.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import lig.steamer.cwb.io.visitor.CWBVisitable;
-import lig.steamer.cwb.io.visitor.CWBVisitor;
-
-public class CWBIndicatorModel implements Serializable, CWBVisitable {
+public class CWBIndicatorModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -82,11 +79,6 @@ public class CWBIndicatorModel implements Serializable, CWBVisitable {
 	 */
 	public void setLastUpdate(Date lastUpdate) {
 		LastUpdate = lastUpdate;
-	}
-
-	@Override
-	public void acceptCWBVisitor(CWBVisitor visitor) {
-		visitor.visitIndicatorModel(this);
 	}
 
 	/**

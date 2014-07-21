@@ -11,7 +11,7 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem openMenuItem;
 	private final MenuItem saveMenuItem;
 	private final MenuItem closeMenuItem;
-	private final MenuItem quitMenuItem;
+	private final MenuItem logoutMenuItem;
 
 	private final MenuItem undoMenuItem;
 	private final MenuItem redoMenuItem;
@@ -53,8 +53,8 @@ public class CWBMenuBar extends MenuBar {
 		
 		fileItem.addSeparator();
 
-		quitMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.quit"), null);
+		logoutMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.logout"), null);
 
 		/*
 		 * Edit
@@ -144,34 +144,6 @@ public class CWBMenuBar extends MenuBar {
 	}
 
 	/**
-	 * @return the aboutItem
-	 */
-	public MenuItem getAboutMenuItem() {
-		return aboutMenuItem;
-	}
-
-	/**
-	 * @return the docItem
-	 */
-	public MenuItem getDocMenuItem() {
-		return docMenuItem;
-	}
-
-	/**
-	 * @return the loadTagsetMenuItem
-	 */
-	public MenuItem getLoadTagsetFromWSMenuItem() {
-		return loadTagsetFromWSMenuItem;
-	}
-	
-	/**
-	 * @return the loadTagsetFromFileMenuItem
-	 */
-	public MenuItem getLoadTagsetFromFileMenuItem() {
-		return loadTagsetFromFileMenuItem;
-	}
-
-	/**
 	 * @return the openMenuItem
 	 */
 	public MenuItem getOpenMenuItem() {
@@ -191,12 +163,40 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getCloseMenuItem() {
 		return closeMenuItem;
 	}
+	
+	/**
+	 * @return the logoutMenuItem
+	 */
+	public MenuItem getLogoutMenuItem() {
+		return logoutMenuItem;
+	}
+	
+	/**
+	 * @return the docItem
+	 */
+	public MenuItem getDocMenuItem() {
+		return docMenuItem;
+	}
+	
+	/**
+	 * @return the aboutItem
+	 */
+	public MenuItem getAboutMenuItem() {
+		return aboutMenuItem;
+	}
 
 	/**
-	 * @return the quitMenuItem
+	 * @return the loadTagsetMenuItem
 	 */
-	public MenuItem getQuitMenuItem() {
-		return quitMenuItem;
+	public MenuItem getLoadTagsetFromWSMenuItem() {
+		return loadTagsetFromWSMenuItem;
+	}
+	
+	/**
+	 * @return the loadTagsetFromFileMenuItem
+	 */
+	public MenuItem getLoadTagsetFromFileMenuItem() {
+		return loadTagsetFromFileMenuItem;
 	}
 
 	/**

@@ -105,7 +105,7 @@ public class YamOntologyMatcher implements CWBOntologyMatcher {
 			String outputFileCharset) {
 
 		String absolutePath = Prop.DIR_OUTPUT + File.separatorChar
-				+ Prop.FILENAME_ONTO_ALIGNMENT + Prop.FMT_OWL;
+				+ outputFilename + Prop.FMT_OWL;
 
 		LOGGER.log(Level.INFO, "Printing alignment to " + absolutePath + "...");
 

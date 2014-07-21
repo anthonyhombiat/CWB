@@ -19,6 +19,13 @@
 			<version>4.11</version>
 		</dependency>
 
+		<!-- Common IO Logging API -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 		<!-- Google Guava API -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -50,40 +57,40 @@
 
 		<!-- OWL API for modeling and manipulating ontologies -->
 		<dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-apibinding</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-api</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-tools</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-impl</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-parsers</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-oboformat</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-contract</artifactId>
-            <version>3.5.0</version>
-        </dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-apibinding</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-api</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-tools</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-impl</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-parsers</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-oboformat</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-contract</artifactId>
+			<version>3.5.0</version>
+		</dependency>
 
 		<!-- Apache HttpClient for wrapping Http GET request to restful Web Services -->
 		<dependency>
@@ -120,11 +127,11 @@
 		</dependency>
 
 		<!-- WikiMatch multilingual ontology matcher -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>de.tudarmstadt.ke.sw.matching</groupId> -->
-<!-- 			<artifactId>wikimatch</artifactId> -->
-<!-- 			<version>1.0</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>de.tudarmstadt.ke.sw.matching</groupId> -->
+		<!-- <artifactId>wikimatch</artifactId> -->
+		<!-- <version>1.0</version> -->
+		<!-- </dependency> -->
 
 		<!-- YAM++ multilingual ontology matcher -->
 		<dependency>
@@ -134,11 +141,11 @@
 		</dependency>
 
 		<!-- RiMOM2 multilingual ontology matcher -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>edu.thu.keg</groupId> -->
-<!-- 			<artifactId>rimom2</artifactId> -->
-<!-- 			<version>1.0</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>edu.thu.keg</groupId> -->
+		<!-- <artifactId>rimom2</artifactId> -->
+		<!-- <version>1.0</version> -->
+		<!-- </dependency> -->
 
 		<!-- Vaadin RIA Web Framework for Java JVM dependencies -->
 		<dependency>
@@ -158,6 +165,12 @@
 			<artifactId>vaadin-client-compiler</artifactId>
 			<version>${vaadin.version}</version>
 			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -360,22 +373,22 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.7</version>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-shade-plugin</artifactId> -->
-<!-- 				<version>2.3</version> -->
-<!-- 				<configuration> -->
-<!-- 					put your configurations here -->
-<!-- 				</configuration> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<phase>package</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>shade</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-shade-plugin</artifactId> -->
+			<!-- <version>2.3</version> -->
+			<!-- <configuration> -->
+			<!-- put your configurations here -->
+			<!-- </configuration> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <phase>package</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>shade</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>

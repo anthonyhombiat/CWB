@@ -2,10 +2,10 @@ package lig.steamer.cwb.model;
 
 import java.io.Serializable;
 
-import lig.steamer.cwb.io.visitor.CWBVisitable;
-import lig.steamer.cwb.io.visitor.CWBVisitor;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitable;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitor;
 
-public class CWBEquivalence implements Serializable, CWBVisitable {
+public class CWBEquivalence implements Serializable, CWBDataModelVisitable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -55,7 +55,7 @@ public class CWBEquivalence implements Serializable, CWBVisitable {
 	}
 
 	@Override
-	public void acceptCWBVisitor(CWBVisitor visitor) {
+	public void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor) {
 		visitor.visitEquivalence(this);
 	}
 

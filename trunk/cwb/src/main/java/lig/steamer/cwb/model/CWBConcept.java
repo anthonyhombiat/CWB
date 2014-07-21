@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import lig.steamer.cwb.io.visitor.CWBVisitable;
-import lig.steamer.cwb.io.visitor.CWBVisitor;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitable;
+import lig.steamer.cwb.io.visitor.CWBDataModelVisitor;
 
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBConcept implements Serializable, CWBVisitable {
+public class CWBConcept implements Serializable, CWBDataModelVisitable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -117,7 +117,7 @@ public class CWBConcept implements Serializable, CWBVisitable {
 	}
 
 	@Override
-	public void acceptCWBVisitor(CWBVisitor visitor) {
+	public void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor) {
 		visitor.visitConcept(this);
 	}
 

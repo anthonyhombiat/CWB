@@ -15,12 +15,12 @@ import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.util.archive.ZipUtility;
 
-public class CWBModelReader {
+public class CWBReader {
 
-	private static Logger LOGGER = Logger.getLogger(CWBModelReader.class
+	private static Logger LOGGER = Logger.getLogger(CWBReader.class
 			.getName());
 
-	public CWBModelReader() {
+	public CWBReader() {
 
 	}
 

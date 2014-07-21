@@ -151,128 +151,74 @@ public class AppUI extends UI {
 	/*** EMBEDDED COMPONENT GETTERS ***/
 	/**********************************/
 	
-	/**
-	 * @return the saveMenuItem
-	 */
 	public MenuItem getSaveMenuItem() {
 		return menuBar.getSaveMenuItem();
 	}
 	
-	/**
-	 * @return the openProjectWindow
-	 */
 	public Window getOpenProjectWindow() {
 		return openProjectWindow;
 	}
 	
-	/**
-	 * @return the loadTagsetFromWSWindow
-	 */
 	public Window getLoadTagsetFromWSWindow() {
 		return loadTagsetFromWSWindow;
 	}
 	
-	/**
-	 * @return the loadTagsetFromWSWindow tagWSCombobox
-	 */
 	public ComboBox getTagWSCombobox(){
 		return loadTagsetFromWSWindow.getTagWSComboBox();
 	}
 	
-	/**
-	 * @return the loadTagsetFromWSWindow loadButton
-	 */
 	public Button getLoadTagsetFromWSButton(){
 		return loadTagsetFromWSWindow.getLoadButton();
 	}
 	
-	/**
-	 * @return the leftLayout
-	 */
 	public VerticalLayout getLeftLayout() {
 		return leftLayout;
 	}
 	
-	/**
-	 * @return the dataModelsPanel
-	 */
 	public CWBDataModelsPanel getDataModelsPanel() {
 		return dataModelsPanel;
 	}
 	
-	/**
-	 * @return the indicatorsPanel
-	 */
 	public CWBIndicatorsPanel getIndicatorsPanel() {
 		return indicatorsPanel;
 	}
-	
-	/**
-	 * @return the dataModelsPanel accordion
-	 */
+
 	public Accordion getDataModelsPanelAccordion() {
 		return dataModelsPanel.getAccordion();
 	}
 	
-	/**
-	 * @return the loadTagsetFromFileWindow
-	 */
 	public CWBLoadTagsetFromFileWindow getLoadTagsetFromFileWindow() {
 		return loadTagsetFromFileWindow;
 	}
 	
-	/**
-	 * @return the loadNomenclatureFromFileWindow
-	 */
 	public CWBLoadNomenFromFileWindow getLoadNomenFromFileWindow() {
 		return loadNomenFromFileWindow;
 	}
 
-	/**
-	 * @return the matchingWindow
-	 */
 	public CWBMatchingWindow getMatchWindow() {
 		return matchingWindow;
 	}
 
-	/**
-	 * @return the matchingWindow table
-	 */
 	public Table getMatchingWindowTable(){
 		return matchingWindow.getTable();
 	}
 	
-	/**
-	 * @return the matchingWindow table container
-	 */
 	public BeanItemContainer<CWBDataModel> getMatchingWindowTableContainer(){
 		return matchingWindow.getContainer();
 	}
 	
-	/**
-	 * @return the matchingResultsWindow
-	 */
 	public CWBMatchingResultsWindow getMatchingResultsWindow() {
 		return matchingResultsWindow;
 	}
 	
-	/**
-	 * @return the matchingResultsWindow table container
-	 */
 	public BeanItemContainer<CWBEquivalence> getMatchingResultsWindowTableContainer(){
 		return matchingResultsWindow.getContainer();
 	}
 	
-	/**
-	 * @return the matchingResultsWindow table
-	 */
 	public Table getMatchingResultsWindowTable(){
 		return matchingResultsWindow.getTable();
 	}
-	
-	/**
-	 * @return the tabSheet
-	 */
+
 	public TabSheet getTabSheet(){
 		return tabSheet;
 	}
@@ -295,6 +241,10 @@ public class AppUI extends UI {
 	
 	public void addCloseMenuItemCommand(Command command){
 		menuBar.getCloseMenuItem().setCommand(command);
+	}
+	
+	public void addLogoutMenuItemCommand(Command command){
+		menuBar.getLogoutMenuItem().setCommand(command);
 	}
 	
 	public void addAboutMenuItemCommand(Command command){
