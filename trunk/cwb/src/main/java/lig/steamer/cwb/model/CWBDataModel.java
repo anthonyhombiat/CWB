@@ -204,4 +204,11 @@ public class CWBDataModel implements Serializable, CWBDataModelVisitable {
 		visitor.visitDataModel(this);
 	}
 	
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof CWBDataModel){
+			return this.getNamespace().equals(((CWBDataModel)o).getNamespace());
+		}
+		return false;
+	}
 }

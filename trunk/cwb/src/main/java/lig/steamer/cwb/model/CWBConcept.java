@@ -1,6 +1,7 @@
 package lig.steamer.cwb.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 	private Map<Locale, String> names;
 	private Map<Locale, String> descriptions;
 
-//	private Collection<CWBConcept> superClasses;
+	private Collection<CWBConcept> superClasses;
 //	private Collection<CWBConcept> subClasses;
 	
 	private CWBConcept parent;

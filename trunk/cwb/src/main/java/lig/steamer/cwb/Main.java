@@ -5,7 +5,7 @@ import java.net.URI;
 import java.util.Collection;
 
 import lig.steamer.cwb.core.tagging.IFolksonomy;
-import lig.steamer.cwb.io.exception.OntologyFormatException;
+import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
 import lig.steamer.cwb.io.read.CWBDataModelReader;
 import lig.steamer.cwb.io.write.CWBWriter;
 import lig.steamer.cwb.model.CWBDataModel;
@@ -18,7 +18,7 @@ import yamSS.main.oaei.run.YAM;
 
 public class Main {
 
-	public static void main(String[] args) throws OntologyFormatException {
+	public static void main(String[] args) throws CWBDataModelReaderException {
 
 		URI sourceURI = URI
 				.create("file:///d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl");

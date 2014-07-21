@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -16,7 +17,9 @@ import java.util.Set;
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.core.tagging.IFolksonomy;
-import lig.steamer.cwb.io.exception.OntologyFormatException;
+import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
+import lig.steamer.cwb.io.exception.CWBModelReaderException;
+import lig.steamer.cwb.io.exception.CWBModelWriterException;
 import lig.steamer.cwb.io.read.CWBDataModelReader;
 import lig.steamer.cwb.io.read.CWBReader;
 import lig.steamer.cwb.io.write.CWBWriter;
@@ -170,7 +173,14 @@ public class CWBController implements Serializable {
 		public void menuSelected(MenuItem selectedItem) {
 
 			CWBWriter writer = new CWBWriter();
-			writer.write(model);
+			try {
+				writer.write(model);
+			} catch (CWBModelWriterException e) {
+				new Notification(Msg.get("notif.error.save.title"),
+						Msg.get("notif.error.save.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
 
 			FileResource resource = new FileResource(new File(Prop.DIR_OUTPUT
 					+ File.separatorChar + Prop.DEFAULT_PROJECT_NAME
@@ -394,8 +404,10 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification("Could not open file "
-						+ file.getAbsolutePath(), e.getMessage(),
+				new Notification(Msg.get("notif.error.file.read.title"),
+						MessageFormat.format(
+								Msg.get("notif.error.file.read.text"),
+								file.getAbsolutePath()),
 						Notification.Type.ERROR_MESSAGE)
 						.show(Page.getCurrent());
 				return null;
@@ -411,7 +423,14 @@ public class CWBController implements Serializable {
 					+ Prop.FMT_CWB;
 
 			CWBReader reader = new CWBReader();
-			model = reader.read(path);
+			try {
+				model = reader.read(path);
+			} catch (CWBModelReaderException e) {
+				new Notification(Msg.get("notif.error.open.title"),
+						Msg.get("notif.error.open.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
 
 			view.clear();
 
@@ -424,8 +443,8 @@ public class CWBController implements Serializable {
 					view.getDataModelsPanelAccordion().getComponentCount() - 1);
 
 			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
+			new Notification(Msg.get("notif.info.load.done.title"),
+					Msg.get("notif.info.load.done.text"),
 					Notification.Type.HUMANIZED_MESSAGE)
 					.show(Page.getCurrent());
 
@@ -550,7 +569,15 @@ public class CWBController implements Serializable {
 								}
 
 								CWBReader reader = new CWBReader();
-								model = reader.read(f.getAbsolutePath());
+								try {
+									model = reader.read(f.getAbsolutePath());
+								} catch (CWBModelReaderException e) {
+									new Notification(
+											Msg.get("notif.error.open.title"),
+											Msg.get("notif.error.open.text"),
+											Notification.Type.ERROR_MESSAGE)
+											.show(Page.getCurrent());
+								}
 
 								view.clear();
 
@@ -568,8 +595,8 @@ public class CWBController implements Serializable {
 
 								// Notify
 								new Notification(
-										Msg.get("notif.loading.done.title"),
-										Msg.get("notif.loading.done.text"),
+										Msg.get("notif.info.load.done.title"),
+										Msg.get("notif.info.load.done.text"),
 										Notification.Type.HUMANIZED_MESSAGE)
 										.show(Page.getCurrent());
 
@@ -622,8 +649,10 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification("Could not open file "
-						+ file.getAbsolutePath(), e.getMessage(),
+				new Notification(Msg.get("notif.error.file.read.title"),
+						MessageFormat.format(
+								Msg.get("notif.error.file.read.text"),
+								file.getAbsolutePath()),
 						Notification.Type.ERROR_MESSAGE)
 						.show(Page.getCurrent());
 				return null;
@@ -643,31 +672,39 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader parser = new CWBDataModelReader();
+			CWBDataModelReader reader = new CWBDataModelReader();
 			CWBDataModel dataModel = null;
 			try {
-				dataModel = parser.read(file);
-			} catch (OntologyFormatException e) {
-				new Notification("Could not parse ontology "
-						+ file.getAbsolutePath(), e.getMessage(),
+				dataModel = reader.read(file);
+			} catch (CWBDataModelReaderException e) {
+				new Notification(Msg.get("notif.error.datamodel.read.title"),
+						Msg.get("notif.error.datamodel.read.text"),
 						Notification.Type.ERROR_MESSAGE)
 						.show(Page.getCurrent());
 			}
 
 			// Update model
-			model.addDataModel(dataModel);
+			if (model.addDataModel(dataModel)) {
 
-			// Update view
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				// Update view
+				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 
-			view.getDataModelsPanelAccordion().setSelectedTab(
-					view.getDataModelsPanelAccordion().getComponentCount() - 1);
+				view.getDataModelsPanelAccordion()
+						.setSelectedTab(
+								view.getDataModelsPanelAccordion()
+										.getComponentCount() - 1);
 
-			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+				// Notify
+				new Notification(Msg.get("notif.info.load.done.title"),
+						Msg.get("notif.info.load.done.text"),
+						Notification.Type.HUMANIZED_MESSAGE).show(Page
+						.getCurrent());
+			} else {
+				new Notification(Msg.get("notif.error.datamodel.add.title"),
+						Msg.get("notif.error.datamodel.add.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
 
 			// Close pop-up window
 			view.getLoadNomenFromFileWindow().close();
@@ -766,36 +803,43 @@ public class CWBController implements Serializable {
 								InputStream is = resource.getStreamSource()
 										.getStream();
 
-								CWBDataModelReader parser = new CWBDataModelReader();
+								CWBDataModelReader reader = new CWBDataModelReader();
 								CWBDataModel dataModel = null;
 								try {
-									dataModel = parser.read(is);
-								} catch (OntologyFormatException e) {
+									dataModel = reader.read(is);
+								} catch (CWBDataModelReaderException e) {
 									new Notification(
-											"Could not parse ontology.",
-											e.getMessage(),
+											Msg.get("notif.error.datamodel.read.title"),
+											Msg.get("notif.error.datamodel.read.text"),
 											Notification.Type.ERROR_MESSAGE)
 											.show(Page.getCurrent());
 								}
 
 								// Update model
-								model.addDataModel(dataModel);
+								if (model.addDataModel(dataModel)) {
 
-								// Update view
-								view.getDataModelsPanel()
-										.addDataModelTreeTable(dataModel);
+									// Update view
+									view.getDataModelsPanel()
+											.addDataModelTreeTable(dataModel);
 
-								view.getDataModelsPanelAccordion()
-										.setSelectedTab(
-												view.getDataModelsPanelAccordion()
-														.getComponentCount() - 1);
+									view.getDataModelsPanelAccordion()
+											.setSelectedTab(
+													view.getDataModelsPanelAccordion()
+															.getComponentCount() - 1);
 
-								// Notify
-								new Notification(
-										Msg.get("notif.loading.done.title"),
-										Msg.get("notif.loading.done.text"),
-										Notification.Type.HUMANIZED_MESSAGE)
-										.show(Page.getCurrent());
+									// Notify
+									new Notification(
+											Msg.get("notif.info.load.done.title"),
+											Msg.get("notif.info.load.done.text"),
+											Notification.Type.HUMANIZED_MESSAGE)
+											.show(Page.getCurrent());
+								} else {
+									new Notification(
+											Msg.get("notif.error.datamodel.add.title"),
+											Msg.get("notif.error.datamodel.add.text"),
+											Notification.Type.ERROR_MESSAGE)
+											.show(Page.getCurrent());
+								}
 
 								// Close pop-up window
 								view.getLoadNomenFromFileWindow().close();
@@ -846,8 +890,10 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification("Could not open file "
-						+ file.getAbsolutePath(), e.getMessage(),
+				new Notification(Msg.get("notif.error.file.read.title"),
+						MessageFormat.format(
+								Msg.get("notif.error.file.read.text"),
+								file.getAbsolutePath()),
 						Notification.Type.ERROR_MESSAGE)
 						.show(Page.getCurrent());
 				return null;
@@ -867,31 +913,39 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader parser = new CWBDataModelReader();
+			CWBDataModelReader reader = new CWBDataModelReader();
 			CWBDataModel dataModel = null;
 			try {
-				dataModel = parser.read(file);
-			} catch (OntologyFormatException e) {
-				new Notification("Could not parse ontology "
-						+ file.getAbsolutePath(), e.getMessage(),
+				dataModel = reader.read(file);
+			} catch (CWBDataModelReaderException e) {
+				new Notification(Msg.get("notif.error.datamodel.read.title"),
+						Msg.get("notif.error.datamodel.read.text"),
 						Notification.Type.ERROR_MESSAGE)
 						.show(Page.getCurrent());
 			}
 
 			// Update model
-			model.addDataModel(dataModel);
+			if (model.addDataModel(dataModel)) {
 
-			// Update view
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				// Update view
+				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 
-			view.getDataModelsPanelAccordion().setSelectedTab(
-					view.getDataModelsPanelAccordion().getComponentCount() - 1);
+				view.getDataModelsPanelAccordion()
+						.setSelectedTab(
+								view.getDataModelsPanelAccordion()
+										.getComponentCount() - 1);
 
-			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+				// Notify
+				new Notification(Msg.get("notif.info.load.done.title"),
+						Msg.get("notif.info.load.done.text"),
+						Notification.Type.HUMANIZED_MESSAGE).show(Page
+						.getCurrent());
+			} else {
+				new Notification(Msg.get("notif.error.datamodel.add.title"),
+						Msg.get("notif.error.datamodel.add.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
 
 			// Close pop-up window
 			view.getLoadTagsetFromFileWindow().close();
@@ -990,36 +1044,42 @@ public class CWBController implements Serializable {
 								InputStream is = resource.getStreamSource()
 										.getStream();
 
-								CWBDataModelReader parser = new CWBDataModelReader();
+								CWBDataModelReader reader = new CWBDataModelReader();
 								CWBDataModel dataModel = null;
 								try {
-									dataModel = parser.read(is);
-								} catch (OntologyFormatException e) {
+									dataModel = reader.read(is);
+								} catch (CWBDataModelReaderException e) {
 									new Notification(
-											"Could not parse ontology.",
-											e.getMessage(),
+											Msg.get("notif.error.datamodel.read.title"),
+											Msg.get("notif.error.datamodel.read.text"),
 											Notification.Type.ERROR_MESSAGE)
 											.show(Page.getCurrent());
 								}
 
 								// Update model
-								model.addDataModel(dataModel);
+								if (model.addDataModel(dataModel)) {
+									// Update view
+									view.getDataModelsPanel()
+											.addDataModelTreeTable(dataModel);
 
-								// Update view
-								view.getDataModelsPanel()
-										.addDataModelTreeTable(dataModel);
+									view.getDataModelsPanelAccordion()
+											.setSelectedTab(
+													view.getDataModelsPanelAccordion()
+															.getComponentCount() - 1);
 
-								view.getDataModelsPanelAccordion()
-										.setSelectedTab(
-												view.getDataModelsPanelAccordion()
-														.getComponentCount() - 1);
-
-								// Notify
-								new Notification(
-										Msg.get("notif.loading.done.title"),
-										Msg.get("notif.loading.done.text"),
-										Notification.Type.HUMANIZED_MESSAGE)
-										.show(Page.getCurrent());
+									// Notify
+									new Notification(
+											Msg.get("notif.info.load.done.title"),
+											Msg.get("notif.info.load.done.text"),
+											Notification.Type.HUMANIZED_MESSAGE)
+											.show(Page.getCurrent());
+								} else {
+									new Notification(
+											Msg.get("notif.error.datamodel.add.title"),
+											Msg.get("notif.error.datamodel.add.text"),
+											Notification.Type.ERROR_MESSAGE)
+											.show(Page.getCurrent());
+								}
 
 								// Close pop-up window
 								view.getLoadTagsetFromFileWindow().close();
@@ -1082,11 +1142,7 @@ public class CWBController implements Serializable {
 				OWLOntology ontology = tag2owl.getTagOntology();
 
 				CWBDataModelReader reader = new CWBDataModelReader();
-				try {
-					dataModel = reader.read(ontology);
-				} catch (OntologyFormatException e) {
-					e.printStackTrace();
-				}
+				dataModel = reader.read(ontology);
 				break;
 
 			default:
@@ -1095,16 +1151,21 @@ public class CWBController implements Serializable {
 			}
 
 			// Update model
-			model.addDataModel(dataModel);
+			if (model.addDataModel(dataModel)) {
+				// Update view
+				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 
-			// Update view
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
-
-			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+				// Notify
+				new Notification(Msg.get("notif.info.load.done.title"),
+						Msg.get("notif.info.load.done.text"),
+						Notification.Type.HUMANIZED_MESSAGE).show(Page
+						.getCurrent());
+			} else {
+				new Notification(Msg.get("notif.error.datamodel.add.title"),
+						Msg.get("notif.error.datamodel.add.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
 
 			// Close pop-up window
 			view.getLoadTagsetFromWSWindow().close();
@@ -1168,14 +1229,12 @@ public class CWBController implements Serializable {
 
 			CWBWriter writer = new CWBWriter();
 
-			File onto1 = new File(Prop.DIR_TMP
-					+ File.separatorChar + Prop.FILENAME_SOURCE_ONTO
-					+ Prop.FMT_OWL);
+			File onto1 = new File(Prop.DIR_TMP + File.separatorChar
+					+ Prop.FILENAME_SOURCE_ONTO + Prop.FMT_OWL);
 
-			File onto2 = new File(Prop.DIR_TMP
-					+ File.separatorChar + Prop.FILENAME_TARGET_ONTO
-					+ Prop.FMT_OWL);
-			
+			File onto2 = new File(Prop.DIR_TMP + File.separatorChar
+					+ Prop.FILENAME_TARGET_ONTO + Prop.FMT_OWL);
+
 			writer.writeDataModel(dataModel2, onto2);
 			writer.writeDataModel(dataModel1, onto1);
 
@@ -1189,14 +1248,14 @@ public class CWBController implements Serializable {
 			Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
 					onto1.getAbsolutePath(), onto2.getAbsolutePath());
 
-//			matcher.printAlignment();
+			// matcher.printAlignment();
 
 			model.setSourceDataModel(dataModel1);
 			model.setTargetDataModel(dataModel2);
 
 			// Notify
-			new Notification(Msg.get("notif.loading.done.title"),
-					Msg.get("notif.loading.done.text"),
+			new Notification(Msg.get("notif.info.load.done.title"),
+					Msg.get("notif.info.load.done.text"),
 					Notification.Type.HUMANIZED_MESSAGE)
 					.show(Page.getCurrent());
 
@@ -1220,27 +1279,35 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
+			@SuppressWarnings("unchecked")
 			Set<CWBEquivalence> equivalences = (Set<CWBEquivalence>) view
 					.getMatchingResultsWindowTable().getValue();
-			
+
 			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
-					IRI.create(Prop.CWB_NAMESPACE), model.getSourceDataModel().getNamespace(),
-					model.getTargetDataModel().getNamespace());
+					IRI.create(Prop.CWB_NAMESPACE), model.getSourceDataModel()
+							.getNamespace(), model.getTargetDataModel()
+							.getNamespace());
 
 			dataModel.addConcepts(model.getSourceDataModel().getConcepts());
 			dataModel.addConcepts(model.getTargetDataModel().getConcepts());
 			dataModel.addEquivalences(equivalences);
 
 			CWBWriter writer = new CWBWriter();
-			
-			writer.writeDataModel(dataModel, Prop.DIR_TMP
-					+ File.separatorChar + "matched_data_model"
-					+ Prop.FMT_OWL);
-			
-			model.addMatchedDataModel(dataModel);
-			
-			view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+
+			writer.writeDataModel(dataModel, Prop.DIR_TMP + File.separatorChar
+					+ "matched_data_model" + Prop.FMT_OWL);
+
+			if (model.addMatchedDataModel(dataModel)) {
+				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+			} else {
+				new Notification(Msg.get("notif.error.datamodel.add.title"),
+						Msg.get("notif.error.datamodel.add.text"),
+						Notification.Type.ERROR_MESSAGE)
+						.show(Page.getCurrent());
+			}
+
 			view.getMatchingResultsWindow().close();
+
 		}
 	}
 

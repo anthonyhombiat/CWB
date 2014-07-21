@@ -7,24 +7,24 @@ import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.commons.io.FileUtils;
-
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.exception.OntologyFormatException;
+import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
+import lig.steamer.cwb.io.exception.CWBModelReaderException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.util.archive.ZipUtility;
 
+import org.apache.commons.io.FileUtils;
+
 public class CWBReader {
 
-	private static Logger LOGGER = Logger.getLogger(CWBReader.class
-			.getName());
+	private static Logger LOGGER = Logger.getLogger(CWBReader.class.getName());
 
 	public CWBReader() {
 
 	}
 
-	public CWBModel read(String projectPath) {
+	public CWBModel read(String projectPath) throws CWBModelReaderException {
 
 		LOGGER.log(Level.INFO, "Loading CWB project from " + projectPath
 				+ "...");
@@ -36,7 +36,11 @@ public class CWBReader {
 		ZipUtility zipUtil = new ZipUtility();
 		zipUtil.unzip(projectPath, destinationPath);
 
-		model.addDataModels(loadDataModels(destinationPath));
+		try {
+			model.addDataModels(loadDataModels(destinationPath));
+		} catch (CWBDataModelReaderException e) {
+			throw new CWBModelReaderException(e);
+		}
 
 		new File(projectPath).delete();
 		try {
@@ -51,7 +55,8 @@ public class CWBReader {
 
 	}
 
-	private Collection<CWBDataModel> loadDataModels(String projectRootDir) {
+	private Collection<CWBDataModel> loadDataModels(String projectRootDir)
+			throws CWBDataModelReaderException {
 
 		File dataModelsDir = new File(projectRootDir + File.separatorChar
 				+ Prop.DIRNAME_DATAMODELS);
@@ -64,11 +69,7 @@ public class CWBReader {
 
 		for (File file : dataModelsDir.listFiles()) {
 			CWBDataModelReader dataModelReader = new CWBDataModelReader();
-			try {
-				dataModels.add(dataModelReader.read(file));
-			} catch (OntologyFormatException e) {
-				e.printStackTrace();
-			}
+			dataModels.add(dataModelReader.read(file));
 		}
 
 		LOGGER.log(Level.INFO, "Data models loaded.");

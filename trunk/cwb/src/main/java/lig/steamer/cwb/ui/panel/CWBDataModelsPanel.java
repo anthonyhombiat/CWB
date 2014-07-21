@@ -17,9 +17,9 @@ public class CWBDataModelsPanel extends Panel {
 	private final Accordion accordion;
 
 	public CWBDataModelsPanel() {
-		
+
 		super(Msg.get("accordion.datamodels.caption"));
-		
+
 		accordion = new Accordion();
 		accordion.setSizeFull();
 
@@ -32,9 +32,9 @@ public class CWBDataModelsPanel extends Panel {
 	}
 
 	public void clear() {
-		
+
 		accordion.removeAllComponents();
-		
+
 	}
 
 	public void addDataModelTreeTable(CWBDataModel dataModel) {
@@ -77,14 +77,12 @@ public class CWBDataModelsPanel extends Panel {
 		VerticalLayout accordionElementLayout = new VerticalLayout();
 		accordionElementLayout.setSizeFull();
 		accordionElementLayout.addComponent(treeTable);
-
+		
 		final Panel accordionPanel = new Panel();
 		accordionPanel.setContent(accordionElementLayout);
 		accordionPanel.setSizeFull();
 
-		accordion.addTab(
-				accordionPanel,
-				dataModel.getNamespace().toString(), null);
+		accordion.addTab(accordionPanel, dataModel.getNamespace().toString());
 	}
 
 	public Accordion getAccordion() {

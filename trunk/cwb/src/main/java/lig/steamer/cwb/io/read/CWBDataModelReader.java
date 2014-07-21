@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.io.exception.OntologyFormatException;
+import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -41,8 +41,7 @@ public class CWBDataModelReader {
 		this.factory = manager.getOWLDataFactory();
 	}
 
-	public CWBDataModel read(OWLOntology ontology)
-			throws OntologyFormatException {
+	public CWBDataModel read(OWLOntology ontology) {
 
 		LOGGER.log(Level.INFO, "Parsing ontology...");
 
@@ -55,7 +54,7 @@ public class CWBDataModelReader {
 
 	}
 
-	public CWBDataModel read(File file) throws OntologyFormatException {
+	public CWBDataModel read(File file) throws CWBDataModelReaderException {
 
 		try {
 			OWLOntology ontology = manager
@@ -64,13 +63,13 @@ public class CWBDataModelReader {
 			return read(ontology);
 
 		} catch (OWLOntologyCreationException e) {
-			throw new OntologyFormatException(e);
+			throw new CWBDataModelReaderException(e);
 		}
 
 	}
 
 	public CWBDataModel read(InputStream inputStream)
-			throws OntologyFormatException {
+			throws CWBDataModelReaderException {
 
 		try {
 			OWLOntology ontology = manager
@@ -79,12 +78,12 @@ public class CWBDataModelReader {
 			return read(ontology);
 
 		} catch (OWLOntologyCreationException e) {
-			throw new OntologyFormatException(e);
+			throw new CWBDataModelReaderException(e);
 		}
 
 	}
 
-	public CWBDataModel read(Html5File file) throws OntologyFormatException {
+	public CWBDataModel read(Html5File file) throws CWBDataModelReaderException {
 
 		return read(new File(file.getFileName()));
 
@@ -95,7 +94,8 @@ public class CWBDataModelReader {
 			CWBConcept parent) {
 
 		if (dataModel == null) {
-			dataModel = new CWBDataModel(ontology.getOntologyID().getOntologyIRI());
+			dataModel = new CWBDataModel(ontology.getOntologyID()
+					.getOntologyIRI());
 		}
 
 		for (OWLClassExpression classExpression : classes) {
@@ -119,7 +119,7 @@ public class CWBDataModelReader {
 
 				populateDataModel(ontology, clazz.getSubClasses(ontology),
 						dataModel, concept);
-				
+
 				for (OWLEquivalentClassesAxiom equivalenceAxiom : equivalenceAxioms) {
 					dataModel
 							.addEquivalences(getCWBEquivalencesFromOwlEquivalentClassesAxiom(
@@ -133,14 +133,15 @@ public class CWBDataModelReader {
 	}
 
 	public Collection<CWBEquivalence> getCWBEquivalencesFromOwlEquivalentClassesAxiom(
-			OWLEquivalentClassesAxiom axiom, CWBConcept concept, CWBDataModel dataModel) {
+			OWLEquivalentClassesAxiom axiom, CWBConcept concept,
+			CWBDataModel dataModel) {
 
 		Collection<CWBEquivalence> equivalences = new ArrayList<>();
 
 		for (OWLClass equivalentClass : axiom.getClassesInSignature()) {
 
-			equivalences.add(new CWBEquivalence(concept, dataModel.getConceptFromIRI(
-					equivalentClass.getIRI()), 1));
+			equivalences.add(new CWBEquivalence(concept, dataModel
+					.getConceptFromIRI(equivalentClass.getIRI()), 1));
 
 			LOGGER.log(Level.INFO, "Adding CWBEquivalence class "
 					+ equivalentClass.getIRI());

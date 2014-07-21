@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
+import lig.steamer.cwb.io.exception.CWBModelWriterException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataSet;
 import lig.steamer.cwb.model.CWBIndicatorMeasureSet;
@@ -25,7 +26,7 @@ public class CWBWriter {
 
 	}
 
-	public File write(CWBModel model) {
+	public File write(CWBModel model) throws CWBModelWriterException {
 
 		LOGGER.log(Level.INFO, "Saving project to " + Prop.DIR_OUTPUT + "...");
 
@@ -81,7 +82,7 @@ public class CWBWriter {
 		try {
 			FileUtils.deleteDirectory(projectRootDir);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new CWBModelWriterException(e);
 		}
 
 		LOGGER.log(Level.INFO, "Project saved to " + Prop.DIR_OUTPUT + ".");
