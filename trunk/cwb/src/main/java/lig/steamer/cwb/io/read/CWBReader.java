@@ -1,4 +1,4 @@
-package lig.steamer.cwb.io;
+package lig.steamer.cwb.io.read;
 
 import java.io.File;
 import java.io.IOException;

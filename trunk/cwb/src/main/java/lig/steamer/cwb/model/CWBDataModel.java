@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import lig.steamer.cwb.io.visitor.CWBDataModelVisitable;
-import lig.steamer.cwb.io.visitor.CWBDataModelVisitor;
+import lig.steamer.cwb.io.write.CWBDataModelVisitable;
+import lig.steamer.cwb.io.write.CWBDataModelVisitor;
 
 import org.semanticweb.owlapi.model.IRI;
 

@@ -1,4 +1,4 @@
-package lig.steamer.cwb.io;
+package lig.steamer.cwb.io.write;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.visitor.CWBDataModelOwlRenderer;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataSet;
 import lig.steamer.cwb.model.CWBIndicatorMeasureSet;

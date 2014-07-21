@@ -2,8 +2,8 @@ package lig.steamer.cwb.model;
 
 import java.io.Serializable;
 
-import lig.steamer.cwb.io.visitor.CWBDataModelVisitable;
-import lig.steamer.cwb.io.visitor.CWBDataModelVisitor;
+import lig.steamer.cwb.io.write.CWBDataModelVisitable;
+import lig.steamer.cwb.io.write.CWBDataModelVisitor;
 
 public class CWBEquivalence implements Serializable, CWBDataModelVisitable {
 

@@ -5,9 +5,9 @@ import java.net.URI;
 import java.util.Collection;
 
 import lig.steamer.cwb.core.tagging.IFolksonomy;
-import lig.steamer.cwb.io.CWBDataModelReader;
-import lig.steamer.cwb.io.CWBWriter;
 import lig.steamer.cwb.io.exception.OntologyFormatException;
+import lig.steamer.cwb.io.read.CWBDataModelReader;
+import lig.steamer.cwb.io.write.CWBWriter;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.util.matching.CWBOntologyMatcher;
