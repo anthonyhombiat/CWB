@@ -2,17 +2,19 @@ package lig.steamer.cwb.core.tagging.impl;
 
 import lig.steamer.cwb.core.tagging.ISource;
 
+import org.semanticweb.owlapi.model.IRI;
+
 public class Source implements ISource {
 
-	private String name;
+	private IRI iri;
 
-	public Source(String name) {
-		this.name = name;
+	public Source(IRI iri) {
+		this.iri = iri;
 	}
 
 	@Override
-	public String getName() {
-		return name;
+	public IRI getIRI() {
+		return iri;
 	}
 
 }

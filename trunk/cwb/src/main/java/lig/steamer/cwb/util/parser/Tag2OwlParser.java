@@ -37,15 +37,16 @@ public class Tag2OwlParser {
 	private OWLOntologyManager manager;
 	private OWLOntology tagOntology;
 
-	private String ontologyUri;
+	private IFolksonomy folksonomy;
 
-	public Tag2OwlParser(String ontologyUri) {
+	public Tag2OwlParser(IFolksonomy folksonomy) {
 
-		this.ontologyUri = ontologyUri;
+		this.folksonomy = folksonomy;
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 		try {
-			tagOntology = manager.createOntology(IRI.create(ontologyUri));
+			tagOntology = manager.createOntology(folksonomy.getSource()
+					.getIRI());
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
@@ -54,9 +55,9 @@ public class Tag2OwlParser {
 
 	/**
 	 * Adds the given TagSet to the tag ontology.
-	 * @param tagSet, the TagSet
+	 * @return the tag ontology
 	 */
-	public void addTagSet(IFolksonomy folksonomy) {
+	public OWLOntology parse() {
 
 		ITagSet tagset = folksonomy.getTagSet();
 
@@ -76,6 +77,8 @@ public class Tag2OwlParser {
 		manager.applyChanges(ontologyChanges);
 
 		LOGGER.log(Level.INFO, "Classes added.");
+		
+		return tagOntology;
 
 	}
 
@@ -103,8 +106,8 @@ public class Tag2OwlParser {
 				.replaceAll("[^a-zA-Z0-9]+", "_");
 
 		// Decalaring the OWLClass
-		OWLClass tagClass = factory.getOWLClass(IRI.create(ontologyUri + "#"
-				+ value));
+		OWLClass tagClass = factory.getOWLClass(IRI.create(folksonomy
+				.getSource().getIRI() + "#" + value));
 
 		axioms.add(factory.getOWLDeclarationAxiom(tagClass));
 
@@ -129,10 +132,6 @@ public class Tag2OwlParser {
 
 		return axioms;
 
-	}
-
-	public OWLOntology getTagOntology() {
-		return tagOntology;
 	}
 
 }

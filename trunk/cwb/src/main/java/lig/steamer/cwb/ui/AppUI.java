@@ -60,11 +60,11 @@ public class AppUI extends UI {
 	private final CWBMenuBar menuBar = new CWBMenuBar();
 	private final VerticalLayout leftLayout = new VerticalLayout();
 	private final TabSheet tabSheet = new TabSheet();
-	
+
 	private final CWBDataModelsPanel dataModelsPanel = new CWBDataModelsPanel();
 	private final CWBIndicatorsPanel indicatorsPanel = new CWBIndicatorsPanel();
 	CWBMapPanel map = new CWBMapPanel();
-	
+
 	private final CWBOpenProjectWindow openProjectWindow = new CWBOpenProjectWindow();
 	private final CWBLoadTagsetFromWSWindow loadTagsetFromWSWindow = new CWBLoadTagsetFromWSWindow();
 	private final CWBLoadNomenFromFileWindow loadNomenFromFileWindow = new CWBLoadNomenFromFileWindow();
@@ -74,7 +74,8 @@ public class AppUI extends UI {
 
 	@WebServlet(value = "/*", asyncSupported = true)
 	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "lig.steamer.cwb.ui.AppWidgetSet")
-	public static class Servlet extends VaadinServlet {}
+	public static class Servlet extends VaadinServlet {
+	}
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -107,7 +108,7 @@ public class AppUI extends UI {
 		leftLayout.setExpandRatio(indicatorsPanel, 0.5f);
 		leftLayout.setSizeFull();
 		leftLayout.setSpacing(true);
-		
+
 		final HorizontalLayout centralLayout = new HorizontalLayout();
 		centralLayout.addComponent(leftLayout);
 		centralLayout.addComponent(tabSheet);
@@ -131,54 +132,52 @@ public class AppUI extends UI {
 		 * Notification
 		 */
 
-		Notification welcomeNotification = new Notification(Msg.get("notif.welcome.title"),
-				Msg.get("notif.welcome.text"));
-
-		welcomeNotification.show(Page.getCurrent());
-		welcomeNotification.setDelayMsec(Notification.DELAY_NONE);
+		Notification.show(Msg.get("notif.info.welcome.title"),
+				Msg.get("notif.info.welcome.text"),
+				Notification.Type.HUMANIZED_MESSAGE);
 
 		controller = new CWBController(new CWBModel(), this);
-		
+
 	}
-	
-	public void clear(){
+
+	public void clear() {
 		dataModelsPanel.clear();
 		indicatorsPanel.clear();
 		map.clear();
 	}
-	
+
 	/**********************************/
 	/*** EMBEDDED COMPONENT GETTERS ***/
 	/**********************************/
-	
+
 	public MenuItem getSaveMenuItem() {
 		return menuBar.getSaveMenuItem();
 	}
-	
+
 	public Window getOpenProjectWindow() {
 		return openProjectWindow;
 	}
-	
+
 	public Window getLoadTagsetFromWSWindow() {
 		return loadTagsetFromWSWindow;
 	}
-	
-	public ComboBox getTagWSCombobox(){
+
+	public ComboBox getTagWSCombobox() {
 		return loadTagsetFromWSWindow.getTagWSComboBox();
 	}
-	
-	public Button getLoadTagsetFromWSButton(){
+
+	public Button getLoadTagsetFromWSButton() {
 		return loadTagsetFromWSWindow.getLoadButton();
 	}
-	
+
 	public VerticalLayout getLeftLayout() {
 		return leftLayout;
 	}
-	
+
 	public CWBDataModelsPanel getDataModelsPanel() {
 		return dataModelsPanel;
 	}
-	
+
 	public CWBIndicatorsPanel getIndicatorsPanel() {
 		return indicatorsPanel;
 	}
@@ -186,11 +185,11 @@ public class AppUI extends UI {
 	public Accordion getDataModelsPanelAccordion() {
 		return dataModelsPanel.getAccordion();
 	}
-	
+
 	public CWBLoadTagsetFromFileWindow getLoadTagsetFromFileWindow() {
 		return loadTagsetFromFileWindow;
 	}
-	
+
 	public CWBLoadNomenFromFileWindow getLoadNomenFromFileWindow() {
 		return loadNomenFromFileWindow;
 	}
@@ -199,193 +198,217 @@ public class AppUI extends UI {
 		return matchingWindow;
 	}
 
-	public Table getMatchingWindowTable(){
+	public Table getMatchingWindowTable() {
 		return matchingWindow.getTable();
 	}
-	
-	public BeanItemContainer<CWBDataModel> getMatchingWindowTableContainer(){
+
+	public BeanItemContainer<CWBDataModel> getMatchingWindowTableContainer() {
 		return matchingWindow.getContainer();
 	}
-	
+
 	public CWBMatchingResultsWindow getMatchingResultsWindow() {
 		return matchingResultsWindow;
 	}
-	
-	public BeanItemContainer<CWBEquivalence> getMatchingResultsWindowTableContainer(){
+
+	public BeanItemContainer<CWBEquivalence> getMatchingResultsWindowTableContainer() {
 		return matchingResultsWindow.getContainer();
 	}
-	
-	public Table getMatchingResultsWindowTable(){
+
+	public Table getMatchingResultsWindowTable() {
 		return matchingResultsWindow.getTable();
 	}
 
-	public TabSheet getTabSheet(){
+	public TabSheet getTabSheet() {
 		return tabSheet;
 	}
-	
+
 	/****************************/
 	/*** ADD LISTENER METHODS ***/
 	/****************************/
-	
+
 	public void addLoadTagsetButtonListener(ClickListener listener) {
 		loadTagsetFromWSWindow.getLoadButton().addClickListener(listener);
 	}
-	
-	public void addOpenMenuItemCommand(Command command){
+
+	public void addOpenMenuItemCommand(Command command) {
 		menuBar.getOpenMenuItem().setCommand(command);
 	}
-	
-	public void addSaveMenuItemCommand(Command command){
+
+	public void addSaveMenuItemCommand(Command command) {
 		menuBar.getSaveMenuItem().setCommand(command);
 	}
-	
-	public void addCloseMenuItemCommand(Command command){
+
+	public void addCloseMenuItemCommand(Command command) {
 		menuBar.getCloseMenuItem().setCommand(command);
 	}
-	
-	public void addLogoutMenuItemCommand(Command command){
+
+	public void addLogoutMenuItemCommand(Command command) {
 		menuBar.getLogoutMenuItem().setCommand(command);
 	}
-	
-	public void addAboutMenuItemCommand(Command command){
+
+	public void addAboutMenuItemCommand(Command command) {
 		menuBar.getAboutMenuItem().setCommand(command);
 	}
-	
-	public void addDocMenuItemCommand(Command command){
+
+	public void addDocMenuItemCommand(Command command) {
 		menuBar.getDocMenuItem().setCommand(command);
 	}
-	
-	public void addLoadTagsetFromWSMenuItemCommand(Command command){
+
+	public void addLoadTagsetFromWSMenuItemCommand(Command command) {
 		menuBar.getLoadTagsetFromWSMenuItem().setCommand(command);
 	}
-	
-	public void addLoadTagsetFromFileMenuItemCommand(Command command){
+
+	public void addLoadTagsetFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadTagsetFromFileMenuItem().setCommand(command);
 	}
-	
-	public void addLoadNomenFromFileMenuItemCommand(Command command){
+
+	public void addLoadNomenFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadNomenFromFileMenuItem().setCommand(command);
 	}
-	
-	public void addDataModelsMenuItemCommand(Command command){
+
+	public void addDataModelsMenuItemCommand(Command command) {
 		menuBar.getDataModelsMenuItem().setCommand(command);
 	}
-	
-	public void addIndicatorsMenuItemCommand(Command command){
+
+	public void addIndicatorsMenuItemCommand(Command command) {
 		menuBar.getIndicatorsMenuItem().setCommand(command);
 	}
-	public void addMapMenuItemCommand(Command command){
+
+	public void addMapMenuItemCommand(Command command) {
 		menuBar.getMapMenuItem().setCommand(command);
 	}
-	
-	public void addMatchMenuItemCommand(Command command){
+
+	public void addMatchMenuItemCommand(Command command) {
 		menuBar.getMatchMenuItem().setCommand(command);
 	}
-	
-	public void addTagWSComboBoxListener(ValueChangeListener listener){
-		loadTagsetFromWSWindow.getTagWSComboBox().addValueChangeListener(listener);
+
+	public void addTagWSComboBoxListener(ValueChangeListener listener) {
+		loadTagsetFromWSWindow.getTagWSComboBox().addValueChangeListener(
+				listener);
 	}
-	
-	public void addOpenProjectUploadReceiver(Receiver receiver){
+
+	public void addOpenProjectUploadReceiver(Receiver receiver) {
 		openProjectWindow.getUploadComponent().setReceiver(receiver);
 	}
-	
-	public void addOpenProjectUploadSucceededListener(SucceededListener listener){
+
+	public void addOpenProjectUploadSucceededListener(SucceededListener listener) {
 		openProjectWindow.getUploadComponent().addSucceededListener(listener);
 	}
-	
-	public void addOpenProjectUploadFailedListener(FailedListener listener){
+
+	public void addOpenProjectUploadFailedListener(FailedListener listener) {
 		openProjectWindow.getUploadComponent().addFailedListener(listener);
 	}
-	
-	public void addOpenProjectUploadProgressListener(ProgressListener listener){
+
+	public void addOpenProjectUploadProgressListener(ProgressListener listener) {
 		openProjectWindow.getUploadComponent().addProgressListener(listener);
 	}
-	
-	public void addOpenProjectUploadFinishedListener(FinishedListener listener){
+
+	public void addOpenProjectUploadFinishedListener(FinishedListener listener) {
 		openProjectWindow.getUploadComponent().addFinishedListener(listener);
 	}
-	
-	public void addOpenProjectUploadStartedListener(StartedListener listener){
+
+	public void addOpenProjectUploadStartedListener(StartedListener listener) {
 		openProjectWindow.getUploadComponent().addStartedListener(listener);
 	}
-	
-	public void addOpenProjectDropBoxDropHandler(DropHandler dropHandler){
+
+	public void addOpenProjectDropBoxDropHandler(DropHandler dropHandler) {
 		openProjectWindow.getDropBox().setDropHandler(dropHandler);
 	}
 
-	public void addLoadNomenFromFileUploadReceiver(Receiver receiver){
+	public void addLoadNomenFromFileUploadReceiver(Receiver receiver) {
 		loadNomenFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
-	
-	public void addLoadNomenFromFileUploadSucceededListener(SucceededListener listener){
-		loadNomenFromFileWindow.getUploadComponent().addSucceededListener(listener);
+
+	public void addLoadNomenFromFileUploadSucceededListener(
+			SucceededListener listener) {
+		loadNomenFromFileWindow.getUploadComponent().addSucceededListener(
+				listener);
 	}
-	
-	public void addLoadNomenFromFileUploadFailedListener(FailedListener listener){
-		loadNomenFromFileWindow.getUploadComponent().addFailedListener(listener);
+
+	public void addLoadNomenFromFileUploadFailedListener(FailedListener listener) {
+		loadNomenFromFileWindow.getUploadComponent()
+				.addFailedListener(listener);
 	}
-	
-	public void addLoadNomenFromFileUploadProgressListener(ProgressListener listener){
-		loadNomenFromFileWindow.getUploadComponent().addProgressListener(listener);
+
+	public void addLoadNomenFromFileUploadProgressListener(
+			ProgressListener listener) {
+		loadNomenFromFileWindow.getUploadComponent().addProgressListener(
+				listener);
 	}
-	
-	public void addLoadNomenFromFileUploadFinishedListener(FinishedListener listener){
-		loadNomenFromFileWindow.getUploadComponent().addFinishedListener(listener);
+
+	public void addLoadNomenFromFileUploadFinishedListener(
+			FinishedListener listener) {
+		loadNomenFromFileWindow.getUploadComponent().addFinishedListener(
+				listener);
 	}
-	
-	public void addLoadNomenFromFileUploadStartedListener(StartedListener listener){
-		loadNomenFromFileWindow.getUploadComponent().addStartedListener(listener);
+
+	public void addLoadNomenFromFileUploadStartedListener(
+			StartedListener listener) {
+		loadNomenFromFileWindow.getUploadComponent().addStartedListener(
+				listener);
 	}
-	
-	public void addLoadNomenFromFileDropBoxDropHandler(DropHandler dropHandler){
+
+	public void addLoadNomenFromFileDropBoxDropHandler(DropHandler dropHandler) {
 		loadNomenFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
-	
-	public void addLoadTagsetFromFileUploadReceiver(Receiver receiver){
+
+	public void addLoadTagsetFromFileUploadReceiver(Receiver receiver) {
 		loadTagsetFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
-	
-	public void addLoadTagsetFromFileUploadSucceededListener(SucceededListener listener){
-		loadTagsetFromFileWindow.getUploadComponent().addSucceededListener(listener);
+
+	public void addLoadTagsetFromFileUploadSucceededListener(
+			SucceededListener listener) {
+		loadTagsetFromFileWindow.getUploadComponent().addSucceededListener(
+				listener);
 	}
-	
-	public void addLoadTagsetFromFileUploadFailedListener(FailedListener listener){
-		loadTagsetFromFileWindow.getUploadComponent().addFailedListener(listener);
+
+	public void addLoadTagsetFromFileUploadFailedListener(
+			FailedListener listener) {
+		loadTagsetFromFileWindow.getUploadComponent().addFailedListener(
+				listener);
 	}
-	
-	public void addLoadTagsetFromFileUploadProgressListener(ProgressListener listener){
-		loadTagsetFromFileWindow.getUploadComponent().addProgressListener(listener);
+
+	public void addLoadTagsetFromFileUploadProgressListener(
+			ProgressListener listener) {
+		loadTagsetFromFileWindow.getUploadComponent().addProgressListener(
+				listener);
 	}
-	
-	public void addLoadTagsetFromFileUploadFinishedListener(FinishedListener listener){
-		loadTagsetFromFileWindow.getUploadComponent().addFinishedListener(listener);
+
+	public void addLoadTagsetFromFileUploadFinishedListener(
+			FinishedListener listener) {
+		loadTagsetFromFileWindow.getUploadComponent().addFinishedListener(
+				listener);
 	}
-	
-	public void addLoadTagsetFromFileUploadStartedListener(StartedListener listener){
-		loadTagsetFromFileWindow.getUploadComponent().addStartedListener(listener);
+
+	public void addLoadTagsetFromFileUploadStartedListener(
+			StartedListener listener) {
+		loadTagsetFromFileWindow.getUploadComponent().addStartedListener(
+				listener);
 	}
-	
-	public void addLoadTagsetFromFileDropBoxDropHandler(DropHandler dropHandler){
+
+	public void addLoadTagsetFromFileDropBoxDropHandler(DropHandler dropHandler) {
 		loadTagsetFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
-	
-	public void addMatchingWindowTableValueChangeListener(ValueChangeListener listener){
+
+	public void addMatchingWindowTableValueChangeListener(
+			ValueChangeListener listener) {
 		matchingWindow.getTable().addValueChangeListener(listener);
 	}
-	
-	public void addMatchingWindowButtonClickListener(ClickListener listener){
+
+	public void addMatchingWindowButtonClickListener(ClickListener listener) {
 		matchingWindow.getButton().addClickListener(listener);
 	}
-	
-	public void addMatchingResultsWindowButtonClickListener(ClickListener listener){
+
+	public void addMatchingResultsWindowButtonClickListener(
+			ClickListener listener) {
 		matchingResultsWindow.getButton().addClickListener(listener);
 	}
-	
-	public void addMatchingResultsWindowTableValueChangeListener(ValueChangeListener listener){
+
+	public void addMatchingResultsWindowTableValueChangeListener(
+			ValueChangeListener listener) {
 		matchingResultsWindow.getTable().addValueChangeListener(listener);
 	}
-	
+
 	/**
 	 * @return the controller
 	 */

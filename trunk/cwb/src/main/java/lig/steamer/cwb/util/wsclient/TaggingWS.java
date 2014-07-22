@@ -2,7 +2,8 @@ package lig.steamer.cwb.util.wsclient;
 
 public enum TaggingWS {
 	
-	TAG_INFO("OpenStreetMap TagInfo");
+	TAGINFO("OpenStreetMap Taginfo"),
+	OVERPASS("OpenStreetMap Overpass");
 	
 	private String name = "";
 

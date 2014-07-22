@@ -33,8 +33,11 @@ import lig.steamer.cwb.util.browser.BrowserHomepageProvider;
 import lig.steamer.cwb.util.browser.UnsupportedBrowserException;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
+import lig.steamer.cwb.util.wsclient.FolksonomyWSClient;
 import lig.steamer.cwb.util.wsclient.TaggingWS;
-import lig.steamer.cwb.util.wsclient.taginfo.TagInfoClient;
+import lig.steamer.cwb.util.wsclient.exception.FolksonomyWSClientException;
+import lig.steamer.cwb.util.wsclient.overpass.OverpassClient;
+import lig.steamer.cwb.util.wsclient.taginfo.TaginfoClient;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -176,10 +179,9 @@ public class CWBController implements Serializable {
 			try {
 				writer.write(model);
 			} catch (CWBModelWriterException e) {
-				new Notification(Msg.get("notif.error.save.title"),
+				Notification.show(Msg.get("notif.error.save.title"),
 						Msg.get("notif.error.save.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			FileResource resource = new FileResource(new File(Prop.DIR_OUTPUT
@@ -404,12 +406,12 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification(Msg.get("notif.error.file.read.title"),
+				Notification.show(
+						Msg.get("notif.error.file.read.title"),
 						MessageFormat.format(
 								Msg.get("notif.error.file.read.text"),
 								file.getAbsolutePath()),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 				return null;
 			}
 
@@ -426,10 +428,9 @@ public class CWBController implements Serializable {
 			try {
 				model = reader.read(path);
 			} catch (CWBModelReaderException e) {
-				new Notification(Msg.get("notif.error.open.title"),
+				Notification.show(Msg.get("notif.error.open.title"),
 						Msg.get("notif.error.open.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			view.clear();
@@ -443,10 +444,9 @@ public class CWBController implements Serializable {
 					view.getDataModelsPanelAccordion().getComponentCount() - 1);
 
 			// Notify
-			new Notification(Msg.get("notif.info.load.done.title"),
+			Notification.show(Msg.get("notif.info.load.done.title"),
 					Msg.get("notif.info.load.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+					Notification.Type.HUMANIZED_MESSAGE);
 
 			// Close pop-up window
 			view.getOpenProjectWindow().close();
@@ -572,11 +572,10 @@ public class CWBController implements Serializable {
 								try {
 									model = reader.read(f.getAbsolutePath());
 								} catch (CWBModelReaderException e) {
-									new Notification(
+									Notification.show(
 											Msg.get("notif.error.open.title"),
 											Msg.get("notif.error.open.text"),
-											Notification.Type.ERROR_MESSAGE)
-											.show(Page.getCurrent());
+											Notification.Type.ERROR_MESSAGE);
 								}
 
 								view.clear();
@@ -594,11 +593,10 @@ public class CWBController implements Serializable {
 														.getComponentCount() - 1);
 
 								// Notify
-								new Notification(
+								Notification.show(
 										Msg.get("notif.info.load.done.title"),
 										Msg.get("notif.info.load.done.text"),
-										Notification.Type.HUMANIZED_MESSAGE)
-										.show(Page.getCurrent());
+										Notification.Type.HUMANIZED_MESSAGE);
 
 								// Close pop-up window
 								view.getOpenProjectWindow().close();
@@ -649,12 +647,12 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification(Msg.get("notif.error.file.read.title"),
+				Notification.show(
+						Msg.get("notif.error.file.read.title"),
 						MessageFormat.format(
 								Msg.get("notif.error.file.read.text"),
 								file.getAbsolutePath()),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 				return null;
 			}
 
@@ -677,10 +675,9 @@ public class CWBController implements Serializable {
 			try {
 				dataModel = reader.read(file);
 			} catch (CWBDataModelReaderException e) {
-				new Notification(Msg.get("notif.error.datamodel.read.title"),
+				Notification.show(Msg.get("notif.error.datamodel.read.title"),
 						Msg.get("notif.error.datamodel.read.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Update model
@@ -695,15 +692,13 @@ public class CWBController implements Serializable {
 										.getComponentCount() - 1);
 
 				// Notify
-				new Notification(Msg.get("notif.info.load.done.title"),
+				Notification.show(Msg.get("notif.info.load.done.title"),
 						Msg.get("notif.info.load.done.text"),
-						Notification.Type.HUMANIZED_MESSAGE).show(Page
-						.getCurrent());
+						Notification.Type.HUMANIZED_MESSAGE);
 			} else {
-				new Notification(Msg.get("notif.error.datamodel.add.title"),
+				Notification.show(Msg.get("notif.error.datamodel.add.title"),
 						Msg.get("notif.error.datamodel.add.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Close pop-up window
@@ -808,11 +803,11 @@ public class CWBController implements Serializable {
 								try {
 									dataModel = reader.read(is);
 								} catch (CWBDataModelReaderException e) {
-									new Notification(
-											Msg.get("notif.error.datamodel.read.title"),
-											Msg.get("notif.error.datamodel.read.text"),
-											Notification.Type.ERROR_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.error.datamodel.read.title"),
+													Msg.get("notif.error.datamodel.read.text"),
+													Notification.Type.ERROR_MESSAGE);
 								}
 
 								// Update model
@@ -828,17 +823,17 @@ public class CWBController implements Serializable {
 															.getComponentCount() - 1);
 
 									// Notify
-									new Notification(
-											Msg.get("notif.info.load.done.title"),
-											Msg.get("notif.info.load.done.text"),
-											Notification.Type.HUMANIZED_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.info.load.done.title"),
+													Msg.get("notif.info.load.done.text"),
+													Notification.Type.HUMANIZED_MESSAGE);
 								} else {
-									new Notification(
-											Msg.get("notif.error.datamodel.add.title"),
-											Msg.get("notif.error.datamodel.add.text"),
-											Notification.Type.ERROR_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.error.datamodel.add.title"),
+													Msg.get("notif.error.datamodel.add.text"),
+													Notification.Type.ERROR_MESSAGE);
 								}
 
 								// Close pop-up window
@@ -890,12 +885,12 @@ public class CWBController implements Serializable {
 				fos = new FileOutputStream(file);
 
 			} catch (FileNotFoundException e) {
-				new Notification(Msg.get("notif.error.file.read.title"),
+				Notification.show(
+						Msg.get("notif.error.file.read.title"),
 						MessageFormat.format(
 								Msg.get("notif.error.file.read.text"),
 								file.getAbsolutePath()),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 				return null;
 			}
 
@@ -918,10 +913,9 @@ public class CWBController implements Serializable {
 			try {
 				dataModel = reader.read(file);
 			} catch (CWBDataModelReaderException e) {
-				new Notification(Msg.get("notif.error.datamodel.read.title"),
+				Notification.show(Msg.get("notif.error.datamodel.read.title"),
 						Msg.get("notif.error.datamodel.read.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Update model
@@ -936,15 +930,13 @@ public class CWBController implements Serializable {
 										.getComponentCount() - 1);
 
 				// Notify
-				new Notification(Msg.get("notif.info.load.done.title"),
+				Notification.show(Msg.get("notif.info.load.done.title"),
 						Msg.get("notif.info.load.done.text"),
-						Notification.Type.HUMANIZED_MESSAGE).show(Page
-						.getCurrent());
+						Notification.Type.HUMANIZED_MESSAGE);
 			} else {
-				new Notification(Msg.get("notif.error.datamodel.add.title"),
+				Notification.show(Msg.get("notif.error.datamodel.add.title"),
 						Msg.get("notif.error.datamodel.add.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Close pop-up window
@@ -1049,11 +1041,11 @@ public class CWBController implements Serializable {
 								try {
 									dataModel = reader.read(is);
 								} catch (CWBDataModelReaderException e) {
-									new Notification(
-											Msg.get("notif.error.datamodel.read.title"),
-											Msg.get("notif.error.datamodel.read.text"),
-											Notification.Type.ERROR_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.error.datamodel.read.title"),
+													Msg.get("notif.error.datamodel.read.text"),
+													Notification.Type.ERROR_MESSAGE);
 								}
 
 								// Update model
@@ -1068,17 +1060,17 @@ public class CWBController implements Serializable {
 															.getComponentCount() - 1);
 
 									// Notify
-									new Notification(
-											Msg.get("notif.info.load.done.title"),
-											Msg.get("notif.info.load.done.text"),
-											Notification.Type.HUMANIZED_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.info.load.done.title"),
+													Msg.get("notif.info.load.done.text"),
+													Notification.Type.HUMANIZED_MESSAGE);
 								} else {
-									new Notification(
-											Msg.get("notif.error.datamodel.add.title"),
-											Msg.get("notif.error.datamodel.add.text"),
-											Notification.Type.ERROR_MESSAGE)
-											.show(Page.getCurrent());
+									Notification
+											.show(Msg
+													.get("notif.error.datamodel.add.title"),
+													Msg.get("notif.error.datamodel.add.text"),
+													Notification.Type.ERROR_MESSAGE);
 								}
 
 								// Close pop-up window
@@ -1125,30 +1117,34 @@ public class CWBController implements Serializable {
 			TaggingWS selectedWS = (TaggingWS) view.getTagWSCombobox()
 					.getValue();
 
+			FolksonomyWSClient client = null;
 			CWBDataModel dataModel = null;
+			IFolksonomy folksonomy = null;
 
 			switch (selectedWS) {
-
-			case TAG_INFO:
-
-				// Requesting tags from OSM TAGINFO Web Service
-				TagInfoClient tagInfoClient = new TagInfoClient();
-				IFolksonomy folksonomy = tagInfoClient
-						.getTagsByKey(TagInfoClient.DEFAULT_TAG_KEY);
-
-				Tag2OwlParser tag2owl = new Tag2OwlParser(
-						TagInfoClient.OSM_TAG_INFO_URI);
-				tag2owl.addTagSet(folksonomy);
-				OWLOntology ontology = tag2owl.getTagOntology();
-
-				CWBDataModelReader reader = new CWBDataModelReader();
-				dataModel = reader.read(ontology);
+			case TAGINFO:
+				client = new TaginfoClient();
+				break;
+			case OVERPASS:
+				client = new OverpassClient();
 				break;
 
 			default:
 				return;
-
 			}
+
+			try {
+				folksonomy = client.getFolksonomy();
+			} catch (FolksonomyWSClientException e) {
+				Notification.show(Msg.get("notif.error.ws.title"),
+						e.getMessage(), Notification.Type.ERROR_MESSAGE);
+			}
+
+			Tag2OwlParser tag2owl = new Tag2OwlParser(folksonomy);
+			OWLOntology ontology = tag2owl.parse();
+
+			CWBDataModelReader reader = new CWBDataModelReader();
+			dataModel = reader.read(ontology);
 
 			// Update model
 			if (model.addDataModel(dataModel)) {
@@ -1156,15 +1152,13 @@ public class CWBController implements Serializable {
 				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 
 				// Notify
-				new Notification(Msg.get("notif.info.load.done.title"),
+				Notification.show(Msg.get("notif.info.load.done.title"),
 						Msg.get("notif.info.load.done.text"),
-						Notification.Type.HUMANIZED_MESSAGE).show(Page
-						.getCurrent());
+						Notification.Type.HUMANIZED_MESSAGE);
 			} else {
-				new Notification(Msg.get("notif.error.datamodel.add.title"),
+				Notification.show(Msg.get("notif.error.datamodel.add.title"),
 						Msg.get("notif.error.datamodel.add.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Close pop-up window
@@ -1254,10 +1248,9 @@ public class CWBController implements Serializable {
 			model.setTargetDataModel(dataModel2);
 
 			// Notify
-			new Notification(Msg.get("notif.info.load.done.title"),
+			Notification.show(Msg.get("notif.info.load.done.title"),
 					Msg.get("notif.info.load.done.text"),
-					Notification.Type.HUMANIZED_MESSAGE)
-					.show(Page.getCurrent());
+					Notification.Type.HUMANIZED_MESSAGE);
 
 			// Close pop-up window
 			view.getMatchWindow().close();
@@ -1300,10 +1293,9 @@ public class CWBController implements Serializable {
 			if (model.addMatchedDataModel(dataModel)) {
 				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
 			} else {
-				new Notification(Msg.get("notif.error.datamodel.add.title"),
+				Notification.show(Msg.get("notif.error.datamodel.add.title"),
 						Msg.get("notif.error.datamodel.add.text"),
-						Notification.Type.ERROR_MESSAGE)
-						.show(Page.getCurrent());
+						Notification.Type.ERROR_MESSAGE);
 			}
 
 			view.getMatchingResultsWindow().close();
