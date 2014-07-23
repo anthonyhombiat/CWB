@@ -183,7 +183,7 @@ public class AppUI extends UI {
 	}
 
 	public Accordion getDataModelsPanelAccordion() {
-		return dataModelsPanel.getAccordion();
+		return dataModelsPanel.getAccordionNomen();
 	}
 
 	public CWBLoadTagsetFromFileWindow getLoadTagsetFromFileWindow() {

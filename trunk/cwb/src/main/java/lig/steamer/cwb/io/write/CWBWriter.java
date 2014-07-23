@@ -6,8 +6,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.exception.CWBModelWriterException;
+import lig.steamer.cwb.io.exception.CWBWriterException;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
+import lig.steamer.cwb.model.CWBDataModelMatched;
+import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBDataSet;
 import lig.steamer.cwb.model.CWBIndicatorMeasureSet;
 import lig.steamer.cwb.model.CWBIndicatorModel;
@@ -26,7 +29,7 @@ public class CWBWriter {
 
 	}
 
-	public File write(CWBModel model) throws CWBModelWriterException {
+	public File write(CWBModel model) throws CWBWriterException {
 
 		LOGGER.log(Level.INFO, "Saving project to " + Prop.DIR_OUTPUT + "...");
 
@@ -38,9 +41,8 @@ public class CWBWriter {
 
 		projectRootDir.mkdir();
 
-		File dataModelsDir = new File(projectRootDir.getAbsolutePath()
-				+ File.separatorChar + Prop.DIRNAME_DATAMODELS);
-		dataModelsDir.mkdir();
+		String dataModelsDirPath = projectRootDir.getAbsolutePath()
+				+ File.separatorChar + Prop.DIRNAME_DATAMODELS;
 
 		File indicatorsDir = new File(projectRootDir.getAbsolutePath()
 				+ File.separatorChar + Prop.DIRNAME_INDICATORS);
@@ -50,18 +52,7 @@ public class CWBWriter {
 				+ File.separatorChar + Prop.DIRNAME_MEASURES);
 		measuresDir.mkdir();
 
-		int i = 1;
-		for (CWBDataModel dataModel : model.getDataModels()) {
-				
-			String path = dataModelsDir.getAbsolutePath()
-					 + File.separatorChar + i
-					 + Prop.FMT_OWL;
-			
-			writeDataModel(dataModel, path);
-			
-			i++;
-			
-		}
+		writeDataModels(model, dataModelsDirPath);
 
 		for (CWBIndicatorModel indicatorModel : model.getIndicatorModels()) {
 			// TODO print indicator models
@@ -82,13 +73,67 @@ public class CWBWriter {
 		try {
 			FileUtils.deleteDirectory(projectRootDir);
 		} catch (IOException e) {
-			throw new CWBModelWriterException(e);
+			throw new CWBWriterException(e);
 		}
 
 		LOGGER.log(Level.INFO, "Project saved to " + Prop.DIR_OUTPUT + ".");
 
 		return zipFile;
 
+	}
+	
+	public void writeDataModels(CWBModel model, String dataModelsDirPath){
+		
+		File dataModelsDirNomen = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_NOMEN);
+		dataModelsDirNomen.mkdir();
+		
+		File dataModelsDirFolkso = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_FOLKSO);
+		dataModelsDirFolkso.mkdir();
+		
+		File dataModelsDirMatched = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_MATCHED);
+		dataModelsDirMatched.mkdir();
+		
+		int i = 1;
+		for (CWBDataModelNomen dataModelNomen : model.getDataModelsNomen()) {
+				
+			String path = dataModelsDirNomen.getAbsolutePath()
+					 + File.separatorChar + i
+					 + Prop.FMT_OWL;
+			
+			writeDataModel(dataModelNomen, path);
+			
+			i++;
+			
+		}
+		
+		i = 1;
+		for (CWBDataModelFolkso dataModelFolkso : model.getDataModelsFolkso()) {
+				
+			String path = dataModelsDirFolkso.getAbsolutePath()
+					 + File.separatorChar + i
+					 + Prop.FMT_OWL;
+			
+			writeDataModel(dataModelFolkso, path);
+			
+			i++;
+			
+		}
+		
+		i = 1;
+		for (CWBDataModelMatched dataModelMatched : model.getDataModelsMatched()) {
+				
+			String path = dataModelsDirMatched.getAbsolutePath()
+					 + File.separatorChar + i
+					 + Prop.FMT_OWL;
+			
+			writeDataModel(dataModelMatched, path);
+			
+			i++;
+			
+		}
 	}
 
 	public File writeDataModel(CWBDataModel dataModel, File file) {

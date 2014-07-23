@@ -10,6 +10,9 @@ import java.util.logging.Logger;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
+import lig.steamer.cwb.model.CWBDataModelMatched;
+import lig.steamer.cwb.model.CWBDataModelNomen;
 
 import org.coode.owlapi.rdf.rdfxml.RDFXMLOntologyStorer;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -48,6 +51,21 @@ public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 		this.manager = OWLManager.createOWLOntologyManager();
 		this.factory = manager.getOWLDataFactory();
 
+	}
+	
+	@Override
+	public void visitNomenclature(CWBDataModelNomen nomenclature) {
+		visitDataModel(nomenclature);
+	}
+
+	@Override
+	public void visitFolksonomy(CWBDataModelFolkso folksonomy) {
+		visitDataModel(folksonomy);
+	}
+
+	@Override
+	public void visitMatchedDataModel(CWBDataModelMatched matchedDataModel) {
+		visitDataModel(matchedDataModel);
 	}
 
 	@Override
@@ -230,5 +248,5 @@ public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 
 		return axioms;
 	}
-
+	
 }

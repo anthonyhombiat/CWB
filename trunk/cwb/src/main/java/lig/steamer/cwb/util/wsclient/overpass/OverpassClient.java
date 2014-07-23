@@ -18,8 +18,8 @@ import lig.steamer.cwb.core.tagging.impl.Source;
 import lig.steamer.cwb.core.tagging.impl.Tag;
 import lig.steamer.cwb.core.tagging.impl.TagSet;
 import lig.steamer.cwb.model.BBox;
-import lig.steamer.cwb.util.wsclient.FolksonomyWSClient;
-import lig.steamer.cwb.util.wsclient.exception.FolksonomyWSClientException;
+import lig.steamer.cwb.util.wsclient.FolksoProviderWSClient;
+import lig.steamer.cwb.util.wsclient.exception.FolksoProviderWSClientException;
 import lig.steamer.cwb.util.wsclient.http.HttpMethod;
 import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 import lig.steamer.cwb.util.wsclient.overpass.exception.MalformedOverpassURLException;
@@ -33,7 +33,7 @@ import org.semanticweb.owlapi.model.IRI;
  * @author Anthony Hombiat OSM Overpass client that provides methods to consume
  * data from the restful Web Service OSM Overpass API.
  */
-public class OverpassClient implements FolksonomyWSClient{
+public class OverpassClient implements FolksoProviderWSClient{
 
 	private static Logger LOGGER = Logger.getLogger(OverpassClient.class
 			.getName());
@@ -172,11 +172,11 @@ public class OverpassClient implements FolksonomyWSClient{
 	}
 
 	@Override
-	public IFolksonomy getFolksonomy() throws FolksonomyWSClientException {
+	public IFolksonomy getTags() throws FolksoProviderWSClientException {
 		try {
 			return getTagsByKey(DEFAULT_TAG_KEY);
 		} catch (OverpassClientException e) {
-			throw new FolksonomyWSClientException(e.getMessage(), e);
+			throw new FolksoProviderWSClientException(e.getMessage(), e);
 		}
 	}
 

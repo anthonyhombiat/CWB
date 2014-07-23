@@ -23,7 +23,7 @@ public class CWBMapPanel extends Panel {
 		
 		map = new LMap();
 		map.setAttributionPrefix(ATTRIBUTION_PREFIX);
-		map.addBaseLayer(new LOpenStreetMapLayer(), "CloudMade");
+		map.addBaseLayer(new LOpenStreetMapLayer(), "OpenStreetMap");
 		map.setZoomLevel(DEFAULT_ZOOM_LEVEL);
 		map.setCenter(DEFAULT_CENTER.x, DEFAULT_CENTER.y);
 		map.setSizeFull();

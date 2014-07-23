@@ -28,7 +28,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import com.vaadin.ui.Html5File;
 
-public class CWBDataModelReader {
+public abstract class CWBDataModelReader {
 
 	private static Logger LOGGER = Logger.getLogger(CWBDataModelReader.class
 			.getName());
@@ -41,18 +41,7 @@ public class CWBDataModelReader {
 		this.factory = manager.getOWLDataFactory();
 	}
 
-	public CWBDataModel read(OWLOntology ontology) {
-
-		LOGGER.log(Level.INFO, "Parsing ontology...");
-
-		CWBDataModel dataModel = populateDataModel(ontology,
-				findRootClasses(ontology), null, null);
-
-		LOGGER.log(Level.INFO, "Parsing done");
-
-		return dataModel;
-
-	}
+	public abstract CWBDataModel read(OWLOntology ontology);
 
 	public CWBDataModel read(File file) throws CWBDataModelReaderException {
 
@@ -92,12 +81,7 @@ public class CWBDataModelReader {
 	public CWBDataModel populateDataModel(OWLOntology ontology,
 			Set<? extends OWLClassExpression> classes, CWBDataModel dataModel,
 			CWBConcept parent) {
-
-		if (dataModel == null) {
-			dataModel = new CWBDataModel(ontology.getOntologyID()
-					.getOntologyIRI());
-		}
-
+		
 		for (OWLClassExpression classExpression : classes) {
 
 			OWLClass clazz = classExpression.asOWLClass();
@@ -129,7 +113,6 @@ public class CWBDataModelReader {
 		}
 
 		return dataModel;
-
 	}
 
 	public Collection<CWBEquivalence> getCWBEquivalencesFromOwlEquivalentClassesAxiom(
@@ -177,7 +160,7 @@ public class CWBDataModelReader {
 		return concept;
 	}
 
-	private Set<OWLClass> findRootClasses(OWLOntology ontology) {
+	public Set<OWLClass> findRootClasses(OWLOntology ontology) {
 
 		LOGGER.log(Level.INFO, "Searching for root classes...");
 

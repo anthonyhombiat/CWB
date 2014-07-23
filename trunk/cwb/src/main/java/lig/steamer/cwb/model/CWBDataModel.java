@@ -10,7 +10,7 @@ import lig.steamer.cwb.io.write.CWBDataModelVisitor;
 
 import org.semanticweb.owlapi.model.IRI;
 
-public class CWBDataModel implements Serializable, CWBDataModelVisitable {
+public abstract class CWBDataModel implements Serializable, CWBDataModelVisitable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -198,11 +198,6 @@ public class CWBDataModel implements Serializable, CWBDataModelVisitable {
 		
 		return rootConcepts;
 	}
-
-	@Override
-	public void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor){
-		visitor.visitDataModel(this);
-	}
 	
 	@Override
 	public boolean equals(Object o){
@@ -211,4 +206,8 @@ public class CWBDataModel implements Serializable, CWBDataModelVisitable {
 		}
 		return false;
 	}
+	
+	@Override
+	public abstract void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor);
+	
 }

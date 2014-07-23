@@ -1,8 +1,8 @@
 package lig.steamer.cwb.util.wsclient.overpass.exception;
 
-import lig.steamer.cwb.util.wsclient.exception.FolksonomyWSClientException;
+import lig.steamer.cwb.util.wsclient.exception.FolksoProviderWSClientException;
 
-public class OverpassClientException extends FolksonomyWSClientException {
+public class OverpassClientException extends FolksoProviderWSClientException {
 
 	private static final long serialVersionUID = 1L;
 	

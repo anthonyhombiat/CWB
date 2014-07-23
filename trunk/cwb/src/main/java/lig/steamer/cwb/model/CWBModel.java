@@ -9,17 +9,15 @@ public class CWBModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Collection<CWBDataModel> dataModels;
-	private Collection<CWBMatchedDataModel> matchedDataModels;
 	private Collection<CWBDataSet> dataSets;
 	private Collection<CWBIndicatorModel> indicatorModels;
 	private Collection<CWBIndicatorMeasureSet> indicatorMeasureSets;
-	
+
 	private CWBDataModel sourceDataModel;
 	private CWBDataModel targetDataModel;
 
 	public CWBModel() {
 		dataModels = new ArrayList<CWBDataModel>();
-		matchedDataModels = new ArrayList<CWBMatchedDataModel>();
 		dataSets = new ArrayList<CWBDataSet>();
 		indicatorModels = new ArrayList<CWBIndicatorModel>();
 		indicatorMeasureSets = new ArrayList<CWBIndicatorMeasureSet>();
@@ -237,58 +235,43 @@ public class CWBModel implements Serializable {
 				&& indicatorModels.isEmpty() && indicatorMeasureSets.isEmpty();
 	}
 
-	/**
-	 * @return the matchedDataModels
-	 */
-	public Collection<CWBMatchedDataModel> getMatchedDataModels() {
-		return matchedDataModels;
-	}
+	public Collection<CWBDataModelFolkso> getDataModelsFolkso() {
 
-	/**
-	 * @param matchedDataModels the matchedDataModels to set
-	 */
-	public void setMatchedDataModels(Collection<CWBMatchedDataModel> matchedDataModels) {
-		this.matchedDataModels = matchedDataModels;
-	}
-	
-	public boolean addMatchedDataModel(
-			CWBMatchedDataModel matchedDataModel) {
-		if (!matchedDataModels.contains(matchedDataModel)) {
-			matchedDataModels.add(matchedDataModel);
-			return true;
-		}
-		return false;
-	}
+		Collection<CWBDataModelFolkso> dataModelsFolkso = new ArrayList<CWBDataModelFolkso>();
 
-	public boolean removeMatchedDataModel(
-			CWBMatchedDataModel matchedDataModel) {
-		if (matchedDataModels.contains(matchedDataModel)) {
-			matchedDataModels.remove(matchedDataModel);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean addMatchedDataModels(
-			Collection<CWBMatchedDataModel> matchedDataModels) {
-		boolean hasChanged = false;
-		for (CWBMatchedDataModel matchedDataModel : matchedDataModels) {
-			if (addMatchedDataModel(matchedDataModel)) {
-				hasChanged = true;
+		for (CWBDataModel dataModel : dataModels) {
+			if (dataModel instanceof CWBDataModelFolkso) {
+				dataModelsFolkso.add((CWBDataModelFolkso) dataModel);
 			}
 		}
-		return hasChanged;
+
+		return dataModelsFolkso;
 	}
 
-	public boolean removeMatchedDataModels(
-			Collection<CWBMatchedDataModel> matchedDataModels) {
-		boolean hasChanged = false;
-		for (CWBMatchedDataModel matchedDataModel : matchedDataModels) {
-			if (removeMatchedDataModel(matchedDataModel)) {
-				hasChanged = true;
+	public Collection<CWBDataModelNomen> getDataModelsNomen() {
+
+		Collection<CWBDataModelNomen> dataModelsNomen = new ArrayList<CWBDataModelNomen>();
+
+		for (CWBDataModel dataModel : dataModels) {
+			if (dataModel instanceof CWBDataModelNomen) {
+				dataModelsNomen.add((CWBDataModelNomen) dataModel);
 			}
 		}
-		return hasChanged;
+
+		return dataModelsNomen;
+	}
+
+	public Collection<CWBDataModelMatched> getDataModelsMatched() {
+
+		Collection<CWBDataModelMatched> dataModelsMatched = new ArrayList<CWBDataModelMatched>();
+
+		for (CWBDataModel dataModel : dataModels) {
+			if (dataModel instanceof CWBDataModelMatched) {
+				dataModelsMatched.add((CWBDataModelMatched) dataModel);
+			}
+		}
+
+		return dataModelsMatched;
 	}
 
 	/**

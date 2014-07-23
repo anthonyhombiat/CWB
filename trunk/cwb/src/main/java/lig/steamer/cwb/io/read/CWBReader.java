@@ -9,8 +9,11 @@ import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
-import lig.steamer.cwb.io.exception.CWBModelReaderException;
+import lig.steamer.cwb.io.exception.CWBReaderException;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
+import lig.steamer.cwb.model.CWBDataModelMatched;
+import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.util.archive.ZipUtility;
 
@@ -24,7 +27,7 @@ public class CWBReader {
 
 	}
 
-	public CWBModel read(String projectPath) throws CWBModelReaderException {
+	public CWBModel read(String projectPath) throws CWBReaderException {
 
 		LOGGER.log(Level.INFO, "Loading CWB project from " + projectPath
 				+ "...");
@@ -36,17 +39,13 @@ public class CWBReader {
 		ZipUtility zipUtil = new ZipUtility();
 		zipUtil.unzip(projectPath, destinationPath);
 
-		try {
-			model.addDataModels(loadDataModels(destinationPath));
-		} catch (CWBDataModelReaderException e) {
-			throw new CWBModelReaderException(e);
-		}
+		model.addDataModels(readDataModels(destinationPath));
 
 		new File(projectPath).delete();
 		try {
 			FileUtils.deleteDirectory(new File(destinationPath));
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new CWBReaderException(e);
 		}
 
 		LOGGER.log(Level.INFO, "CWB Project loaded.");
@@ -55,26 +54,93 @@ public class CWBReader {
 
 	}
 
-	private Collection<CWBDataModel> loadDataModels(String projectRootDir)
-			throws CWBDataModelReaderException {
+	private Collection<CWBDataModel> readDataModels(String projectRootDir)
+			throws CWBReaderException {
 
-		File dataModelsDir = new File(projectRootDir + File.separatorChar
-				+ Prop.DIRNAME_DATAMODELS);
+		String dataModelsDir = projectRootDir + File.separatorChar
+				+ Prop.DIRNAME_DATAMODELS;
 
-		LOGGER.log(Level.INFO,
-				"Loading data models from " + dataModelsDir.getAbsolutePath()
-						+ "...");
+		LOGGER.log(Level.INFO, "Loading data models from " + dataModelsDir
+				+ "...");
 
 		Collection<CWBDataModel> dataModels = new ArrayList<CWBDataModel>();
 
-		for (File file : dataModelsDir.listFiles()) {
-			CWBDataModelReader dataModelReader = new CWBDataModelReader();
-			dataModels.add(dataModelReader.read(file));
-		}
+		dataModels.addAll(readDataModelsNomen(dataModelsDir));
+		dataModels.addAll(readDataModelsFolkso(dataModelsDir));
+		dataModels.addAll(readDataModelsMatched(dataModelsDir));
 
 		LOGGER.log(Level.INFO, "Data models loaded.");
 
 		return dataModels;
+	}
+
+	private Collection<CWBDataModelNomen> readDataModelsNomen(
+			String dataModelsDirPath) throws CWBReaderException {
+
+		File dataModelsNomenDir = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_NOMEN);
+
+		Collection<CWBDataModelNomen> dataModelsNomen = new ArrayList<CWBDataModelNomen>();
+
+		if (dataModelsNomenDir.isDirectory()) {
+			for (File file : dataModelsNomenDir.listFiles()) {
+				CWBDataModelReader dataModelReader = new CWBDataModelNomenReader();
+				try {
+					dataModelsNomen.add((CWBDataModelNomen) dataModelReader
+							.read(file));
+				} catch (CWBDataModelReaderException e) {
+					throw new CWBReaderException(e);
+				}
+			}
+		}
+
+		return dataModelsNomen;
+	}
+
+	private Collection<CWBDataModelFolkso> readDataModelsFolkso(
+			String dataModelsDirPath) throws CWBReaderException {
+
+		File dataModelsNomenDir = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_FOLKSO);
+
+		Collection<CWBDataModelFolkso> dataModelsFolkso = new ArrayList<CWBDataModelFolkso>();
+
+		if (dataModelsNomenDir.isDirectory()) {
+			for (File file : dataModelsNomenDir.listFiles()) {
+				CWBDataModelReader dataModelReader = new CWBDataModelFolksoReader();
+				try {
+					dataModelsFolkso.add((CWBDataModelFolkso) dataModelReader
+							.read(file));
+				} catch (CWBDataModelReaderException e) {
+					throw new CWBReaderException(e);
+				}
+			}
+		}
+
+		return dataModelsFolkso;
+	}
+
+	private Collection<CWBDataModelMatched> readDataModelsMatched(
+			String dataModelsDirPath) throws CWBReaderException {
+
+		File dataModelsNomenDir = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_MATCHED);
+
+		Collection<CWBDataModelMatched> dataModelsMatched = new ArrayList<CWBDataModelMatched>();
+
+		if (dataModelsNomenDir.isDirectory()) {
+			for (File file : dataModelsNomenDir.listFiles()) {
+				CWBDataModelReader dataModelReader = new CWBDataModelMatchedReader();
+				try {
+					dataModelsMatched.add((CWBDataModelMatched) dataModelReader
+							.read(file));
+				} catch (CWBDataModelReaderException e) {
+					throw new CWBReaderException(e);
+				}
+			}
+		}
+
+		return dataModelsMatched;
 	}
 
 }

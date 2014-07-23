@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import lig.steamer.cwb.core.tagging.IFolksonomy;
 import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
+import lig.steamer.cwb.io.read.CWBDataModelFolksoReader;
 import lig.steamer.cwb.io.read.CWBDataModelReader;
 import lig.steamer.cwb.io.write.CWBWriter;
 import lig.steamer.cwb.model.CWBDataModel;
@@ -39,7 +40,7 @@ public class Main {
 		Tag2OwlParser parser = new Tag2OwlParser(folksonomy);
 
 		// Reads the parsed ontology
-		CWBDataModelReader reader = new CWBDataModelReader();
+		CWBDataModelReader reader = new CWBDataModelFolksoReader();
 		CWBDataModel model = reader.read(parser.parse());
 
 		// Writes the model

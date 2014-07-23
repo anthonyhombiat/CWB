@@ -17,8 +17,8 @@ import lig.steamer.cwb.core.tagging.impl.LocalizedString;
 import lig.steamer.cwb.core.tagging.impl.Source;
 import lig.steamer.cwb.core.tagging.impl.Tag;
 import lig.steamer.cwb.core.tagging.impl.TagSet;
-import lig.steamer.cwb.util.wsclient.FolksonomyWSClient;
-import lig.steamer.cwb.util.wsclient.exception.FolksonomyWSClientException;
+import lig.steamer.cwb.util.wsclient.FolksoProviderWSClient;
+import lig.steamer.cwb.util.wsclient.exception.FolksoProviderWSClientException;
 import lig.steamer.cwb.util.wsclient.http.HttpMethod;
 import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 import lig.steamer.cwb.util.wsclient.taginfo.exception.MalformedTaginfoURLException;
@@ -29,10 +29,11 @@ import lig.steamer.cwb.util.wsclient.taginfo.exception.TaginfoURISyntaxException
 import org.semanticweb.owlapi.model.IRI;
 
 /**
- * @author Anthony Hombiat OSM Taginfo client that provides methods to consume
+ * @author Anthony Hombiat
+ * OSM Taginfo client that provides methods to consume
  * data from the restful Web Service OSM Taginfo API.
  */
-public class TaginfoClient implements FolksonomyWSClient {
+public class TaginfoClient implements FolksoProviderWSClient {
 
 	private static Logger LOGGER = Logger.getLogger(TaginfoClient.class
 			.getName());
@@ -133,11 +134,11 @@ public class TaginfoClient implements FolksonomyWSClient {
 	}
 
 	@Override
-	public IFolksonomy getFolksonomy() throws FolksonomyWSClientException {
+	public IFolksonomy getTags() throws FolksoProviderWSClientException {
 		try {
 			return getTagsByKey(DEFAULT_TAG_KEY);
 		} catch (TaginfoClientException e) {
-			throw new FolksonomyWSClientException(e.getMessage(), e);
+			throw new FolksoProviderWSClientException(e.getMessage(), e);
 		}
 	}
 

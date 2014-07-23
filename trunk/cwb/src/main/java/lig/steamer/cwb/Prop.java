@@ -19,6 +19,9 @@ public class Prop {
 	public static final String DIR_TMP = DIR_CLASSES + File.separatorChar + PACK_IO + File.separatorChar + "tmp";
 
 	public static final String DIRNAME_DATAMODELS = "datamodels";
+	public static final String DIRNAME_FOLKSO = "folksonomies";
+	public static final String DIRNAME_NOMEN = "nomenclature";
+	public static final String DIRNAME_MATCHED = "matched";
 	public static final String DIRNAME_INDICATORS = "indicators";
 	public static final String DIRNAME_MEASURES = "measures";
 

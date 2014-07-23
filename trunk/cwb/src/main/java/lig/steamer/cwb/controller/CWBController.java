@@ -12,20 +12,25 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.core.tagging.IFolksonomy;
 import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
-import lig.steamer.cwb.io.exception.CWBModelReaderException;
-import lig.steamer.cwb.io.exception.CWBModelWriterException;
+import lig.steamer.cwb.io.exception.CWBReaderException;
+import lig.steamer.cwb.io.exception.CWBWriterException;
+import lig.steamer.cwb.io.read.CWBDataModelFolksoReader;
+import lig.steamer.cwb.io.read.CWBDataModelNomenReader;
 import lig.steamer.cwb.io.read.CWBDataModelReader;
 import lig.steamer.cwb.io.read.CWBReader;
 import lig.steamer.cwb.io.write.CWBWriter;
 import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
+import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBEquivalence;
-import lig.steamer.cwb.model.CWBMatchedDataModel;
+import lig.steamer.cwb.model.CWBDataModelMatched;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.ui.AppUI;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
@@ -33,9 +38,9 @@ import lig.steamer.cwb.util.browser.BrowserHomepageProvider;
 import lig.steamer.cwb.util.browser.UnsupportedBrowserException;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.parser.Tag2OwlParser;
-import lig.steamer.cwb.util.wsclient.FolksonomyWSClient;
+import lig.steamer.cwb.util.wsclient.FolksoProviderWSClient;
 import lig.steamer.cwb.util.wsclient.TaggingWS;
-import lig.steamer.cwb.util.wsclient.exception.FolksonomyWSClientException;
+import lig.steamer.cwb.util.wsclient.exception.FolksoProviderWSClientException;
 import lig.steamer.cwb.util.wsclient.overpass.OverpassClient;
 import lig.steamer.cwb.util.wsclient.taginfo.TaginfoClient;
 
@@ -178,7 +183,7 @@ public class CWBController implements Serializable {
 			CWBWriter writer = new CWBWriter();
 			try {
 				writer.write(model);
-			} catch (CWBModelWriterException e) {
+			} catch (CWBWriterException e) {
 				Notification.show(Msg.get("notif.error.save.title"),
 						Msg.get("notif.error.save.text"),
 						Notification.Type.ERROR_MESSAGE);
@@ -427,7 +432,7 @@ public class CWBController implements Serializable {
 			CWBReader reader = new CWBReader();
 			try {
 				model = reader.read(path);
-			} catch (CWBModelReaderException e) {
+			} catch (CWBReaderException e) {
 				Notification.show(Msg.get("notif.error.open.title"),
 						Msg.get("notif.error.open.text"),
 						Notification.Type.ERROR_MESSAGE);
@@ -437,7 +442,7 @@ public class CWBController implements Serializable {
 
 			for (CWBDataModel dataModel : model.getDataModels()) {
 				// Update view
-				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				view.getDataModelsPanel().addDataModel(dataModel);
 			}
 
 			view.getDataModelsPanelAccordion().setSelectedTab(
@@ -571,7 +576,7 @@ public class CWBController implements Serializable {
 								CWBReader reader = new CWBReader();
 								try {
 									model = reader.read(f.getAbsolutePath());
-								} catch (CWBModelReaderException e) {
+								} catch (CWBReaderException e) {
 									Notification.show(
 											Msg.get("notif.error.open.title"),
 											Msg.get("notif.error.open.text"),
@@ -583,8 +588,8 @@ public class CWBController implements Serializable {
 								for (CWBDataModel dataModel : model
 										.getDataModels()) {
 									// Update view
-									view.getDataModelsPanel()
-											.addDataModelTreeTable(dataModel);
+									view.getDataModelsPanel().addDataModel(
+											dataModel);
 								}
 
 								view.getDataModelsPanelAccordion()
@@ -670,7 +675,7 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader reader = new CWBDataModelReader();
+			CWBDataModelReader reader = new CWBDataModelNomenReader();
 			CWBDataModel dataModel = null;
 			try {
 				dataModel = reader.read(file);
@@ -684,7 +689,7 @@ public class CWBController implements Serializable {
 			if (model.addDataModel(dataModel)) {
 
 				// Update view
-				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				view.getDataModelsPanel().addDataModel(dataModel);
 
 				view.getDataModelsPanelAccordion()
 						.setSelectedTab(
@@ -798,7 +803,7 @@ public class CWBController implements Serializable {
 								InputStream is = resource.getStreamSource()
 										.getStream();
 
-								CWBDataModelReader reader = new CWBDataModelReader();
+								CWBDataModelReader reader = new CWBDataModelNomenReader();
 								CWBDataModel dataModel = null;
 								try {
 									dataModel = reader.read(is);
@@ -814,8 +819,8 @@ public class CWBController implements Serializable {
 								if (model.addDataModel(dataModel)) {
 
 									// Update view
-									view.getDataModelsPanel()
-											.addDataModelTreeTable(dataModel);
+									view.getDataModelsPanel().addDataModel(
+											dataModel);
 
 									view.getDataModelsPanelAccordion()
 											.setSelectedTab(
@@ -908,7 +913,7 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader reader = new CWBDataModelReader();
+			CWBDataModelReader reader = new CWBDataModelFolksoReader();
 			CWBDataModel dataModel = null;
 			try {
 				dataModel = reader.read(file);
@@ -922,7 +927,7 @@ public class CWBController implements Serializable {
 			if (model.addDataModel(dataModel)) {
 
 				// Update view
-				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				view.getDataModelsPanel().addDataModel(dataModel);
 
 				view.getDataModelsPanelAccordion()
 						.setSelectedTab(
@@ -1036,7 +1041,7 @@ public class CWBController implements Serializable {
 								InputStream is = resource.getStreamSource()
 										.getStream();
 
-								CWBDataModelReader reader = new CWBDataModelReader();
+								CWBDataModelReader reader = new CWBDataModelFolksoReader();
 								CWBDataModel dataModel = null;
 								try {
 									dataModel = reader.read(is);
@@ -1051,8 +1056,8 @@ public class CWBController implements Serializable {
 								// Update model
 								if (model.addDataModel(dataModel)) {
 									// Update view
-									view.getDataModelsPanel()
-											.addDataModelTreeTable(dataModel);
+									view.getDataModelsPanel().addDataModel(
+											dataModel);
 
 									view.getDataModelsPanelAccordion()
 											.setSelectedTab(
@@ -1117,7 +1122,7 @@ public class CWBController implements Serializable {
 			TaggingWS selectedWS = (TaggingWS) view.getTagWSCombobox()
 					.getValue();
 
-			FolksonomyWSClient client = null;
+			FolksoProviderWSClient client = null;
 			CWBDataModel dataModel = null;
 			IFolksonomy folksonomy = null;
 
@@ -1134,8 +1139,8 @@ public class CWBController implements Serializable {
 			}
 
 			try {
-				folksonomy = client.getFolksonomy();
-			} catch (FolksonomyWSClientException e) {
+				folksonomy = client.getTags();
+			} catch (FolksoProviderWSClientException e) {
 				Notification.show(Msg.get("notif.error.ws.title"),
 						e.getMessage(), Notification.Type.ERROR_MESSAGE);
 			}
@@ -1143,13 +1148,13 @@ public class CWBController implements Serializable {
 			Tag2OwlParser tag2owl = new Tag2OwlParser(folksonomy);
 			OWLOntology ontology = tag2owl.parse();
 
-			CWBDataModelReader reader = new CWBDataModelReader();
+			CWBDataModelReader reader = new CWBDataModelFolksoReader();
 			dataModel = reader.read(ontology);
 
 			// Update model
 			if (model.addDataModel(dataModel)) {
 				// Update view
-				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+				view.getDataModelsPanel().addDataModel(dataModel);
 
 				// Notify
 				Notification.show(Msg.get("notif.info.load.done.title"),
@@ -1191,14 +1196,29 @@ public class CWBController implements Serializable {
 		@SuppressWarnings("unchecked")
 		@Override
 		public void valueChange(ValueChangeEvent event) {
-			for (Object itemId : (Set<Object>) view.getMatchingWindowTable()
-					.getValue()) {
+
+			Set<Object> selectedItems = (Set<Object>) view
+					.getMatchingWindowTable().getValue();
+
+			for (Object itemId : selectedItems) {
 				view.getMatchingWindowTable()
 						.getColumnGenerator(
 								Msg.get("match.sources.table.column.select"))
 						.generateCell(view.getMatchingWindowTable(), itemId,
 								Msg.get("match.sources.table.column.select"));
 			}
+
+			int selectedItemCount = selectedItems.size();
+			
+			if (selectedItemCount > 2) {
+				Iterator<Object> it = selectedItems.iterator();
+				it.next();
+				Set<Object> newValue = new LinkedHashSet<Object>();
+				newValue.add(it.next());
+				newValue.add(it.next());
+				view.getMatchingWindowTable().setValue(newValue);
+			}
+
 			view.getMatchingWindowTable().refreshRowCache();
 
 		}
@@ -1276,7 +1296,7 @@ public class CWBController implements Serializable {
 			Set<CWBEquivalence> equivalences = (Set<CWBEquivalence>) view
 					.getMatchingResultsWindowTable().getValue();
 
-			CWBMatchedDataModel dataModel = new CWBMatchedDataModel(
+			CWBDataModelMatched dataModel = new CWBDataModelMatched(
 					IRI.create(Prop.CWB_NAMESPACE), model.getSourceDataModel()
 							.getNamespace(), model.getTargetDataModel()
 							.getNamespace());
@@ -1290,8 +1310,8 @@ public class CWBController implements Serializable {
 			writer.writeDataModel(dataModel, Prop.DIR_TMP + File.separatorChar
 					+ "matched_data_model" + Prop.FMT_OWL);
 
-			if (model.addMatchedDataModel(dataModel)) {
-				view.getDataModelsPanel().addDataModelTreeTable(dataModel);
+			if (model.addDataModel(dataModel)) {
+				view.getDataModelsPanel().addDataModelMatched(dataModel);
 			} else {
 				Notification.show(Msg.get("notif.error.datamodel.add.title"),
 						Msg.get("notif.error.datamodel.add.text"),
