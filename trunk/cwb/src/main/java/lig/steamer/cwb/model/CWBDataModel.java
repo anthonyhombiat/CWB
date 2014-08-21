@@ -15,9 +15,12 @@ public abstract class CWBDataModel implements Serializable, CWBDataModelVisitabl
 	private static final long serialVersionUID = 1L;
 	
 	private IRI namespace;
+	private String title;
+	private String description;
 	private CWBDataProvider dataProvider;
 	private Collection<CWBConcept> concepts;
 	private Collection<CWBEquivalence> equivalences;
+	private String creator;
 	private Date creationDate;
 	private Date lastUpdate;
 	
@@ -77,7 +80,35 @@ public abstract class CWBDataModel implements Serializable, CWBDataModelVisitabl
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-	
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * @return the creator
+	 */
+	public String getCreator() {
+		return creator;
+	}
+
+	/**
+	 * @param creator the creator to set
+	 */
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
 	/**
 	 * @return the concepts
 	 */
@@ -209,5 +240,19 @@ public abstract class CWBDataModel implements Serializable, CWBDataModelVisitabl
 	
 	@Override
 	public abstract void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor);
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 }

@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.exception.CWBWriterException;
+import lig.steamer.cwb.io.write.exception.CWBWriterException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelMatched;

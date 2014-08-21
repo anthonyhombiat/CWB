@@ -24,7 +24,6 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.event.dd.DropHandler;
-import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.MarginInfo;
@@ -112,8 +111,8 @@ public class AppUI extends UI {
 		final HorizontalLayout centralLayout = new HorizontalLayout();
 		centralLayout.addComponent(leftLayout);
 		centralLayout.addComponent(tabSheet);
-		centralLayout.setExpandRatio(leftLayout, 0.3f);
-		centralLayout.setExpandRatio(tabSheet, 0.7f);
+		centralLayout.setExpandRatio(leftLayout, 0.35f);
+		centralLayout.setExpandRatio(tabSheet, 0.65f);
 		centralLayout.setSizeFull();
 		centralLayout.setSpacing(true);
 		centralLayout.setMargin(true);

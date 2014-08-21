@@ -17,9 +17,9 @@ public class CWBDataModelFolksoReader extends CWBDataModelReader {
 	public CWBDataModel read(OWLOntology ontology) {
 		LOGGER.log(Level.INFO, "Parsing ontology...");
 
-		CWBDataModel dataModel = populateDataModel(ontology,
-				findRootClasses(ontology), new CWBDataModelFolkso(ontology
-						.getOntologyID().getOntologyIRI()), null);
+		CWBDataModel dataModel = populateDataModel(new CWBDataModelFolkso(ontology
+				.getOntologyID().getOntologyIRI()), ontology,
+				findRootClasses(ontology), null);
 
 		LOGGER.log(Level.INFO, "Parsing done");
 

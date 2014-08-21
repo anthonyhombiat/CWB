@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class CWBDataSet {
 
+	private String title;
+	private String description;
+	private String creator;
 	private Date creationDate;
 	private Date lastUpdate;
 	private CWBDataProvider dataProvider;
@@ -150,6 +153,48 @@ public class CWBDataSet {
 	 */
 	public void setDataModel(CWBDataModel dataModel) {
 		this.dataModel = dataModel;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * @return the creator
+	 */
+	public String getCreator() {
+		return creator;
+	}
+
+	/**
+	 * @param creator the creator to set
+	 */
+	public void setCreator(String creator) {
+		this.creator = creator;
 	}
 	
 }

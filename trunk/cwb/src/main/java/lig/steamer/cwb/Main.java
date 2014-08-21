@@ -5,9 +5,9 @@ import java.net.URI;
 import java.util.Collection;
 
 import lig.steamer.cwb.core.tagging.IFolksonomy;
-import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
 import lig.steamer.cwb.io.read.CWBDataModelFolksoReader;
 import lig.steamer.cwb.io.read.CWBDataModelReader;
+import lig.steamer.cwb.io.read.exception.CWBDataModelReaderException;
 import lig.steamer.cwb.io.write.CWBWriter;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;

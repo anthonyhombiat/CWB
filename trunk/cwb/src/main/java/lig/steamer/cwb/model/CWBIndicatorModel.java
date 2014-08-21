@@ -7,9 +7,10 @@ public class CWBIndicatorModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String name;
+	private String title;
 	private String description;
 	private CWBDataModel dataModel;
+	private String creator;
 	private Date creationDate;
 	private Date LastUpdate;
 
@@ -17,8 +18,8 @@ public class CWBIndicatorModel implements Serializable {
 
 	}
 
-	public CWBIndicatorModel(String name) {
-		this.name = name;
+	public CWBIndicatorModel(String title) {
+		this.title = title;
 	}
 
 	public CWBIndicatorMeasureSet calculate() {
@@ -26,17 +27,17 @@ public class CWBIndicatorModel implements Serializable {
 	}
 
 	/**
-	 * @return the name
+	 * @return the title
 	 */
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name the title to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	/**
@@ -93,6 +94,20 @@ public class CWBIndicatorModel implements Serializable {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the creator
+	 */
+	public String getCreator() {
+		return creator;
+	}
+
+	/**
+	 * @param creator the creator to set
+	 */
+	public void setCreator(String creator) {
+		this.creator = creator;
 	}
 
 }

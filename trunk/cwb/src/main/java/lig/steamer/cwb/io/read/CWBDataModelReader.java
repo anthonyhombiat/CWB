@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
+import lig.steamer.cwb.io.read.exception.CWBDataModelReaderException;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -78,8 +78,8 @@ public abstract class CWBDataModelReader {
 
 	}
 
-	public CWBDataModel populateDataModel(OWLOntology ontology,
-			Set<? extends OWLClassExpression> classes, CWBDataModel dataModel,
+	public CWBDataModel populateDataModel(CWBDataModel dataModel, OWLOntology ontology,
+			Set<? extends OWLClassExpression> classes,
 			CWBConcept parent) {
 		
 		for (OWLClassExpression classExpression : classes) {
@@ -101,8 +101,8 @@ public abstract class CWBDataModelReader {
 				LOGGER.log(Level.INFO, "Concept " + concept.getFragment()
 						+ " added to data model.");
 
-				populateDataModel(ontology, clazz.getSubClasses(ontology),
-						dataModel, concept);
+				populateDataModel(dataModel, ontology, clazz.getSubClasses(ontology),
+						concept);
 
 				for (OWLEquivalentClassesAxiom equivalenceAxiom : equivalenceAxioms) {
 					dataModel

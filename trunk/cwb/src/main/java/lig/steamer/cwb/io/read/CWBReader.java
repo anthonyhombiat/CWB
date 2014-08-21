@@ -8,8 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.exception.CWBDataModelReaderException;
-import lig.steamer.cwb.io.exception.CWBReaderException;
+import lig.steamer.cwb.io.read.exception.CWBDataModelReaderException;
+import lig.steamer.cwb.io.read.exception.CWBReaderException;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelMatched;

@@ -20,7 +20,7 @@ public class Prop {
 
 	public static final String DIRNAME_DATAMODELS = "datamodels";
 	public static final String DIRNAME_FOLKSO = "folksonomies";
-	public static final String DIRNAME_NOMEN = "nomenclature";
+	public static final String DIRNAME_NOMEN = "nomenclatures";
 	public static final String DIRNAME_MATCHED = "matched";
 	public static final String DIRNAME_INDICATORS = "indicators";
 	public static final String DIRNAME_MEASURES = "measures";

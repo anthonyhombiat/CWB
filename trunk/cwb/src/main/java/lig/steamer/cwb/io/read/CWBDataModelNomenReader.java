@@ -17,9 +17,9 @@ public class CWBDataModelNomenReader extends CWBDataModelReader {
 	public CWBDataModel read(OWLOntology ontology) {
 		LOGGER.log(Level.INFO, "Parsing ontology...");
 
-		CWBDataModel dataModel = populateDataModel(ontology,
-				findRootClasses(ontology), new CWBDataModelNomen(ontology
-						.getOntologyID().getOntologyIRI()), null);
+		CWBDataModel dataModel = populateDataModel(new CWBDataModelNomen(ontology
+				.getOntologyID().getOntologyIRI()), ontology,
+				findRootClasses(ontology), null);
 
 		LOGGER.log(Level.INFO, "Parsing done");
 
