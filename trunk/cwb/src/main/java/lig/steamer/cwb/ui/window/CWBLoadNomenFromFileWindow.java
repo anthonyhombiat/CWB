@@ -22,7 +22,7 @@ public class CWBLoadNomenFromFileWindow extends Window {
 
 	public CWBLoadNomenFromFileWindow() {
 
-		super(Msg.get("load.nomenclature.file.caption"));
+		super(Msg.get("load.nomen.file.caption"));
 
 		uploadComponent = new Upload("", null);
 
@@ -34,12 +34,12 @@ public class CWBLoadNomenFromFileWindow extends Window {
 				Alignment.MIDDLE_CENTER);
 
 		Panel uploadPanel = new Panel(
-				Msg.get("load.nomenclature.file.explorer"));
+				Msg.get("load.nomen.file.explorer"));
 		uploadPanel.setSizeFull();
 		uploadPanel.setContent(uploadLayout);
 
 		final Label infoLabel = new Label(
-				Msg.get("load.nomenclature.file.dragndrop.dropbox"));
+				Msg.get("load.nomen.file.dnd.dropbox"));
 		infoLabel.setStyleName(Reindeer.LABEL_SMALL);
 		infoLabel.setWidth(300, Unit.PIXELS);
 
@@ -58,7 +58,7 @@ public class CWBLoadNomenFromFileWindow extends Window {
 		dropBoxLayout.addComponent(progress);
 
 		final Panel dropPanel = new Panel(
-				Msg.get("load.nomenclature.file.dragndrop"));
+				Msg.get("load.nomen.file.dnd"));
 		dropPanel.setSizeFull();
 		dropPanel.setContent(dropBox);
 

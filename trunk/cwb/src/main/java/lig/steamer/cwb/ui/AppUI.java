@@ -157,7 +157,7 @@ public class AppUI extends UI {
 		return openProjectWindow;
 	}
 
-	public Window getLoadTagsetFromWSWindow() {
+	public Window getLoadFolksoFromWSWindow() {
 		return loadTagsetFromWSWindow;
 	}
 
@@ -185,7 +185,7 @@ public class AppUI extends UI {
 		return dataModelsPanel.getAccordionNomen();
 	}
 
-	public CWBLoadTagsetFromFileWindow getLoadTagsetFromFileWindow() {
+	public CWBLoadTagsetFromFileWindow getLoadFolksoFromFileWindow() {
 		return loadTagsetFromFileWindow;
 	}
 
@@ -225,7 +225,7 @@ public class AppUI extends UI {
 	/*** ADD LISTENER METHODS ***/
 	/****************************/
 
-	public void addLoadTagsetButtonListener(ClickListener listener) {
+	public void addLoadFolksoButtonListener(ClickListener listener) {
 		loadTagsetFromWSWindow.getLoadButton().addClickListener(listener);
 	}
 
@@ -253,16 +253,28 @@ public class AppUI extends UI {
 		menuBar.getDocMenuItem().setCommand(command);
 	}
 
-	public void addLoadTagsetFromWSMenuItemCommand(Command command) {
-		menuBar.getLoadTagsetFromWSMenuItem().setCommand(command);
+	public void addLoadFolksoFromWSMenuItemCommand(Command command) {
+		menuBar.getLoadFolksoFromWSMenuItem().setCommand(command);
 	}
 
-	public void addLoadTagsetFromFileMenuItemCommand(Command command) {
-		menuBar.getLoadTagsetFromFileMenuItem().setCommand(command);
+	public void addLoadFolksoFromFileMenuItemCommand(Command command) {
+		menuBar.getLoadFolksoFromFileMenuItem().setCommand(command);
 	}
 
 	public void addLoadNomenFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadNomenFromFileMenuItem().setCommand(command);
+	}
+	
+	public void addLoadFolksoFromWSButtonListener(ClickListener listener) {
+		dataModelsPanel.getAddFolksoFromWS().addClickListener(listener);
+	}
+
+	public void addLoadFolksoFromFileButtonListener(ClickListener listener) {
+		dataModelsPanel.getAddFolksoFromFile().addClickListener(listener);
+	}
+
+	public void addLoadNomenFromFileButtonListener(ClickListener listener) {
+		dataModelsPanel.getAddNomenFromFile().addClickListener(listener);
 	}
 
 	public void addDataModelsMenuItemCommand(Command command) {
@@ -351,41 +363,41 @@ public class AppUI extends UI {
 		loadNomenFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
 
-	public void addLoadTagsetFromFileUploadReceiver(Receiver receiver) {
+	public void addLoadFolksoFromFileUploadReceiver(Receiver receiver) {
 		loadTagsetFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
 
-	public void addLoadTagsetFromFileUploadSucceededListener(
+	public void addLoadFolksoFromFileUploadSucceededListener(
 			SucceededListener listener) {
 		loadTagsetFromFileWindow.getUploadComponent().addSucceededListener(
 				listener);
 	}
 
-	public void addLoadTagsetFromFileUploadFailedListener(
+	public void addLoadFolksoFromFileUploadFailedListener(
 			FailedListener listener) {
 		loadTagsetFromFileWindow.getUploadComponent().addFailedListener(
 				listener);
 	}
 
-	public void addLoadTagsetFromFileUploadProgressListener(
+	public void addLoadFolksoFromFileUploadProgressListener(
 			ProgressListener listener) {
 		loadTagsetFromFileWindow.getUploadComponent().addProgressListener(
 				listener);
 	}
 
-	public void addLoadTagsetFromFileUploadFinishedListener(
+	public void addLoadFolksoFromFileUploadFinishedListener(
 			FinishedListener listener) {
 		loadTagsetFromFileWindow.getUploadComponent().addFinishedListener(
 				listener);
 	}
 
-	public void addLoadTagsetFromFileUploadStartedListener(
+	public void addLoadFolksoFromFileUploadStartedListener(
 			StartedListener listener) {
 		loadTagsetFromFileWindow.getUploadComponent().addStartedListener(
 				listener);
 	}
 
-	public void addLoadTagsetFromFileDropBoxDropHandler(DropHandler dropHandler) {
+	public void addLoadFolksoFromFileDropBoxDropHandler(DropHandler dropHandler) {
 		loadTagsetFromFileWindow.getDropBox().setDropHandler(dropHandler);
 	}
 

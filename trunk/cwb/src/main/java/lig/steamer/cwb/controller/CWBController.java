@@ -95,8 +95,8 @@ public class CWBController implements Serializable {
 		view.addDocMenuItemCommand(new CWBDocMenuItemCommand());
 		view.addAboutMenuItemCommand(new CWBAboutMenuItemCommand());
 		view.addLogoutMenuItemCommand(new CWBLogoutMenuItemCommand());
-		view.addLoadTagsetFromWSMenuItemCommand(new CWBLoadTagsetMenuItemCommand());
-		view.addLoadTagsetFromFileMenuItemCommand(new CWBLoadTagsetFromFileMenuItemCommand());
+		view.addLoadFolksoFromWSMenuItemCommand(new CWBLoadFolksoFromWSMenuItemCommand());
+		view.addLoadFolksoFromFileMenuItemCommand(new CWBLoadFolksoFromFileMenuItemCommand());
 		view.addLoadNomenFromFileMenuItemCommand(new CWBLoadNomenFromFileMenuItemCommand());
 		view.addDataModelsMenuItemCommand(new CWBDataModelsMenuItemCommand());
 		view.addIndicatorsMenuItemCommand(new CWBIndicatorsMenuItemCommand());
@@ -110,15 +110,15 @@ public class CWBController implements Serializable {
 		view.addOpenProjectUploadFailedListener(new CWBOpenProjectUploader());
 		view.addOpenProjectUploadSucceededListener(new CWBOpenProjectUploader());
 		view.addOpenProjectDropBoxDropHandler(new CWBOpenProjectDropHandler());
-		view.addLoadTagsetButtonListener(new CWBLoadTagButtonListener());
+		view.addLoadFolksoButtonListener(new CWBLoadTagButtonListener());
 		view.addTagWSComboBoxListener(new CWBTagWSComboBoxListener());
-		view.addLoadTagsetFromFileUploadReceiver(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileUploadStartedListener(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileUploadFinishedListener(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileUploadProgressListener(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileUploadFailedListener(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileUploadSucceededListener(new CWBLoadTagsetFromFileUploader());
-		view.addLoadTagsetFromFileDropBoxDropHandler(new CWBLoadTagsetFromFileDropHandler());
+		view.addLoadFolksoFromFileUploadReceiver(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadStartedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadFinishedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadProgressListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadFailedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadSucceededListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileDropBoxDropHandler(new CWBLoadFolksoFromFileDropHandler());
 		view.addLoadNomenFromFileUploadReceiver(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadStartedListener(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadFinishedListener(new CWBLoadNomenFromFileUploader());
@@ -130,6 +130,9 @@ public class CWBController implements Serializable {
 		view.addMatchingWindowButtonClickListener(new CWBMatchingButtonListener());
 		view.addMatchingResultsWindowButtonClickListener(new CWBMatchingResultsButtonListener());
 		view.addMatchingResultsWindowTableValueChangeListener(new CWBMatchingResultsTableValueChangeListener());
+		view.addLoadFolksoFromWSButtonListener(new CWBLoadFolksoFromWSMenuItemCommand());
+		view.addLoadFolksoFromFileButtonListener(new CWBLoadFolksoFromFileMenuItemCommand());
+		view.addLoadNomenFromFileButtonListener(new CWBLoadNomenFromFileMenuItemCommand());
 
 	}
 
@@ -278,34 +281,49 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBLoadTagsetMenuItemCommand implements Command {
+	class CWBLoadFolksoFromWSMenuItemCommand implements Command, ClickListener {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getLoadTagsetFromWSWindow());
+			UI.getCurrent().addWindow(view.getLoadFolksoFromWSWindow());
+		}
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			UI.getCurrent().addWindow(view.getLoadFolksoFromWSWindow());
 		}
 
 	}
 
-	class CWBLoadTagsetFromFileMenuItemCommand implements Command {
+	class CWBLoadFolksoFromFileMenuItemCommand implements Command, ClickListener {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
-			UI.getCurrent().addWindow(view.getLoadTagsetFromFileWindow());
+			UI.getCurrent().addWindow(view.getLoadFolksoFromFileWindow());
+		}
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			UI.getCurrent().addWindow(view.getLoadFolksoFromFileWindow());
 		}
 
 	}
 
-	class CWBLoadNomenFromFileMenuItemCommand implements Command {
+	class CWBLoadNomenFromFileMenuItemCommand implements Command, ClickListener {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
+			UI.getCurrent().addWindow(view.getLoadNomenFromFileWindow());
+		}
+
+		@Override
+		public void buttonClick(ClickEvent event) {
 			UI.getCurrent().addWindow(view.getLoadNomenFromFileWindow());
 		}
 
@@ -869,7 +887,7 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBLoadTagsetFromFileUploader implements Receiver, ProgressListener,
+	class CWBLoadFolksoFromFileUploader implements Receiver, ProgressListener,
 			FailedListener, SucceededListener, StartedListener,
 			FinishedListener {
 
@@ -943,7 +961,7 @@ public class CWBController implements Serializable {
 			}
 
 			// Close pop-up window
-			view.getLoadTagsetFromFileWindow().close();
+			view.getLoadFolksoFromFileWindow().close();
 
 		}
 
@@ -963,7 +981,7 @@ public class CWBController implements Serializable {
 		}
 	}
 
-	class CWBLoadTagsetFromFileDropHandler implements DropHandler {
+	class CWBLoadFolksoFromFileDropHandler implements DropHandler {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1077,7 +1095,7 @@ public class CWBController implements Serializable {
 								}
 
 								// Close pop-up window
-								view.getLoadTagsetFromFileWindow().close();
+								view.getLoadFolksoFromFileWindow().close();
 
 							}
 
@@ -1165,7 +1183,7 @@ public class CWBController implements Serializable {
 			}
 
 			// Close pop-up window
-			view.getLoadTagsetFromWSWindow().close();
+			view.getLoadFolksoFromWSWindow().close();
 
 		}
 

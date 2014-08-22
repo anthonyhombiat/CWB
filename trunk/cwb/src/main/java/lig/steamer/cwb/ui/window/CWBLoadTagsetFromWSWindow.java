@@ -20,22 +20,22 @@ public class CWBLoadTagsetFromWSWindow extends Window {
 
 	public CWBLoadTagsetFromWSWindow() {
 
-		super(Msg.get("load.tagset.ws.caption"));
+		super(Msg.get("load.folkso.ws.caption"));
 
-		Label loadFromText = new Label(Msg.get("load.tagset.ws.from"));
+		Label loadFromText = new Label(Msg.get("load.folkso.ws.from"));
 		loadFromText.setSizeUndefined();
 		
 		tagWSComboBox = new ComboBox();
 		tagWSComboBox.setTextInputAllowed(true);
 		tagWSComboBox.setFilteringMode(FilteringMode.CONTAINS);
 		tagWSComboBox.setInputPrompt(Msg
-				.get("load.tagset.ws.combo.placeholder"));
+				.get("load.folkso.ws.combo.placeholder"));
 
 		for (TaggingWS ws : TaggingWS.values()) {
 			tagWSComboBox.addItem(ws);
 		}
 
-		loadButton = new Button(Msg.get("load.tagset.ws.button"));
+		loadButton = new Button(Msg.get("load.folkso.ws.button"));
 		loadButton.setEnabled(false);
 		
 		VerticalLayout rootLayout = new VerticalLayout();

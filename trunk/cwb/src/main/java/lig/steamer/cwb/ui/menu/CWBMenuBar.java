@@ -16,10 +16,10 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem undoMenuItem;
 	private final MenuItem redoMenuItem;
 
-	private final MenuItem loadTagsetFromWSMenuItem;
-	private final MenuItem loadTagsetFromFileMenuItem;
-	private final MenuItem loadNomenclatureFromWSMenuItem;
-	private final MenuItem loadNomenclatureFromFileMenuItem;
+	private final MenuItem loadFolksoFromWSMenuItem;
+	private final MenuItem loadFolksoFromFileMenuItem;
+	private final MenuItem loadNomenFromWSMenuItem;
+	private final MenuItem loadNomenFromFileMenuItem;
 	private final MenuItem matchMenuItem;
 	
 	private final MenuItem dataModelsMenuItem;
@@ -78,19 +78,19 @@ public class CWBMenuBar extends MenuBar {
 		MenuItem dataItem = this.addItem(Msg.get("main.menu.data"),
 				null);
 
-		loadTagsetFromWSMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.tagset.ws"), null);
+		loadFolksoFromWSMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.folkso.ws"), null);
 		
-		loadTagsetFromFileMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.tagset.file"), null);
+		loadFolksoFromFileMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.folkso.file"), null);
 		
 		dataItem.addSeparator();
 		
-		loadNomenclatureFromWSMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.nomenclature.ws"), null);
+		loadNomenFromWSMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.nomen.ws"), null);
 
-		loadNomenclatureFromFileMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.nomenclature.file"), null);
+		loadNomenFromFileMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.nomen.file"), null);
 
 		dataItem.addSeparator();
 		
@@ -188,29 +188,29 @@ public class CWBMenuBar extends MenuBar {
 	/**
 	 * @return the loadTagsetMenuItem
 	 */
-	public MenuItem getLoadTagsetFromWSMenuItem() {
-		return loadTagsetFromWSMenuItem;
+	public MenuItem getLoadFolksoFromWSMenuItem() {
+		return loadFolksoFromWSMenuItem;
 	}
 	
 	/**
-	 * @return the loadTagsetFromFileMenuItem
+	 * @return the loadFolksoFromFileMenuItem
 	 */
-	public MenuItem getLoadTagsetFromFileMenuItem() {
-		return loadTagsetFromFileMenuItem;
+	public MenuItem getLoadFolksoFromFileMenuItem() {
+		return loadFolksoFromFileMenuItem;
 	}
 
 	/**
-	 * @return the loadNomenclatureFromWSMenuItem
+	 * @return the loadNomenFromWSMenuItem
 	 */
-	public MenuItem getLoadNomenclatureFromWSMenuItem() {
-		return loadNomenclatureFromWSMenuItem;
+	public MenuItem getLoadNomenFromWSMenuItem() {
+		return loadNomenFromWSMenuItem;
 	}
 	
 	/**
 	 * @return the loadNomenclatureMenuItem
 	 */
 	public MenuItem getLoadNomenFromFileMenuItem() {
-		return loadNomenclatureFromFileMenuItem;
+		return loadNomenFromFileMenuItem;
 	}
 	
 	/**

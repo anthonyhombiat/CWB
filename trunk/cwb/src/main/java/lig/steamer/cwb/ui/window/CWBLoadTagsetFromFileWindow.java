@@ -22,7 +22,7 @@ public class CWBLoadTagsetFromFileWindow extends Window {
 
 	public CWBLoadTagsetFromFileWindow() {
 
-		super(Msg.get("load.tagset.file.caption"));
+		super(Msg.get("load.folkso.file.caption"));
 
 		uploadComponent = new Upload("", null);
 
@@ -34,12 +34,12 @@ public class CWBLoadTagsetFromFileWindow extends Window {
 				Alignment.MIDDLE_CENTER);
 
 		Panel uploadPanel = new Panel(
-				Msg.get("load.tagset.file.explorer"));
+				Msg.get("load.folkso.file.explorer"));
 		uploadPanel.setSizeFull();
 		uploadPanel.setContent(uploadLayout);
 
 		final Label infoLabel = new Label(
-				Msg.get("load.tagset.file.dragndrop.dropbox"));
+				Msg.get("load.folkso.file.dnd.dropbox"));
 		infoLabel.setStyleName(Reindeer.LABEL_SMALL);
 		infoLabel.setWidth(300, Unit.PIXELS);
 
@@ -58,7 +58,7 @@ public class CWBLoadTagsetFromFileWindow extends Window {
 		dropBoxLayout.addComponent(progress);
 
 		final Panel dropPanel = new Panel(
-				Msg.get("load.tagset.file.dragndrop"));
+				Msg.get("load.folkso.file.dnd"));
 		dropPanel.setSizeFull();
 		dropPanel.setContent(dropBox);
 
