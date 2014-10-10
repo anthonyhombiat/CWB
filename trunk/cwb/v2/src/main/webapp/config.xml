@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<config>
+	<tmpDir>tmp</tmpDir>
+	<outputDir>output</outputDir>
+	<tmpFileName>cwb_tmp</tmpFileName>
+	<sourceOntologyFileName>source</sourceOntologyFileName>
+	<targetOntologyFileName>target</targetOntologyFileName>
+	<owlFileFormat>.owl</owlFileFormat>
+	<namespace>http://cwb.imag.fr</namespace>
+</config>

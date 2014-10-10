@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AlignTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="AlignTask.xsd">
+	<SrcURI></SrcURI>
+	<TarURI></TarURI>
+	<OutputFile></OutputFile>
+	<ParaFile></ParaFile>
+	<Sequence>
+		<PreProcessor name="edu.thu.keg.rimom2.process.preprocessor.impl.OWLAPI10PreProcessor">
+			<Parameter>
+				<Threshold>0.8</Threshold>
+			</Parameter>
+		</PreProcessor>
+		<Parallel>
+			<Matcher name="edu.thu.keg.rimom2.process.matcher.impl.MetadataBasedMatcher">
+				<Parameter>
+					<Threshold>0.0</Threshold>
+				</Parameter>
+			</Matcher>
+			<Matcher name="edu.thu.keg.rimom2.process.matcher.impl.InstanceBasedMatcher">
+				<Parameter>
+					<Threshold>0.0</Threshold>
+				</Parameter>
+			</Matcher>
+			<Matcher name="edu.thu.keg.rimom2.process.matcher.impl.EditDistanceLabelMatcher">
+				<Parameter>
+					<Threshold>0.0</Threshold>
+				</Parameter>
+			</Matcher>
+			<Aggregator name="edu.thu.keg.rimom2.process.aggregator.impl.OAEIAggregator">
+				<Parameter>
+					<Weight1>0.2</Weight1>
+					<Weight2>0.8</Weight2>
+				</Parameter>
+			</Aggregator>
+		</Parallel>				
+		
+		<PostProcessor name="edu.thu.keg.rimom2.process.postprocessor.impl.MappingVerification">
+			<Parameter>
+				<Type>1</Type>
+				<Threshold>0.5</Threshold>
+			</Parameter>
+		</PostProcessor>
+		
+		<Matcher name="edu.thu.keg.rimom2.process.matcher.impl.StructureBasedMatcher">
+			<Parameter>
+				<Iteration>10</Iteration>
+				<Threshold>0.7</Threshold>
+			</Parameter>
+		</Matcher>
+		
+		
+			
+		<Evaluator name="edu.thu.keg.rimom2.process.evaluator.impl.evaluatorImpl">
+			<Parameter>
+				<Threshold>0.5</Threshold>
+			</Parameter>
+		</Evaluator>
+	</Sequence>
+<!-- 	<Sequence> -->
+<!-- 		<PreProcessor name="edu.thu.keg.rimom2.process.preprocessor.impl.OWLAPI10PreProcessor"> -->
+<!-- 			<Parameter> -->
+<!-- 				<Threshold>0.8</Threshold> -->
+<!-- 			</Parameter> -->
+<!-- 		</PreProcessor> -->
+<!-- 		<Parallel> -->
+			
+<!-- 			<Matcher name="edu.thu.keg.rimom2.process.matcher.impl.MetadataBasedMatcher"> -->
+<!-- 				<Parameter> -->
+<!-- 					<Threshold>0.0</Threshold> -->
+<!-- 				</Parameter> -->
+<!-- 			</Matcher> -->
+			
+<!-- 			<Aggregator name="edu.thu.keg.rimom2.process.aggregator.impl.AverageWeightedAggregator"> -->
+<!-- 				<Parameter> -->
+<!-- 					<Weight1>0.2</Weight1> -->
+<!-- 					<Weight2>0.8</Weight2> -->
+<!-- 				</Parameter> -->
+<!-- 			</Aggregator> -->
+			
+<!-- 		</Parallel>			 -->
+		
+<!-- 		<PostProcessor name="edu.thu.keg.rimom2.process.postprocessor.impl.ThresholdFilter"> -->
+<!-- 			<Parameter> -->
+<!-- 				<Type>1</Type> -->
+<!-- 				<Threshold>0.8</Threshold> -->
+<!-- 			</Parameter> -->
+<!-- 		</PostProcessor> -->
+			
+<!-- 		<Evaluator name="edu.thu.keg.rimom2.process.evaluator.impl.PrfEvaluatorImpl"> -->
+<!-- 			<Parameter> -->
+<!-- 				<Threshold>0.5</Threshold> -->
+<!-- 			</Parameter> -->
+<!-- 		</Evaluator> -->
+
+<!-- 	</Sequence> -->
+</AlignTask>

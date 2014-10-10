@@ -1,0 +1,3608 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:has_k_fuel="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_fuel:"
+     xmlns:timeEvents="http://www.intelligence.tuc.gr/2011/timeEvents#"
+     xmlns:ombibo="http://www.wurvoc.org/bibliography/om-1.8/"
+     xmlns:clinic="http://cs548.stevens.edu/clinic#"
+     xmlns:xo="http://rhizomik.net/redefer/xsl/xsd2owl-functions.xsl"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:vlocal="http://localhost/vivo/ontology/vivo-local#"
+     xmlns:cottagebooking="http://localhost:8080/cottagebooking#"
+     xmlns:schema="http://schema.org/"
+     xmlns:ICD10="http://purl.bioontology.org/ontology/ICD10/"
+     xmlns:k_contact="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_contact:"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:our-travel-tourism="http://www.semanticweb.org/ada/ontologies/2014/2/our-travel-tourism#"
+     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+     xmlns:Orders-DomainModel="http://gs.com/informationlake/schema/Orders-DomainModel#"
+     xmlns:quantity="http://data.nasa.gov/qudt/owl/quantity#"
+     xmlns:IoT="http://www.vtt.fi/ontologies/IoT.owl#"
+     xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+     xmlns:dimension-1.1="http://qudt.org/1.1/schema/dimension#"
+     xmlns:vaem="http://www.linkedmodel.org/schema/vaem#"
+     xmlns:ppx="#"
+     xmlns:qudt-1.1="http://qudt.org/1.1/schema/qudt#"
+     xmlns:yang="urn:ietf:params:xml:ns:yang:ietf-yang-types"
+     xmlns:wn="http://www.ontologyportal.org/WordNet.owl#"
+     xmlns:Ontology1395678846769="http://www.semanticweb.org/ontologies/2014/2/Ontology1395678846769.owl#"
+     xmlns:bioportal="http://bioportal.bioontology.org#"
+     xmlns:cli="http://cse551final.org/bpel/client/"
+     xmlns:ns36343="http://bioportal.bioontology.org/ontologies/umls/"
+     xmlns:wv="http://www.wurvoc.org/vocabularies/WV/"
+     xmlns:project="http://webprotege.stanford.edu/project/"
+     xmlns:hot="http://cse551final.org/service/hotel/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:gs="http://gs.com/panorama/domain-model#"
+     xmlns:diskosv="http://sws.ifi.uio.no/vocab/diskos#"
+     xmlns:trv="http://cse551final.org/bpel/travel/"
+     xmlns:go="http://www.geneontology.org/go#"
+     xmlns:itsrdf="http://www.w3.org/2005/11/its/rdf#"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml#"
+     xmlns:adam-2-1="http://rdf.cdisc.org/std/adam-2-1#"
+     xmlns:plants="http://www.linkeddatatools.com/plants#"
+     xmlns:d2rq="http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+     xmlns:cmp="http://ld.thomsonreuters.com/ContentMarketplace/2013-10-15/#"
+     xmlns:cmo="http://www.modelservers.org/public/ontologies/cmo.ttl#"
+     xmlns:ns28717="http://purl.bioontology.org/ontology/HL7/"
+     xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:meta="http://dkm.fbk.eu/metareasons/meta#"
+     xmlns:map="http://www.institute.com#"
+     xmlns:vivo="http://vivoweb.org/ontology/core#"
+     xmlns:ex="http://example.org/stuff/1.0/"
+     xmlns:ocresd="http://purl.org/net/OCRe/study_design.owl#"
+     xmlns:eu="http://eurovoc.europa.eu/schema#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:qudt-dimension-1.1="http://qudt.org/1.1/vocab/dimension#"
+     xmlns:ug="http://ns.inria.fr/ug/v1#"
+     xmlns:a="http://protege.stanford.edu/system#"
+     xmlns:Ontology1306875609476="http://www.semanticweb.org/ontologies/2011/4/Ontology1306875609476.owl#"
+     xmlns:ns91299="http://www.w3.org/2002/07/owl#"
+     xmlns:yes="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#yes/"
+     xmlns:voag="http://voag.linkedmodel.org/schema/voag#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:u="http://www.example.org/uni#"
+     xmlns:swivt="http://semantic-mediawiki.org/swivt/1.0#"
+     xmlns:xslt="http://xml.apache.org/xslt"
+     xmlns:r="http://cs548.stevens.edu/clinic/relate#"
+     xmlns:admin="http://webn.net/mvcb/"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:ub="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xmlns:base="http://VISION/Map/SEMANTIC#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ren="http://cse551final.org/service/rental/"
+     xmlns:GCTMIS-DomainModel="http://gs.com/panorama/schema/GCTMIS-DomainModel#"
+     xmlns:vitro-public="http://vitro.mannlib.cornell.edu/ns/vitro/public#"
+     xmlns:vocab="http://www.institute.com/vocab/"
+     xmlns:z="http://www.zotero.org/namespaces/export#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:v1="http://purl.org/goodrelations/v1#"
+     xmlns:tl="http://purl.org/NET/c4dm/timeline.owl#"
+     xmlns:efo="http://www.ebi.ac.uk/efo/"
+     xmlns:ns66675="http://www.w3.org/2004/02/skos/core#"
+     xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#"
+     xmlns:qudt="http://data.nasa.gov/qudt/owl/qudt#"
+     xmlns:family_example="https://wiki.csc.calpoly.edu/OntologyTutorial/family_example.owl#"
+     xmlns:Thesaurus="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
+     xmlns:interchange="http://www.opengroup.org/archimate/interchange/"
+     xmlns:vitro="http://vitro.mannlib.cornell.edu/ns/vitro/0.7#"
+     xmlns:dtype-1.0="http://www.linkedmodel.org/1.0/schema/dtype#"
+     xmlns:HRSMQT-DomainModel="http://gs.com/panorama/schema/HRSMQT-DomainModel#"
+     xmlns:Ontology1379008279="http://www.owl-ontologies.com/Ontology1379008279.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rss="http://purl.org/rss/1.0/"
+     xmlns:Orphanet_="http://www.orpha.net/ORDO/Orphanet_#"
+     xmlns:voag-1.0="http://voag.linkedmodel.org/1.0/schema/voag#"
+     xmlns:ns_transport="file://www.ibm.com/WSRR/Transport#"
+     xmlns:db="http://VISION/Data/SEMANTIC/ClinicalStudy#"
+     xmlns:geo="http://aims.fao.org/aos/geopolitical.owl#"
+     xmlns:NYCMPI02_CDATA_EMPLOYEE_GSSPACE_LOCATION_TB-DomainModel="http://gs.com/panorama/schema/NYCMPI02_CDATA_EMPLOYEE_GSSPACE_LOCATION_TB-DomainModel#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:lcy="http://purl.org/vocab/lifecycle/schema#"
+     xmlns:sp="http://spinrdf.org/sp#"
+     xmlns:align="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"
+     xmlns:npdv="http://sws.ifi.uio.no/vocab/npd-v2#"
+     xmlns:qudt-quantity-1.1="http://qudt.org/1.1/vocab/quantity#"
+     xmlns:tourism="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:exterms="http://www.example.org/terms/"
+     xmlns:fam="http://www.ifi.uio.no/INF3580/family#"
+     xmlns:ontology="http://www.oculus360.us/ontology/"
+     xmlns:si="http://www.w3schools.com/rdf/"
+     xmlns:thesis="http://www.bilalis.foo/thesis#"
+     xmlns:mtd="http://dkm.fbk.eu/metareasons/mt-d#"
+     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+     xmlns:untitled-ontology-12="http://www.semanticweb.org/jz/ontologies/2014/3/untitled-ontology-12#"
+     xmlns:sweet="http://sweet.jpl.nasa.gov/2.2/sweetAll.owl#"
+     xmlns:cm="http://www.siret-project.it/competence.owl#"
+     xmlns:tns="http://www.regione.toscana.it/sisrt/Notifiche"
+     xmlns:dul="http://www.loa-cnr.it/ontologies/DUL.owl#"
+     xmlns:mds="http://ld.thomsonreuters.com/MetadataSystems/2013-10-15/#"
+     xmlns:CR-owl-guide-20030818="http://www.w3.org/TR/2003/CR-owl-guide-20030818/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:ptl="http://sws.ifi.uio.no/vocab/npd-v2-ptl#"
+     xmlns:nist-constants="http://data.nasa.gov/qudt/owl/nist-constants#"
+     xmlns:NYCMPI02_CDATA_EMPLOYEE_RMS_RELATIONSHIP-DomainModel="http://gs.com/panorama/schema/NYCMPI02_CDATA_EMPLOYEE_RMS_RELATIONSHIP-DomainModel#"
+     xmlns:geoNames="http://www.geonames.org/ontology/ontology_v3.1.rdf#"
+     xmlns:cd="http://www.recshop.fake/cd#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:penn="http://purl.org/olia/penn.owl#"
+     xmlns:model="http://gs.com/panorama/model/RRModel#"
+     xmlns:scirr="http://vivoweb.org/ontology/scientific-research-resource#"
+     xmlns:ruto="http://rdfunit.aksw.org/ns/core#"
+     xmlns:scst="http://scst.com/"
+     xmlns:saxon="http://saxon.sf.net/"
+     xmlns:intui="http://www.intuitel.eu/public/intui_PO.owl#"
+     xmlns:Ontology1395931632451="http://www.semanticweb.org/ontologies/2014/2/Ontology1395931632451.owl#"
+     xmlns:owl2="http://www.edifecs.com/owl.xcdr/#"
+     xmlns:protons="http://proton.semanticweb.org/2005/04/protons#"
+     xmlns:lom2owl2="http://www.agrega.es/ont/lom2owl#"
+     xmlns:photography="http://www.co-ode.org/ontologies/photography/photography.owl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:SystemAccounts-DomainModel="http://gs.com/informationlake/schema/SystemAccounts-DomainModel#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:has_k_theatre="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_theatre:"
+     xmlns:NCEPPI01-DomainModel="http://gs.com/panorama/schema/NCEPPI01-DomainModel#"
+     xmlns:isc="http://resource.geosciml.org/classifier/ics/ischart/"
+     xmlns:dires="http://www.disaster20.eu/dires"
+     xmlns:CoreDomainModel="http://gs.com/panorama/schema/CoreDomainModel#"
+     xmlns:dbpprop="http://dbpedia.org/property/"
+     xmlns:qudt-unit-1.1="http://qudt.org/1.1/vocab/unit#"
+     xmlns:aln="http://cse551final.org/service/airline/"
+     xmlns:grs="http://www.georss.org/georss/"
+     xmlns:locont="http://webmind.dico.unimi.it/opportunity-elog.owl#"
+     xmlns:mfg="http://www.workingontologist.org/Examples/Chapter3/Product.owl#"
+     xmlns:ubprop="http://purl.obolibrary.org/obo/ubprop#"
+     xmlns:geoname="http://www.geonames.org/ontology#"
+     xmlns:camera="http://www.xfront.com/owl/ontologies/camera/#"
+     xmlns:bpe="http://rdf.insee.fr/def/territoire/bpe#"
+     xmlns:ns20477="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ns5="http://jelenajovanovic.net/ontologies/loco/alocom-core/ns/"
+     xmlns:ns6="http://www.intelleo.eu/ontologies/activities/ns/"
+     xmlns:ns7="http://www.intelleo.eu/ontologies/user-model/ns/"
+     xmlns:quantity-1.1="http://qudt.org/1.1/schema/quantity#"
+     xmlns:ontology2="http://scst.com/ontology#"
+     xmlns:ns8="http://jelenajovanovic.net/ontologies/loco/alocom-content-structure/ns/"
+     xmlns:gs1="http://vocab.gs1.org/v1#"
+     xmlns:ns2="http://www.intelleo.eu/ontologies/competences/ns/"
+     xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd#"
+     xmlns:unit="http://data.nasa.gov/qudt/owl/unit#"
+     xmlns:dimension="http://qudt.org/schema/dimension#"
+     xmlns:ns4="http://dbpedia.org/ontology/PopulatedPlace/"
+     xmlns:ns3="http://www.intelleo.eu/ontologies/vw/movies/ns/"
+     xmlns:nist="http://physics.nist.gov/cuu/"
+     xmlns:DomainModelCollector="http://gs.com/panorama/schema/DomainModelCollector#"
+     xmlns:ns0="http://cohse.semanticweb.org/ontologies/people#"
+     xmlns:core="http://purl.obolibrary.org/obo/uberon/core#"
+     xmlns:ns="http://intelleo.eu/ontologies/workflow/ns#"
+     xmlns:npd="http://sws.ifi.uio.no/data/npd-v2/"
+     xmlns:bbcevent="http://www.bbc.co.uk/ontologies/event/"
+     xmlns:gs1allergen="http://codes.gs1.org/AllergenTypeCode#"
+     xmlns:cito="http://purl.org/spar/cito/"
+     xmlns:test="http://www.semanticweb.org/ontologies/2014/3/test.owl#"
+     xmlns:p2="http://www.owl-ontologies.com/assert.owl#"
+     xmlns:jms="http://jena.hpl.hp.com/2003/08/jms#"
+     xmlns:tag="http://purl.org/ontology/tag/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:uberon="http://purl.obolibrary.org/obo/uberon#"
+     xmlns:creativecommons="http://creativecommons.org/ns#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:dtype="http://www.linkedmodel.org/schema/dtype#"
+     xmlns:om="http://www.wurvoc.org/vocabularies/om-1.8/"
+     xmlns:c4o="http://purl.org/spar/c4o/"
+     xmlns:gsoe="http://gs.com/panorama/gsoe#"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:wine="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+     xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
+     xmlns:metakb="http://dkm.fbk.eu/metareasons/test/university-example#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:qudt-unit="http://qudt.org/vocab/unit#"
+     xmlns:roo="http://www.cancerdata.org/roo#"
+     xmlns:nlxv="http://sws.ifi.uio.no/vocab/norlex#"
+     xmlns:fabio="http://purl.org/spar/fabio/"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:ic2013Exemple="ic2013Exemple#"
+     xmlns:webprotege="http://protege.stanford.edu/webprotege/"
+     xmlns:po="http://purl.org/ontology/po/"
+     xmlns:NYCMPI02_CDATA_SALES_COVERAGE-DomainModel="http://gs.com/panorama/schema/NYCMPI02_CDATA_SALES_COVERAGE-DomainModel#"
+     xmlns:lemon="http://www.monnet-project.eu/lemon#"
+     xmlns:Ontology1397043847302="http://www.semanticweb.org/hammad/ontologies/Ontology1397043847302.owl#"
+     xmlns:zbwext="http://zbw.eu/stw/../namespaces/zbw-extensions/"
+     xmlns:scires="http://vivoweb.org/ontology/scientific-research#"
+     xmlns:rlog="http://persistence.uni-leipzig.org/nlp2rdf/ontologies/rlog#"
+     xmlns:link="http://purl.org/rss/1.0/modules/link/"
+     xmlns:qudt-dimensionalunit-1.1="http://qudt.org/1.1/vocab/dimensionalunit#"
+     xmlns:CMPLMEGA1-DomainModel="http://gs.com/panorama/schema/CMPLMEGA1-DomainModel#"
+     xmlns:unamed="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#"
+     xmlns:contact="http://www.w3.org/2000/10/swap/pim/contact#"
+     xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+     xmlns:mtac="http://dkm.fbk.eu/metareasons/mt-ac#"
+     xmlns:igeo="http://rdf.insee.fr/def/geo#"
+     xmlns:spin="http://spinrdf.org/spin#"
+     xmlns:wiki="http://referata.com/wiki/Special:URIResolver/"
+     xmlns:swp2="http://semwebprogramming.org/2009/ont/chp2#"
+     xmlns:untitled-ontology-2="http://www.semanticweb.org/christianmeillicke/ontologies/2013/11/untitled-ontology-2#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:mo="http://purl.org/ontology/mo/"
+     xmlns:pvs="http://vivoweb.org/ontology/provenance-support#"
+     xmlns:movie="http://www.movies12345.com/movie#"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:k_fuel="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_fuel:"
+     xmlns:quest="http://obda.org/quest#"
+     xmlns:Executions-DomainModel="http://gs.com/informationlake/schema/Executions-DomainModel#"
+     xmlns:k_addr="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_addr:"
+     xmlns:geos="http://www.opengis.net/ont/geosparql#"
+     xmlns:TEST="http://bla.com/owl/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:sql="http://sws.ifi.uio.no/vocab/sql#"
+     xmlns:ocrer="http://purl.org/net/OCRe/research.owl#"
+     xmlns:photography3="http://www.co-ode.org/ontologies/photography/photography.owl#35-55"
+     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+     xmlns:photography4="http://www.co-ode.org/ontologies/photography/photography.owl#35"
+     xmlns:NYCMPI02_CDATA_ENTITY_TB-DomainModel="http://gs.com/panorama/schema/NYCMPI02_CDATA_ENTITY_TB-DomainModel#"
+     xmlns:photography2="http://www.co-ode.org/ontologies/photography/photography.owl#4"
+     xmlns:CDATA-DomainModel="http://gs.com/panorama/schema/CDATA-DomainModel#"
+     xmlns:geosim="http://minsky.gsi.dit.upm.es/~gpoveda/geosim/0.1.3/ns.owl#"
+     xmlns:TemporalParts-v1="http://ksl.stanford.edu/projects/NIMD/TemporalParts-v1.owl#"
+     xmlns:photography9="http://www.co-ode.org/ontologies/photography/photography.owl#20-100"
+     xmlns:travel="http://www.owl-ontologies.com/travel.owl#"
+     xmlns:envo="http://purl.obolibrary.org/obo/envo#"
+     xmlns:photography7="http://www.co-ode.org/ontologies/photography/photography.owl#80"
+     xmlns:photography8="http://www.co-ode.org/ontologies/photography/photography.owl#135"
+     xmlns:oecc="http://www.oegov.org/models/common/cc#"
+     xmlns:photography5="http://www.co-ode.org/ontologies/photography/photography.owl#120"
+     xmlns:photography6="http://www.co-ode.org/ontologies/photography/photography.owl#18"
+     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+     xmlns:sioc="http://rdfs.org/sioc/ns#"
+     xmlns:olia="http://purl.org/olia/olia.owl#"
+     xmlns:nlx="http://sws.ifi.uio.no/data/norlex/"
+     xmlns:qudt-dimension="http://qudt.org/vocab/dimension#"
+     xmlns:participation="http://purl.org/vocab/participation/schema#"
+     xmlns:dicet="http://www.dicet_ontology.com/ontologies/dicet.owl#"
+     xmlns:ka="http://protege.cim3.net/file/pub/ontologies/ka/ka.owl#"
+     xmlns:dcelem="http://purl.org/dc/elements/1.1/"
+     xmlns:jdbc="http://d2rq.org/terms/jdbc/"
+     xmlns:cerrado="http://cerrado.linkeddata.es/ecology/fire"
+     xmlns:status="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:property="http://referata.com/wiki/Special:URIResolver/Property-3A"
+     xmlns:j.2="http://www.w3.org/2008/05/skos#"
+     xmlns:diskos="http://sws.ifi.uio.no/data/diskos/"
+     xmlns:mtwp="http://dkm.fbk.eu/metareasons/mt-wp#"
+     xmlns:j.4="o"
+     xmlns:j.5="I"
+     xmlns:food="http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"
+     xmlns:pizza="http://www.co-ode.org/ontologies/pizza/pizza.owl#"
+     xmlns:j.7="http://www.w3.org/2006/03/wn/wn30/schema/"
+     xmlns:GSOE-DomainModel="http://gs.com/panorama/schema/GSOE-DomainModel#"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:project-ontologie="http://www.semanticweb.org/romain/ontologies/2014/3/project-ontologie#"
+     xmlns:geosim2="http://minsky.gsi.dit.upm.es/~gpoveda/geosim/0.1.2/geosim.owl#"
+     xmlns:has_k_addr="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#has_k_addr:"
+     xmlns:qudt-quantity="http://qudt.org/vocab/quantity#"
+     xmlns:ORDO="http://www.orpha.net/ORDO/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:msg0="http://web.resource.org/cc/"
+     xmlns:yin="urn:ietf:params:xml:schema:yang:yin:1"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:if="urn:ietf:params:xml:ns:yang:ietf-interfaces"
+     xmlns:dbpedia="http://dbpedia.org/resource/"
+     xmlns:GCTJUNO-DomainModel="http://gs.com/panorama/schema/GCTJUNO-DomainModel#"
+     xmlns:okcomputer="http://www.ontologydesignpatterns.org/ont/example/okcomputer.ttl#"
+     xmlns:bib="http://purl.org/net/biblio#"
+     xmlns:untitled-ontology-73="http://www.semanticweb.org/acer/ontologies/2014/2/untitled-ontology-73#"
+     xmlns:lexinfo="http://www.lexinfo.net/ontology/2.0/lexinfo#"
+     xmlns:nif="http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#"
+     xmlns:boxer="http://www.ontologydesignpatterns.org/ont/boxer/boxer.owl#"
+     xmlns:HTOv4002="http://protege.stanford.edu/rdf/HTOv4002#"
+     xmlns:mms="http://rdf.cdisc.org/mms#"
+     xmlns:sport="http://purl.org/ontology/sport/"
+     xmlns:k_theatre="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_theatre:"
+     xmlns:cottages="http://localhost:8080/Cottage_Booking/cottages/"
+     xmlns:akt-support-ontology-latest="http://kmi.open.ac.uk/semanticweb/ontologies/owl/akt-support-ontology-latest.owl#"
+     xmlns:NHCMPI10_HRSMQT_FACT_ACCOMP_PERSN_DEG-DomainModel="http://gs.com/panorama/schema/NHCMPI10_HRSMQT_FACT_ACCOMP_PERSN_DEG-DomainModel#"
+     xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+     xmlns:sisrt="http://www.regione.toscana.it/sisrt/"
+     xmlns:address="http://daml.umbc.edu/ontologies/ittalks/address#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+    <ns91299:Ontology rdf:about="http://rdf.insee.fr/def/territoire/bpe">
+        <voaf:classNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</voaf:classNumber>
+        <voaf:propertyNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</voaf:propertyNumber>
+        <dcterms:created>2012-11-21</dcterms:created>
+        <dcelem:rights>Copyright © 2012 INSEE</dcelem:rights>
+        <dcterms:title xml:lang="fr">Ontologie de la Base Permanente des Equipements</dcterms:title>
+        <dcterms:description xml:lang="fr">Ontologie de la Base Permanente des Equipements de l&apos;INSEE</dcterms:description>
+        <vann:preferredNamespacePrefix>bpe</vann:preferredNamespacePrefix>
+        <ns91299:versionInfo>Version 1.0 - 2012-11-21</ns91299:versionInfo>
+        <creativecommons:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <creativecommons:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+        <dcterms:publisher rdf:resource="http://dbpedia.org/resource/INSEE"/>
+        <vann:preferredNamespaceUri rdf:resource="http://rdf.insee.fr/def/territoire/bpe#"/>
+        <dcterms:creator>
+            <rdf:Description/>
+        </dcterms:creator>
+    </ns91299:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://eurovoc.europa.eu/schema#noteLiteral -->
+
+    <ns91299:AnnotationProperty rdf:about="http://eurovoc.europa.eu/schema#noteLiteral"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/language -->
+
+    <ns91299:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <ns91299:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <ns91299:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <ns91299:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <ns91299:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <ns20477:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/type -->
+
+    <ns91299:ObjectProperty rdf:about="http://purl.org/dc/terms/type"/>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#caractereAbsent -->
+
+    <ns91299:ObjectProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#caractereAbsent">
+        <ns20477:label xml:lang="fr">caractère absent</ns20477:label>
+        <ns20477:comment>Indique que l&apos;équipement sujet ne possède pas le caractère en objet</ns20477:comment>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:range rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Caractere"/>
+        <ns20477:domain rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Equipement"/>
+        <ns91299:propertyDisjointWith rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caracterePresent"/>
+    </ns91299:ObjectProperty>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#caractereApplicable -->
+
+    <ns91299:ObjectProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#caractereApplicable">
+        <ns20477:label xml:lang="fr">caractère applicable</ns20477:label>
+        <ns20477:comment>Indique que le caractère objet est applicable pour le type d&apos;équipement sujet</ns20477:comment>
+        <ns20477:range rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Caractere"/>
+        <ns20477:domain rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <ns20477:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+    </ns91299:ObjectProperty>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#caracterePresent -->
+
+    <ns91299:ObjectProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#caracterePresent">
+        <ns20477:label xml:lang="fr">caractère présent</ns20477:label>
+        <ns20477:comment>Indique que l&apos;équipement sujet possède le caractère en objet</ns20477:comment>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:range rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Caractere"/>
+        <ns20477:domain rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Equipement"/>
+    </ns91299:ObjectProperty>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#secteurEquipementScolaire -->
+
+    <ns91299:ObjectProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#secteurEquipementScolaire">
+        <ns20477:label xml:lang="fr">secteur</ns20477:label>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:domain rdf:resource="http://rdf.insee.fr/def/territoire/bpe#EquipementScolaire"/>
+        <ns20477:range rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Secteur"/>
+    </ns91299:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <ns91299:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#related -->
+
+    <ns91299:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#related"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#anneeDescription -->
+
+    <ns91299:DatatypeProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#anneeDescription">
+        <ns20477:label xml:lang="fr">année de description</ns20477:label>
+        <ns20477:comment>Année de validité des éléments de description de l&apos;équipement</ns20477:comment>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:domain rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Equipement"/>
+        <ns20477:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </ns91299:DatatypeProperty>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertX -->
+
+    <ns91299:DatatypeProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertX">
+        <ns20477:label xml:lang="fr">coordonnées Lambert X</ns20477:label>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </ns91299:DatatypeProperty>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertY -->
+
+    <ns91299:DatatypeProperty rdf:about="http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertY">
+        <ns20477:label xml:lang="fr">coordonnées Lambert Y</ns20477:label>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+        <ns20477:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </ns91299:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Note -->
+
+    <ns91299:Class rdf:about="http://purl.org/ontology/bibo/Note">
+        <ns20477:label xml:lang="fr">Note</ns20477:label>
+    </ns91299:Class>
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <ns91299:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://rdf.insee.fr/def/geo#Commune -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/geo#Commune">
+        <ns20477:label xml:lang="fr">Commune</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/geo#TerritoireAdministratif"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/geo#IRIS -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/geo#IRIS">
+        <ns20477:label xml:lang="fr">IRIS</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/geo#TerritoireStatistique"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/geo#TerritoireAdministratif -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/geo#TerritoireAdministratif">
+        <ns20477:label xml:lang="fr">Territoire administratif</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/geo#TerritoireFrancais"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/geo#TerritoireFrancais -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/geo#TerritoireFrancais">
+        <ns20477:label xml:lang="fr">Territoire français</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/geo#TerritoireStatistique -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/geo#TerritoireStatistique">
+        <ns20477:label xml:lang="fr">Territoire statistique</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/geo#TerritoireFrancais"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#Caractere -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#Caractere">
+        <ns20477:label xml:lang="fr">Caractère</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire">
+        <ns20477:label xml:lang="fr">Caractère d&apos;équipement scolaire</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Caractere"/>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir">
+        <ns20477:label xml:lang="fr">Caractère d&apos;équipement sport-loisir</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Caractere"/>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#Equipement -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#Equipement">
+        <ns20477:label xml:lang="fr">Équipement</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertX"/>
+                <ns91299:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</ns91299:maxCardinality>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#coordonneesLambertY"/>
+                <ns91299:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</ns91299:maxCardinality>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+                <ns91299:someValuesFrom>
+                    <ns91299:Class>
+                        <ns91299:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://rdf.insee.fr/def/geo#Commune"/>
+                            <rdf:Description rdf:about="http://rdf.insee.fr/def/geo#IRIS"/>
+                        </ns91299:unionOf>
+                    </ns91299:Class>
+                </ns91299:someValuesFrom>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#EquipementScolaire -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#EquipementScolaire">
+        <ns20477:label xml:lang="fr">Équipement scolaire</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Equipement"/>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caractereAbsent"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#secteurEquipementScolaire"/>
+                <ns91299:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</ns91299:cardinality>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caracterePresent"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#EquipementSportLoisir -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#EquipementSportLoisir">
+        <ns20477:label xml:lang="fr">Équipement sport-loisir</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Equipement"/>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caracterePresent"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caractereAbsent"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#Secteur -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#Secteur">
+        <ns20477:label xml:lang="fr">Secteur</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#TypeEquipement -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement">
+        <ns20477:label xml:lang="fr">Type d&apos;équipement</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire">
+        <ns20477:label xml:lang="fr">Type d&apos;équipement scolaire</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caractereApplicable"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir -->
+
+    <ns91299:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir">
+        <ns20477:label xml:lang="fr">Type d&apos;équipement sport-loisir</ns20477:label>
+        <ns20477:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <ns20477:subClassOf>
+            <ns91299:Restriction>
+                <ns91299:onProperty rdf:resource="http://rdf.insee.fr/def/territoire/bpe#caractereApplicable"/>
+                <ns91299:allValuesFrom rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir"/>
+            </ns91299:Restriction>
+        </ns20477:subClassOf>
+        <ns20477:isDefinedBy rdf:resource="http://rdf.insee.fr/def/territoire/bpe"/>
+    </ns91299:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <ns91299:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <ns91299:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <ns20477:label xml:lang="fr">Concept</ns20477:label>
+    </ns91299:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <ns91299:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <ns20477:label xml:lang="fr">Schéma de concepts</ns20477:label>
+    </ns91299:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <ns91299:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns20477:label xml:lang="fr">Caractère d&apos;équipement scolaire</ns20477:label>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns20477:label xml:lang="fr">Caractère d&apos;équipement sport-loisir</ns20477:label>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipementScolaire -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipementScolaire">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns20477:label xml:lang="fr">Type d&apos;équipement scolaire</ns20477:label>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipementSportLoisir -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <ns20477:label xml:lang="fr">Type d&apos;équipement sport-loisir</ns20477:label>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>CANT</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Cantine</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>CL_ELEM</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Classe élémentaire en maternelle</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>CL_PELEM</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Classe pré-élémentaire en école élémentaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>CL_PGE</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Classe préparatoire aux grandes écoles en lycée</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>INT</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Internat</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>REP</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Réseau d&apos;éducation prioritaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>RPIC</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Regroupement pédagogique intercommunal concentré</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/COUVERT -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/COUVERT">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>COUVERT</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Couvert</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/ECLAIRE -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/ECLAIRE">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#CaractereSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>ECLAIRE</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Éclairé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/secteur/prive -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/secteur/prive">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Secteur"/>
+        <ns66675:prefLabel xml:lang="fr">Secteur privé</ns66675:prefLabel>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/secteur/public -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/secteur/public">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#Secteur"/>
+        <ns66675:prefLabel xml:lang="fr">Secteur public</ns66675:prefLabel>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Police</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Trésorerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A103 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A103">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A103</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Pôle emploi</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A104 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A104">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A104</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Gendarmerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A105 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A105">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A105</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Cour d&apos;appel (CA)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A106 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A106">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A106</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Tribunal de grande instance (TGI)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A107 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A107">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A107</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Tribunal d&apos;instance (TI)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A108 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A108">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A108</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Conseil de prud&apos;hommes (CPH)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A109 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A109">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A109</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Tribunal de commerce (TCO)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A203 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A203">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A203</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Banque, Caisse d&apos;Épargne</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A205 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A205">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A205</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Pompes funèbres</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A206 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A206">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A206</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Bureau de poste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A207 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A207">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A207</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Relais poste commerçant</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A208 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A208">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A208</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Agence postale communale</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A301 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A301">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A301</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Réparation automobile et de matériel agricole</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A302 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A302">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A302</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Contrôle technique automobile</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A303 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A303">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A303</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Location automobiles, utilitaires légers</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A304 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A304">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A304</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">École de conduite</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A401 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A401">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A401</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Maçon</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A402 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A402">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A402</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Plâtrier peintre</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A403 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A403">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A403</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Menuisier charpentier serrurier</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A404 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A404">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A404</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Plombier couvreur chauffagiste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A405 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A405">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A405</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Électricien</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A406 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A406">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A406</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Entreprise générale du bâtiment</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A501 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A501">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A501</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Coiffure</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A502 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A502">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A502</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Vétérinaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A503 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A503">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A503</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Agence de travail temporaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A504 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A504">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A504</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Restaurant</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A505 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A505">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A505</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Agence immobilière</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A506 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A506">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A506</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Blanchisserie-Teinturerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/A507 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/A507">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>A507</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Soins de beauté</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Hypermarché</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Supermarché</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B103 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B103">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B103</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Grande surface de bricolage</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B201 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B201">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B201</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Supérette</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B202 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B202">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B202</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Épicerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B203 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B203">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B203</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Boulangerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B204 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B204">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B204</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Boucherie charcuterie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B205 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B205">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B205</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Produits surgelés</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B206 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B206">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B206</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Poissonnerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B301 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B301">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B301</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Librairie papeterie journaux</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B302 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B302">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B302</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin de vêtements</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B303 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B303">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B303</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin d&apos;équipements du foyer</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B304 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B304">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B304</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin de chaussures</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B305 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B305">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B305</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin d&apos;électroménager et de matériel audio/vidéo</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B306 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B306">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B306</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin de meubles</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B307 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B307">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B307</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin d&apos;articles de sports et de loisirs</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B308 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B308">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B308</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin de revêtements murs et sols</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B309 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B309">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B309</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Droguerie quincaillerie bricolage</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B310 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B310">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B310</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Parfumerie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B311 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B311">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B311</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Horlogerie-Bijouterie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B312 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B312">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B312</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Fleuriste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/B313 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/B313">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>B313</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Magasin d&apos;optique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">École maternelle</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C101/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Classe maternelle de regroupement pédagogique intercommunal (RPI) dispersé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C102/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C104 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C104">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C104</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">École élémentaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C104/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C105 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C105">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C105</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Classe élémentaire de regroupement pédagogique intercommunal (RPI) dispersé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C105/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C201 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C201">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C201</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Collège</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C201/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C203 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C203">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C203</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">SET : Section d&apos;enseignement technologique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C203/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C301 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C301">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C301</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Lycée d&apos;enseignement général et/ou technologique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C301/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C302 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C302">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C302</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Lycée d&apos;enseignement professionnel</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C302/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C303 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C303">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C303</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Lycée d&apos;enseignement technique et/ou professionnel agricole</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C303/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C304 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C304">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C304</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">SGT : Section d&apos;enseignement général et technologique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C304/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C305 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C305">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C305</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">SEP : Section d&apos;enseignement professionnel</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C305/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C401 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C401">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C401</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">STS CPGE</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C401/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C402 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C402">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C402</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Formation santé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C402/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C403 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C403">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C403</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Formation commerce</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C403/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C409 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C409">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Autre formation post bac non universitaire</ns66675:prefLabel>
+        <ns66675:notation>C409</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C409/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C501 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C501">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C501</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">UFR</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C501/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C502 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C502">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C502</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Institut universitaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C502/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C503 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C503">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C503</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">École d&apos;ingénieurs</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C503/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C504 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C504">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C504</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Enseignement général supérieur privé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C504/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C509 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C509">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Autre enseignement supérieur</ns66675:prefLabel>
+        <ns66675:notation>C509</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C509/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C601 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C601">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C601</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Centre de formation d&apos;apprentis (hors agriculture)</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C601/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C602 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C602">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C602</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">GRETA</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C602/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C603 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C603">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C603</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Formation professionnelle continue agricole</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C603/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C604 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C604">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C604</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Formation aux métiers du sport</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C604/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C605 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C605">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C605</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Centre formation d&apos;apprentis agricole</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <bpe:caractereApplicable rdf:resource="http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C605/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C609 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C609">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Autre formation continue</ns66675:prefLabel>
+        <ns66675:notation>C609</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/C609/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C701 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C701">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C701</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Résidence universitaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C702 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C702">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementScolaire"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>C702</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Restaurant universitaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementScolaire"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement santé court séjour</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement santé moyen séjour</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D103 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D103">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D103</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement santé long séjour</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D104 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D104">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D104</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement psychiatrique avec hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D105 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D105">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Centre lutte cancer</ns66675:prefLabel>
+        <ns66675:notation>D105</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D106 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D106">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D106</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Urgences</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D107 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D107">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D107</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Maternité</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D108 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D108">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Centre de santé</ns66675:prefLabel>
+        <ns66675:notation>D108</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D109 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D109">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D109</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Structure psychiatrique en ambulatoire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D110 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D110">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Centre médecine préventive</ns66675:prefLabel>
+        <ns66675:notation>D110</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D111 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D111">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D111</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Dialyse</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D112 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D112">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D112</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Hospitalisation à domicile</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D201 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D201">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D201</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Médecin omnipraticien</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D202 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D202">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D202</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Cardiologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D203 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D203">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D203</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Dermatologie Vénéréologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D204 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D204">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D204</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Gynécologie médicale</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D205 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D205">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D205</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Gynécologie obstétrique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D206 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D206">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D206</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Gastro-entérologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D207 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D207">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D207</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Psychiatrie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D208 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D208">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D208</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Ophtalmologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D209 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D209">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D209</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Oto-rhino-laryngologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D210 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D210">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D210</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Pédiatrie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D211 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D211">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D211</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Pneumologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D212 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D212">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D212</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Radiodiagnostic et Imagerie médicale</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D213 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D213">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D213</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Spécialiste en Stomatologie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D221 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D221">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D221</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Chirurgien dentiste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D231 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D231">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D231</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Sage-femme</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D232 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D232">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D232</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Infirmier</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D233 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D233">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D233</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Masseur kinésithérapeute</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D235 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D235">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D235</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Orthophoniste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D236 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D236">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D236</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Orthoptiste</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D237 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D237">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D237</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Pédicure-podologue</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D238 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D238">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Audio prothésiste</ns66675:prefLabel>
+        <ns66675:notation>D238</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D239 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D239">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D239</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Ergothérapeute</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D240 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D240">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D240</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Psychomotricien</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D241 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D241">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D241</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Manipulateur ERM</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D301 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D301">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D301</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Pharmacie</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D302 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D302">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D302</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Laboratoire d&apos;analyses médicales</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D303 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D303">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Ambulance</ns66675:prefLabel>
+        <ns66675:notation>D303</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D304 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D304">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D304</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Transfusion sanguine</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D305 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D305">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D305</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement thermal</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D306 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D306">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D306</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Établissement de lutte contre l&apos;alcoolisme</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D401 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D401">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D401</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Personnes âgées : hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D402 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D402">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D402</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Personnes âgées : soins à domicile</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D403 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D403">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D403</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Personnes âgées : services d&apos;aide</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D404 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D404">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D404</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Personnes âgées : foyers restaurants</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D405 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D405">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D405</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Personnes âgées : service de repas à domicile</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D501 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D501">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D501</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Garde enfants d&apos;âge préscolaire</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D601 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D601">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D601</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Enfants handicapés : hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D602 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D602">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D602</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Enfants handicapés : soins à domicile</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D603 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D603">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D603</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Adultes handicapés : hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D604 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D604">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D604</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Adultes handicapés : services</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D605 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D605">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D605</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Travail protégé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D701 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D701">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D701</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Aide sociale à l&apos;enfance : hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D702 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D702">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D702</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Aide sociale à l&apos;enfance : action éducative</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D703 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D703">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">CHRS Centre d&apos;hébergement et de réadaptation sociale</ns66675:prefLabel>
+        <ns66675:notation>D703</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D704 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D704">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>D704</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Centre provisoire d&apos;hébergement</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D705 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D705">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Centre accueil demandeur d&apos;asile</ns66675:prefLabel>
+        <ns66675:notation>D705</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/D709 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/D709">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Autre établissement pour adultes et familles en difficulté</ns66675:prefLabel>
+        <ns66675:notation>D709</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/E101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/E101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>E101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Taxi</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Bassin de natation</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Boulodrome</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F102/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F103 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F103">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F103</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Tennis</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F103/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F104 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F104">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F104</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Équipement de cyclisme</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F104/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F105 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F105">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Domaine skiable</ns66675:prefLabel>
+        <ns66675:notation>F105</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F105/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F106 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F106">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F106</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Centre équestre</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F106/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F107 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F107">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Athlétisme</ns66675:prefLabel>
+        <ns66675:notation>F107</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F107/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F108 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F108">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F108</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Terrain de golf</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F108/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F109 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F109">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F109</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Parcours sportif</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F109/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F110 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F110">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F110</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Sports de glace</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F110/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F111 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F111">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F111</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Plateau extérieur ou salle multisports</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F111/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F112 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F112">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F112</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Salle ou terrain de petits jeux</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F112/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F113 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F113">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F113</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Terrain de grands jeux</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F113/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F114 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F114">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F114</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Salle de combat</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F114/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F115 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F115">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F115</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Salle ou terrain spécialisé</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F115/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F116 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F116">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F116</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Salle non spécialisée</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F116/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F117 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F117">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F117</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Roller-Skate-Vélo bicross ou freestyle</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F117/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F118 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F118">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F118</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Sports nautiques</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F118/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F201 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F201">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Baignade aménagée</ns66675:prefLabel>
+        <ns66675:notation>F201</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F201/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F202 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F202">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F202</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Port de plaisance - Mouillage</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F202/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F203 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F203">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipementSportLoisir"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F203</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Boucle de randonnée</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipementSportLoisir"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F203/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F301 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F301">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F301</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Cinéma</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F301/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F302 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F302">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>F302</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Théâtre</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+        <ns66675:note rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement/F302/note"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/G101 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/G101">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>G101</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Agence de voyages</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/G102 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/G102">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>G102</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Hôtel homologué</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/G103 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/G103">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:prefLabel xml:lang="fr">Camping homologué</ns66675:prefLabel>
+        <ns66675:notation>G103</ns66675:notation>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/G104 -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/G104">
+        <rdf:type rdf:resource="http://rdf.insee.fr/def/territoire/bpe#TypeEquipement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <ns66675:notation>G104</ns66675:notation>
+        <ns66675:prefLabel xml:lang="fr">Information touristique</ns66675:prefLabel>
+        <ns66675:inScheme rdf:resource="http://id.insee.fr/codes/territoire/typeEquipement"/>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C101/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C101/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>École assurant tous les niveaux de maternelle. Y compris annexe d&apos;IUFM, maternelle d&apos;application et spécialisée. Y compris écoles en regroupement pédagogique intercommunal (RPI) concentré (soit toutes les classes regroupées), non compris classes de RPI dispersés (cf. C102).</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C102/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C102/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Tous les niveaux de maternelle ne sont pas assurés dans l&apos;établissement.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C104/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C104/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>École assurant tous les niveaux d&apos;école élémentaire. Y compris annexe d&apos;IUFM, élémentaire d&apos;application, spécialisée ou régionale. Y compris écoles en regroupement pédagogique intercommunal (RPI) concentré (soit toutes les classes regroupées), non compris classes de RPI dispersés (cf. C105).</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C105/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C105/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Tous les niveaux d&apos;école élémentaire ne sont pas assurés dans l&apos;établissement.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C201/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C201/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Y compris collège climatique ou spécialisé.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C203/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C203/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Présence d&apos;enseignement technologique au sein d&apos;un collège.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C301/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C301/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Y compris lycée polyvalent ou climatique et école secondaire spécialisée. Hors tutelle du ministère de l&apos;Agriculture.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C302/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C302/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Y compris école de métiers et école professionnelle spécialisée. Hors tutelle du ministère de l&apos;Agriculture.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C303/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C303/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Sous tutelle du ministère de l&apos;Agriculture. Y compris maison rurale et autre enseignement agricole privé.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C304/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C304/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Présence d&apos;enseignement général et technologique au sein d&apos;un lycée professionnel.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C305/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C305/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Présence d&apos;enseignement professionnel au sein d&apos;un lycée d&apos;enseignement général et/ou technologique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C401/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C401/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Seules formations au diplôme de technicien supérieur et classes préparatoires aux grandes écoles.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C402/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C402/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Écoles de formation sanitaire et sociale (y compris établissements sous tutelle du ministère de la Santé) publiques ou privées : formation de personnels médicaux et paramédicaux, techniques (laborantins), sanitaires (aides-soignants, ambulanciers), sociaux (service social, éducateurs...).</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C403/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C403/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Écoles de commerce, gestion, administration d&apos;entreprises, comptabilité, vente. Comprend notamment les réseaux d&apos;écoles des CCI.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C409/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C409/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Écoles de formation d&apos;enseignants non IUFM, d&apos;administration publique (y compris de fonctionnaires), technico-professionnelles des services, de formation artistique, d&apos;architecture, de formation agricole ou halieutique, technico-professionnelles industrielles, juridiques.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C501/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C501/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Y compris UFR de médecine, odontologie, pharmacie. Y compris antennes délocalisées des UFR ou autres composantes.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C502/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C502/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>IUP, IUT y compris antennes délocalisées, IUFM y compris antennes d&apos;IUFM.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C503/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C503/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Écoles d&apos;ingénieurs publiques sous tutelle du ministère de l&apos;Enseignement Supérieur et de la Recherche ou d&apos;un autre ministère, et écoles privées.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C504/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C504/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Établissements privés d&apos;enseignement universitaire, centres ou facultés privés, instituts catholiques.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C509/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C509/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Écoles normales supérieures, instituts nationaux polytechniques, instituts d&apos;administration des entreprises, instituts de préparation à l&apos;administration générale, instituts d&apos;études politiques, institut du travail, centres régionaux associés aux Cnam, université de technologie et centre universitaire de formation et recherche.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C601/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C601/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Centre de formation d&apos;apprentis avec convention régionale ou nationale, y compris antennes et sections d&apos;apprentissage, non compris l&apos;apprentissage agricole. Modifié à compter de 2009 : ne comprend plus les CFA agricoles reclassés en C605.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C602/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C602/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Groupements d&apos;établissements pour la formation continue. Les annexes de Greta ne sont pas immatriculées. Ils sont toujours rattachés à un EPLE (Établissement public local d&apos;enseignement).</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C603/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C603/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Centre de formation professionnelle et de promotion agricole ou de formation continue agricole [toujours rattaché à un EPLE (Établissement public local d&apos;enseignement) agricole]. Changement de la source à compter de 2009.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C604/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C604/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Établissements de formation aux métiers du sport : écoles et instituts nationaux de la jeunesse et des sports (Insep, INJEP, ENSA, ENEV, ENSFS, ENE), centres d&apos;éducation populaire et de sport (Creps). Ils sont sous la tutelle du ministère de la Jeunesse et des Sports.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C605/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C605/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Centre de formation d&apos;apprentis agricole. Créé à compter de 2009 : les CFA agricoles sont séparés des autres classés en C601.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/C609/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/C609/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Établissements de formation continue autres : regroupe les centres d&apos;enseignement à distance (Cned et ses centres d&apos;enseignement, centres privés soumis à déclaration), les établissements de formation continue hors Éducation nationale.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Ne sont pris en compte que les installations accessibles à tout public, à titre individuel ou via une structure publique ou privée (associative ou commerciale), pour y pratiquer une activité physique et/ou sportive.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F101/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F101/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Bassin de natation, sportive et/ou ludique. Pour chaque équipement, nombre de bassins.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F102/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F102/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Terrain de boules, de pétanque. Pour chaque équipement, nombre de terrains.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F103/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F103/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Court(s) de tennis. Pour chaque équipement, nombre de courts.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F104/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F104/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Vélodrome, anneau/piste. Pour chaque équipement, nombre de pistes.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F105/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F105/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Station de ski, domaine nordique. Pour chaque équipement, nombre de pistes.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F106/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F106/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Carrière, manège, carrière de dressage/rond de longe, structure de tourisme équestre. Pour chaque équipement, nombre de carrières, manèges.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F107/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F107/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Stade d&apos;athlétisme, aire de lancer, aire de saut, piste. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F108/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F108/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Parcours 9 ou 18 trous, parcours d&apos;initiation, practice. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F109/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F109/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Parcours sportif/santé. Pour chaque équipement, nombre de parcours.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F110/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F110/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Aire de sports de glace, sportive et/ou ludique. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F111/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F111/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Plateau EPS, multisports, city-stade, salle multisports (gymnase). Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F112/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F112/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Salle ou terrain de basket-ball, de beach-volley, de handball, de volley-ball, de badminton, salle de tennis de table. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F113/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F113/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Terrain de football, de rugby, de football américain, de jeu à XIII. Pour chaque équipement, nombre de terrains.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F114/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F114/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Dojo, salle de boxe, d&apos;arts martiaux, de lutte, d&apos;escrime. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F115/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F115/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Salle de culturisme, de danse, de gymnastique sportive, de patinage sur roulette, de raquetball, de trampoline, d&apos;haltérophilie, salle ou terrain de squash, structure artificielle d&apos;escalade. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F116/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F116/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Salle polyvalente, des fêtes, autre salle non spécialisé. Salle où s&apos;exerce au moins une activité physique et/ou sportive.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F117/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F117/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Anneau de roller, skate-park, piste de bicross, espace de vélo freestyle. Pour chaque équipement, nombre de pistes, parcours, circuits.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F118/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F118/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Site d&apos;activités nautiques, stade de ski nautique et/ou d&apos;aviron. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F201/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F201/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Site d&apos;activités aquatiques, baignade aménagée. Zone délimitée (matériellement, par des bouées, des lignes d&apos;eau, etc.) pour la baignade surveillée. En rivière, mer, plan d&apos;eau intérieur. Pour chaque équipement, nombre d&apos;aires de pratique.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F202/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F202/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Port de plaisance, zone de mouillage. Pour chaque équipement, nombre de ports, de zones.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F203/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F203/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Uniquement les boucles de randonnée dont les points de départ et d&apos;arrivée se situent sur la même commune (règle du RES). Pour chaque équipement, nombre de circuits.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F301/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F301/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <eu:noteLiteral>Projection en salle de cinéma, en plein air ou autres. Implantation physique, qu&apos;il y ait une seule salle de projection ou plusieurs au sein d&apos;un complexe. Il n&apos;y a ni le nombre de salles présentes, ni leur nombre de places offertes.</eu:noteLiteral>
+        <dcelem:language>fr</dcelem:language>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://id.insee.fr/codes/territoire/typeEquipement/F302/note -->
+
+    <ns91299:NamedIndividual rdf:about="http://id.insee.fr/codes/territoire/typeEquipement/F302/note">
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Note"/>
+        <dcelem:language>fr</dcelem:language>
+        <eu:noteLiteral>Ensemble des lieux gérés par le Centre National du Théâtre (CNT) où une représentation de théâtre peut se tenir. Ces lieux peuvent être labellisés (théâtres nationaux et privés, scènes nationales et conventionnées, compagnies avec lieux d&apos;accueil, compagnies dramatiques nationales et régionales, pôles cirque, centres chorégraphiques) ou non.</eu:noteLiteral>
+    </ns91299:NamedIndividual>
+    
+
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe -->
+
+    <ns91299:NamedIndividual rdf:about="http://rdf.insee.fr/def/territoire/bpe">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </ns91299:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <ns91299:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://id.insee.fr/codes/territoire/secteur/prive"/>
+            <rdf:Description rdf:about="http://id.insee.fr/codes/territoire/secteur/public"/>
+        </ns91299:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.5-SNAPSHOT) http://owlapi.sourceforge.net -->
+
