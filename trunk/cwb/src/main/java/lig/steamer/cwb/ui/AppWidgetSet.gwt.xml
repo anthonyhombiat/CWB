@@ -55,4 +55,12 @@
     
 
     <inherits name="org.vaadin.addon.leaflet.draw.DrawWidgetset" />
+
+    
+
+    
+
+    
+
+    <inherits name="org.vaadin.addon.leaflet.markercluster.Widgetset" />
 </module>

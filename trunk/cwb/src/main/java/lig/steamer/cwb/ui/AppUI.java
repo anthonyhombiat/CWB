@@ -1,33 +1,41 @@
 package lig.steamer.cwb.ui;
 
+import java.util.Collection;
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.servlet.annotation.WebServlet;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
-import lig.steamer.cwb.model.CWBDataModel;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
+import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBEquivalence;
+import lig.steamer.cwb.model.CWBInstanceFolkso;
+import lig.steamer.cwb.model.CWBInstanceNomen;
 import lig.steamer.cwb.model.CWBModel;
+import lig.steamer.cwb.ui.map.CWBMap;
 import lig.steamer.cwb.ui.menu.CWBMenuBar;
-import lig.steamer.cwb.ui.panel.CWBDataModelsPanel;
-import lig.steamer.cwb.ui.panel.CWBIndicatorsPanel;
-import lig.steamer.cwb.ui.panel.CWBMapPanel;
+import lig.steamer.cwb.ui.panel.CWBAlignPanel;
+import lig.steamer.cwb.ui.panel.CWBFolksoPanel;
+import lig.steamer.cwb.ui.panel.CWBNomenPanel;
+import lig.steamer.cwb.ui.window.CWBLoadFolksoFromFileWindow;
+import lig.steamer.cwb.ui.window.CWBLoadFolksoFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBLoadNomenFromFileWindow;
-import lig.steamer.cwb.ui.window.CWBLoadTagsetFromFileWindow;
-import lig.steamer.cwb.ui.window.CWBLoadTagsetFromWSWindow;
-import lig.steamer.cwb.ui.window.CWBMatchingResultsWindow;
-import lig.steamer.cwb.ui.window.CWBMatchingWindow;
+import lig.steamer.cwb.ui.window.CWBLoadNomenFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBOpenProjectWindow;
+
+import org.vaadin.addon.leaflet.LeafletMoveEndListener;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.event.dd.DropHandler;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.MarginInfo;
-import com.vaadin.ui.Accordion;
+import com.vaadin.ui.AbsoluteLayout;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.ComboBox;
@@ -35,9 +43,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.Table;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Upload.FailedListener;
 import com.vaadin.ui.Upload.FinishedListener;
@@ -54,22 +60,22 @@ import com.vaadin.ui.themes.Reindeer;
 @SuppressWarnings("serial")
 public class AppUI extends UI {
 
-	private CWBController controller;
-
 	private final CWBMenuBar menuBar = new CWBMenuBar();
-	private final VerticalLayout leftLayout = new VerticalLayout();
-	private final TabSheet tabSheet = new TabSheet();
-
-	private final CWBDataModelsPanel dataModelsPanel = new CWBDataModelsPanel();
-	private final CWBIndicatorsPanel indicatorsPanel = new CWBIndicatorsPanel();
-	CWBMapPanel map = new CWBMapPanel();
 
 	private final CWBOpenProjectWindow openProjectWindow = new CWBOpenProjectWindow();
-	private final CWBLoadTagsetFromWSWindow loadTagsetFromWSWindow = new CWBLoadTagsetFromWSWindow();
+	private final CWBLoadFolksoFromWSWindow loadFolksoFromWSWindow = new CWBLoadFolksoFromWSWindow();
 	private final CWBLoadNomenFromFileWindow loadNomenFromFileWindow = new CWBLoadNomenFromFileWindow();
-	private final CWBLoadTagsetFromFileWindow loadTagsetFromFileWindow = new CWBLoadTagsetFromFileWindow();
-	private final CWBMatchingWindow matchingWindow = new CWBMatchingWindow();
-	private final CWBMatchingResultsWindow matchingResultsWindow = new CWBMatchingResultsWindow();
+	private final CWBLoadNomenFromWSWindow loadNomenFromWSWindow = new CWBLoadNomenFromWSWindow();
+	private final CWBLoadFolksoFromFileWindow loadFolksoFromFileWindow = new CWBLoadFolksoFromFileWindow();
+
+	private final CWBFolksoPanel folksoPanel = new CWBFolksoPanel();
+	private final CWBNomenPanel nomenPanel = new CWBNomenPanel();
+	private final CWBAlignPanel alignPanel = new CWBAlignPanel();
+	private final CWBMap map = new CWBMap();
+
+	private final Button matchButton = new Button();
+
+	private CWBModel model;
 
 	@WebServlet(value = "/*", asyncSupported = true)
 	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "lig.steamer.cwb.ui.AppWidgetSet")
@@ -79,69 +85,77 @@ public class AppUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
 
+		AbsoluteLayout absoluteLayout = new AbsoluteLayout();
+		absoluteLayout.setWidth("20%");
+		absoluteLayout.setHeight("0px");
+		absoluteLayout.setStyleName("header-layout");
+
 		Label mainTitle = new Label(Msg.get("main.title"));
 		mainTitle.setStyleName(Reindeer.LABEL_H1);
 
-		Label mainSubtitle = new Label(Msg.get("main.subtitle"));
-		mainSubtitle.setStyleName(Reindeer.LABEL_SMALL);
+		absoluteLayout.addComponent(mainTitle, "right: 2%; top: -3px;");
 
-		final VerticalLayout titleLayout = new VerticalLayout();
-		titleLayout.addComponent(mainTitle);
-		titleLayout.addComponent(mainSubtitle);
-		titleLayout.setMargin(new MarginInfo(true, false, false, true));
+		HorizontalLayout horizontalLayout = new HorizontalLayout();
+		horizontalLayout.addComponent(folksoPanel);
+		horizontalLayout.addComponent(nomenPanel);
+		horizontalLayout.setSpacing(true);
+		horizontalLayout.setSizeFull();
 
-		/*
-		 * Tabsheet
-		 */
+		matchButton.setEnabled(false);
+		matchButton.setCaption(Msg.get("matching.button"));
 
-		tabSheet.setSizeFull();
-
-		map.setSizeFull();
-
-		tabSheet.addTab(map, Msg.get("tabsheet.map.caption"));
-		tabSheet.setSelectedTab(map);
-
-		leftLayout.addComponent(dataModelsPanel);
-		leftLayout.addComponent(indicatorsPanel);
-		leftLayout.setExpandRatio(dataModelsPanel, 0.5f);
-		leftLayout.setExpandRatio(indicatorsPanel, 0.5f);
+		final VerticalLayout leftLayout = new VerticalLayout();
+		leftLayout.addComponent(horizontalLayout);
+		leftLayout.setExpandRatio(horizontalLayout, 0.58f);
+		leftLayout.addComponent(matchButton);
+		leftLayout.setComponentAlignment(matchButton, Alignment.MIDDLE_CENTER);
+		leftLayout.setExpandRatio(matchButton, 0.02f);
+		leftLayout.addComponent(alignPanel);
+		leftLayout.setExpandRatio(alignPanel, 0.4f);
 		leftLayout.setSizeFull();
 		leftLayout.setSpacing(true);
 
+		final VerticalLayout mapLayout = new VerticalLayout();
+		mapLayout.setSizeFull();
+		mapLayout.addComponent(map);
+
+		final Panel mapPanel = new Panel(Msg.get("map.capt"), mapLayout);
+		mapPanel.setSizeFull();
+
 		final HorizontalLayout centralLayout = new HorizontalLayout();
 		centralLayout.addComponent(leftLayout);
-		centralLayout.addComponent(tabSheet);
-		centralLayout.setExpandRatio(leftLayout, 0.35f);
-		centralLayout.setExpandRatio(tabSheet, 0.65f);
+		centralLayout.addComponent(mapPanel);
+		centralLayout.setExpandRatio(leftLayout, 0.5f);
+		centralLayout.setExpandRatio(mapPanel, 0.5f);
 		centralLayout.setSizeFull();
 		centralLayout.setSpacing(true);
-		centralLayout.setMargin(true);
+		centralLayout.setMargin(new MarginInfo(true, true, false, true));
 
 		final VerticalLayout rootLayout = new VerticalLayout();
 		rootLayout.setSizeFull();
+		rootLayout.addComponent(absoluteLayout);
 		rootLayout.addComponent(menuBar);
-		rootLayout.addComponent(titleLayout);
 		rootLayout.addComponent(centralLayout);
 		rootLayout.setExpandRatio(centralLayout, 0.9f);
 		rootLayout.setStyleName(Reindeer.LAYOUT_BLUE);
 
 		setContent(rootLayout);
 
-		/*
-		 * Notification
-		 */
+		model = new CWBModel();
+		model.addObserver(new CWBFolksoObserver());
+		model.addObserver(new CWBNomenObserver());
+		model.addObserver(new CWBEquivalencesObserver());
+		model.addObserver(new CWBInstancesFolksoObserver());
+		model.addObserver(new CWBInstancesNomenObserver());
+		model.addObserver(new CWBIsReadyForMatchingObserver());
 
-		Notification.show(Msg.get("notif.info.welcome.title"),
-				Msg.get("notif.info.welcome.text"),
-				Notification.Type.HUMANIZED_MESSAGE);
-
-		controller = new CWBController(new CWBModel(), this);
+		new CWBController(model, this);
 
 	}
 
 	public void clear() {
-		dataModelsPanel.clear();
-		indicatorsPanel.clear();
+		nomenPanel.clear();
+		folksoPanel.clear();
 		map.clear();
 	}
 
@@ -157,76 +171,64 @@ public class AppUI extends UI {
 		return openProjectWindow;
 	}
 
+	public Window getLoadNomenFromWSWindow() {
+		return loadNomenFromWSWindow;
+	}
+	
+	public ComboBox getNomenWSCombobox() {
+		return loadNomenFromWSWindow.getComboBox();
+	}
+
+	public Button getLoadNomenFromWSButton() {
+		return loadNomenFromWSWindow.getLoadButton();
+	}
+	
 	public Window getLoadFolksoFromWSWindow() {
-		return loadTagsetFromWSWindow;
+		return loadFolksoFromWSWindow;
 	}
 
-	public ComboBox getTagWSCombobox() {
-		return loadTagsetFromWSWindow.getTagWSComboBox();
+	public ComboBox getFolksoWSCombobox() {
+		return loadFolksoFromWSWindow.getComboBox();
 	}
 
-	public Button getLoadTagsetFromWSButton() {
-		return loadTagsetFromWSWindow.getLoadButton();
+	public Button getLoadFolksoFromWSButton() {
+		return loadFolksoFromWSWindow.getLoadButton();
 	}
 
-	public VerticalLayout getLeftLayout() {
-		return leftLayout;
-	}
-
-	public CWBDataModelsPanel getDataModelsPanel() {
-		return dataModelsPanel;
-	}
-
-	public CWBIndicatorsPanel getIndicatorsPanel() {
-		return indicatorsPanel;
-	}
-
-	public Accordion getDataModelsPanelAccordion() {
-		return dataModelsPanel.getAccordionNomen();
-	}
-
-	public CWBLoadTagsetFromFileWindow getLoadFolksoFromFileWindow() {
-		return loadTagsetFromFileWindow;
+	public CWBLoadFolksoFromFileWindow getLoadFolksoFromFileWindow() {
+		return loadFolksoFromFileWindow;
 	}
 
 	public CWBLoadNomenFromFileWindow getLoadNomenFromFileWindow() {
 		return loadNomenFromFileWindow;
 	}
 
-	public CWBMatchingWindow getMatchWindow() {
-		return matchingWindow;
+	public CWBNomenPanel getNomenPanel() {
+		return nomenPanel;
 	}
 
-	public Table getMatchingWindowTable() {
-		return matchingWindow.getTable();
+	public CWBFolksoPanel getFolksoPanel() {
+		return folksoPanel;
 	}
 
-	public BeanItemContainer<CWBDataModel> getMatchingWindowTableContainer() {
-		return matchingWindow.getContainer();
+	public CWBAlignPanel getAlignPanel() {
+		return alignPanel;
 	}
 
-	public CWBMatchingResultsWindow getMatchingResultsWindow() {
-		return matchingResultsWindow;
-	}
-
-	public BeanItemContainer<CWBEquivalence> getMatchingResultsWindowTableContainer() {
-		return matchingResultsWindow.getContainer();
-	}
-
-	public Table getMatchingResultsWindowTable() {
-		return matchingResultsWindow.getTable();
-	}
-
-	public TabSheet getTabSheet() {
-		return tabSheet;
+	public CWBMap getMap() {
+		return map;
 	}
 
 	/****************************/
 	/*** ADD LISTENER METHODS ***/
 	/****************************/
 
-	public void addLoadFolksoButtonListener(ClickListener listener) {
-		loadTagsetFromWSWindow.getLoadButton().addClickListener(listener);
+	public void addLoadFolksoFromWSWindowButtonListener(ClickListener listener) {
+		loadFolksoFromWSWindow.getLoadButton().addClickListener(listener);
+	}
+	
+	public void addLoadNomenFromWSWindowButtonListener(ClickListener listener) {
+		loadNomenFromWSWindow.getLoadButton().addClickListener(listener);
 	}
 
 	public void addOpenMenuItemCommand(Command command) {
@@ -260,41 +262,42 @@ public class AppUI extends UI {
 	public void addLoadFolksoFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadFolksoFromFileMenuItem().setCommand(command);
 	}
+	
+	public void addLoadNomenFromWSMenuItemCommand(Command command) {
+		menuBar.getLoadNomenFromWSMenuItem().setCommand(command);
+	}
 
 	public void addLoadNomenFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadNomenFromFileMenuItem().setCommand(command);
 	}
-	
+
 	public void addLoadFolksoFromWSButtonListener(ClickListener listener) {
-		dataModelsPanel.getAddFolksoFromWS().addClickListener(listener);
+		folksoPanel.getLoadFromWSButton().addClickListener(listener);
 	}
 
 	public void addLoadFolksoFromFileButtonListener(ClickListener listener) {
-		dataModelsPanel.getAddFolksoFromFile().addClickListener(listener);
+		folksoPanel.getLoadFromFileButton().addClickListener(listener);
 	}
 
 	public void addLoadNomenFromFileButtonListener(ClickListener listener) {
-		dataModelsPanel.getAddNomenFromFile().addClickListener(listener);
+		nomenPanel.getLoadFromFileButton().addClickListener(listener);
 	}
-
-	public void addDataModelsMenuItemCommand(Command command) {
-		menuBar.getDataModelsMenuItem().setCommand(command);
+	
+	public void addLoadNomenFromWSButtonListener(ClickListener listener) {
+		nomenPanel.getLoadFromWSButton().addClickListener(listener);
 	}
-
-	public void addIndicatorsMenuItemCommand(Command command) {
-		menuBar.getIndicatorsMenuItem().setCommand(command);
+	
+	public void addNomenWSComboBoxListener(ValueChangeListener listener) {
+		loadNomenFromWSWindow.getComboBox().addValueChangeListener(
+				listener);
 	}
 
 	public void addMapMenuItemCommand(Command command) {
 		menuBar.getMapMenuItem().setCommand(command);
 	}
 
-	public void addMatchMenuItemCommand(Command command) {
-		menuBar.getMatchMenuItem().setCommand(command);
-	}
-
-	public void addTagWSComboBoxListener(ValueChangeListener listener) {
-		loadTagsetFromWSWindow.getTagWSComboBox().addValueChangeListener(
+	public void addFolksoWSComboBoxListener(ValueChangeListener listener) {
+		loadFolksoFromWSWindow.getComboBox().addValueChangeListener(
 				listener);
 	}
 
@@ -320,10 +323,6 @@ public class AppUI extends UI {
 
 	public void addOpenProjectUploadStartedListener(StartedListener listener) {
 		openProjectWindow.getUploadComponent().addStartedListener(listener);
-	}
-
-	public void addOpenProjectDropBoxDropHandler(DropHandler dropHandler) {
-		openProjectWindow.getDropBox().setDropHandler(dropHandler);
 	}
 
 	public void addLoadNomenFromFileUploadReceiver(Receiver receiver) {
@@ -359,72 +358,169 @@ public class AppUI extends UI {
 				listener);
 	}
 
-	public void addLoadNomenFromFileDropBoxDropHandler(DropHandler dropHandler) {
-		loadNomenFromFileWindow.getDropBox().setDropHandler(dropHandler);
-	}
-
 	public void addLoadFolksoFromFileUploadReceiver(Receiver receiver) {
-		loadTagsetFromFileWindow.getUploadComponent().setReceiver(receiver);
+		loadFolksoFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
 
 	public void addLoadFolksoFromFileUploadSucceededListener(
 			SucceededListener listener) {
-		loadTagsetFromFileWindow.getUploadComponent().addSucceededListener(
+		loadFolksoFromFileWindow.getUploadComponent().addSucceededListener(
 				listener);
 	}
 
 	public void addLoadFolksoFromFileUploadFailedListener(
 			FailedListener listener) {
-		loadTagsetFromFileWindow.getUploadComponent().addFailedListener(
+		loadFolksoFromFileWindow.getUploadComponent().addFailedListener(
 				listener);
 	}
 
 	public void addLoadFolksoFromFileUploadProgressListener(
 			ProgressListener listener) {
-		loadTagsetFromFileWindow.getUploadComponent().addProgressListener(
+		loadFolksoFromFileWindow.getUploadComponent().addProgressListener(
 				listener);
 	}
 
 	public void addLoadFolksoFromFileUploadFinishedListener(
 			FinishedListener listener) {
-		loadTagsetFromFileWindow.getUploadComponent().addFinishedListener(
+		loadFolksoFromFileWindow.getUploadComponent().addFinishedListener(
 				listener);
 	}
 
 	public void addLoadFolksoFromFileUploadStartedListener(
 			StartedListener listener) {
-		loadTagsetFromFileWindow.getUploadComponent().addStartedListener(
+		loadFolksoFromFileWindow.getUploadComponent().addStartedListener(
 				listener);
 	}
 
-	public void addLoadFolksoFromFileDropBoxDropHandler(DropHandler dropHandler) {
-		loadTagsetFromFileWindow.getDropBox().setDropHandler(dropHandler);
+	public void addMatchButtonListener(ClickListener listener) {
+		matchButton.addClickListener(listener);
 	}
 
-	public void addMatchingWindowTableValueChangeListener(
+	public void addMatchingResultsTableValueChangedListener(
 			ValueChangeListener listener) {
-		matchingWindow.getTable().addValueChangeListener(listener);
+		alignPanel.getTable().addValueChangeListener(listener);
 	}
 
-	public void addMatchingWindowButtonClickListener(ClickListener listener) {
-		matchingWindow.getButton().addClickListener(listener);
+	public void addMapMoveEndListener(LeafletMoveEndListener listener) {
+		map.addMoveEndListener(listener);
 	}
 
-	public void addMatchingResultsWindowButtonClickListener(
-			ClickListener listener) {
-		matchingResultsWindow.getButton().addClickListener(listener);
+	class CWBIsReadyForMatchingObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof Boolean) {
+				matchButton.setEnabled((Boolean) arg);
+			}
+		}
+
 	}
 
-	public void addMatchingResultsWindowTableValueChangeListener(
-			ValueChangeListener listener) {
-		matchingResultsWindow.getTable().addValueChangeListener(listener);
+	class CWBFolksoObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof CWBDataModelFolkso) {
+				CWBDataModelFolkso folkso = (CWBDataModelFolkso) arg;
+				folksoPanel.setFolkso(folkso);
+			}
+		}
+
 	}
 
-	/**
-	 * @return the controller
-	 */
-	public CWBController getController() {
-		return controller;
+	class CWBNomenObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof CWBDataModelNomen) {
+				CWBDataModelNomen nomen = (CWBDataModelNomen) arg;
+				nomenPanel.setNomen(nomen);
+			}
+		}
+
+	}
+
+	class CWBEquivalencesObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof Collection<?>) {
+				Collection<?> collec = (Collection<?>) arg;
+				if (collec.size() > 0) {
+					boolean isEquivalences = true;
+					for (Object obj : collec) {
+						if (!(obj instanceof CWBEquivalence)) {
+							isEquivalences = false;
+							break;
+						}
+					}
+					if (isEquivalences) {
+						alignPanel.getTable().setEnabled(true);
+						alignPanel.getContainer().removeAllItems();
+						alignPanel.getContainer().addAll(
+								(Collection<CWBEquivalence>) collec);
+						alignPanel.getTable().refreshRowCache();
+					}
+				}
+			}
+		}
+
+	}
+
+	class CWBInstancesFolksoObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof Collection<?>) {
+				Collection<?> collec = (Collection<?>) arg;
+				
+				boolean isInstancesFolkso = true;
+
+				for (Object obj : collec) {
+					if (!(obj instanceof CWBInstanceFolkso)) {
+						isInstancesFolkso = false;
+						break;
+					}
+				}
+
+				if (isInstancesFolkso) {
+					map.getClusterFolkso().removeAllComponents();
+					for (Object obj : collec) {
+						if (obj instanceof CWBInstanceFolkso) {
+							CWBInstanceFolkso instance = (CWBInstanceFolkso) obj;
+							map.addMarkerFolkso(instance);
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+	class CWBInstancesNomenObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof Collection<?>) {
+				Collection<?> collec = (Collection<?>) arg;
+				boolean isInstancesNomen = true;
+				for (Object obj : collec) {
+					if (!(obj instanceof CWBInstanceNomen)) {
+						isInstancesNomen = false;
+						break;
+					}
+				}
+				if (isInstancesNomen) {
+					map.getClusterNomen().removeAllComponents();
+					for (Object obj : collec) {
+						if (obj instanceof CWBInstanceNomen) {
+							CWBInstanceNomen instance = (CWBInstanceNomen) obj;
+							map.addMarkerNomen(instance);
+						}
+					}
+				}
+			}
+		}
 	}
 
 }

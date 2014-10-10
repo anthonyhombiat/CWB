@@ -39,7 +39,12 @@ public class CWBReader {
 		ZipUtility zipUtil = new ZipUtility();
 		zipUtil.unzip(projectPath, destinationPath);
 
-		model.addDataModels(readDataModels(destinationPath));
+		String dataModelsDir = destinationPath + File.separatorChar
+				+ Prop.DIRNAME_DATAMODELS;
+		
+		model.setFolksonomy(readFolkso(dataModelsDir).iterator().next());
+		model.setNomenclature(readNomen(dataModelsDir).iterator().next());
+//		model.addEquivalences(equivalences);
 
 		new File(projectPath).delete();
 		try {
@@ -54,27 +59,7 @@ public class CWBReader {
 
 	}
 
-	private Collection<CWBDataModel> readDataModels(String projectRootDir)
-			throws CWBReaderException {
-
-		String dataModelsDir = projectRootDir + File.separatorChar
-				+ Prop.DIRNAME_DATAMODELS;
-
-		LOGGER.log(Level.INFO, "Loading data models from " + dataModelsDir
-				+ "...");
-
-		Collection<CWBDataModel> dataModels = new ArrayList<CWBDataModel>();
-
-		dataModels.addAll(readDataModelsNomen(dataModelsDir));
-		dataModels.addAll(readDataModelsFolkso(dataModelsDir));
-		dataModels.addAll(readDataModelsMatched(dataModelsDir));
-
-		LOGGER.log(Level.INFO, "Data models loaded.");
-
-		return dataModels;
-	}
-
-	private Collection<CWBDataModelNomen> readDataModelsNomen(
+	private Collection<CWBDataModelNomen> readNomen(
 			String dataModelsDirPath) throws CWBReaderException {
 
 		File dataModelsNomenDir = new File(dataModelsDirPath
@@ -97,19 +82,19 @@ public class CWBReader {
 		return dataModelsNomen;
 	}
 
-	private Collection<CWBDataModelFolkso> readDataModelsFolkso(
+	private Collection<CWBDataModelFolkso> readFolkso(
 			String dataModelsDirPath) throws CWBReaderException {
 
-		File dataModelsNomenDir = new File(dataModelsDirPath
+		File nomenDir = new File(dataModelsDirPath
 				+ File.separatorChar + Prop.DIRNAME_FOLKSO);
 
-		Collection<CWBDataModelFolkso> dataModelsFolkso = new ArrayList<CWBDataModelFolkso>();
+		Collection<CWBDataModelFolkso> folksos = new ArrayList<CWBDataModelFolkso>();
 
-		if (dataModelsNomenDir.isDirectory()) {
-			for (File file : dataModelsNomenDir.listFiles()) {
+		if (nomenDir.isDirectory()) {
+			for (File file : nomenDir.listFiles()) {
 				CWBDataModelReader dataModelReader = new CWBDataModelFolksoReader();
 				try {
-					dataModelsFolkso.add((CWBDataModelFolkso) dataModelReader
+					folksos.add((CWBDataModelFolkso) dataModelReader
 							.read(file));
 				} catch (CWBDataModelReaderException e) {
 					throw new CWBReaderException(e);
@@ -117,22 +102,22 @@ public class CWBReader {
 			}
 		}
 
-		return dataModelsFolkso;
+		return folksos;
 	}
 
-	private Collection<CWBDataModelMatched> readDataModelsMatched(
+	private Collection<CWBDataModelMatched> readEquivalences(
 			String dataModelsDirPath) throws CWBReaderException {
 
-		File dataModelsNomenDir = new File(dataModelsDirPath
-				+ File.separatorChar + Prop.DIRNAME_MATCHED);
+		File equivalencesDir = new File(dataModelsDirPath
+				+ File.separatorChar + Prop.DIRNAME_ALIGN);
 
-		Collection<CWBDataModelMatched> dataModelsMatched = new ArrayList<CWBDataModelMatched>();
+		Collection<CWBDataModelMatched> equivalences = new ArrayList<CWBDataModelMatched>();
 
-		if (dataModelsNomenDir.isDirectory()) {
-			for (File file : dataModelsNomenDir.listFiles()) {
+		if (equivalencesDir.isDirectory()) {
+			for (File file : equivalencesDir.listFiles()) {
 				CWBDataModelReader dataModelReader = new CWBDataModelMatchedReader();
 				try {
-					dataModelsMatched.add((CWBDataModelMatched) dataModelReader
+					equivalences.add((CWBDataModelMatched) dataModelReader
 							.read(file));
 				} catch (CWBDataModelReaderException e) {
 					throw new CWBReaderException(e);
@@ -140,7 +125,7 @@ public class CWBReader {
 			}
 		}
 
-		return dataModelsMatched;
+		return equivalences;
 	}
 
 }

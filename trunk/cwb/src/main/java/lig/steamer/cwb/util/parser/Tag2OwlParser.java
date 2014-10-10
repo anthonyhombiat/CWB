@@ -77,7 +77,7 @@ public class Tag2OwlParser {
 		manager.applyChanges(ontologyChanges);
 
 		LOGGER.log(Level.INFO, "Classes added.");
-		
+
 		return tagOntology;
 
 	}
@@ -121,14 +121,16 @@ public class Tag2OwlParser {
 				tagLabelAnnotation));
 
 		// Adding the comment
-		OWLLiteral tagCommentLiteral = factory.getOWLLiteral(tag
-				.getDescription().getString(), tag.getDescription()
-				.getLanguage());
-		OWLAnnotation tagCommentAnnotation = factory.getOWLAnnotation(
-				commentProperty, tagCommentLiteral);
+		if (tag.getDescription() != null) {
+			OWLLiteral tagCommentLiteral = factory.getOWLLiteral(tag
+					.getDescription().getString(), tag.getDescription()
+					.getLanguage());
+			OWLAnnotation tagCommentAnnotation = factory.getOWLAnnotation(
+					commentProperty, tagCommentLiteral);
 
-		axioms.add(factory.getOWLAnnotationAssertionAxiom(tagClass.getIRI(),
-				tagCommentAnnotation));
+			axioms.add(factory.getOWLAnnotationAssertionAxiom(
+					tagClass.getIRI(), tagCommentAnnotation));
+		}
 
 		return axioms;
 

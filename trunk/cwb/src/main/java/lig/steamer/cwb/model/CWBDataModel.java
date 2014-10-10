@@ -19,17 +19,15 @@ public abstract class CWBDataModel implements Serializable, CWBDataModelVisitabl
 	private String description;
 	private CWBDataProvider dataProvider;
 	private Collection<CWBConcept> concepts;
-	private Collection<CWBEquivalence> equivalences;
 	private String creator;
 	private Date creationDate;
 	private Date lastUpdate;
 	
 	public CWBDataModel(IRI namespace){
 		this.namespace = namespace;
-		concepts = new ArrayList<CWBConcept>();
-		equivalences = new ArrayList<CWBEquivalence>();
-		creationDate = new Date();
-		lastUpdate = new Date();
+		this.concepts = new ArrayList<CWBConcept>();
+		this.creationDate = new Date();
+		this.lastUpdate = new Date();
 	}
 	
 	/**
@@ -166,56 +164,6 @@ public abstract class CWBDataModel implements Serializable, CWBDataModelVisitabl
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * @return the equivalences
-	 */
-	public Collection<CWBEquivalence> getEquivalences() {
-		return equivalences;
-	}
-
-	/**
-	 * @param equivalences the equivalences to set
-	 */
-	public void setEquivalences(Collection<CWBEquivalence> equivalences) {
-		this.equivalences = equivalences;
-	}
-	
-	public boolean addEquivalence(CWBEquivalence equivalence){
-		if(!equivalences.contains(equivalence)){
-			equivalences.add(equivalence);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean removeEquivalence(CWBEquivalence equivalence){
-		if(equivalences.contains(equivalence)){
-			equivalences.remove(equivalence);
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean addEquivalences(Collection<CWBEquivalence> equivalences){
-		boolean hasChanged = false;
-		for(CWBEquivalence equivalence : equivalences){
-			if(addEquivalence(equivalence)){
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
-	}
-	
-	public boolean removeEquivalences(Collection<CWBEquivalence> equivalences){
-		boolean hasChanged = false;
-		for(CWBEquivalence equivalence : equivalences){
-			if(removeEquivalence(equivalence)){
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
 	}
 	
 	public Collection<CWBConcept> getRootConcepts(){

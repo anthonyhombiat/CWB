@@ -3,7 +3,7 @@ package lig.steamer.cwb.model;
 import java.util.Collection;
 import java.util.Date;
 
-public class CWBDataSet {
+public abstract class CWBDataSet<V extends CWBDataModel, T extends CWBInstance> {
 
 	private String title;
 	private String description;
@@ -13,9 +13,6 @@ public class CWBDataSet {
 	private CWBDataProvider dataProvider;
 	private CWBStudyArea studyArea;
 	private CWBZoning zoning;
-	private Collection<CWBInstance> instances;
-	
-	private CWBDataModel dataModel;
 	
 	public CWBDataSet(){
 		
@@ -66,52 +63,15 @@ public class CWBDataSet {
 	/**
 	 * @return the instances
 	 */
-	public Collection<CWBInstance> getInstances() {
-		return instances;
-	}
+	public abstract Collection<T> getInstances();
+	
+	public abstract boolean addInstance(T instance);
 
-	/**
-	 * @param instances the instances to set
-	 */
-	public void setInstances(Collection<CWBInstance> instances) {
-		this.instances = instances;
-	}
+	public abstract boolean removeInstance(T instance);
 	
-	public boolean addInstance(CWBInstance instance){
-		if(!instances.contains(instance)){
-			instances.add(instance);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean removeInstance(CWBInstance instance){
-		if(instances.contains(instance)){
-			instances.remove(instance);
-			return true;
-		}
-		return false;
-	}
+	public abstract boolean addInstances(Collection<T> instances);
 	
-	public boolean addInstances(Collection<CWBInstance> instances){
-		boolean hasChanged = false;
-		for(CWBInstance instance : instances){
-			if(addInstance(instance)){
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
-	}
-	
-	public boolean removeInstances(Collection<CWBInstance> instances){
-		boolean hasChanged = false;
-		for(CWBInstance instance : instances){
-			if(removeInstance(instance)){
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
-	}
+	public abstract boolean removeInstances(Collection<T> instances);
 	
 	/**
 	 * @return the creationDate
@@ -144,16 +104,12 @@ public class CWBDataSet {
 	/**
 	 * @return the dataModel
 	 */
-	public CWBDataModel getDataModel() {
-		return dataModel;
-	}
+	public abstract V getDataModel();
 
 	/**
 	 * @param dataModel the dataModel to set
 	 */
-	public void setDataModel(CWBDataModel dataModel) {
-		this.dataModel = dataModel;
-	}
+	public abstract void setDataModel(V dataModel);
 
 	/**
 	 * @return the title

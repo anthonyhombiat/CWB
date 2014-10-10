@@ -20,10 +20,7 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem loadFolksoFromFileMenuItem;
 	private final MenuItem loadNomenFromWSMenuItem;
 	private final MenuItem loadNomenFromFileMenuItem;
-	private final MenuItem matchMenuItem;
 	
-	private final MenuItem dataModelsMenuItem;
-	private final MenuItem indicatorsMenuItem;
 	private final MenuItem mapMenuItem;
 
 	private final MenuItem aboutMenuItem;
@@ -92,11 +89,6 @@ public class CWBMenuBar extends MenuBar {
 		loadNomenFromFileMenuItem = dataItem.addItem(
 				Msg.get("main.menu.data.load.nomen.file"), null);
 
-		dataItem.addSeparator();
-		
-		matchMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.match"), null);
-
 		/*
 		 * Indicators
 		 */
@@ -114,16 +106,8 @@ public class CWBMenuBar extends MenuBar {
 		 */
 
 		MenuItem windowItem = this.addItem(Msg.get("main.menu.window"), null);
-
-		dataModelsMenuItem = windowItem.addItem(Msg.get("main.menu.window.datamodels.caption"), null);
-		dataModelsMenuItem.setCheckable(true);
-		dataModelsMenuItem.setChecked(true);
 		
-		indicatorsMenuItem = windowItem.addItem(Msg.get("main.menu.window.indicators.caption"), null);
-		indicatorsMenuItem.setCheckable(true);
-		indicatorsMenuItem.setChecked(true);
-		
-		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.caption"), null);
+		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.capt"), null);
 		mapMenuItem.setCheckable(true);
 		mapMenuItem.setChecked(true);
 		
@@ -225,27 +209,6 @@ public class CWBMenuBar extends MenuBar {
 	 */
 	public MenuItem getUndoMenuItem() {
 		return undoMenuItem;
-	}
-
-	/**
-	 * @return the matchMenuItem
-	 */
-	public MenuItem getMatchMenuItem() {
-		return matchMenuItem;
-	}
-
-	/**
-	 * @return the dataModelsMenuItem
-	 */
-	public MenuItem getDataModelsMenuItem() {
-		return dataModelsMenuItem;
-	}
-	
-	/**
-	 * @return the indicatorsMenuItem
-	 */
-	public MenuItem getIndicatorsMenuItem() {
-		return indicatorsMenuItem;
 	}
 	
 	/**

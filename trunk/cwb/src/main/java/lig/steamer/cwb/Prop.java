@@ -2,6 +2,8 @@ package lig.steamer.cwb;
 
 import java.io.File;
 
+import lig.steamer.cwb.model.LeafletBBox;
+
 import com.vaadin.server.VaadinService;
 
 public class Prop {
@@ -21,7 +23,7 @@ public class Prop {
 	public static final String DIRNAME_DATAMODELS = "datamodels";
 	public static final String DIRNAME_FOLKSO = "folksonomies";
 	public static final String DIRNAME_NOMEN = "nomenclatures";
-	public static final String DIRNAME_MATCHED = "matched";
+	public static final String DIRNAME_ALIGN = "alignments";
 	public static final String DIRNAME_INDICATORS = "indicators";
 	public static final String DIRNAME_MEASURES = "measures";
 
@@ -39,6 +41,9 @@ public class Prop {
 	public static final String DEFAULT_PROJECT_NAME = "cwb-project";
 	public static final String DEFAULT_CHARSET = "UTF_8";
 	public static final String DEFAULT_ONTO_FMT = "OWL";
+	
+	public static final LeafletBBox DEFAULT_MAP_BBOX = new LeafletBBox(45.154121, 5.678540,
+			45.213760, 5.753120); // Grenoble bbox
 
 	private Prop() {
 	}

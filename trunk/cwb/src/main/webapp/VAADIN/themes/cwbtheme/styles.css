@@ -7087,3 +7087,27 @@ body .cwbtheme.v-app .v-app-loading {
 	height: 7px;
 	width: 14px;
 }
+
+.cwbtheme .header-layout {
+	position: absolute;
+	height: 30px !important;
+	margin-left: 78%;
+}
+
+.cwbtheme .h1 {
+	font-size: 16px;
+}
+
+.cwbtheme .marker-cluster, .cwbtheme .marker-cluster div, .cwbtheme .marker-cluster div span {
+	background-color: #89C819;
+	background-image: radial-gradient(#a9e839, #89C819);
+	opacity: 0.9;
+	color: black;
+}
+
+.cwbtheme .marker-cluster:first-child, .cwbtheme .marker-cluster:first-child div, .cwbtheme .marker-cluster:first-child div span {
+	background-color: #42aAd3;
+	background-image: radial-gradient(#62cAf3, #42aAd3);
+	opacity: 0.9;
+	color: black;
+}

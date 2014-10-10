@@ -104,11 +104,6 @@ public abstract class CWBDataModelReader {
 				populateDataModel(dataModel, ontology, clazz.getSubClasses(ontology),
 						concept);
 
-				for (OWLEquivalentClassesAxiom equivalenceAxiom : equivalenceAxioms) {
-					dataModel
-							.addEquivalences(getCWBEquivalencesFromOwlEquivalentClassesAxiom(
-									equivalenceAxiom, concept, dataModel));
-				}
 			}
 		}
 
@@ -144,7 +139,7 @@ public abstract class CWBDataModelReader {
 
 		for (OWLAnnotation label : labels) {
 			OWLLiteral literal = (OWLLiteral) label.getValue();
-			concept.addName(literal.getLiteral().toString(),
+			concept.addLabel(literal.getLiteral().toString(),
 					new Locale(literal.getLang()));
 		}
 

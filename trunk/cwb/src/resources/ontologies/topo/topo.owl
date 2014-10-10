@@ -1,0 +1,915 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ign.bdtopo.fr#"
+     xml:base="http://ign.bdtopo.fr"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://ign.bdtopo.fr"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ign.bdtopo.fr#Aerodrome-non-militaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Aerodrome-non-militaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Aeroport-quelconque -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Aeroport-quelconque">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Aire-de-repos -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Aire-de-repos">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Aire-de-service -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Aire-de-service">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Aquaculture -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Aquaculture">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Arbre -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Arbre">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#espace-naturel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Barrage -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Barrage">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Bois -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Bois">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#espace-naturel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Borne -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Borne">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Bureau-ou-hotel-des-postes -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Bureau-ou-hotel-des-postes">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Canal -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Canal">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Cap -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Cap">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Carrefour -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Carrefour">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Carriere -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Carriere">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Cascade -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Cascade">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Caserne-de-pompiers -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Caserne-de-pompiers">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Centrale-electrique -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Centrale-electrique">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Chateau -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Chateau">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Chemin -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Chemin">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Cirque -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Cirque">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Col -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Col">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Crete -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Crete">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Croix -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Croix">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Culte-catholique-ou-orthodoxe -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Culte-catholique-ou-orthodoxe">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Culte-divers -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Culte-divers">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Culte-islamique -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Culte-islamique">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Culte-israelite -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Culte-israelite">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Culte-protestant -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Culte-protestant">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Depression -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Depression">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Divers-commercial -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Divers-commercial">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Divers-industriel -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Divers-industriel">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Divers-public-ou-administratif -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Divers-public-ou-administratif">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Echangeur -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Echangeur">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Enceinte-militaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Enceinte-militaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Enseignement-primaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Enseignement-primaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#science-enseignement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Enseignement-secondaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Enseignement-secondaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#science-enseignement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Enseignement-superieur -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Enseignement-superieur">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#science-enseignement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Escarpement -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Escarpement">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Etablissement-hospitalier -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Etablissement-hospitalier">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sante"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Etablissement-penitentiaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Etablissement-penitentiaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Etablissement-thermal -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Etablissement-thermal">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sante"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gare-fret-uniquement -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gare-fret-uniquement">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gare-routiere -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gare-routiere">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gare-voyageurs-et-fret -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gare-voyageurs-et-fret">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gare-voyageurs-uniquement -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gare-voyageurs-uniquement">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gendarmerie -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gendarmerie">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Glacier -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Glacier">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Golf -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Golf">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Gorge -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Gorge">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Grange -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Grange">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Grotte -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Grotte">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Hopital -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Hopital">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sante"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Hotel-de-departement -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Hotel-de-departement">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Ile -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Ile">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Infrastructure-routiere -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Infrastructure-routiere">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Lac -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Lac">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Lieu-dit-habite -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Lieu-dit-habite">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Lieu-dit-non-habite -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Lieu-dit-non-habite">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#espace-naturel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Mairie -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Mairie">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Maison-forestiere -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Maison-forestiere">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Marais -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Marais">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Marche -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Marche">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Mine -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Mine">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Montagne -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Montagne">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Moulin -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Moulin">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#NR -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#NR">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#science-enseignement"/>
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sport"/>
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Ouvrage-militaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Ouvrage-militaire">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Palais-de-justice -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Palais-de-justice">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Parc -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Parc">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#espace-naturel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Parking -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Parking">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Peage -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Peage">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Pic -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Pic">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Piscine -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Piscine">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Plage -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Plage">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Plaine -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Plaine">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Point-d-eau -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Point-d-eau">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Point-de-vue -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Point-de-vue">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#espace-naturel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Pont -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Pont">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Port -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Port">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Poste-ou-hotel-de-police -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Poste-ou-hotel-de-police">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Prefecture -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Prefecture">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Quartier -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Quartier">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Recif -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Recif">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Riviere -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Riviere">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#hydrographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Rochers -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Rochers">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Rond-point -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Rond-point">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Ruines -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Ruines">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#zone-habitation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Science -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Science">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#science-enseignement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Sommet -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Sommet">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Sous-prefecture -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Sous-prefecture">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#administratif-militaire"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Stade -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Stade">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#sport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Station-de-metro -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Station-de-metro">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Station-de-pompage -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Station-de-pompage">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#gestion-eaux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Telepherique -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Telepherique">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Tombeau -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Tombeau">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#religieux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Tunnel -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Tunnel">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Usine -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Usine">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Usine-de-traitement-des-eaux -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Usine-de-traitement-des-eaux">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#gestion-eaux"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Vallee -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Vallee">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Versant -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Versant">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#orographie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Voie-ferree -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Voie-ferree">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#Zone-industrielle -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#Zone-industrielle">
+        <rdfs:subClassOf rdf:resource="http://ign.bdtopo.fr#industriel-commercial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ign.bdtopo.fr#administratif-militaire -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#administratif-militaire"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#espace-naturel -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#espace-naturel"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#gestion-eaux -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#gestion-eaux"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#hydrographie -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#hydrographie"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#industriel-commercial -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#industriel-commercial"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#orographie -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#orographie"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#religieux -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#religieux"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#sante -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#sante"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#science-enseignement -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#science-enseignement"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#sport -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#sport"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#transport -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#transport"/>
+    
+
+
+    <!-- http://ign.bdtopo.fr#zone-habitation -->
+
+    <owl:Class rdf:about="http://ign.bdtopo.fr#zone-habitation"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

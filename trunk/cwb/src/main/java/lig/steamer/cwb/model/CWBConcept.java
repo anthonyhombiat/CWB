@@ -16,7 +16,7 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 	private static final long serialVersionUID = 1L;
 	
 	private IRI iri;
-	private Map<Locale, String> names;
+	private Map<Locale, String> labels;
 	private Map<Locale, String> descriptions;
 
 	private Collection<CWBConcept> superClasses;
@@ -26,8 +26,8 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 	
 	public CWBConcept(IRI iri, CWBConcept parent) {
 		this.iri = iri;
-		names = new HashMap<Locale, String>();
-		descriptions = new HashMap<Locale, String>();
+		this.labels = new HashMap<Locale, String>();
+		this.descriptions = new HashMap<Locale, String>();
 		parent = null;
 	}
 	
@@ -43,25 +43,29 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 	}
 
 	/**
-	 * @return the names
+	 * @return the labels
 	 */
-	public Map<Locale, String> getNames() {
-		return names;
+	public Map<Locale, String> getLabels() {
+		return labels;
 	}
 
 	/**
-	 * @param names the names to set
+	 * @param labels the labels to set
 	 */
-	public void setNames(Map<Locale, String> names) {
-		this.names = names;
+	public void setLabels(Map<Locale, String> labels) {
+		this.labels = labels;
 	}
 
-	public boolean addName(String name, Locale locale){
-		return names.put(locale, name) != null;
+	public boolean addLabel(String label, Locale locale){
+		return labels.put(locale, label) != null;
 	}
 
-	public boolean removeNameByLocale(Locale locale){
-		return names.remove(locale) != null;
+	public String getLabelByLanguage(Locale locale) {
+		return labels.get(locale);
+	}
+	
+	public boolean removeLabelByLocale(Locale locale){
+		return labels.remove(locale) != null;
 	}
 	
 	/**
@@ -85,11 +89,7 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 	public boolean removeDescriptionByLocale(Locale locale){
 		return descriptions.remove(locale) != null;
 	}
-
-	public String getNameByLanguage(Locale locale) {
-		return names.get(locale);
-	}
-
+	
 	public String getDescriptionByLanguage(Locale locale) {
 		return descriptions.get(locale);
 	}
@@ -115,6 +115,11 @@ public class CWBConcept implements Serializable, CWBDataModelVisitable {
 			return this.getIri().equals(((CWBConcept)o).getIri());
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		return iri.toString().hashCode();
 	}
 
 	@Override

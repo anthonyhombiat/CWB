@@ -237,10 +237,6 @@ public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 			concept.acceptCWBDataModelVisitor(this);
 		}
 
-		for (CWBEquivalence equivalence : dataModel.getEquivalences()) {
-			equivalence.acceptCWBDataModelVisitor(this);
-		}
-
 	}
 
 	@Override
@@ -342,7 +338,7 @@ public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 		OWLAnnotationProperty labelProperty = factory
 				.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_LABEL.getIRI());
 
-		for (Entry<Locale, String> entry : concept.getNames().entrySet()) {
+		for (Entry<Locale, String> entry : concept.getLabels().entrySet()) {
 
 			LOGGER.log(Level.INFO,
 					"> \"" + entry.getValue() + "\" (" + entry.getKey() + ")");

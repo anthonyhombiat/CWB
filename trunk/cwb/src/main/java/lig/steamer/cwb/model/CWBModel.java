@@ -3,303 +3,250 @@ package lig.steamer.cwb.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Observable;
 
-public class CWBModel implements Serializable {
+public class CWBModel extends Observable implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Collection<CWBDataModel> dataModels;
-	private Collection<CWBDataSet> dataSets;
-	private Collection<CWBIndicatorModel> indicatorModels;
-	private Collection<CWBIndicatorMeasureSet> indicatorMeasureSets;
+	private CWBDataModelFolkso folksonomy;
+	private CWBDataModelNomen nomenclature;
+	
+	private Collection<CWBEquivalence> equivalences;
+	private Collection<CWBEquivalence> selectedEquivalences;
+	
+	private Collection<CWBInstanceFolkso> instancesFolkso;
+	private Collection<CWBInstanceNomen> instancesNomen;
+	
+	private CWBBBox bbox;
 
-	private CWBDataModel sourceDataModel;
-	private CWBDataModel targetDataModel;
-
+	private Boolean isReadyForMatching;
+	
 	public CWBModel() {
-		dataModels = new ArrayList<CWBDataModel>();
-		dataSets = new ArrayList<CWBDataSet>();
-		indicatorModels = new ArrayList<CWBIndicatorModel>();
-		indicatorMeasureSets = new ArrayList<CWBIndicatorMeasureSet>();
+		equivalences = new ArrayList<CWBEquivalence>();
+		selectedEquivalences = new ArrayList<CWBEquivalence>();
+		instancesFolkso = new ArrayList<CWBInstanceFolkso>();
+		instancesNomen = new ArrayList<CWBInstanceNomen>();
+		isReadyForMatching = false;
 	}
 
 	/**
-	 * @return the dataModels
+	 * @return the folksonomy
 	 */
-	public Collection<CWBDataModel> getDataModels() {
-		return dataModels;
+	public CWBDataModelFolkso getFolksonomy() {
+		return folksonomy;
 	}
 
 	/**
-	 * @param dataModels the dataModels to set
+	 * @param folksonomy the folksonomy to set
 	 */
-	public void setDataModels(Collection<CWBDataModel> dataModels) {
-		this.dataModels = dataModels;
+	public void setFolksonomy(CWBDataModelFolkso folksonomy) {
+		this.folksonomy = folksonomy;
+		setChanged();
+		notifyObservers(folksonomy);
+		if(this.folksonomy != null && this.nomenclature != null){
+			setReadyForMatching(true);
+		}
 	}
 
-	public boolean addDataModel(CWBDataModel dataModel) {
-		if (!dataModels.contains(dataModel)) {
-			dataModels.add(dataModel);
+	/**
+	 * @return the nomenclature
+	 */
+	public CWBDataModelNomen getNomenclature() {
+		return nomenclature;
+	}
+
+	/**
+	 * @param nomenclature the nomenclature to set
+	 */
+	public void setNomenclature(CWBDataModelNomen nomenclature) {
+		this.nomenclature = nomenclature;
+		setChanged();
+		notifyObservers(nomenclature);
+		if(this.folksonomy != null && this.nomenclature != null){
+			setReadyForMatching(true);
+		}
+	}
+	
+	/**
+	 * @return the equivalences
+	 */
+	public Collection<CWBEquivalence> getEquivalences() {
+		return equivalences;
+	}
+	
+	private boolean addEquivalence(CWBEquivalence equivalence) {
+		if (!equivalences.contains(equivalence)) {
+			equivalences.add(equivalence);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean removeDataModel(CWBDataModel dataModel) {
-		if (dataModels.contains(dataModel)) {
-			dataModels.remove(dataModel);
+	private boolean removeEquivalence(CWBEquivalence equivalence) {
+		if (equivalences.contains(equivalence)) {
+			equivalences.remove(equivalence);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean addDataModels(Collection<CWBDataModel> dataModels) {
+	public boolean addEquivalences(Collection<CWBEquivalence> equivalences) {
 		boolean hasChanged = false;
-		for (CWBDataModel dataModel : dataModels) {
-			if (addDataModel(dataModel)) {
+		for (CWBEquivalence equivalence : equivalences) {
+			if (addEquivalence(equivalence)) {
 				hasChanged = true;
 			}
 		}
+		setChanged();
+		notifyObservers(equivalences);
 		return hasChanged;
 	}
 
-	public boolean removeDataModels(Collection<CWBDataModel> dataModels) {
+	public boolean removeEquivalences(Collection<CWBEquivalence> equivalences) {
 		boolean hasChanged = false;
-		for (CWBDataModel dataModel : dataModels) {
-			if (removeDataModel(dataModel)) {
+		for (CWBEquivalence equivalence : equivalences) {
+			if (removeEquivalence(equivalence)) {
 				hasChanged = true;
 			}
 		}
+		setChanged();
+		notifyObservers(equivalences);
 		return hasChanged;
 	}
-
+	
 	/**
-	 * @return the dataSets
+	 * @return the equivalences
 	 */
-	public Collection<CWBDataSet> getDataSets() {
-		return dataSets;
+	public Collection<CWBEquivalence> getSelectedEquivalences() {
+		return selectedEquivalences;
 	}
-
-	/**
-	 * @param dataSets the dataSets to set
-	 */
-	public void setDataSets(Collection<CWBDataSet> dataSets) {
-		this.dataSets = dataSets;
-	}
-
-	public boolean addDataSet(CWBDataSet dataSet) {
-		if (!dataSets.contains(dataSet)) {
-			dataSets.add(dataSet);
+	
+	public boolean addSelectedEquivalence(CWBEquivalence selectedEquivalence) {
+		if (!selectedEquivalences.contains(selectedEquivalence)) {
+			selectedEquivalences.add(selectedEquivalence);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean removeDataSet(CWBDataSet dataSet) {
-		if (dataSets.contains(dataSet)) {
-			dataSets.remove(dataSet);
+	public boolean removeSelectedEquivalence(CWBEquivalence selectedEquivalence) {
+		if (selectedEquivalences.contains(selectedEquivalence)) {
+			selectedEquivalences.remove(selectedEquivalence);
+			return true;
+		}
+		return false;
+	}
+	
+	public void removeAllSelectedEquivalences(){
+		this.selectedEquivalences = new ArrayList<CWBEquivalence>();
+	}
+	
+	public boolean isEmpty(){
+		return folksonomy != null || nomenclature != null;
+	}
+
+	/**
+	 * @return the instancesFolkso
+	 */
+	public Collection<CWBInstanceFolkso> getInstancesFolkso() {
+		return instancesFolkso;
+	}
+	
+	private boolean addInstanceFolkso(CWBInstanceFolkso instanceFolkso) {
+		if (!instancesFolkso.contains(instanceFolkso)) {
+			instancesFolkso.add(instanceFolkso);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean addDataSets(Collection<CWBDataSet> dataSets) {
+	/**
+	 * @param instancesFolkso the instancesFolkso to set
+	 */
+	public boolean addInstancesFolkso(Collection<CWBInstanceFolkso> instancesFolkso) {
 		boolean hasChanged = false;
-		for (CWBDataSet dataSet : dataSets) {
-			if (addDataSet(dataSet)) {
+		for (CWBInstanceFolkso instanceFolkso : instancesFolkso) {
+			if (addInstanceFolkso(instanceFolkso)) {
 				hasChanged = true;
 			}
 		}
+		setChanged();
+		notifyObservers(instancesFolkso);
 		return hasChanged;
 	}
-
-	public boolean removeDataSets(Collection<CWBDataSet> dataSets) {
-		boolean hasChanged = false;
-		for (CWBDataSet dataSet : dataSets) {
-			if (removeDataSet(dataSet)) {
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
+	
+	public void removeAllInstancesFolkso(){
+		this.instancesFolkso = new ArrayList<CWBInstanceFolkso>();
+		setChanged();
+		notifyObservers(this.instancesFolkso);
 	}
 
 	/**
-	 * @return the indicatorModels
+	 * @return the instancesNomen
 	 */
-	public Collection<CWBIndicatorModel> getIndicatorModels() {
-		return indicatorModels;
+	public Collection<CWBInstanceNomen> getInstancesNomen() {
+		return instancesNomen;
 	}
 
-	/**
-	 * @param indicatorModels the indicatorModels to set
-	 */
-	public void setIndicatorModels(Collection<CWBIndicatorModel> indicatorModels) {
-		this.indicatorModels = indicatorModels;
-	}
-
-	public boolean addIndicatorModel(CWBIndicatorModel indicatorModel) {
-		if (!indicatorModels.contains(indicatorModel)) {
-			indicatorModels.add(indicatorModel);
+	
+	private boolean addInstanceNomen(CWBInstanceNomen instanceNomen) {
+		if (!instancesNomen.contains(instanceNomen)) {
+			instancesNomen.add(instanceNomen);
 			return true;
 		}
 		return false;
 	}
-
-	public boolean removeIndicatorModel(CWBIndicatorModel indicatorModel) {
-		if (indicatorModels.contains(indicatorModel)) {
-			indicatorModels.remove(indicatorModel);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean addIndicatorModels(
-			Collection<CWBIndicatorModel> indicatorModels) {
+	
+	/**
+	 * @param instancesNomen the instancesNomen to set
+	 */
+	public boolean addInstancesNomen(Collection<CWBInstanceNomen> instancesNomen) {
 		boolean hasChanged = false;
-		for (CWBIndicatorModel indicatorModel : indicatorModels) {
-			if (addIndicatorModel(indicatorModel)) {
+		for (CWBInstanceNomen instanceNomen : instancesNomen) {
+			if (addInstanceNomen(instanceNomen)) {
 				hasChanged = true;
 			}
 		}
+		setChanged();
+		notifyObservers(instancesNomen);
 		return hasChanged;
 	}
-
-	public boolean removeIndicatorModels(
-			Collection<CWBIndicatorModel> indicatorModels) {
-		boolean hasChanged = false;
-		for (CWBIndicatorModel indicatorModel : indicatorModels) {
-			if (removeIndicatorModel(indicatorModel)) {
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
+	
+	public void removeAllInstancesNomen(){
+		this.instancesNomen = new ArrayList<CWBInstanceNomen>();
+		setChanged();
+		notifyObservers(instancesNomen);
 	}
 
 	/**
-	 * @return the indicatorMeasureSets
+	 * @return the bbox
 	 */
-	public Collection<CWBIndicatorMeasureSet> getIndicatorMeasureSets() {
-		return indicatorMeasureSets;
+	public CWBBBox getBBox() {
+		return bbox;
 	}
 
 	/**
-	 * @param indicatorMeasureSets the indicatorMeasureSets to set
+	 * @param bbox the bbox to set
 	 */
-	public void setIndicatorMeasureSets(
-			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
-		this.indicatorMeasureSets = indicatorMeasureSets;
-	}
-
-	public boolean addIndicatorMeasureSet(
-			CWBIndicatorMeasureSet indicatorMeasureSet) {
-		if (!indicatorMeasureSets.contains(indicatorMeasureSet)) {
-			indicatorMeasureSets.add(indicatorMeasureSet);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean removeIndicatorMeasureSet(
-			CWBIndicatorMeasureSet indicatorMeasureSet) {
-		if (indicatorMeasureSets.contains(indicatorMeasureSet)) {
-			indicatorMeasureSets.remove(indicatorMeasureSet);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean addIndicatorMeasureSets(
-			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
-		boolean hasChanged = false;
-		for (CWBIndicatorMeasureSet indicatorMeasureSet : indicatorMeasureSets) {
-			if (addIndicatorMeasureSet(indicatorMeasureSet)) {
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
-	}
-
-	public boolean removeIndicatorMeasureSets(
-			Collection<CWBIndicatorMeasureSet> indicatorMeasureSets) {
-		boolean hasChanged = false;
-		for (CWBIndicatorMeasureSet indicatorMeasureSet : indicatorMeasureSets) {
-			if (removeIndicatorMeasureSet(indicatorMeasureSet)) {
-				hasChanged = true;
-			}
-		}
-		return hasChanged;
-	}
-
-	public boolean isEmpty() {
-		return dataModels.isEmpty() && dataSets.isEmpty()
-				&& indicatorModels.isEmpty() && indicatorMeasureSets.isEmpty();
-	}
-
-	public Collection<CWBDataModelFolkso> getDataModelsFolkso() {
-
-		Collection<CWBDataModelFolkso> dataModelsFolkso = new ArrayList<CWBDataModelFolkso>();
-
-		for (CWBDataModel dataModel : dataModels) {
-			if (dataModel instanceof CWBDataModelFolkso) {
-				dataModelsFolkso.add((CWBDataModelFolkso) dataModel);
-			}
-		}
-
-		return dataModelsFolkso;
-	}
-
-	public Collection<CWBDataModelNomen> getDataModelsNomen() {
-
-		Collection<CWBDataModelNomen> dataModelsNomen = new ArrayList<CWBDataModelNomen>();
-
-		for (CWBDataModel dataModel : dataModels) {
-			if (dataModel instanceof CWBDataModelNomen) {
-				dataModelsNomen.add((CWBDataModelNomen) dataModel);
-			}
-		}
-
-		return dataModelsNomen;
-	}
-
-	public Collection<CWBDataModelMatched> getDataModelsMatched() {
-
-		Collection<CWBDataModelMatched> dataModelsMatched = new ArrayList<CWBDataModelMatched>();
-
-		for (CWBDataModel dataModel : dataModels) {
-			if (dataModel instanceof CWBDataModelMatched) {
-				dataModelsMatched.add((CWBDataModelMatched) dataModel);
-			}
-		}
-
-		return dataModelsMatched;
+	public void setBBox(CWBBBox bbox) {
+		this.bbox = bbox;
 	}
 
 	/**
-	 * @return the sourceDataModel
+	 * @return the isReadyForMatching
 	 */
-	public CWBDataModel getSourceDataModel() {
-		return sourceDataModel;
+	public Boolean isReadyForMatching() {
+		return isReadyForMatching;
 	}
 
 	/**
-	 * @param sourceDataModel the sourceDataModel to set
+	 * @param isReadyForMatching the isReadyForMatching to set
 	 */
-	public void setSourceDataModel(CWBDataModel sourceDataModel) {
-		this.sourceDataModel = sourceDataModel;
-	}
-
-	/**
-	 * @return the targetDataModel
-	 */
-	public CWBDataModel getTargetDataModel() {
-		return targetDataModel;
-	}
-
-	/**
-	 * @param targetDataModel the targetDataModel to set
-	 */
-	public void setTargetDataModel(CWBDataModel targetDataModel) {
-		this.targetDataModel = targetDataModel;
+	public void setReadyForMatching(Boolean isReadyForMatching) {
+		setChanged();
+		notifyObservers(isReadyForMatching);
+		this.isReadyForMatching = isReadyForMatching;
 	}
 
 }

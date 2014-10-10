@@ -17,7 +17,7 @@ public class CWBIndicatorsPanel extends Panel {
 
 	public CWBIndicatorsPanel() {
 		
-		super(Msg.get("indicators.table.caption"));
+		super(Msg.get("indicators.table.capt"));
 
 		indicatorModelsContainer = new CWBIndicatorModelsContainer<CWBIndicatorModel>(
 				CWBIndicatorModel.class);
@@ -27,13 +27,13 @@ public class CWBIndicatorsPanel extends Panel {
 		table.setContainerDataSource(indicatorModelsContainer);
 
 		table.setItemCaptionMode(ItemCaptionMode.PROPERTY);
-		table.setItemCaptionPropertyId(Msg.get("indicators.table.column.title"));
+		table.setItemCaptionPropertyId(Msg.get("indicators.table.col.capt"));
 
-		table.setVisibleColumns(Msg.get("indicators.table.column.title"),
-				Msg.get("indicators.table.column.description"));
+		table.setVisibleColumns(Msg.get("indicators.table.col.capt"),
+				Msg.get("indicators.table.col.description"));
 
 		table.setSortContainerPropertyId(Msg
-				.get("indicators.table.column.title"));
+				.get("indicators.table.col.capt"));
 		table.sort();
 
 		table.setSelectable(true);

@@ -16,12 +16,12 @@ public class CWBAboutWindow extends Window {
 
 	public CWBAboutWindow() {
 
-		super(Msg.get("about.caption"));
+		super(Msg.get("about.capt"));
 
-		Label aboutText = new Label(Msg.get("about.text"));
+		Label aboutText = new Label(Msg.get("about.txt"));
 
 		Button closeButton = new Button(
-				Msg.get("about.button.caption"),
+				Msg.get("about.button.capt"),
 				new ClickListener() {
 
 					private static final long serialVersionUID = 1L;

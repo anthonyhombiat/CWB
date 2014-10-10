@@ -51,7 +51,7 @@ public class CWBDataModelsPanel extends TabSheet {
 
 		super();
 
-		this.setCaption(Msg.get("accordion.datamodels.caption"));
+		this.setCaption(Msg.get("accordion.datamodels.capt"));
 
 		accordionNomen.setSizeFull();
 		accordionFolkso.setSizeFull();
@@ -73,11 +73,11 @@ public class CWBDataModelsPanel extends TabSheet {
 	public void init() {
 
 		tabNomen.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.nomen.caption"), 0));
+				Msg.get("accordion.datamodels.nomen.capt"), 0));
 		tabFolkso.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.folkso.caption"), 0));
+				Msg.get("accordion.datamodels.folkso.capt"), 0));
 		tabMatched.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.matched.caption"), 0));
+				Msg.get("accordion.datamodels.matched.capt"), 0));
 
 		/* Default folkso panel */
 
@@ -185,7 +185,7 @@ public class CWBDataModelsPanel extends TabSheet {
 
 		accordionNomen.setSelectedTab(tab);
 		tabNomen.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.nomen.caption"),
+				Msg.get("accordion.datamodels.nomen.capt"),
 				accordionNomen.getComponentCount()));
 
 		this.setSelectedTab(tabNomen);
@@ -208,7 +208,7 @@ public class CWBDataModelsPanel extends TabSheet {
 
 		accordionFolkso.setSelectedTab(tab);
 		tabFolkso.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.folkso.caption"),
+				Msg.get("accordion.datamodels.folkso.capt"),
 				accordionFolkso.getComponentCount()));
 
 		this.setSelectedTab(tabFolkso);
@@ -228,7 +228,7 @@ public class CWBDataModelsPanel extends TabSheet {
 
 		accordionMatched.setSelectedTab(tab);
 		tabMatched.setCaption(MessageFormat.format(
-				Msg.get("accordion.datamodels.matched.caption"),
+				Msg.get("accordion.datamodels.matched.capt"),
 				accordionMatched.getComponentCount()));
 
 		this.setSelectedTab(tabMatched);
@@ -240,7 +240,7 @@ public class CWBDataModelsPanel extends TabSheet {
 		treeTable.setContainerDataSource(container);
 		treeTable.setItemCaptionMode(ItemCaptionMode.PROPERTY);
 		treeTable.setItemCaptionPropertyId(Msg
-				.get("accordion.datamodels.table.column.fragment"));
+				.get("accordion.datamodels.table.col.fragment"));
 
 		treeTable.setColumnCollapsingAllowed(true);
 		treeTable.setColumnReorderingAllowed(true);
@@ -248,20 +248,20 @@ public class CWBDataModelsPanel extends TabSheet {
 		treeTable.setSelectable(true);
 
 		treeTable.setVisibleColumns(
-				Msg.get("accordion.datamodels.table.column.iri"),
-				Msg.get("accordion.datamodels.table.column.fragment"),
-				Msg.get("accordion.datamodels.table.column.names"),
-				Msg.get("accordion.datamodels.table.column.descriptions"));
+				Msg.get("accordion.datamodels.table.col.iri"),
+				Msg.get("accordion.datamodels.table.col.fragment"),
+				Msg.get("accordion.datamodels.table.col.labels"),
+				Msg.get("accordion.datamodels.table.col.descriptions"));
 
 		treeTable.setColumnCollapsed(
-				Msg.get("accordion.datamodels.table.column.iri"), true);
+				Msg.get("accordion.datamodels.table.col.iri"), true);
 		treeTable
 				.setColumnCollapsed(Msg
-						.get("accordion.datamodels.table.column.descriptions"),
+						.get("accordion.datamodels.table.col.descriptions"),
 						true);
 
 		treeTable.setSortContainerPropertyId(Msg
-				.get("accordion.datamodels.table.column.fragment"));
+				.get("accordion.datamodels.table.col.fragment"));
 		treeTable.sort();
 
 		VerticalLayout accordionElementLayout = new VerticalLayout();
@@ -287,7 +287,7 @@ public class CWBDataModelsPanel extends TabSheet {
 		return tabNomen;
 	}
 
-	public Tab getTabTags() {
+	public Tab getTabFolkso() {
 		return tabFolkso;
 	}
 

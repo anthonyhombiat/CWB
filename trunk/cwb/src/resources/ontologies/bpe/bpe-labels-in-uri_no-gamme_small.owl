@@ -1,0 +1,712 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://rdf.insee.fr/def/territoire/bpe#"
+     xml:base="http://rdf.insee.fr/def/territoire/bpe"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://rdf.insee.fr/def/territoire/bpe"/>
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe#domaine -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe#domaine">
+        <rdfs:label xml:lang="fr">domaine</rdfs:label>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces">
+        <rdfs:label xml:lang="fr">Commerces</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement">
+        <rdfs:label xml:lang="fr">Enseignement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Sante -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante">
+        <rdfs:label xml:lang="fr">Santé</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers">
+        <rdfs:label xml:lang="fr">Services aux particuliers</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture">
+        <rdfs:label xml:lang="fr">Sports, loisirs et culture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/domaine#Transports-et-deplacements -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/domaine#Transports-et-deplacements">
+        <rdfs:label xml:lang="fr">Transports et déplacements</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe#domaine"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Agence-de-travail-temporaire -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Agence-de-travail-temporaire">
+        <rdfs:label xml:lang="fr">Agence de travail temporaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Agence-immobiliere -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Agence-immobiliere">
+        <rdfs:label xml:lang="fr">Agence immobilière</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Ambulance -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Ambulance">
+        <rdfs:label xml:lang="fr">Ambulance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Athletisme -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Athletisme">
+        <rdfs:label xml:lang="fr">Athlétisme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Audio-prothesiste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Audio-prothesiste">
+        <rdfs:label xml:lang="fr">Audio prothésiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Banque-caisse-d-epargne -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Banque-caisse-d-epargne">
+        <rdfs:label xml:lang="fr">Banque, caisse d&apos;épargne</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Bassin-de-natation -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Bassin-de-natation">
+        <rdfs:label xml:lang="fr">Bassin de natation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Blanchisserie-teinturerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Blanchisserie-teinturerie">
+        <rdfs:label xml:lang="fr">Blanchisserie, teinturerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Boucherie-charcuterie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Boucherie-charcuterie">
+        <rdfs:label xml:lang="fr">Boucherie, charcuterie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Boulangerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Boulangerie">
+        <rdfs:label xml:lang="fr">Boulangerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Boulodrome -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Boulodrome">
+        <rdfs:label xml:lang="fr">Boulodrome</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Bureau-de-poste-relais-poste-agence-postale -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Bureau-de-poste-relais-poste-agence-postale">
+        <rdfs:label xml:lang="fr">Bureau de poste, relais poste, agence postale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Centre-de-sante -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Centre-de-sante">
+        <rdfs:label xml:lang="fr">Centre de santé</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Chirurgien-dentiste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Chirurgien-dentiste">
+        <rdfs:label xml:lang="fr">Chirurgien dentiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Cinema -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Cinema">
+        <rdfs:label xml:lang="fr">Cinéma</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Coiffeur -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Coiffeur">
+        <rdfs:label xml:lang="fr">Coiffeur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#College -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#College">
+        <rdfs:label xml:lang="fr">Collège</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Controle-technique-automobile -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Controle-technique-automobile">
+        <rdfs:label xml:lang="fr">Contrôle technique automobile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Droguerie-quincaillerie-bricolage -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Droguerie-quincaillerie-bricolage">
+        <rdfs:label xml:lang="fr">Droguerie, quincaillerie, bricolage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-de-conduite -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-de-conduite">
+        <rdfs:label xml:lang="fr">Ecole de conduite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-elementaire -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-elementaire">
+        <rdfs:label xml:lang="fr">Ecole élémentaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-maternelle -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-maternelle">
+        <rdfs:label xml:lang="fr">Ecole maternelle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Electricien -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Electricien">
+        <rdfs:label xml:lang="fr">Electricien</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment">
+        <rdfs:label xml:lang="fr">Entreprise générale du bâtiment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Epicerie-superette -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Epicerie-superette">
+        <rdfs:label xml:lang="fr">Epicerie, supérette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-court-sejour -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-court-sejour">
+        <rdfs:label xml:lang="fr">Etablissement de santé de court séjour</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-long-sejour -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-long-sejour">
+        <rdfs:label xml:lang="fr">Etablissement de santé de long séjour</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-moyen-sejour -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-moyen-sejour">
+        <rdfs:label xml:lang="fr">Etablissement de santé de moyen séjour</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-psychiatrique -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-psychiatrique">
+        <rdfs:label xml:lang="fr">Etablissement psychiatrique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Fleuriste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Fleuriste">
+        <rdfs:label xml:lang="fr">Fleuriste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Garde-enfants-d-age-prescolaire -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Garde-enfants-d-age-prescolaire">
+        <rdfs:label xml:lang="fr">Garde enfants d&apos;âge préscolaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Gare -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Gare">
+        <rdfs:label xml:lang="fr">Gare</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Transports-et-deplacements"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Horlogerie-bijouterie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Horlogerie-bijouterie">
+        <rdfs:label xml:lang="fr">Horlogerie, bijouterie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Hypermarche -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Hypermarche">
+        <rdfs:label xml:lang="fr">Hypermarché</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Infirmier -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Infirmier">
+        <rdfs:label xml:lang="fr">Infirmier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Laboratoire-d-analyses-medicales -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Laboratoire-d-analyses-medicales">
+        <rdfs:label xml:lang="fr">Laboratoire d&apos;analyses médicales</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Librairie-papeterie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Librairie-papeterie">
+        <rdfs:label xml:lang="fr">Librairie, papeterie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Location-d-automobiles-et-d-utilitaires-legers -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Location-d-automobiles-et-d-utilitaires-legers">
+        <rdfs:label xml:lang="fr">Location d&apos;automobiles et d&apos;utilitaires légers</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Lycee-d-enseignement-general-et-ou-technologique -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Lycee-d-enseignement-general-et-ou-technologique">
+        <rdfs:label xml:lang="fr">Lycée d&apos;enseignement général et/ou technologique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Lycee-d-enseignement-professionnel -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Lycee-d-enseignement-professionnel">
+        <rdfs:label xml:lang="fr">Lycée d&apos;enseignement professionnel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Enseignement"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Macon -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Macon">
+        <rdfs:label xml:lang="fr">Maçon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-articles-de-sports-et-de-loisirs -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-articles-de-sports-et-de-loisirs">
+        <rdfs:label xml:lang="fr">Magasin d&apos;articles de sports et de loisirs</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-electromenager -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-electromenager">
+        <rdfs:label xml:lang="fr">Magasin d&apos;électroménager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-equipements-du-foyer -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-equipements-du-foyer">
+        <rdfs:label xml:lang="fr">Magasin d&apos;équipements du foyer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-optique -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-optique">
+        <rdfs:label xml:lang="fr">Magasin d&apos;optique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-chaussures -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-chaussures">
+        <rdfs:label xml:lang="fr">Magasin de chaussures</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-meubles -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-meubles">
+        <rdfs:label xml:lang="fr">Magasin de meubles</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-vetements -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-vetements">
+        <rdfs:label xml:lang="fr">Magasin de vêtements</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Masseur-kinesitherapeute -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Masseur-kinesitherapeute">
+        <rdfs:label xml:lang="fr">Masseur kinésithérapeute</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Maternite -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Maternite">
+        <rdfs:label xml:lang="fr">Maternité</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Medecin-omnipraticien -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Medecin-omnipraticien">
+        <rdfs:label xml:lang="fr">Médecin omnipraticien</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Menuisier-charpentier-serrurier -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Menuisier-charpentier-serrurier">
+        <rdfs:label xml:lang="fr">Menuisier, charpentier, serrurier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Orthophoniste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Orthophoniste">
+        <rdfs:label xml:lang="fr">Orthophoniste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Orthoptiste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Orthoptiste">
+        <rdfs:label xml:lang="fr">Orthoptiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Parfumerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Parfumerie">
+        <rdfs:label xml:lang="fr">Parfumerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Pedicure-podologue -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Pedicure-podologue">
+        <rdfs:label xml:lang="fr">Pédicure, podologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement">
+        <rdfs:label xml:lang="fr">Personnes âgées : hébergement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-service-d-aide -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-service-d-aide">
+        <rdfs:label xml:lang="fr">Personnes âgées : service d&apos;aide</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile">
+        <rdfs:label xml:lang="fr">Personnes âgées : soins à domicile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie">
+        <rdfs:label xml:lang="fr">Pharmacie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Platrier-peintre -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Platrier-peintre">
+        <rdfs:label xml:lang="fr">Plâtrier, peintre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Plombier-couvreur-chauffagiste -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Plombier-couvreur-chauffagiste">
+        <rdfs:label xml:lang="fr">Plombier, couvreur, chauffagiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Poissonnerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Poissonnerie">
+        <rdfs:label xml:lang="fr">Poissonnerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Pole-emploi -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Pole-emploi">
+        <rdfs:label xml:lang="fr">Pôle emploi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Police-gendarmerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Police-gendarmerie">
+        <rdfs:label xml:lang="fr">Police, gendarmerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres">
+        <rdfs:label xml:lang="fr">Pompes funèbres</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Produits-surgeles -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Produits-surgeles">
+        <rdfs:label xml:lang="fr">Produits surgelés</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole">
+        <rdfs:label xml:lang="fr">Réparation automobile et de matériel agricole</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant">
+        <rdfs:label xml:lang="fr">Restaurant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Roller-skate-velo-bicross-ou-freestyle -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Roller-skate-velo-bicross-ou-freestyle">
+        <rdfs:label xml:lang="fr">Roller, skate, vélo bicross ou freestyle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Sage-femmes -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Sage-femmes">
+        <rdfs:label xml:lang="fr">Sage-femmes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-de-sport-specialise -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-de-sport-specialise">
+        <rdfs:label xml:lang="fr">Salle ou terrain de sport spécialisé</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-multisports -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-multisports">
+        <rdfs:label xml:lang="fr">Salle ou terrain multisports</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Soins-de-beaute -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Soins-de-beaute">
+        <rdfs:label xml:lang="fr">Soins de beauté</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie">
+        <rdfs:label xml:lang="fr">Spécialiste en cardiologie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-dermatologie-et-venereologie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-dermatologie-et-venereologie">
+        <rdfs:label xml:lang="fr">Spécialiste en dermatologie et vénéréologie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-gastro-enterologie-hepatologie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-gastro-enterologie-hepatologie">
+        <rdfs:label xml:lang="fr">Spécialiste en gastro-entérologie, hépatologie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-gynecologie- -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-gynecologie-">
+        <rdfs:label xml:lang="fr">Spécialiste en gynécologie </rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-ophtalmologie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-ophtalmologie">
+        <rdfs:label xml:lang="fr">Spécialiste en ophtalmologie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-oto-rhino-laryngologie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-oto-rhino-laryngologie">
+        <rdfs:label xml:lang="fr">Spécialiste en oto-rhino-laryngologie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-pediatrie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-pediatrie">
+        <rdfs:label xml:lang="fr">Spécialiste en pédiatrie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-psychiatrie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-psychiatrie">
+        <rdfs:label xml:lang="fr">Spécialiste en psychiatrie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-radiodiagnostic-et-imagerie-medicale -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-radiodiagnostic-et-imagerie-medicale">
+        <rdfs:label xml:lang="fr">Spécialiste en  radiodiagnostic et imagerie médicale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service">
+        <rdfs:label xml:lang="fr">Station service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Structures-psychiatriques-en-ambulatoire -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Structures-psychiatriques-en-ambulatoire">
+        <rdfs:label xml:lang="fr">Structures psychiatriques en ambulatoire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Supermarche -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Supermarche">
+        <rdfs:label xml:lang="fr">Supermarché</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi">
+        <rdfs:label xml:lang="fr">Taxi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Transports-et-deplacements"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Tennis -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Tennis">
+        <rdfs:label xml:lang="fr">Tennis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture"/>
+    </owl:Class>
+    
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Travail-protege -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Travail-protege">
+        <rdfs:label xml:lang="fr">Travail protégé</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Tresorerie -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Tresorerie">
+        <rdfs:label xml:lang="fr">Trésorerie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences">
+        <rdfs:label xml:lang="fr">Urgences</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Sante"/>
+    </owl:Class>
+
+    <!-- http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire -->
+
+    <owl:Class rdf:about="http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire">
+        <rdfs:label xml:lang="fr">Vétérinaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers"/>
+    </owl:Class>
+
+</rdf:RDF>
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->

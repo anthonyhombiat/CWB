@@ -8,12 +8,7 @@ import java.util.logging.Logger;
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.io.write.exception.CWBWriterException;
 import lig.steamer.cwb.model.CWBDataModel;
-import lig.steamer.cwb.model.CWBDataModelFolkso;
-import lig.steamer.cwb.model.CWBDataModelMatched;
-import lig.steamer.cwb.model.CWBDataModelNomen;
-import lig.steamer.cwb.model.CWBDataSet;
-import lig.steamer.cwb.model.CWBIndicatorMeasureSet;
-import lig.steamer.cwb.model.CWBIndicatorModel;
+import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.util.archive.ZipUtility;
 
@@ -22,8 +17,7 @@ import org.semanticweb.owlapi.model.IRI;
 
 public class CWBWriter {
 
-	private static Logger LOGGER = Logger.getLogger(CWBWriter.class
-			.getName());
+	private static Logger LOGGER = Logger.getLogger(CWBWriter.class.getName());
 
 	public CWBWriter() {
 
@@ -54,19 +48,6 @@ public class CWBWriter {
 
 		writeDataModels(model, dataModelsDirPath);
 
-		for (CWBIndicatorModel indicatorModel : model.getIndicatorModels()) {
-			// TODO print indicator models
-		}
-
-		for (CWBIndicatorMeasureSet indicatorMeasureSet : model
-				.getIndicatorMeasureSets()) {
-			// TODO print measures
-		}
-
-		for (CWBDataSet dataSet : model.getDataSets()) {
-			// TODO print datasets
-		}
-
 		ZipUtility zipUtil = new ZipUtility();
 		zipUtil.zipDirectory(projectRootDir, zipFile.getAbsolutePath());
 
@@ -81,66 +62,51 @@ public class CWBWriter {
 		return zipFile;
 
 	}
-	
-	public void writeDataModels(CWBModel model, String dataModelsDirPath){
-		
+
+	public void writeDataModels(CWBModel model, String dataModelsDirPath) {
+
 		File dataModelsDirNomen = new File(dataModelsDirPath
 				+ File.separatorChar + Prop.DIRNAME_NOMEN);
 		dataModelsDirNomen.mkdir();
-		
+
 		File dataModelsDirFolkso = new File(dataModelsDirPath
 				+ File.separatorChar + Prop.DIRNAME_FOLKSO);
 		dataModelsDirFolkso.mkdir();
-		
+
 		File dataModelsDirMatched = new File(dataModelsDirPath
-				+ File.separatorChar + Prop.DIRNAME_MATCHED);
+				+ File.separatorChar + Prop.DIRNAME_ALIGN);
 		dataModelsDirMatched.mkdir();
-		
+
+		String pathNomen = dataModelsDirNomen.getAbsolutePath()
+				+ File.separatorChar + "1" + Prop.FMT_OWL;
+
+		writeDataModel(model.getNomenclature(), pathNomen);
+
+		String pathFolkso = dataModelsDirFolkso.getAbsolutePath()
+				+ File.separatorChar + "1" + Prop.FMT_OWL;
+
+		writeDataModel(model.getFolksonomy(), pathFolkso);
+
 		int i = 1;
-		for (CWBDataModelNomen dataModelNomen : model.getDataModelsNomen()) {
-				
-			String path = dataModelsDirNomen.getAbsolutePath()
-					 + File.separatorChar + i
-					 + Prop.FMT_OWL;
-			
-			writeDataModel(dataModelNomen, path);
-			
-			i++;
-			
-		}
 		
-		i = 1;
-		for (CWBDataModelFolkso dataModelFolkso : model.getDataModelsFolkso()) {
-				
-			String path = dataModelsDirFolkso.getAbsolutePath()
-					 + File.separatorChar + i
-					 + Prop.FMT_OWL;
-			
-			writeDataModel(dataModelFolkso, path);
-			
-			i++;
-			
-		}
-		
-		i = 1;
-		for (CWBDataModelMatched dataModelMatched : model.getDataModelsMatched()) {
-				
+		for (CWBEquivalence dataModelMatched : model.getEquivalences()) {
+
 			String path = dataModelsDirMatched.getAbsolutePath()
-					 + File.separatorChar + i
-					 + Prop.FMT_OWL;
-			
-			writeDataModel(dataModelMatched, path);
-			
+					+ File.separatorChar + i + Prop.FMT_OWL;
+
+//			writeDataModel(dataModelMatched, path);
+
 			i++;
-			
+
 		}
 	}
 
 	public File writeDataModel(CWBDataModel dataModel, File file) {
-		dataModel.acceptCWBDataModelVisitor(new CWBDataModelOwlRenderer(IRI.create(file)));
+		dataModel.acceptCWBDataModelVisitor(new CWBDataModelOwlRenderer(IRI
+				.create(file)));
 		return file;
 	}
-	
+
 	public File writeDataModel(CWBDataModel dataModel, String path) {
 		return writeDataModel(dataModel, new File(path));
 	}

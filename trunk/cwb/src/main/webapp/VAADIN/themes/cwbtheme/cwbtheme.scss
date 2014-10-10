@@ -9,9 +9,46 @@
   @include reindeer;
   @include fonticons;
   
+  /*
+   * Workaround for placing header in the menu bar.
+   */
+  
   .v-spacing {
 	  height: 7px;
   	  width: 14px;
   }
+  
+  .header-layout {
+	  position: absolute;
+  		height: 30px !important;
+  		margin-left: 78%;
+  }
+  
+  .h1 {
+	  font-size: 16px;
+  }
+  
+  /*
+   * Workaround for differenciating folksonomy instances 
+   * markers from nomenclature instances markers.
+   */
+  
+  .marker-cluster, 
+  .marker-cluster div, 
+  .marker-cluster div span {
+		background-color: #89C819;
+  		background-image:radial-gradient(#a9e839, #89C819);
+		opacity: 0.9;
+  		color: black;
+	}
+  
+  .marker-cluster:first-child, 
+  .marker-cluster:first-child div, 
+  .marker-cluster:first-child div span {
+		background-color: #42aAd3;
+		background-image:radial-gradient(#62cAf3, #42aAd3);
+		opacity: 0.9;
+  		color: black;
+	}
   
 }
