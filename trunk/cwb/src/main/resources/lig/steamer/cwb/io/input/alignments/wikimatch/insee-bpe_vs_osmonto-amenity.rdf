@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <method>lig.steamer.cwb.util.matching.impl.WikimatchOntologyMatcher$WikimatchOntologyAlignment</method>
+  <onto1>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/OSMonto_amenity.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/OSMonto_amenity.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Police-gendarmerie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#police'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11241446725317693</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#grave_yard'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15140186915887852</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bank'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08768971332209106</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Chirurgien-dentiste'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22037037037037038</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5702746365105008</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#pharmacy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.23629489603024575</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fast_food'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11168384879725086</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#restaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1264559068219634</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#FrenchRestaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06055363321799308</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10214504596527069</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08770421324161651</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07207207207207207</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#GermanRestaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08723693143245079</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07669616519174041</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#charging_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10806451612903226</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09435707678075855</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-maternelle'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09409888357256778</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-ophtalmologie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07827788649706457</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1204250295159386</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#College'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#college'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11764705882352941</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.31351351351351353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-elementaire'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10305676855895196</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>11</type>
+  <onto1>
+    <Ontology rdf:about="http://ign.bdtopo.fr">
+      <location>http://ign.bdtopo.fr</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl">
+      <location>https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Monument'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_memorial'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24332338571548462</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24318622052669525</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_shelter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22271478176116943</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Marais'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marsh'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.243390753865242</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24365118145942688</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#hydrographie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_waterway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2982392907142639</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Telepherique'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_cable_car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24379116296768188</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Chateau'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_castle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24562446773052216</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#sport'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_athletics'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9956151843070984</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Sommet'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_peak'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24342840909957886</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#administratif-militaire'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_aeroway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1491129994392395</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Rochers'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_rocks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24341756105422974</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Stade'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_arena'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24345573782920837</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Chemin'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_path'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2431846410036087</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Tombeau'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_monument'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22306044399738312</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Moulin'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_works'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22280168533325195</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24324876070022583</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Arbre'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_tree'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2433166801929474</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Barrage'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_dam'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24324870109558105</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Borne'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_terminal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24333873391151428</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Plage'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_beach'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24342840909957886</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#industriel-commercial'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_amenity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14772847294807434</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Maison-du-parc'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_national_park'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19555440545082092</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Marche'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24317878484725952</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#culture-loisirs'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_bicycle_parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14896008372306824</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#orographie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_natural'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8838658332824707</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Bois'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_forest'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24746517837047577</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Riviere'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_river'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24391549825668335</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Ruines'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_ruins'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24368304014205933</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parc'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_common'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2433057576417923</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Ile'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_land'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22574464976787567</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#espace-naturel'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_landuse'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14911964535713196</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Vallee'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_valley'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24342840909957886</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Mairie'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_town_hall'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24369287490844727</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Glacier'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_glacier'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.243390753865242</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2440519630908966</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2433236837387085</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#transport'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_aerialway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14932993054389954</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#zone-habitation'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#k_historic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1864374876022339</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Golf'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_golf'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24342189729213715</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Canal'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_canal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24391549825668335</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Recif'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_reef'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24342840909957886</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#v_museum'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.24324379861354828</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

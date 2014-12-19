@@ -1,0 +1,2685 @@
+﻿<?xml version="1.0"?>
+
+<rdf:RDF xmlns="file:/D:/anthony_docs/Dropbox/PhD/ontologies/OSM/LGD/lgd.rdf.xml#"
+     xml:base="file:/D:/anthony_docs/Dropbox/PhD/ontologies/OSM/LGD/lgd.rdf.xml"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:A="http://linkedgeodata.org/ontology/Clothes%3A+"
+     xmlns:speed="http://linkedgeodata.org/ontology/Derestricted+speed+"
+     xmlns:Picnic="http://linkedgeodata.org/ontology/Picnic+"
+     xmlns:miliare="http://linkedgeodata.org/ontology/Pietra+miliare+"
+     xmlns:Vending="http://linkedgeodata.org/ontology/Vending+"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://linkedgeodata.org/ontology/">
+    <owl:Ontology rdf:about=""/>
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->    
+    <!-- http://linkedgeodata.org/ontology/ATM -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ATM">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AccountantOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AccountantOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AdministrativeOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AdministrativeOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AdultShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AdultShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Advertisement -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Advertisement">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Advertising -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Advertising">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Agrarian -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Agrarian">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AgriculturalEnginesCraft -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AgriculturalEnginesCraft">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AirFill -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AirFill">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Airplane -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Airplane">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Airport -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Airport">
+        <rdfs:label xml:lang="en">Airport</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AlcoholShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AlcoholShop">
+        <rdfs:label xml:lang="en">Off License</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Alm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Alm">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Ambulance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Ambulance">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AmbulanceStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AmbulanceStation">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Amenity -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Amenity"/>
+    
+    <!-- http://linkedgeodata.org/ontology/AnimalShelter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AnimalShelter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AnimalShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AnimalShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AnimalsShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AnimalsShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AnimeShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AnimeShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AntiqueShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AntiqueShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AntiquesShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AntiquesShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AntiquitiesShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AntiquitiesShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ApartmentBuilding -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ApartmentBuilding">
+        <rdfs:label xml:lang="en">Apartment Block</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Apparel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Apparel">
+        <rdfs:label xml:lang="en">Apparel Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Appliance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Appliance">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Appliances -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Appliances">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArchitectOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArchitectOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArtGallery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtGallery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArtGalleryShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtGalleryShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArtShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtShop">
+        <rdfs:label xml:lang="en">Art Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArtSupplies -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtSupplies">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ArtsCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtsCentre"><rdfs:label xml:lang="en">Arts Centre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Artwork -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Artwork">
+        <rdfs:label xml:lang="en">Artwork</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Atm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Atm"><rdfs:label xml:lang="en">ATM</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AudioVideoShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AudioVideoShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Audiologist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Audiologist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AutoPartsShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AutoPartsShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AutoRepair -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AutoRepair">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/AutomotiveShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/AutomotiveShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BabyGoodsShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BabyGoodsShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BabyHatch -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BabyHatch">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BabyShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BabyShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BagsShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BagsShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Baisschool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Baisschool">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bakery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bakery"><rdfs:label xml:lang="en">Bakery</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bandstand -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bandstand">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bank -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bank"><rdfs:label xml:lang="en">Bank</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bank%2Catm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bank%2Catm">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bank%3Batm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bank%3Batm">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bar -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bar">
+        <rdfs:label xml:lang="en">Bar</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Barbeque -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Barbeque">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Barber -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Barber">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Barfusspfad -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Barfusspfad">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BasketMaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BasketMaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bathroom -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bathroom">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BathroomFurnishingShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BathroomFurnishingShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bbq -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bbq">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Beautician -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Beautician">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BeautySalon -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BeautySalon">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BeautyShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BeautyShop">
+        <rdfs:label xml:lang="en">Beauty Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BedShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BedShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Beekeeper -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Beekeeper">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bench -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bench"><rdfs:label xml:lang="en">Bench</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Betting -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Betting">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BeverageMarket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BeverageMarket"><rdfs:label xml:lang="en">Beverages Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BicycleLockers -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BicycleLockers">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BicycleParking -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BicycleParking">
+        <rdfs:label xml:lang="en">Cycle Parking</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BicycleRental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BicycleRental">
+        <rdfs:label xml:lang="en">Cycle Rental</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BicycleShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BicycleShop">
+        <rdfs:label xml:lang="en">Bicycle Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Biergarten -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Biergarten">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Billboard -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Billboard">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Blacksmith -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Blacksmith">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BoatRental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BoatRental">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Boatbuilder -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Boatbuilder">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BookShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BookShop"><rdfs:label xml:lang="en">Book Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bookbinder -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bookbinder">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BookmakerShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BookmakerShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BookmakersShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BookmakersShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BooksShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BooksShop"><rdfs:label xml:lang="en">Book Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BorderControl -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BorderControl">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Boutique -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Boutique">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Brewery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Brewery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Briefkasten -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Briefkasten">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Brothel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Brothel">
+        <rdfs:label xml:lang="en">Brothel</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Bts -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bts">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Building -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Building">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingBarn -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingBarn">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingBuilding -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingBuilding">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingBunker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingBunker"><rdfs:label xml:lang="en">Bunker</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingCabin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingCabin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingChapel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingChapel"><rdfs:label xml:lang="en">Chapel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingChurch -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingChurch"><rdfs:label xml:lang="en">Church</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingCommercial -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingCommercial">
+        <rdfs:label xml:lang="en">Commercial Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingDormitory -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingDormitory"><rdfs:label xml:lang="en">Dormitory</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingEntrance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingEntrance">
+        <rdfs:label xml:lang="en">Building Entrance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingFarm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingFarm">
+        <rdfs:label xml:lang="en">Farm Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingGarage -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingGarage"><rdfs:label xml:lang="en">Garage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingHall">
+        <rdfs:label xml:lang="en">Hall</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingHospital -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingHospital">
+        <rdfs:label xml:lang="en">Hospital Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingHouse -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingHouse"><rdfs:label xml:lang="en">House</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingHut -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingHut">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingKiosk -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingKiosk">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingMonastery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingMonastery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingNo -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingNo">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingOffice">
+        <rdfs:label xml:lang="en">Office Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingResidential -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingResidential"><rdfs:label xml:lang="en">Residential Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingRetail -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingRetail"><rdfs:label xml:lang="en">Retail Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingSchool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingSchool">
+        <rdfs:label xml:lang="en">School Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingTower -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingTower"><rdfs:label xml:lang="en">Tower</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingUniversity -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingUniversity">
+        <rdfs:label xml:lang="en">University Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BuildingUnknown -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BuildingUnknown">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BureauDeChange -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BureauDeChange">
+        <rdfs:label xml:lang="en">Bureau de Change</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BusStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BusStation">
+        <rdfs:label xml:lang="en">Bus Station</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/BusStop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BusStop"><rdfs:label xml:lang="en">Bus Stop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Butcher -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Butcher"><rdfs:label xml:lang="en">Butcher</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Butchers -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Butchers">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cafe -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cafe"><rdfs:label xml:lang="en">Cafe</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Camera -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Camera">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CameraShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CameraShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CampingOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CampingOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Campsite -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Campsite">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CandyShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CandyShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Car%3BcarRepair -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Car%3BcarRepair">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarDealer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarDealer">
+        <rdfs:label xml:lang="en">Car Dealer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarParts -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarParts"><rdfs:label xml:lang="en">Car Parts</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarRental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarRental"><rdfs:label xml:lang="en">Car Rental</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarRepair -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarRepair">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarRepairShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarRepairShop">
+        <rdfs:label xml:lang="en">Car Repair</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarSharing -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarSharing"><rdfs:label xml:lang="en">Car Sharing</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarShop">
+        <rdfs:label xml:lang="en">Car Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarWash -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarWash"><rdfs:label xml:lang="en">Car Wash</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CardsShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CardsShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CareHome -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CareHome">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Carpenter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Carpenter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Carpet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Carpet">
+        <rdfs:label xml:lang="en">Carpet Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CarpetLayer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CarpetLayer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Carpets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Carpets">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Casino -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Casino">
+        <rdfs:label xml:lang="en">Casino</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Catalogue -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Catalogue">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Catere -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Catere">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CellPhones -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CellPhones">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cemetery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cemetery"><rdfs:label xml:lang="en">Cemetery</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Centre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Centre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Ceramics -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Ceramics">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Chandler -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Chandler">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Chapel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Chapel">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Charity -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Charity">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CharityShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CharityShop">
+        <rdfs:label xml:lang="en">Charity Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cheese -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cheese">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Chemist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Chemist">
+        <rdfs:label xml:lang="en">Chemist</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ChildCare -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ChildCare">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Chiropractor -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Chiropractor">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Chocolate -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Chocolate">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Church -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Church">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ChurchHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ChurchHall">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cinema -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cinema">
+        <rdfs:label xml:lang="en">Cinema</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CitymapPost -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CitymapPost">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clinic -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clinic">
+        <rdfs:label xml:lang="en">Clinic</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clock -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clock">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clockmaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clockmaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Closed -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Closed">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clothes -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clothes">
+        <rdfs:label xml:lang="en">Clothes Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clothes%3A+women -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clothes%3A+women">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clothes%3Awomen -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clothes%3Awomen">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clothing -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clothing">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Club -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Club"><rdfs:label xml:lang="en">Club</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ClubHouse -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ClubHouse">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Clubhouse -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Clubhouse">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CoffeeShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CoffeeShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Collapsed -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Collapsed">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/College -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/College">
+        <rdfs:label xml:lang="en">College</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Commercial -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Commercial">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Communication -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Communication">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Communications -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Communications">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CommunityCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CommunityCentre"><rdfs:label xml:lang="en">Community Centre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CommunityHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CommunityHall">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Company -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Company">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/CompanyOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CompanyOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Computer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Computer">
+        <rdfs:label xml:lang="en">Computer Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ConcertHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ConcertHall">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Condos -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Condos">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Confectionery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Confectionery">
+        <rdfs:label xml:lang="en">Confectionery Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ConferenceCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ConferenceCentre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Construction -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Construction">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ConstructionShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ConstructionShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Consulate -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Consulate">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Convenience -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Convenience">
+        <rdfs:label xml:lang="en">Convenience Store</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Copyshop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Copyshop"><rdfs:label xml:lang="en">Copy Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cosmetics -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cosmetics">
+        <rdfs:label xml:lang="en">Cosmetics Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Courthouse -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Courthouse"><rdfs:label xml:lang="en">Courthouse</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Craft -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Craft">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Crafts -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Crafts">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Crematorium -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Crematorium"><rdfs:label xml:lang="en">Crematorium</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Cross -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cross">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Customs -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Customs">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dairy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dairy">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Daycare -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Daycare">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DeadPub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DeadPub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Decoration -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Decoration">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Deli -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Deli">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Delicatessen -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Delicatessen">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dentist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dentist"><rdfs:label xml:lang="en">Dentist</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DepartmentStore -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DepartmentStore"><rdfs:label xml:lang="en">Department Store</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dept -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dept">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Derestricted+speed+limit -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Derestricted+speed+limit">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Design -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Design">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Detached -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Detached">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Discount -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Discount"><rdfs:label xml:lang="en">Discount Items Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DisusedPub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DisusedPub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DiveCenter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DiveCenter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DiveCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DiveCentre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Diy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Diy">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Doctor -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Doctor">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Doctors -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Doctors"><rdfs:label xml:lang="en">Doctors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DogBin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DogBin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DogWaste -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DogWaste">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Doityourself -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Doityourself">
+        <rdfs:label xml:lang="en">Do-It-Yourself</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dollar -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dollar">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dormitory -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dormitory">
+        <rdfs:label xml:lang="en">Dormitory</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Dressmaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Dressmaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DrinkingWater -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DrinkingWater"><rdfs:label xml:lang="en">Drinking Water</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DrivingSchool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DrivingSchool"><rdfs:label xml:lang="en">Driving School</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DrivingSchoolShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DrivingSchoolShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Drugstore -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Drugstore"><rdfs:label xml:lang="en">Drugstore</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/DryCleaning -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/DryCleaning"><rdfs:label xml:lang="en">Dry Cleaning</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EducationalInstitutionOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EducationalInstitutionOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Electrician -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Electrician">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Electronics -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Electronics">
+        <rdfs:label xml:lang="en">Electronics Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Elevator -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Elevator">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Embassy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Embassy">
+        <rdfs:label xml:lang="en">Embassy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EmergencyPhone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EmergencyPhone"><rdfs:label xml:lang="en">Emergency Phone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EmergencyTelephone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EmergencyTelephone">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EmploymentAgencyOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EmploymentAgencyOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Empty -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Empty">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Entrance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Entrance">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Entry -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Entry">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Estanco -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Estanco">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EstateAgent -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EstateAgent"><rdfs:label xml:lang="en">Estate Agent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EstateAgentOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EstateAgentOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/EvCharging -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/EvCharging">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fabric -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fabric">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fabrics -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fabrics">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Factory -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Factory">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fairtrade -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fairtrade">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Farm -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Farm">
+        <rdfs:label xml:lang="en">Farm</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FarmShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FarmShop">
+        <rdfs:label xml:lang="en">Farm Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fashion -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fashion">
+        <rdfs:label xml:lang="en">Fashion Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FastFood -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FastFood"><rdfs:label xml:lang="en">Fast Food</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FerryTerminal -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FerryTerminal">
+        <rdfs:label xml:lang="en">Ferry Terminal</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Financial -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Financial">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FireBeater -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FireBeater">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FireHydrant -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FireHydrant">
+        <rdfs:label xml:lang="en">Fire Hydrant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FireStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FireStation">
+        <rdfs:label xml:lang="en">Fire Station</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fireplace -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fireplace">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FirstAid -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FirstAid">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fish -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fish"><rdfs:label xml:lang="en">Fish Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FishingShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FishingShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fishmonger -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fishmonger">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FitnessShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FitnessShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Flats -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Flats"><rdfs:label xml:lang="en">Flats</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Flooring -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Flooring">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Florist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Florist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FloristShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FloristShop"><rdfs:label xml:lang="en">Florist</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Flowers -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Flowers">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FolkArt -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FolkArt">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Food -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Food">
+        <rdfs:label xml:lang="en">Food Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FoodCourt -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FoodCourt">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FootShower -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FootShower">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Forester -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Forester">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fortress -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fortress">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Foto -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Foto">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fountain -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fountain"><rdfs:label xml:lang="en">Fountain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fraternity -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fraternity">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FrozenFoodShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FrozenFoodShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fruit -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fruit">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Fuel%3BcarWash -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Fuel%3BcarWash">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FuelStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FuelStation"><rdfs:label xml:lang="en">Fuel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FuneralDirectors -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FuneralDirectors">
+        <rdfs:label xml:lang="en">Funeral Directors</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/FuneralHome -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FuneralHome">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Furniture -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Furniture">
+        <rdfs:label xml:lang="en">Furniture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gallery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gallery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GalleryShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GalleryShop">
+        <rdfs:label xml:lang="en">Gallery</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gambling -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gambling">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GamblingShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GamblingShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Games -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Games">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Garage -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Garage">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GarageShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GarageShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Garbage -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Garbage">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GardenCenter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GardenCenter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GardenCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GardenCentre"><rdfs:label xml:lang="en">Garden Centre</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GardenShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GardenShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gardener -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gardener">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/General -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/General">
+        <rdfs:label xml:lang="en">General Store</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gift -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gift">
+        <rdfs:label xml:lang="en">Gift Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gifts -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gifts">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Glass -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Glass">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Glaziery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Glaziery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Goldsmith -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Goldsmith">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GovermentBuilding -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GovermentBuilding">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GovernmentOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GovernmentOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Grave -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Grave">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GraveYard -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GraveYard">
+        <rdfs:label xml:lang="en">Grave Yard</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Greengrocer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Greengrocer"><rdfs:label xml:lang="en">Greengrocer</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GritBin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GritBin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Groceries -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Groceries">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Grocery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Grocery">
+        <rdfs:label xml:lang="en">Grocery Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Guidepost -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Guidepost">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Gym -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gym">
+        <rdfs:label xml:lang="en">Fitness Centre / Gym</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/GymShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GymShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Haberdashery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Haberdashery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hairdresser -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hairdresser">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HairdresserShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HairdresserShop"><rdfs:label xml:lang="en">Hairdresser</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hall">
+        <rdfs:label xml:lang="en">Hall</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Handicraft -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Handicraft">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hardware -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hardware">
+        <rdfs:label xml:lang="en">Hardware Store</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Health -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Health">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HealthAndBeauty -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HealthAndBeauty">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HealthCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HealthCentre">
+        <rdfs:label xml:lang="en">Health Centre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HealthFood -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HealthFood">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HearingAid -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HearingAid">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HearingAids -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HearingAids">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Heuriger -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Heuriger">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hide -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hide">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hifi -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hifi"><rdfs:label xml:lang="en">Hi-Fi</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hobby -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hobby">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Home -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Home">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HomeImprovement -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HomeImprovement">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hospice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hospice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hospital -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hospital"><rdfs:label xml:lang="en">Hospital</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hotel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hotel"><rdfs:label xml:lang="en">Hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Household -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Household">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Housewares -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Housewares">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HuntingBlind -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HuntingBlind">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/HuntingStand -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/HuntingStand">
+        <rdfs:label xml:lang="en">Hunting Stand</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hut -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hut">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hvac -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hvac">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Hydrant -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hydrant">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/IceCream -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/IceCream"><rdfs:label xml:lang="en">Ice Cream</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/IceCreamShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/IceCreamShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Information -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Information">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Insulation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Insulation">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Insurance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Insurance"><rdfs:label xml:lang="en">Insurance</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/InsuranceOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/InsuranceOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Interiors -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Interiors">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Internet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Internet">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/InternetAccess -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/InternetAccess">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/InternetCafe -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/InternetCafe">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ItOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ItOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Jewelers -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Jewelers">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Jeweller -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Jeweller">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Jewelry -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Jewelry"><rdfs:label xml:lang="en">Jewelry Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/JobCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/JobCentre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/KeyCutter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/KeyCutter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Keys -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Keys">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Kindergarten -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Kindergarten"><rdfs:label xml:lang="en">Kindergarten</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Kiosk -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Kiosk"><rdfs:label xml:lang="en">Kiosk Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/KitchenShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/KitchenShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/KneippWaterCure -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/KneippWaterCure">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Lamp -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Lamp">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LampPost -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LampPost">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LanguageSchool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LanguageSchool">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Laundry -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Laundry">
+        <rdfs:label xml:lang="en">Laundry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Lawyer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Lawyer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LawyerOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LawyerOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Layby -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Layby">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Leather -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Leather">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LegalServices -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LegalServices">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Library -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Library">
+        <rdfs:label xml:lang="en">Library</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LicensedClub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LicensedClub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Life-buoy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Life-buoy">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LifeRing -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LifeRing">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LifeboatStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LifeboatStation">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Lighting -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Lighting">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Lingerie -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Lingerie">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/LitterBin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/LitterBin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Locksmith -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Locksmith">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Mall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Mall"><rdfs:label xml:lang="en">Mall</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Market -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Market"><rdfs:label xml:lang="en">Market</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Marketplace -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Marketplace"><rdfs:label xml:lang="en">Marketplace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Massage -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Massage">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MassageShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MassageShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Mattress -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Mattress">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Meat -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Meat">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Medical -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Medical">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MedicalCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MedicalCentre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MetalConstructionCraft -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MetalConstructionCraft">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Milestone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Milestone">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MilkDispenser -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MilkDispenser">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Mine -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Mine">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Minimarket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Minimarket">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Misc -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Misc">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Mobile -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Mobile">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MobilePhone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MobilePhone">
+        <rdfs:label xml:lang="en">Mobile Phone Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MobileTelephony -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MobileTelephony">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Monastery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Monastery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Mortuary -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Mortuary">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Motorbike -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Motorbike">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Motorcycle -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Motorcycle">
+        <rdfs:label xml:lang="en">Motorcycle Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MotorcycleParking -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MotorcycleParking">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MotorcycleRepair -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MotorcycleRepair">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MountainRescue -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MountainRescue"><rdfs:label xml:lang="en">Mountain Rescue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Music -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Music">
+        <rdfs:label xml:lang="en">Music Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MusicVenue -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MusicVenue">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/MusicalInstruments -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/MusicalInstruments">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NailSalon -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NailSalon">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Nails -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Nails">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NaturalShelter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NaturalShelter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NestBox -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NestBox">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Newsagent -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Newsagent">
+        <rdfs:label xml:lang="en">Newsagent</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NewspaperOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NewspaperOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Newsstand -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Newsstand">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NgoOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NgoOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Nightclub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Nightclub"><rdfs:label xml:lang="en">Night Club</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NotAShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NotAShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Notice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Notice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Nursery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Nursery">
+        <rdfs:label xml:lang="en">Nursery</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/NursingHome -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/NursingHome">
+        <rdfs:label xml:lang="en">Nursing Home</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Observatory -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Observatory">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Office -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Office"><rdfs:label xml:lang="en">Office</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/OfficeShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/OfficeShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/OfficeSupplies -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/OfficeSupplies">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Offices -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Offices">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/OpticianCraft -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/OpticianCraft">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/OpticianShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/OpticianShop">
+        <rdfs:label xml:lang="en">Optician</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Optometrist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Optometrist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Organic -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Organic">
+        <rdfs:label xml:lang="en">Organic Food Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Other -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Other">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/OtherShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/OtherShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Outdoor -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Outdoor">
+        <rdfs:label xml:lang="en">Outdoor Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Outlet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Outlet">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Paint -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Paint">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Painter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Painter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParcelBox -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParcelBox">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Park -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Park">
+        <rdfs:label xml:lang="en">Park</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParkBench -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParkBench">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Parking -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Parking">
+        <rdfs:label xml:lang="en">Parking</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Parking%3Bfuel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Parking%3Bfuel">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Parking%3Brestaurant%3Bfuel -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Parking%3Brestaurant%3Bfuel">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParkingEntrance -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParkingEntrance">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParkingMeter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParkingMeter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParkingSpace -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParkingSpace">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ParquetLayer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ParquetLayer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pastry -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pastry">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Patisserie -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Patisserie">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pavilion -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pavilion">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pawnshop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pawnshop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PaydayLoans -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PaydayLoans">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Perfume -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Perfume">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Perfumery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Perfumery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pet">
+        <rdfs:label xml:lang="en">Pet Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PetFood -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PetFood">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PetShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PetShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PetSupplies -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PetSupplies">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PetSupply -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PetSupply">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pets">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pharmacy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pharmacy"><rdfs:label xml:lang="en">Pharmacy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Phone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Phone">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PhoneShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PhoneShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Photo -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Photo">
+        <rdfs:label xml:lang="en">Photo Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Photocopying -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Photocopying">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Photographer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Photographer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PhotographicLaboratory -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PhotographicLaboratory">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Physiotherapy -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Physiotherapy">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Picknick -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Picknick">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Picnic+table -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Picnic+table">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PicnicTable -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PicnicTable">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pietra+miliare+FD -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pietra+miliare+FD">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PlaceOfWorship -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PlaceOfWorship">
+        <rdfs:label xml:lang="en">Place of Worship</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Plasterer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Plasterer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Playground -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Playground"><rdfs:label xml:lang="en">Playground</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Plumber -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Plumber">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Police -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Police"><rdfs:label xml:lang="en">Police</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PostBox -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PostBox">
+        <rdfs:label xml:lang="en">Post Box</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PostOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PostOffice">
+        <rdfs:label xml:lang="en">Post Office</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pottery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pottery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Preschool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Preschool"><rdfs:label xml:lang="en">Pre-School</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Printer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Printer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Printing -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Printing">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Prison -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Prison"><rdfs:label xml:lang="en">Prison</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Pub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pub"><rdfs:label xml:lang="en">Pub</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PublicBuilding -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PublicBuilding">
+        <rdfs:label xml:lang="en">Public Building</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/PublicMarket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/PublicMarket">
+        <rdfs:label xml:lang="en">Public Market</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/QuangoOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/QuangoOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RealEstate -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RealEstate">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ReceptionArea -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ReceptionArea"><rdfs:label xml:lang="en">Reception Area</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Records -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Records">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RecyclingFacility -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RecyclingFacility">
+        <rdfs:label xml:lang="en">Recycling Point</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RedCross -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RedCross">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RegisterOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RegisterOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RelayBox -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RelayBox">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Rescue -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Rescue">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RescueBox -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RescueBox">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RescueService -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RescueService">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ResearchOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ResearchOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Residential -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Residential">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ResidentialHome -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ResidentialHome">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Restaurant -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Restaurant"><rdfs:label xml:lang="en">Restaurant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Restaurant%3Bpub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Restaurant%3Bpub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Retail -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Retail">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/RetirementHome -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/RetirementHome"><rdfs:label xml:lang="en">Retirement Home</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Rigger -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Rigger">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Roofer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Roofer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Saddler -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Saddler">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sailmaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sailmaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Salon -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Salon">
+        <rdfs:label xml:lang="en">Salon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sauna -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sauna"><rdfs:label xml:lang="en">Sauna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sawmill -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sawmill">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Scaffolder -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Scaffolder">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/School -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/School"><rdfs:label xml:lang="en">School</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ScoutHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ScoutHall">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ScoutHut -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ScoutHut">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ScubaDivingShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ScubaDivingShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sculptor -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sculptor">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Seat -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Seat">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Seating%2Cornamental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Seating%2Cornamental">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SecondHand -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SecondHand">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sento -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sento">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Service -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Service">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Services -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Services">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shed -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shed">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shelter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shelter">
+        <rdfs:label xml:lang="en">Shelter</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShelteredHousing -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShelteredHousing">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shipping -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shipping">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShoeRepair -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShoeRepair">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shoemaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shoemaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shoes -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shoes">
+        <rdfs:label xml:lang="en">Shoe Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shop"><rdfs:label xml:lang="en">Shop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShopFIXME -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShopFIXME">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShopFixme -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShopFixme">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shopping -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shopping">
+        <rdfs:label xml:lang="en">Shopping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShoppingCenter -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShoppingCenter">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ShoppingCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ShoppingCentre">
+        <rdfs:label xml:lang="en">Shopping Centre</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shops -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shops">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Shower -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Shower">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Showers -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Showers">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Signpost -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Signpost">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SkiRental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SkiRental">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SkiSchool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SkiSchool">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Snacks -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Snacks">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SnowPark -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SnowPark">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SocialCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SocialCentre">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SocialClub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SocialClub">
+        <rdfs:label xml:lang="en">Social Club</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SocialFacility -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SocialFacility">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SocialServices -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SocialServices">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Solarium -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Solarium">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Souvenir -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Souvenir">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Souvenirs -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Souvenirs">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Spa -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Spa">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SpeedEnforcement -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SpeedEnforcement">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SpeedTrap -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SpeedTrap">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sport -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sport">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SportShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SportShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sports -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sports"><rdfs:label xml:lang="en">Sports Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SportsCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SportsCentre"><rdfs:label xml:lang="en">Sports Centre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/StandBuilder -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/StandBuilder">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Stationary -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Stationary">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Stationery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Stationery">
+        <rdfs:label xml:lang="en">Stationery Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Statue -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Statue">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Stonemason -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Stonemason">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Storage -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Storage">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/StreetLamp -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/StreetLamp">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/StreetLight -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/StreetLight">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Stripclub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Stripclub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Studio -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Studio"><rdfs:label xml:lang="en">Studio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SunProtection -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SunProtection">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Supermarket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Supermarket"><rdfs:label xml:lang="en">Supermarket</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Surgery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Surgery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Survey -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Survey">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sweep -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sweep">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Sweets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Sweets">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/SwimmingPool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SwimmingPool"><rdfs:label xml:lang="en">Swimming Pool</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Table -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Table">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tailor -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tailor">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TakeAway -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TakeAway">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tanning -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tanning">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tattoo -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tattoo">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tax -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tax">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Taxi -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Taxi"><rdfs:label xml:lang="en">Taxi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tea -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tea">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Technology -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Technology">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Telecom -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Telecom">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Telecommunication -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Telecommunication">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TelecommunicationOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TelecommunicationOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Telephone -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Telephone">
+        <rdfs:label xml:lang="en">Public Telephone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TelephoneShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TelephoneShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Terrace -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Terrace">
+        <rdfs:label xml:lang="en">Terrace</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Textiles -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Textiles">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Theatre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Theatre"><rdfs:label xml:lang="en">Theatre</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Thrift -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Thrift">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Ticket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Ticket">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tickets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tickets">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tiler -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tiler">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tinsmith -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tinsmith">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tobacco -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tobacco">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tobacconist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tobacconist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Toilets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Toilets"><rdfs:label xml:lang="en">Toilets</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tourist -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tourist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TouristShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TouristShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Townhall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Townhall"><rdfs:label xml:lang="en">Town Hall</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Toys -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Toys">
+        <rdfs:label xml:lang="en">Toy Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Trade -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Trade">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TrafficLight -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TrafficLight">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TrainStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TrainStation"><rdfs:label xml:lang="en">Railway Station</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Building"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TrashBin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TrashBin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TrashCan -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TrashCan">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TravelAgency -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TravelAgency"><rdfs:label xml:lang="en">Travel Agency</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TravelAgentOffice -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TravelAgentOffice">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Office"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/TricycleStation -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TricycleStation">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Trumpet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Trumpet">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Tyres -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tyres">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/UndefinedShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/UndefinedShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/University -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/University"><rdfs:label xml:lang="en">University</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/UnknownShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/UnknownShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Upholsterer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Upholsterer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vacant -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vacant">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Variety -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Variety">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vdsl-aru -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vdsl-aru">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VehicleInspection -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VehicleInspection">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vending -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vending">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vending+machine -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vending+machine">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VendingMachine -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VendingMachine"><rdfs:label xml:lang="en">Vending Machine</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VendingMaschine -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VendingMaschine">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vet -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vet">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Veterinary -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Veterinary"><rdfs:label xml:lang="en">Veterinary Surgery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Vets -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Vets">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Video -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Video">
+        <rdfs:label xml:lang="en">Video Shop</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VideoGames -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VideoGames">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VideoRental -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VideoRental">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/VillageHall -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/VillageHall">
+        <rdfs:label xml:lang="en">Village Hall</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WLAN -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WLAN">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WalkingBus -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WalkingBus">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Waste -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Waste">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteBasket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteBasket">
+        <rdfs:label xml:lang="en">Waste Basket</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteBasket%3Brecycling -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteBasket%3Brecycling">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteBin -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteBin">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteBucket -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteBucket">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteContainer -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteContainer">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WasteDisposal -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WasteDisposal">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Watches -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Watches">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Watchmaker -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Watchmaker">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Craft"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Water -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Water"><rdfs:label xml:lang="en">Water</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WaterFountain -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WaterFountain">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WaterRefilling -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WaterRefilling">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WaterWell -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WaterWell">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WateringPlace -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WateringPlace">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Well -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Well">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Whatever -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Whatever">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Whirlpool -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Whirlpool">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Wholesale -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Wholesale">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Wifi -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Wifi"><rdfs:label xml:lang="en">WiFi Access</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Windows -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Windows">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Wine -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Wine">
+        <rdfs:label xml:lang="en">Off License</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Winery -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Winery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WineryShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WineryShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/Wlan -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Wlan">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/WoodShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/WoodShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/YouthCentre -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/YouthCentre"><rdfs:label xml:lang="en">Youth Centre</rdfs:label><rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/YouthClub -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/YouthClub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+    </owl:Class>
+    
+    <!-- http://linkedgeodata.org/ontology/ZooShop -->    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ZooShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Shop"/>
+    </owl:Class>
+</rdf:RDF><!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->

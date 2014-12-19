@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>11</type>
+  <onto1>
+    <Ontology rdf:about="http://ign.bdtopo.fr">
+      <location>http://ign.bdtopo.fr</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term">
+      <location>http://spatial.ucd.ie/lod/osn/proposed_term</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9948301315307617</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Croix'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:cross'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Marche'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9952563643455505</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Peage'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Bell'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:museum'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

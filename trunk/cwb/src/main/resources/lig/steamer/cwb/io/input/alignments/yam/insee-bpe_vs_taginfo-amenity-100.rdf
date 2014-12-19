@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>11</type>
+  <onto1>
+    <Ontology rdf:about="http://rdf.insee.fr/def/territoire/bpe">
+      <location>http://rdf.insee.fr/def/territoire/bpe</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://taginfo.openstreetmap.fr">
+      <location>http://taginfo.openstreetmap.fr</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Bassin-de-natation'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#restaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#pharmacy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Cinema'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#cinema'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#College'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#college'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-de-conduite'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#driving_school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#shop'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

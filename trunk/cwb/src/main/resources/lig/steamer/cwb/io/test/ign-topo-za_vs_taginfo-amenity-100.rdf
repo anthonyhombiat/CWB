@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <method>lig.steamer.cwb.util.matching.impl.WikimatchOntologyMatcher$WikimatchOntologyAlignment</method>
+  <onto1>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/topo/topo.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/topo/topo.owl</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#social_facility'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21145374449339208</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06911262798634812</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#prison'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.16533864541832669</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Borne'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#fire_hydrant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09841269841269841</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-fret-uniquement'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06820566631689402</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-hospitalier'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08097928436911488</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-voyageurs-et-fret'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#toilets'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06094420600858369</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Aeroport-quelconque'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#car_sharing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06944971537001897</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14772727272727273</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19656019656019655</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#toilets'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.076980014803849</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14689880304678998</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.29901960784313725</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#social_facility'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06680584551148225</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0713809206137425</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#public_building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.12125748502994012</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#shelter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07668711656441718</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-voyageurs-uniquement'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#toilets'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0897597977243995</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Point-d-eau'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#drinking_water'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14420289855072463</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Point-d-eau'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#water'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11529627928341754</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Enseignement-primaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#kindergarten'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11123853211009174</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

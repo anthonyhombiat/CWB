@@ -1,0 +1,301 @@
+﻿<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+]>	
+	
+<rdf:RDF xmlns="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#"
+     xml:base="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl"
+     xmlns:tags="https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about=""/>
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    <!-- http://www.w3.org/2002/07/owl#Thing -->    <owl:Class rdf:about="&owl;Thing"/>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ArabicRestaurant -->    <owl:Class rdf:about="#ArabicRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#AsianRestaurant -->    <owl:Class rdf:about="#AsianRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ChineseRestaurant -->    <owl:Class rdf:about="#ChineseRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#FrenchRestaurant -->    <owl:Class rdf:about="#FrenchRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#GermanRestaurant -->    <owl:Class rdf:about="#GermanRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#GreekRestaurant -->    <owl:Class rdf:about="#GreekRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#IndianRestaurant -->    <owl:Class rdf:about="#IndianRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ItalianRestaurant -->    <owl:Class rdf:about="#ItalianRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#SpanishRestaurant -->    <owl:Class rdf:about="#SpanishRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ThaiRestaurant -->    <owl:Class rdf:about="#ThaiRestaurant">
+        <rdfs:subClassOf rdf:resource="#restaurant"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#airport -->    <owl:Class rdf:about="#airport">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#amenity -->    <owl:Class rdf:about="#amenity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#arts_centre -->    <owl:Class rdf:about="#arts_centre">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#atm -->    <owl:Class rdf:about="#atm">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bank -->    <owl:Class rdf:about="#bank">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bar -->    <owl:Class rdf:about="#bar">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bench -->    <owl:Class rdf:about="#bench">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bicycle_parking -->    <owl:Class rdf:about="#bicycle_parking">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bicycle_rental -->    <owl:Class rdf:about="#bicycle_rental">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#biergarten -->    <owl:Class rdf:about="#biergarten">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bureau_de_change -->    <owl:Class rdf:about="#bureau_de_change">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bus_station -->    <owl:Class rdf:about="#bus_station">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#cafe -->    <owl:Class rdf:about="#cafe">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#car_rental -->    <owl:Class rdf:about="#car_rental">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#car_sharing -->    <owl:Class rdf:about="#car_sharing">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#car_wash -->    <owl:Class rdf:about="#car_wash">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#casino -->    <owl:Class rdf:about="#casino">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#charging_station -->    <owl:Class rdf:about="#charging_station">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#cinema -->    <owl:Class rdf:about="#cinema">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#college -->    <owl:Class rdf:about="#college">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#community_centre -->    <owl:Class rdf:about="#community_centre">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#courthouse -->    <owl:Class rdf:about="#courthouse">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#dentist -->    <owl:Class rdf:about="#dentist">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#doctors -->    <owl:Class rdf:about="#doctors">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#drinking_water -->    <owl:Class rdf:about="#drinking_water">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#emergency_phone -->    <owl:Class rdf:about="#emergency_phone">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fast_food -->    <owl:Class rdf:about="#fast_food">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#ferry_terminal -->    <owl:Class rdf:about="#ferry_terminal">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fire_station -->    <owl:Class rdf:about="#fire_station">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#food_court -->    <owl:Class rdf:about="#food_court">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fountain -->    <owl:Class rdf:about="#fountain">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fuel -->    <owl:Class rdf:about="#fuel">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#grave_yard -->    <owl:Class rdf:about="#grave_yard">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital -->    <owl:Class rdf:about="#hospital">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#kindergarten -->    <owl:Class rdf:about="#kindergarten">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#library -->    <owl:Class rdf:about="#library">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#marketplace -->    <owl:Class rdf:about="#marketplace">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#nightclub -->    <owl:Class rdf:about="#nightclub">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#parking -->    <owl:Class rdf:about="#parking">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#pharmacy -->    <owl:Class rdf:about="#pharmacy">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#place_of_worship -->    <owl:Class rdf:about="#place_of_worship">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#police -->    <owl:Class rdf:about="#police">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#post_box -->    <owl:Class rdf:about="#post_box">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#post_office -->    <owl:Class rdf:about="#post_office">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#pub -->    <owl:Class rdf:about="#pub">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#recycling -->    <owl:Class rdf:about="#recycling">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#restaurant -->    <owl:Class rdf:about="#restaurant">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#sauna -->    <owl:Class rdf:about="#sauna">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#school -->    <owl:Class rdf:about="#school">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#shelter -->    <owl:Class rdf:about="#shelter">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#swimming_pool -->    <owl:Class rdf:about="#swimming_pool">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#taxi -->    <owl:Class rdf:about="#taxi">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#telephone -->    <owl:Class rdf:about="#telephone">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#theatre -->    <owl:Class rdf:about="#theatre">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#toilets -->    <owl:Class rdf:about="#toilets">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#town_hall -->    <owl:Class rdf:about="#town_hall">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#university -->    <owl:Class rdf:about="#university">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#veterinary -->    <owl:Class rdf:about="#veterinary">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+    
+    <!-- https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#waste_basket -->    <owl:Class rdf:about="#waste_basket">
+        <rdfs:subClassOf rdf:resource="#amenity"/>
+    </owl:Class>
+	
+</rdf:RDF><!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->

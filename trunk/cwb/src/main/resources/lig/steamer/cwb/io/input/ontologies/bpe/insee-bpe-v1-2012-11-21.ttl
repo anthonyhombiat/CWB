@@ -1,0 +1,1624 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
+@prefix igeo:    <http://rdf.insee.fr/def/geo#> .
+@prefix bpe:     <http://rdf.insee.fr/def/territoire/bpe#> .
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix eu:	     <http://eurovoc.europa.eu/schema#>.
+@prefix bibo:    <http://purl.org/ontology/bibo/>.
+
+
+#################################################################
+# Ontologie
+#################################################################
+
+<http://rdf.insee.fr/def/territoire/bpe> a owl:Ontology , voaf:Vocabulary ;
+	cc:license <http://creativecommons.org/licenses/by/3.0/> ;
+	dcterms:creator [ a foaf:Person ; foaf:name "Franck Cotton" ];
+	dcterms:description "Ontologie de la Base Permanente des Equipements de l'INSEE"@fr ;
+	dcterms:created "2012-11-21" ;
+	dcterms:publisher <http://dbpedia.org/resource/INSEE> ;
+	dcterms:title "Ontologie de la Base Permanente des Equipements"@fr ;
+	vann:preferredNamespacePrefix "bpe" ;
+	vann:preferredNamespaceUri <http://rdf.insee.fr/def/territoire/bpe#> ;
+	dc:rights "Copyright © 2012 INSEE" ; 
+	cc:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+	voaf:classNumber "10"^^xsd:integer ;
+	voaf:propertyNumber "7"^^xsd:integer ;
+	owl:versionInfo "Version 1.0 - 2012-11-21" .
+
+
+#################################################################
+# Classes
+#################################################################
+
+bpe:Equipement a owl:Class ;
+	rdfs:label "Équipement"@fr ;
+	rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:TypeEquipement ;
+			owl:onProperty dcterms:type
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:maxCardinality "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+			owl:onProperty bpe:coordonneesLambertX
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:maxCardinality "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+			owl:onProperty bpe:coordonneesLambertY
+		] ;
+
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:someValuesFrom
+				[   a owl:Class ;
+					owl:unionOf ( igeo:Commune  igeo:IRIS )
+				] ;
+			owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+		] ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:EquipementScolaire a owl:Class ;
+	rdfs:label "Équipement scolaire"@fr ;
+	rdfs:subClassOf bpe:Equipement ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:TypeEquipementScolaire ;
+			owl:onProperty dcterms:type
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereScolaire ;
+			owl:onProperty bpe:caracterePresent
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereScolaire ;
+			owl:onProperty bpe:caractereAbsent
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:cardinality "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+			owl:onProperty bpe:secteurEquipementScolaire
+		] ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:EquipementSportLoisir a owl:Class ;
+	rdfs:label "Équipement sport-loisir"@fr ;
+	rdfs:subClassOf bpe:Equipement ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:TypeEquipementSportLoisir ;
+			owl:onProperty dcterms:type
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereSportLoisir ;
+			owl:onProperty bpe:caracterePresent
+		] ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereSportLoisir ;
+			owl:onProperty bpe:caractereAbsent
+		] ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:Caractere a owl:Class ;
+	rdfs:label "Caractère"@fr ;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:CaractereScolaire a owl:Class ;
+	rdfs:label "Caractère d'équipement scolaire"@fr ;
+	rdfs:subClassOf bpe:Caractere ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:CaractereSportLoisir a owl:Class ;
+	rdfs:label "Caractère d'équipement sport-loisir"@fr ;
+	rdfs:subClassOf bpe:Caractere ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:TypeEquipement a owl:Class ;
+	rdfs:label "Type d'équipement"@fr ;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:TypeEquipementScolaire a owl:Class ;
+	rdfs:label "Type d'équipement scolaire"@fr ;
+	rdfs:subClassOf bpe:TypeEquipement ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereScolaire ;
+			owl:onProperty bpe:caractereApplicable
+		] ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:TypeEquipementSportLoisir a owl:Class ;
+	rdfs:label "Type d'équipement sport-loisir"@fr ;
+	rdfs:subClassOf bpe:TypeEquipement ;
+	rdfs:subClassOf
+		[   a owl:Restriction ;
+			owl:allValuesFrom bpe:CaractereSportLoisir ;
+			owl:onProperty bpe:caractereApplicable
+		] ;
+	  rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:Secteur a owl:Class ;
+	rdfs:label "Secteur"@fr ;
+	rdfs:subClassOf skos:Concept ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+# Classes externes référencées
+
+igeo:TerritoireFrancais a owl:Class ;
+	  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+      rdfs:label "Territoire français"@fr .
+
+igeo:TerritoireAdministratif a owl:Class ;
+      rdfs:label "Territoire administratif"@fr ;
+      rdfs:subClassOf igeo:TerritoireFrancais .
+	  
+igeo:TerritoireStatistique a owl:Class ;
+      rdfs:label "Territoire statistique"@fr ;
+      rdfs:subClassOf igeo:TerritoireFrancais .
+	  
+igeo:Commune a owl:Class ;
+	  rdfs:subClassOf igeo:TerritoireAdministratif ;
+      rdfs:label "Commune"@fr.
+	  
+igeo:IRIS a owl:Class ;
+	  rdfs:subClassOf igeo:TerritoireStatistique ;
+      rdfs:label "IRIS"@fr .
+	  
+skos:ConceptScheme a owl:Class ;
+	 rdfs:label "Schéma de concepts"@fr.
+	 
+skos:Concept a owl:Class ;
+	 rdfs:label "Concept"@fr.
+	 
+bibo:Note a owl:Class ;
+	 rdfs:label "Note"@fr.
+
+
+#################################################################
+# Datatype properties
+#################################################################
+
+# Coordonnées Lambert - à chercher dans une ontologie de l'IGN
+# TODO : ajouter un domain
+
+bpe:coordonneesLambertX a owl:DatatypeProperty ;
+	rdfs:label "coordonnées Lambert X"@fr ;
+	rdfs:range <http://www.w3.org/2001/XMLSchema#float> ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:coordonneesLambertY a owl:DatatypeProperty ;
+	rdfs:label "coordonnées Lambert Y"@fr ;
+	rdfs:range <http://www.w3.org/2001/XMLSchema#float> ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+bpe:anneeDescription a owl:DatatypeProperty ;
+	rdfs:label "année de description"@fr ;
+	rdfs:comment "Année de validité des éléments de description de l'équipement" ;
+	rdfs:domain bpe:Equipement ;
+	rdfs:range <http://www.w3.org/2001/XMLSchema#gYear> ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> .
+
+
+#################################################################
+# Object properties
+#################################################################
+
+bpe:caracterePresent a owl:ObjectProperty ;
+	rdfs:label "caractère présent"@fr ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> ;
+	rdfs:comment "Indique que l'équipement sujet possède le caractère en objet" ;
+	owl:propertyDisjointWith bpe:caractereAbsent ;
+	rdfs:domain bpe:Equipement ;
+	rdfs:range bpe:Caractere .
+
+bpe:caractereAbsent a owl:ObjectProperty ;
+	rdfs:label "caractère absent"@fr ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> ;
+	rdfs:comment "Indique que l'équipement sujet ne possède pas le caractère en objet" ;
+	owl:propertyDisjointWith bpe:caracterePresent ;
+	rdfs:domain bpe:Equipement ;
+	rdfs:range bpe:Caractere .
+
+bpe:caractereApplicable a owl:ObjectProperty ;
+	rdfs:label "caractère applicable"@fr ;
+	rdfs:comment "Indique que le caractère objet est applicable pour le type d'équipement sujet" ;
+	rdfs:subPropertyOf skos:related;
+	rdfs:domain bpe:TypeEquipement ;
+	rdfs:range bpe:Caractere .
+
+bpe:secteurEquipementScolaire a owl:ObjectProperty ;
+	rdfs:label "secteur"@fr ;
+	rdfs:isDefinedBy <http://rdf.insee.fr/def/territoire/bpe> ;
+	rdfs:domain bpe:EquipementScolaire ;
+	rdfs:range bpe:Secteur .
+
+
+#################################################################
+# Individus
+#################################################################
+
+### Secteur public / privé ###
+### TODO : pas de ConceptScheme ? ###
+
+<http://id.insee.fr/codes/territoire/secteur/prive>
+	a bpe:Secteur ;
+	owl:differentFrom <http://id.insee.fr/codes/territoire/secteur/public> ;
+	skos:prefLabel "Secteur privé"@fr .
+
+<http://id.insee.fr/codes/territoire/secteur/public>
+	a bpe:Secteur ;
+	owl:differentFrom <http://id.insee.fr/codes/territoire/secteur/prive> ;
+	skos:prefLabel "Secteur public"@fr .
+
+### Caractères d'équipement scolaire ###
+### TODO : nécessité de skos:Concept en plus de la sous-classe ad hoc ? Utiliser topConceptOf ? ###
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire> a skos:ConceptScheme ;
+	rdfs:label "Caractère d'équipement scolaire"@fr .
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT> a skos:Concept, bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Cantine"@fr ;
+	skos:notation "CANT".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Classe élémentaire en maternelle"@fr ;
+	skos:notation "CL_ELEM".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Classe pré-élémentaire en école élémentaire"@fr ;
+	skos:notation "CL_PELEM".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Classe préparatoire aux grandes écoles en lycée"@fr ;
+	skos:notation "CL_PGE".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Internat"@fr ;
+	skos:notation "INT".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Réseau d'éducation prioritaire"@fr ;
+	skos:notation "REP".
+
+<http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC> a skos:Concept , bpe:CaractereScolaire ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementScolaire> ;
+	skos:prefLabel "Regroupement pédagogique intercommunal concentré"@fr ;
+	skos:notation "RPIC".
+
+### Caractères d'équipement sport-loisir ###
+
+<http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir> a skos:ConceptScheme ;
+	rdfs:label "Caractère d'équipement sport-loisir"@fr .
+
+<http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/COUVERT> a skos:Concept , bpe:CaractereSportLoisir ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir> ;
+	skos:prefLabel "Couvert"@fr ;
+	skos:notation "COUVERT" .
+
+<http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir/ECLAIRE> a skos:Concept , bpe:CaractereSportLoisir ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/caractereEquipementSportLoisir> ;
+	skos:prefLabel "Éclairé"@fr ;
+	skos:notation "ECLAIRE" .
+
+### Types d'équipement ###
+
+## Types d'équipement scolaire (28 types) ##
+## TODO : plutôt une Collection ? ##
+
+<http://id.insee.fr/codes/territoire/typeEquipementScolaire> a skos:ConceptScheme ;
+	rdfs:label "Type d'équipement scolaire"@fr .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C101> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C101" ;
+	skos:prefLabel "École maternelle"@fr ;                                             
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C102> a skos:Concept , bpe:TypeEquipementScolaire ;                                                       
+	skos:notation "C102" ;
+	skos:prefLabel "Classe maternelle de regroupement pédagogique intercommunal (RPI) dispersé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_ELEM> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C104> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C104" ;
+	skos:prefLabel "École élémentaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/RPIC> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C105> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C105" ;
+	skos:prefLabel "Classe élémentaire de regroupement pédagogique intercommunal (RPI) dispersé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CANT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PELEM> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C201> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C201" ;
+	skos:prefLabel "Collège"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C203> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C203" ;
+	skos:prefLabel "SET : Section d'enseignement technologique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C301> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C301" ;
+	skos:prefLabel "Lycée d'enseignement général et/ou technologique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C302> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C302" ;
+	skos:prefLabel "Lycée d'enseignement professionnel"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/REP> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C303> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C303" ;
+	skos:prefLabel "Lycée d'enseignement technique et/ou professionnel agricole"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ; 
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/CL_PGE> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C304> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C304" ;
+	skos:prefLabel "SGT : Section d'enseignement général et technologique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C305> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C305" ;
+	skos:prefLabel "SEP : Section d'enseignement professionnel"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C401> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C401" ;
+	skos:prefLabel "STS CPGE"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C402> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C402" ;
+	skos:prefLabel "Formation santé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C403> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C403" ;
+	skos:prefLabel "Formation commerce"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C409> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C409" ;
+	skos:prefLabel "Autre formation post bac non universitaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C501> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C501" ;
+	skos:prefLabel "UFR"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C502> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C502" ;
+	skos:prefLabel "Institut universitaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C503> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C503" ;
+	skos:prefLabel "École d'ingénieurs"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C504> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C504" ;
+	skos:prefLabel "Enseignement général supérieur privé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C509> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:prefLabel "Autre enseignement supérieur"@fr ;
+	skos:notation "C509" ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C601> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C601" ;
+	skos:prefLabel "Centre de formation d'apprentis (hors agriculture)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C602> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C602" ;
+	skos:prefLabel "GRETA"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C603> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C603" ;
+	skos:prefLabel "Formation professionnelle continue agricole"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C604> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C604" ;
+	skos:prefLabel "Formation aux métiers du sport"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C605> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C605" ;
+	skos:prefLabel "Centre formation d'apprentis agricole"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> ;
+	bpe:caractereApplicable <http://id.insee.fr/codes/territoire/caractereEquipementScolaire/INT>.
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C609> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C609" ;
+	skos:prefLabel "Autre formation continue"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C701> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C701" ;
+	skos:prefLabel "Résidence universitaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C702> a skos:Concept , bpe:TypeEquipementScolaire ;
+	skos:notation "C702" ;
+	skos:prefLabel "Restaurant universitaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementScolaire> .
+
+
+### Types d'équipement sport-loisir (21 types) ###
+
+<http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> a skos:ConceptScheme ;
+	rdfs:label "Type d'équipement sport-loisir"@fr .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F101> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:prefLabel "Bassin de natation"@fr ;
+	skos:notation "F101" ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F102> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F102" ;
+	skos:prefLabel "Boulodrome"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F103> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F103" ;
+	skos:prefLabel "Tennis"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F104> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F104" ;
+	skos:prefLabel "Équipement de cyclisme"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F105> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F105" ;
+	skos:prefLabel "Domaine skiable"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F106> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:prefLabel "Centre équestre"@fr ;
+	skos:notation "F106" ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F107> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:prefLabel "Athlétisme"@fr ;
+	skos:notation "F107" ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F108> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F108" ;
+	skos:prefLabel "Terrain de golf"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F109> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F109" ;
+	skos:prefLabel "Parcours sportif"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F110> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F110" ;
+	skos:prefLabel "Sports de glace"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F111> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F111" ;
+	skos:prefLabel "Plateau extérieur ou salle multisports"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F112> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F112" ;
+	skos:prefLabel "Salle ou terrain de petits jeux"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F113> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F113" ;
+	skos:prefLabel "Terrain de grands jeux"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F114> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F114" ;
+	skos:prefLabel "Salle de combat"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F115> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F115" ;
+	skos:prefLabel "Salle ou terrain spécialisé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F116> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F116" ;
+	skos:prefLabel "Salle non spécialisée"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F117> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F117" ;
+	skos:prefLabel "Roller-Skate-Vélo bicross ou freestyle"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F118> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F118" ;
+	skos:prefLabel "Sports nautiques"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F201> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F201" ;
+	skos:prefLabel "Baignade aménagée"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F202> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:notation "F202" ;
+	skos:prefLabel "Port de plaisance - Mouillage"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F203> a skos:Concept , bpe:TypeEquipementSportLoisir ;
+	skos:prefLabel "Boucle de randonnée"@fr ;
+	skos:notation "F203" ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipementSportLoisir> .
+
+
+### Autres types d'équipement (119 types) ###
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A101> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A101" ;
+	skos:prefLabel "Police"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A102> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A102" ;
+	skos:prefLabel "Trésorerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A103> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A103" ;
+	skos:prefLabel "Pôle emploi"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A104> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A104" ;
+	skos:prefLabel "Gendarmerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A105> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A105" ;
+	skos:prefLabel "Cour d'appel (CA)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A106> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A106" ;
+	skos:prefLabel "Tribunal de grande instance (TGI)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A107> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A107" ;
+	skos:prefLabel "Tribunal d'instance (TI)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A108> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A108" ;
+	skos:prefLabel "Conseil de prud'hommes (CPH)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A109> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A109" ;
+	skos:prefLabel "Tribunal de commerce (TCO)"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A203> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A203" ;
+	skos:prefLabel "Banque, Caisse d'Épargne"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A205> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A205" ;
+	skos:prefLabel "Pompes funèbres"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A206> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A206" ;
+	skos:prefLabel "Bureau de poste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A207> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A207" ;
+	skos:prefLabel "Relais poste commerçant"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A208> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A208" ;
+	skos:prefLabel "Agence postale communale"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A301> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A301" ;
+	skos:prefLabel "Réparation automobile et de matériel agricole"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A302> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A302" ;
+	skos:prefLabel "Contrôle technique automobile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A303> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A303" ;
+	skos:prefLabel "Location automobiles, utilitaires légers"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A304> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A304" ;
+	skos:prefLabel "École de conduite"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A401> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A401" ;
+	skos:prefLabel "Maçon"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A402> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A402" ;
+	skos:prefLabel "Plâtrier peintre"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A403> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A403" ;
+	skos:prefLabel "Menuisier charpentier serrurier"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A404> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A404" ;
+	skos:prefLabel "Plombier couvreur chauffagiste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A405> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A405" ;
+	skos:prefLabel "Électricien"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A406> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A406" ;
+	skos:prefLabel "Entreprise générale du bâtiment"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A501> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A501" ;
+	skos:prefLabel "Coiffure"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A502> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A502" ;
+	skos:prefLabel "Vétérinaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A503> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A503" ;
+	skos:prefLabel "Agence de travail temporaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A504> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A504" ;
+	skos:prefLabel "Restaurant"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A505> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A505" ;
+	skos:prefLabel "Agence immobilière"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A506> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A506" ;
+	skos:prefLabel "Blanchisserie-Teinturerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/A507> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "A507" ;
+	skos:prefLabel "Soins de beauté"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B101> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B101" ;
+	skos:prefLabel "Hypermarché"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B102> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B102" ;
+	skos:prefLabel "Supermarché"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B103> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B103" ;
+	skos:prefLabel "Grande surface de bricolage"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B201> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B201" ;
+	skos:prefLabel "Supérette"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B202> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B202" ;
+	skos:prefLabel "Épicerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B203> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B203" ;
+	skos:prefLabel "Boulangerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B204> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B204" ;
+	skos:prefLabel "Boucherie charcuterie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B205> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B205" ;
+	skos:prefLabel "Produits surgelés"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B206> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B206" ;
+	skos:prefLabel "Poissonnerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B301> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B301" ;
+	skos:prefLabel "Librairie papeterie journaux"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B302> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B302" ;
+	skos:prefLabel "Magasin de vêtements"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B303> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B303" ;
+	skos:prefLabel "Magasin d'équipements du foyer"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B304> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B304" ;
+	skos:prefLabel "Magasin de chaussures"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B305> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B305" ;
+	skos:prefLabel "Magasin d'électroménager et de matériel audio/vidéo"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B306> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B306" ;
+	skos:prefLabel "Magasin de meubles"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B307> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B307" ;
+	skos:prefLabel "Magasin d'articles de sports et de loisirs"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B308> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B308" ;
+	skos:prefLabel "Magasin de revêtements murs et sols"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B309> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B309" ;
+	skos:prefLabel "Droguerie quincaillerie bricolage"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B310> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B310" ;
+	skos:prefLabel "Parfumerie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B311> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B311" ;
+	skos:prefLabel "Horlogerie-Bijouterie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B312> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B312" ;
+	skos:prefLabel "Fleuriste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/B313> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "B313" ;
+	skos:prefLabel "Magasin d'optique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D101> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D101" ;
+	skos:prefLabel "Établissement santé court séjour"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D102> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D102" ;
+	skos:prefLabel "Établissement santé moyen séjour"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D103> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D103" ;
+	skos:prefLabel "Établissement santé long séjour"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D104> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D104" ;
+	skos:prefLabel "Établissement psychiatrique avec hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D105> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D105" ;
+	skos:prefLabel "Centre lutte cancer"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D106> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D106" ;
+	skos:prefLabel "Urgences"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D107> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D107" ;
+	skos:prefLabel "Maternité"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D108> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D108" ;
+	skos:prefLabel "Centre de santé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D109> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D109" ;
+	skos:prefLabel "Structure psychiatrique en ambulatoire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D110> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D110" ;
+	skos:prefLabel "Centre médecine préventive"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D111> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D111" ;
+	skos:prefLabel "Dialyse"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D112> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D112" ;
+	skos:prefLabel "Hospitalisation à domicile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D201> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D201" ;
+	skos:prefLabel "Médecin omnipraticien"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D202> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D202" ;
+	skos:prefLabel "Spécialiste en Cardiologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D203> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D203" ;
+	skos:prefLabel "Spécialiste en Dermatologie Vénéréologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D204> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D204" ;
+	skos:prefLabel "Spécialiste en Gynécologie médicale"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D205> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D205" ;
+	skos:prefLabel "Spécialiste en Gynécologie obstétrique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D206> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D206" ;
+	skos:prefLabel "Spécialiste en Gastro-entérologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D207> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D207" ;
+	skos:prefLabel "Spécialiste en Psychiatrie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D208> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D208" ;
+	skos:prefLabel "Spécialiste en Ophtalmologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D209> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D209" ;
+	skos:prefLabel "Spécialiste en Oto-rhino-laryngologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D210> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D210" ;
+	skos:prefLabel "Spécialiste en Pédiatrie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D211> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D211" ;
+	skos:prefLabel "Spécialiste en Pneumologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D212> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D212" ;
+	skos:prefLabel "Spécialiste en Radiodiagnostic et Imagerie médicale"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D213> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D213" ;
+	skos:prefLabel "Spécialiste en Stomatologie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D221> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D221" ;
+	skos:prefLabel "Chirurgien dentiste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D231> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D231" ;
+	skos:prefLabel "Sage-femme"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D232> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D232" ;
+	skos:prefLabel "Infirmier"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D233> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D233" ;
+	skos:prefLabel "Masseur kinésithérapeute"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D235> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D235" ;
+	skos:prefLabel "Orthophoniste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D236> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D236" ;
+	skos:prefLabel "Orthoptiste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D237> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D237" ;
+	skos:prefLabel "Pédicure-podologue"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D238> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D238" ;
+	skos:prefLabel "Audio prothésiste"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D239> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D239" ;
+	skos:prefLabel "Ergothérapeute"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D240> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D240" ;
+	skos:prefLabel "Psychomotricien"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D241> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D241" ;
+	skos:prefLabel "Manipulateur ERM"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D301> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D301" ;
+	skos:prefLabel "Pharmacie"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D302> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D302" ;
+	skos:prefLabel "Laboratoire d'analyses médicales"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D303> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D303" ;
+	skos:prefLabel "Ambulance"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D304> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D304" ;
+	skos:prefLabel "Transfusion sanguine"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D305> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D305" ;
+	skos:prefLabel "Établissement thermal"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D306> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D306" ;
+	skos:prefLabel "Établissement de lutte contre l'alcoolisme"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D401> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D401" ;
+	skos:prefLabel "Personnes âgées : hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D402> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D402" ;
+	skos:prefLabel "Personnes âgées : soins à domicile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D403> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D403" ;
+	skos:prefLabel "Personnes âgées : services d'aide"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D404> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D404" ;
+	skos:prefLabel "Personnes âgées : foyers restaurants"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D405> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D405" ;
+	skos:prefLabel "Personnes âgées : service de repas à domicile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D501> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D501" ;
+	skos:prefLabel "Garde enfants d'âge préscolaire"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D601> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D601" ;
+	skos:prefLabel "Enfants handicapés : hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D602> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D602" ;
+	skos:prefLabel "Enfants handicapés : soins à domicile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D603> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D603" ;
+	skos:prefLabel "Adultes handicapés : hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D604> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D604" ;
+	skos:prefLabel "Adultes handicapés : services"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D605> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D605" ;
+	skos:prefLabel "Travail protégé"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D701> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D701" ;
+	skos:prefLabel "Aide sociale à l'enfance : hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D702> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D702" ;
+	skos:prefLabel "Aide sociale à l'enfance : action éducative"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D703> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D703" ;
+	skos:prefLabel "CHRS Centre d'hébergement et de réadaptation sociale"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D704> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D704" ;
+	skos:prefLabel "Centre provisoire d'hébergement"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D705> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D705" ;
+	skos:prefLabel "Centre accueil demandeur d'asile"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/D709> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "D709" ;
+	skos:prefLabel "Autre établissement pour adultes et familles en difficulté"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/E101> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "E101" ;
+	skos:prefLabel "Taxi"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F301> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "F301" ;
+	skos:prefLabel "Cinéma"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F302> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "F302" ;
+	skos:prefLabel "Théâtre"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/G101> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "G101" ;
+	skos:prefLabel "Agence de voyages"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/G102> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "G102" ;
+	skos:prefLabel "Hôtel homologué"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/G103> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "G103" ;
+	skos:prefLabel "Camping homologué"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/G104> a skos:Concept , bpe:TypeEquipement ;
+	skos:notation "G104" ;
+	skos:prefLabel "Information touristique"@fr ;
+	skos:inScheme <http://id.insee.fr/codes/territoire/typeEquipement> .
+
+### Notes ###
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C101> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C101/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C102> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C102/note> .
+
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C104> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C104/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C105> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C105/note> .
+
+ <http://id.insee.fr/codes/territoire/typeEquipement/C201> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C201/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C203> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C203/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C301> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C301/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C302> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C302/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C303> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C303/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C304> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C304/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C305> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C305/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C401> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C401/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C402> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C402/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C403> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C403/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C409> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C409/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C501> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C501/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C502> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C502/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C503> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C503/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C504> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C504/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C509> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C509/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C601> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C601/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C602> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C602/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C603> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C603/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C604> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C604/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C605> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C605/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C609> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/C609/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F101> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F102> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F102/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F103> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F103/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F104> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F104/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F105> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F105/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F106> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F106/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F107> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F107/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F108> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F108/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F109> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F109/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F110> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F110/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F111> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F111/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F112> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F112/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F113> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F113/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F114> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F114/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F115> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F115/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F116> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F116/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F117> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F117/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F118> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F118/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F201> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F201/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F202> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F202/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F203> 
+skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> ;
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F203/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F301> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F301/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F302> 
+ skos:note <http://id.insee.fr/codes/territoire/typeEquipement/F302/note> .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C101/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "École assurant tous les niveaux de maternelle. Y compris annexe d'IUFM, maternelle d'application et spécialisée. Y compris écoles en regroupement pédagogique intercommunal (RPI) concentré (soit toutes les classes regroupées), non compris classes de RPI dispersés (cf. C102)." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C102/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Tous les niveaux de maternelle ne sont pas assurés dans l'établissement." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C104/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "École assurant tous les niveaux d'école élémentaire. Y compris annexe d'IUFM, élémentaire d'application, spécialisée ou régionale. Y compris écoles en regroupement pédagogique intercommunal (RPI) concentré (soit toutes les classes regroupées), non compris classes de RPI dispersés (cf. C105)." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C105/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Tous les niveaux d'école élémentaire ne sont pas assurés dans l'établissement." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C201/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Y compris collège climatique ou spécialisé." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C203/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Présence d'enseignement technologique au sein d'un collège." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C301/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Y compris lycée polyvalent ou climatique et école secondaire spécialisée. Hors tutelle du ministère de l'Agriculture." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C302/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Y compris école de métiers et école professionnelle spécialisée. Hors tutelle du ministère de l'Agriculture." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C303/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Sous tutelle du ministère de l'Agriculture. Y compris maison rurale et autre enseignement agricole privé." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C304/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Présence d'enseignement général et technologique au sein d'un lycée professionnel." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C305/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Présence d'enseignement professionnel au sein d'un lycée d'enseignement général et/ou technologique." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C401/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Seules formations au diplôme de technicien supérieur et classes préparatoires aux grandes écoles." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C402/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Écoles de formation sanitaire et sociale (y compris établissements sous tutelle du ministère de la Santé) publiques ou privées : formation de personnels médicaux et paramédicaux, techniques (laborantins), sanitaires (aides-soignants, ambulanciers), sociaux (service social, éducateurs...)." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C403/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Écoles de commerce, gestion, administration d'entreprises, comptabilité, vente. Comprend notamment les réseaux d'écoles des CCI." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C409/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Écoles de formation d'enseignants non IUFM, d'administration publique (y compris de fonctionnaires), technico-professionnelles des services, de formation artistique, d'architecture, de formation agricole ou halieutique, technico-professionnelles industrielles, juridiques." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C501/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Y compris UFR de médecine, odontologie, pharmacie. Y compris antennes délocalisées des UFR ou autres composantes." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C502/note> 
+ a bibo:Note ;
+ eu:noteLiteral "IUP, IUT y compris antennes délocalisées, IUFM y compris antennes d'IUFM." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C503/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Écoles d'ingénieurs publiques sous tutelle du ministère de l'Enseignement Supérieur et de la Recherche ou d'un autre ministère, et écoles privées." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C504/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Établissements privés d'enseignement universitaire, centres ou facultés privés, instituts catholiques." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C509/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Écoles normales supérieures, instituts nationaux polytechniques, instituts d'administration des entreprises, instituts de préparation à l'administration générale, instituts d'études politiques, institut du travail, centres régionaux associés aux Cnam, université de technologie et centre universitaire de formation et recherche." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C601/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Centre de formation d'apprentis avec convention régionale ou nationale, y compris antennes et sections d'apprentissage, non compris l'apprentissage agricole. Modifié à compter de 2009 : ne comprend plus les CFA agricoles reclassés en C605." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C602/note>
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Groupements d'établissements pour la formation continue. Les annexes de Greta ne sont pas immatriculées. Ils sont toujours rattachés à un EPLE (Établissement public local d'enseignement)." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C603/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Centre de formation professionnelle et de promotion agricole ou de formation continue agricole [toujours rattaché à un EPLE (Établissement public local d'enseignement) agricole]. Changement de la source à compter de 2009." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C604/note>
+ a bibo:Note ; 
+ eu:noteLiteral "Établissements de formation aux métiers du sport : écoles et instituts nationaux de la jeunesse et des sports (Insep, INJEP, ENSA, ENEV, ENSFS, ENE), centres d'éducation populaire et de sport (Creps). Ils sont sous la tutelle du ministère de la Jeunesse et des Sports." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C605/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Centre de formation d'apprentis agricole. Créé à compter de 2009 : les CFA agricoles sont séparés des autres classés en C601." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/C609/note>
+ a bibo:Note ; 
+ eu:noteLiteral "Établissements de formation continue autres : regroupe les centres d'enseignement à distance (Cned et ses centres d'enseignement, centres privés soumis à déclaration), les établissements de formation continue hors Éducation nationale." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F101/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Bassin de natation, sportive et/ou ludique. Pour chaque équipement, nombre de bassins." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F102/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Terrain de boules, de pétanque. Pour chaque équipement, nombre de terrains." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F103/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Court(s) de tennis. Pour chaque équipement, nombre de courts." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F104/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Vélodrome, anneau/piste. Pour chaque équipement, nombre de pistes." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F105/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Station de ski, domaine nordique. Pour chaque équipement, nombre de pistes." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F106/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Carrière, manège, carrière de dressage/rond de longe, structure de tourisme équestre. Pour chaque équipement, nombre de carrières, manèges." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F107/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Stade d'athlétisme, aire de lancer, aire de saut, piste. Pour chaque équipement, nombre d'aires de pratique." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F108/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Parcours 9 ou 18 trous, parcours d'initiation, practice. Pour chaque équipement, nombre d'aires de pratique." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F109/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Parcours sportif/santé. Pour chaque équipement, nombre de parcours." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F110/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Aire de sports de glace, sportive et/ou ludique. Pour chaque équipement, nombre d'aires de pratique." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F111/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Plateau EPS, multisports, city-stade, salle multisports (gymnase). Pour chaque équipement, nombre d'aires de pratique." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F112/note>
+ a bibo:Note ;
+ eu:noteLiteral "Salle ou terrain de basket-ball, de beach-volley, de handball, de volley-ball, de badminton, salle de tennis de table. Pour chaque équipement, nombre d'aires de pratique." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F113/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Terrain de football, de rugby, de football américain, de jeu à XIII. Pour chaque équipement, nombre de terrains." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F114/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Dojo, salle de boxe, d'arts martiaux, de lutte, d'escrime. Pour chaque équipement, nombre d'aires de pratique." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F115/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Salle de culturisme, de danse, de gymnastique sportive, de patinage sur roulette, de raquetball, de trampoline, d'haltérophilie, salle ou terrain de squash, structure artificielle d'escalade. Pour chaque équipement, nombre d'aires de pratique." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F116/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Salle polyvalente, des fêtes, autre salle non spécialisé. Salle où s'exerce au moins une activité physique et/ou sportive." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F117/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Anneau de roller, skate-park, piste de bicross, espace de vélo freestyle. Pour chaque équipement, nombre de pistes, parcours, circuits." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F118/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Site d'activités nautiques, stade de ski nautique et/ou d'aviron. Pour chaque équipement, nombre d'aires de pratique." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F201/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Site d'activités aquatiques, baignade aménagée. Zone délimitée (matériellement, par des bouées, des lignes d'eau, etc.) pour la baignade surveillée. En rivière, mer, plan d'eau intérieur. Pour chaque équipement, nombre d'aires de pratique." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F202/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Port de plaisance, zone de mouillage. Pour chaque équipement, nombre de ports, de zones." ;
+ dc:language "fr" .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F203/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Uniquement les boucles de randonnée dont les points de départ et d'arrivée se situent sur la même commune (règle du RES). Pour chaque équipement, nombre de circuits." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F301/note> 
+ a bibo:Note ;
+ dc:language "fr" ;
+ eu:noteLiteral "Projection en salle de cinéma, en plein air ou autres. Implantation physique, qu'il y ait une seule salle de projection ou plusieurs au sein d'un complexe. Il n'y a ni le nombre de salles présentes, ni leur nombre de places offertes." .
+
+<http://id.insee.fr/codes/territoire/typeEquipement/F302/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Ensemble des lieux gérés par le Centre National du Théâtre (CNT) où une représentation de théâtre peut se tenir. Ces lieux peuvent être labellisés (théâtres nationaux et privés, scènes nationales et conventionnées, compagnies avec lieux d'accueil, compagnies dramatiques nationales et régionales, pôles cirque, centres chorégraphiques) ou non." ;
+ dc:language "fr" .
+ 
+<http://id.insee.fr/codes/territoire/typeEquipement/F101-203/note> 
+ a bibo:Note ;
+ eu:noteLiteral "Ne sont pris en compte que les installations accessibles à tout public, à titre individuel ou via une structure publique ou privée (associative ou commerciale), pour y pratiquer une activité physique et/ou sportive." ;
+ dc:language "fr" .

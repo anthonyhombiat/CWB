@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <method>lig.steamer.cwb.util.matching.impl.WikimatchOntologyMatcher$WikimatchOntologyAlignment</method>
+  <onto1>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/taginfo/taginfo.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#fast_food'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11168384879725086</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#fuel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06929637526652452</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#restaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1264559068219634</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#public_building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11065573770491803</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Etablissement-de-sante-de-court-sejour'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#embassy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.061733387248955385</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-articles-de-sports-et-de-loisirs'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06578947368421052</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking;fuel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07989690721649484</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#charging_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10806451612903226</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#College'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#college'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11555555555555555</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-maternelle'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09531502423263329</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-vetements'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#car_sharing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.17830423940149626</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#toilets'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08362779740871613</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0771513353115727</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#bank'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08609271523178808</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2169811320754717</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1377245508982036</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08499655884377151</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#social_facility'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0663265306122449</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Reparation-automobile-et-de-materiel-agricole'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#recycling'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06102062975027144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Police-gendarmerie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#police'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11569416498993963</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Sante'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07076205287713841</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-oto-rhino-laryngologie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0691085003455425</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-gynecologie-'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14304548450889915</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11383928571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#pharmacy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2390057361376673</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19166666666666668</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09375</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.125</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.30933333333333335</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-d-equipements-du-foyer'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#arts_centre'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06544054747647562</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Terrain-de-grands-jeux'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08270676691729323</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Garde-enfants-d-age-prescolaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#kindergarten'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06178396072013093</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#grave_yard'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14727272727272728</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Supermarche'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking_space'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06538796861377506</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Hypermarche'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking_space'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-service-d-aide'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08949416342412451</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-service-d-aide'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#doctors'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06586402266288952</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5702746365105008</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-elementaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10545129579982127</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-pediatrie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08729388942774007</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Controle-technique-automobile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking;fuel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.111284046692607</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Controle-technique-automobile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11916666666666667</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Controle-technique-automobile'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking_space'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09010712035286704</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07207207207207207</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Adultes-handicapes-services'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#fountain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08057553956834532</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09156193895870736</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1072961373390558</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Chirurgien-dentiste'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22037037037037038</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Bureau-de-poste-relais-poste-agence-postale'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#car_sharing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08276797829036635</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Infirmier'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.16062992125984252</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-ophtalmologie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1226158038147139</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

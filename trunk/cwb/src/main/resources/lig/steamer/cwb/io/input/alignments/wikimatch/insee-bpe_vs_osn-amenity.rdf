@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <method>lig.steamer.cwb.util.matching.impl.WikimatchOntologyMatcher$WikimatchOntologyAlignment</method>
+  <onto1>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/bpe/bpe.owl</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/osn-amenity.owl">
+      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/osn-amenity.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-de-sport-specialise'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:table_soccer'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06705118961788031</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-de-sport-specialise'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Table_soccer'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06705118961788031</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Salle-ou-terrain-de-sport-specialise'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:foot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06035042180402336</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Location-d-automobiles-et-d-utilitaires-legers'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:ev_charging'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07669172932330827</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:fast_food'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11092150170648464</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:restaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.12603648424543948</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Restaurant'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:brewery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07394366197183098</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11080711354309165</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08775731310942579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Entreprise-generale-du-batiment'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08775731310942579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Tennis'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Advice_point'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.13626609442060086</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:charging_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10806451612903226</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Station-service'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Charging_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10806451612903226</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#College'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:college'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11738148984198646</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-maternelle'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09409888357256778</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-vetements'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14243027888446216</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Magasin-de-vetements'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Bikesharing_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10608308605341246</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_stop'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.061930783242258654</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07669616519174041</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Gare'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1704745166959578</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Services-aux-particuliers'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bank'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08659450457951708</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21904761904761905</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-hebergement'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1377245508982036</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Police-gendarmerie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:police'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10931558935361217</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Sante'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:healthcare'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09197651663405088</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11901983663943991</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Urgences'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:emergency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.23378212974296206</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe#domaine'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:level'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08528906697195192</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:pharmacy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2390057361376673</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:drugstore'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1035548686244204</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pharmacie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:dispensing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.12048192771084337</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19327731092436976</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09340659340659341</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-soins-a-domicile'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.125</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.31521739130434784</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.3143631436314363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Veterinaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.31521739130434784</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Terrain-de-grands-jeux'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:basketball'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.061396131202691336</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Sports-loisirs-et-culture'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:sport'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09902200488997555</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Bassin-de-natation'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07724425887265135</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:grave_yard'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14727272727272728</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pompes-funebres'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:cemetery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15055762081784388</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Supermarche'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_aisle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11981020166073547</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Supermarche'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:supermarket'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.12903225806451613</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Hypermarche'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:supermarket'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15176151761517614</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Hypermarche'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_aisle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1085383502170767</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Personnes-agees-service-d-aide'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08984375</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5711974110032363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Taxi'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi_point'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22814207650273224</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Ecole-elementaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:school'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10305676855895196</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:fair_trade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07407407407407407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07207207207207207</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/domaine#Commerces'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07188703465982028</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Orthophoniste'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:audiologist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.13480885311871227</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Orthophoniste'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hearing_aids'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11480075901328274</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Adultes-handicapes-services'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hearing_aids'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0873440285204991</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Adultes-handicapes-services'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:wheelchair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06069364161849711</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Adultes-handicapes-services'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:audiologist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09219190968955786</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1023541453428864</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1023541453428864</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08777969018932874</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-cardiologie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Veterinary'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10224948875255624</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Chirurgien-dentiste'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2211895910780669</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Specialiste-en-ophtalmologie'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:dentist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0784313725490196</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Pedicure-podologue'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:foot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06351183063511831</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Agence-de-travail-temporaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:employment_agency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0735930735930736</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Epicerie-superette'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:supermarket'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08148148148148149</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://rdf.insee.fr/def/territoire/bpe/equipement#Epicerie-superette'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_aisle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07455268389662027</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>
