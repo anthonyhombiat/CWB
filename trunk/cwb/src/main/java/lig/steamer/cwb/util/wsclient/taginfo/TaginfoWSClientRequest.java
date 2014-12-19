@@ -22,7 +22,7 @@ public class TaginfoWSClientRequest {
 	private static final String PARAM_NAME_KEY = "key";
 
 	private static final String DEFAULT_PAGE_NB_VALUE = "1";
-	private static final String DEFAULT_RESULTS_PER_PAGE_VALUE = "50";
+	private static final String DEFAULT_RESULTS_PER_PAGE_VALUE = "100";
 	private static final String DEFAULT_SORT_BY_VALUE = "count_all";
 	private static final String DEFAULT_SORT_ORDER_VALUE = "desc";
 

@@ -46,9 +46,9 @@ public class CWBEquivalence implements Serializable, CWBDataModelVisitable {
 		if (o instanceof CWBEquivalence) {
 			CWBEquivalence equivalence = (CWBEquivalence) o;
 			return ((this.concept1.equals(equivalence.getConcept1()) && this.concept2
-					.equals(equivalence.getConcept2()))
-					|| (this.concept1.equals(equivalence.getConcept2()) && this.concept2
-							.equals(equivalence.getConcept1())))
+					.equals(equivalence.getConcept2())) || (this.concept1
+					.equals(equivalence.getConcept2()) && this.concept2
+					.equals(equivalence.getConcept1())))
 					&& this.confidence == equivalence.getConfidence();
 		}
 		return false;
@@ -57,6 +57,12 @@ public class CWBEquivalence implements Serializable, CWBDataModelVisitable {
 	@Override
 	public void acceptCWBDataModelVisitor(CWBDataModelVisitor visitor) {
 		visitor.visitEquivalence(this);
+	}
+
+	@Override
+	public String toString() {
+		return concept1.getFragment() + " = " + concept2.getFragment() + " ("
+				+ confidence + ")";
 	}
 
 }

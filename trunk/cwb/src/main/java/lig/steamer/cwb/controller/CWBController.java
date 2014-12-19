@@ -3,6 +3,7 @@ package lig.steamer.cwb.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.MessageFormat;
@@ -11,16 +12,25 @@ import java.util.Set;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.Prop;
-import lig.steamer.cwb.io.read.CWBDataModelFolksoReader;
-import lig.steamer.cwb.io.read.CWBDataModelNomenReader;
-import lig.steamer.cwb.io.read.CWBDataModelReader;
-import lig.steamer.cwb.io.read.CWBReader;
-import lig.steamer.cwb.io.read.exception.CWBDataModelReaderException;
-import lig.steamer.cwb.io.read.exception.CWBReaderException;
-import lig.steamer.cwb.io.write.CWBWriter;
-import lig.steamer.cwb.io.write.exception.CWBWriterException;
+import lig.steamer.cwb.io.read.CWBAlignmentReader;
+import lig.steamer.cwb.io.read.CWBFolksoReader;
+import lig.steamer.cwb.io.read.CWBNomenReader;
+import lig.steamer.cwb.io.read.impl.CWBAlignmentRDFReader;
+import lig.steamer.cwb.io.read.impl.CWBFolksoOWLReader;
+import lig.steamer.cwb.io.read.impl.CWBNomenOWLReader;
+import lig.steamer.cwb.io.read.impl.exception.CWBAlignmentReaderException;
+import lig.steamer.cwb.io.read.impl.exception.CWBFolksoReaderException;
+import lig.steamer.cwb.io.read.impl.exception.CWBNomenReaderException;
+import lig.steamer.cwb.io.write.CWBFolksoWriter;
+import lig.steamer.cwb.io.write.CWBNomenWriter;
+import lig.steamer.cwb.io.write.impl.CWBAlignmentRDFWriter;
+import lig.steamer.cwb.io.write.impl.CWBFolksoOWLWriter;
+import lig.steamer.cwb.io.write.impl.CWBNomenOWLWriter;
+import lig.steamer.cwb.io.write.impl.exception.CWBAlignmentWriterException;
+import lig.steamer.cwb.io.write.impl.exception.CWBFolksoWriterException;
+import lig.steamer.cwb.io.write.impl.exception.CWBNomenWriterException;
+import lig.steamer.cwb.model.CWBAlignment;
 import lig.steamer.cwb.model.CWBBBox;
-import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBEquivalence;
@@ -28,11 +38,14 @@ import lig.steamer.cwb.model.CWBModel;
 import lig.steamer.cwb.model.LeafletBBox;
 import lig.steamer.cwb.ui.AppUI;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
+import lig.steamer.cwb.util.archive.ZipUtility;
 import lig.steamer.cwb.util.browser.BrowserHomepageProvider;
 import lig.steamer.cwb.util.browser.UnsupportedBrowserException;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
 import lig.steamer.cwb.util.wsclient.DataModelFolksoProviderWSClient;
 import lig.steamer.cwb.util.wsclient.DataModelNomenProviderWSClient;
+import lig.steamer.cwb.util.wsclient.InstancesFolksoProviderWSClient;
+import lig.steamer.cwb.util.wsclient.InstancesNomenProviderWSClient;
 import lig.steamer.cwb.util.wsclient.WSDataModelFolksoProvider;
 import lig.steamer.cwb.util.wsclient.WSDataModelNomenProvider;
 import lig.steamer.cwb.util.wsclient.bdtopo.BDTopoWSClient;
@@ -42,11 +55,11 @@ import lig.steamer.cwb.util.wsclient.overpass.OverpassWSClient;
 import lig.steamer.cwb.util.wsclient.overpass.exception.OverpassWSClientException;
 import lig.steamer.cwb.util.wsclient.taginfo.TaginfoWSClient;
 
+import org.apache.commons.io.FileUtils;
 import org.vaadin.addon.leaflet.LeafletMoveEndEvent;
 import org.vaadin.addon.leaflet.LeafletMoveEndListener;
 import org.vaadin.dialogs.ConfirmDialog;
 
-import com.vaadin.data.Item;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.FileResource;
@@ -89,8 +102,10 @@ public class CWBController implements Serializable {
 		view.addLogoutMenuItemCommand(new CWBLogoutMenuItemCommand());
 		view.addLoadFolksoFromWSMenuItemCommand(new CWBLoadFolksoFromWSMenuItemCommand());
 		view.addLoadNomenFromWSMenuItemCommand(new CWBLoadNomenFromWSMenuItemCommand());
+		view.addLoadAlignFromWSMenuItemCommand(new CWBLoadAlignFromWSMenuItemCommand());
 		view.addLoadFolksoFromFileMenuItemCommand(new CWBLoadFolksoFromFileMenuItemCommand());
 		view.addLoadNomenFromFileMenuItemCommand(new CWBLoadNomenFromFileMenuItemCommand());
+		view.addLoadAlignFromFileMenuItemCommand(new CWBLoadAlignFromFileMenuItemCommand());
 		view.addMapMenuItemCommand(new CWBMapMenuItemCommand());
 
 		view.addOpenProjectUploadReceiver(new CWBOpenProjectUploader());
@@ -99,36 +114,37 @@ public class CWBController implements Serializable {
 		view.addOpenProjectUploadProgressListener(new CWBOpenProjectUploader());
 		view.addOpenProjectUploadFailedListener(new CWBOpenProjectUploader());
 		view.addOpenProjectUploadSucceededListener(new CWBOpenProjectUploader());
-		
+
 		view.addLoadFolksoFromWSWindowButtonListener(new CWBLoadFolksoButtonListener());
 		view.addLoadNomenFromWSWindowButtonListener(new CWBLoadNomenButtonListener());
 
-		view.addLoadFolksoFromWSButtonListener(new CWBLoadFolksoFromWSMenuItemCommand());
-		view.addLoadFolksoFromFileButtonListener(new CWBLoadFolksoFromFileMenuItemCommand());
-		
-		view.addLoadNomenFromWSButtonListener(new CWBLoadNomenFromWSMenuItemCommand());
-		view.addLoadNomenFromFileButtonListener(new CWBLoadNomenFromFileMenuItemCommand());
-		
 		view.addFolksoWSComboBoxListener(new CWBFolksoWSComboBoxListener());
 		view.addNomenWSComboBoxListener(new CWBNomenWSComboBoxListener());
-		
-		view.addLoadFolksoFromFileUploadReceiver(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadStartedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadFinishedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadProgressListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadFailedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadSucceededListener(new CWBLoadFolksoFromFileUploader());
-		
+
 		view.addLoadNomenFromFileUploadReceiver(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadStartedListener(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadFinishedListener(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadProgressListener(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadFailedListener(new CWBLoadNomenFromFileUploader());
 		view.addLoadNomenFromFileUploadSucceededListener(new CWBLoadNomenFromFileUploader());
-		
+
+		view.addLoadFolksoFromFileUploadReceiver(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadStartedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadFinishedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadProgressListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadFailedListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadSucceededListener(new CWBLoadFolksoFromFileUploader());
+
+		view.addLoadAlignFromFileUploadReceiver(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadStartedListener(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadFinishedListener(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadProgressListener(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadFailedListener(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadSucceededListener(new CWBLoadAlignFromFileUploader());
+
 		view.addMatchButtonListener(new CWBMatchButtonListener());
 		view.addMatchingResultsTableValueChangedListener(new CWBMatchingResultsTableValueChangeListener());
-		
+
 		view.addMapMoveEndListener(new CWBMoveEndListener());
 
 	}
@@ -178,10 +194,57 @@ public class CWBController implements Serializable {
 		@Override
 		public void menuSelected(MenuItem selectedItem) {
 
-			CWBWriter writer = new CWBWriter();
 			try {
-				writer.write(model);
-			} catch (CWBWriterException e) {
+
+				File projectRootDir = new File(Prop.DIR_TMP
+						+ File.separatorChar + Prop.DEFAULT_PROJECT_NAME);
+				projectRootDir.mkdir();
+
+				File zipFile = new File(Prop.DIR_OUTPUT + File.separatorChar
+						+ Prop.DEFAULT_PROJECT_NAME + Prop.FMT_CWB);
+
+				String dataModelsDirPath = projectRootDir.getAbsolutePath()
+						+ File.separatorChar + Prop.DIRNAME_DATAMODELS;
+
+				// Writing nomenclature
+				String nomenDir = dataModelsDirPath + File.separatorChar
+						+ Prop.DIRNAME_NOMEN;
+
+				CWBNomenWriter nomenWriter = new CWBNomenOWLWriter();
+				nomenWriter.write(model.getNomenclature(), nomenDir);
+
+				// Writing folksonomy
+				String folksoDir = dataModelsDirPath + File.separatorChar
+						+ Prop.DIRNAME_FOLKSO;
+
+				CWBFolksoWriter folksoWriter = new CWBFolksoOWLWriter();
+				folksoWriter.write(model.getFolksonomy(), folksoDir);
+
+				// Writing alignment
+				String alignmentDir = dataModelsDirPath + File.separatorChar
+						+ Prop.DIRNAME_ALIGN;
+
+				CWBAlignmentRDFWriter alignementWriter = new CWBAlignmentRDFWriter();
+				alignementWriter.write(model.getAlignment(), alignmentDir);
+
+				ZipUtility zipUtil = new ZipUtility();
+				zipUtil.zipDirectory(projectRootDir, zipFile.getAbsolutePath());
+
+				FileUtils.deleteDirectory(projectRootDir);
+
+			} catch (CWBNomenWriterException e) {
+				Notification.show(Msg.get("notif.err.nomen.write.capt"),
+						Msg.get("notif.err.nomen.write.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBFolksoWriterException e) {
+				Notification.show(Msg.get("notif.err.folkso.write.capt"),
+						Msg.get("notif.err.folkso.write.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBAlignmentWriterException e) {
+				Notification.show(Msg.get("notif.err.align.write.capt"),
+						Msg.get("notif.err.align.write.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (IOException e) {
 				Notification.show(Msg.get("notif.err.save.capt"),
 						Msg.get("notif.err.save.txt"),
 						Notification.Type.ERROR_MESSAGE);
@@ -221,8 +284,8 @@ public class CWBController implements Serializable {
 											.menuSelected(
 													view.getSaveMenuItem());
 								}
+								// TODO clear model
 								model = new CWBModel();
-								view.clear();
 							}
 						});
 			}
@@ -293,7 +356,7 @@ public class CWBController implements Serializable {
 		}
 
 	}
-	
+
 	class CWBLoadNomenFromWSMenuItemCommand implements Command, ClickListener {
 
 		private static final long serialVersionUID = 1L;
@@ -306,6 +369,22 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 			UI.getCurrent().addWindow(view.getLoadNomenFromWSWindow());
+		}
+
+	}
+
+	class CWBLoadAlignFromWSMenuItemCommand implements Command, ClickListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+			UI.getCurrent().addWindow(view.getLoadAlignFromWSWindow());
+		}
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			UI.getCurrent().addWindow(view.getLoadAlignFromWSWindow());
 		}
 
 	}
@@ -339,6 +418,22 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 			UI.getCurrent().addWindow(view.getLoadNomenFromFileWindow());
+		}
+
+	}
+
+	class CWBLoadAlignFromFileMenuItemCommand implements Command, ClickListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void menuSelected(MenuItem selectedItem) {
+			UI.getCurrent().addWindow(view.getLoadAlignFromFileWindow());
+		}
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			UI.getCurrent().addWindow(view.getLoadAlignFromFileWindow());
 		}
 
 	}
@@ -411,15 +506,64 @@ public class CWBController implements Serializable {
 		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
-			String path = Prop.DIR_TMP + File.separator + Prop.FILENAME_TMP
-					+ Prop.FMT_CWB;
+			File file = new File(Prop.DIR_TMP + File.separator
+					+ Prop.FILENAME_TMP + Prop.FMT_CWB);
 
-			CWBReader reader = new CWBReader();
 			try {
-				model = reader.read(path);
-			} catch (CWBReaderException e) {
+
+				String destinationPath = Prop.DIR_TMP + File.separatorChar
+						+ Prop.DEFAULT_PROJECT_NAME;
+
+				// Unziping CWB project
+				ZipUtility zipUtil = new ZipUtility();
+				zipUtil.unzip(file.getAbsolutePath(), destinationPath);
+
+				String dataModelsDir = destinationPath + File.separatorChar
+						+ Prop.DIRNAME_DATAMODELS;
+
+				// Adding nomenclature to the CWB model
+				File nomen = new File(dataModelsDir + File.separatorChar
+						+ Prop.DIRNAME_NOMEN + File.separatorChar
+						+ Prop.FILENAME_NOMEN + Prop.FMT_OWL);
+
+				CWBNomenReader nomenReader = new CWBNomenOWLReader();
+				model.setNomenclature(nomenReader.read(nomen));
+
+				// Adding folksonomy to the CWB model
+				File folkso = new File(dataModelsDir + File.separatorChar
+						+ Prop.DIRNAME_FOLKSO + File.separatorChar
+						+ Prop.FILENAME_FOLKSO + Prop.FMT_OWL);
+
+				CWBFolksoReader folksoReader = new CWBFolksoOWLReader();
+				model.setFolksonomy(folksoReader.read(folkso));
+
+				// Adding alignment to the CWB model
+				File alignment = new File(dataModelsDir + File.separatorChar
+						+ Prop.DIRNAME_ALIGN + File.separatorChar
+						+ Prop.FILENAME_ALIGNMENT + Prop.FMT_RDF);
+
+				CWBAlignmentReader alignmentReader = new CWBAlignmentRDFReader();
+				model.setAlignment(alignmentReader.read(alignment));
+
+				// Removing temp file
+				file.delete();
+				FileUtils.deleteDirectory(new File(destinationPath));
+
+			} catch (IOException e) {
 				Notification.show(Msg.get("notif.err.open.capt"),
 						Msg.get("notif.err.open.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBNomenReaderException e) {
+				Notification.show(Msg.get("notif.err.nomen.read.capt"),
+						Msg.get("notif.err.nomen.read.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBFolksoReaderException e) {
+				Notification.show(Msg.get("notif.err.folkso.read.capt"),
+						Msg.get("notif.err.folkso.read.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBAlignmentReaderException e) {
+				Notification.show(Msg.get("notif.err.align.read.capt"),
+						Msg.get("notif.err.align.read.txt"),
 						Notification.Type.ERROR_MESSAGE);
 			}
 
@@ -491,18 +635,19 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader reader = new CWBDataModelNomenReader();
-			CWBDataModel dataModel = null;
+			CWBNomenReader reader = new CWBNomenOWLReader();
+			CWBDataModelNomen nomen = null;
+			
 			try {
-				dataModel = reader.read(file);
-			} catch (CWBDataModelReaderException e) {
+				nomen = reader.read(file);
+			} catch (CWBNomenReaderException e) {
 				Notification.show(Msg.get("notif.err.nomen.read.capt"),
 						Msg.get("notif.err.nomen.read.txt"),
 						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Update model
-			model.setNomenclature((CWBDataModelNomen) dataModel);
+			model.setNomenclature(nomen);
 
 			// Notify
 			Notification.show(Msg.get("notif.info.load.done.capt"),
@@ -571,18 +716,18 @@ public class CWBController implements Serializable {
 			File file = new File(Prop.DIR_TMP + File.separatorChar
 					+ Prop.FILENAME_TMP + Prop.FMT_OWL);
 
-			CWBDataModelReader reader = new CWBDataModelFolksoReader();
-			CWBDataModel dataModel = null;
+			CWBFolksoReader reader = new CWBFolksoOWLReader();
+			CWBDataModelFolkso folkso = null;
 			try {
-				dataModel = reader.read(file);
-			} catch (CWBDataModelReaderException e) {
+				folkso = reader.read(file);
+			} catch (CWBFolksoReaderException e) {
 				Notification.show(Msg.get("notif.err.folkso.read.capt"),
 						Msg.get("notif.err.folkso.read.txt"),
 						Notification.Type.ERROR_MESSAGE);
 			}
 
 			// Update model
-			model.setFolksonomy((CWBDataModelFolkso) dataModel);
+			model.setFolksonomy(folkso);
 
 			// Notify
 			Notification.show(Msg.get("notif.info.load.done.capt"),
@@ -591,6 +736,86 @@ public class CWBController implements Serializable {
 
 			// Close pop-up window
 			view.getLoadFolksoFromFileWindow().close();
+
+		}
+
+		@Override
+		public void uploadFailed(FailedEvent event) {
+
+		}
+
+		@Override
+		public void updateProgress(long readBytes, long contentLength) {
+
+		}
+
+		@Override
+		public void uploadStarted(StartedEvent event) {
+
+		}
+	}
+
+	class CWBLoadAlignFromFileUploader implements Receiver, ProgressListener,
+			FailedListener, SucceededListener, StartedListener,
+			FinishedListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public OutputStream receiveUpload(String filename, String mimeType) {
+
+			File file = null;
+			FileOutputStream fos = null;
+
+			try {
+
+				file = new File(Prop.DIR_TMP + File.separator
+						+ Prop.FILENAME_TMP + Prop.FMT_RDF);
+				fos = new FileOutputStream(file);
+
+			} catch (FileNotFoundException e) {
+				Notification.show(Msg.get("notif.err.file.read.capt"),
+						MessageFormat.format(
+								Msg.get("notif.err.file.read.txt"),
+								file.getAbsolutePath()),
+						Notification.Type.ERROR_MESSAGE);
+				return null;
+			}
+
+			return fos;
+		}
+
+		@Override
+		public void uploadFinished(FinishedEvent event) {
+
+		}
+
+		@Override
+		public void uploadSucceeded(SucceededEvent event) {
+
+			File file = new File(Prop.DIR_TMP + File.separatorChar
+					+ Prop.FILENAME_TMP + Prop.FMT_RDF);
+
+			CWBAlignmentReader reader = new CWBAlignmentRDFReader();
+			CWBAlignment alignment = null;
+			try {
+				alignment = reader.read(file);
+			} catch (CWBAlignmentReaderException e) {
+				Notification.show(Msg.get("notif.err.nomen.read.capt"),
+						Msg.get("notif.err.nomen.read.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			}
+
+			// Update model
+			model.setAlignment(alignment);
+
+			// Notify
+			Notification.show(Msg.get("notif.info.load.done.capt"),
+					Msg.get("notif.info.load.done.txt"),
+					Notification.Type.HUMANIZED_MESSAGE);
+
+			// Close pop-up window
+			view.getLoadAlignFromFileWindow().close();
 
 		}
 
@@ -621,8 +846,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
-			WSDataModelFolksoProvider selectedWS = (WSDataModelFolksoProvider) view.getFolksoWSCombobox()
-					.getValue();
+			WSDataModelFolksoProvider selectedWS = (WSDataModelFolksoProvider) view
+					.getFolksoWSCombobox().getValue();
 
 			DataModelFolksoProviderWSClient client = null;
 			CWBDataModelFolkso folksonomy = null;
@@ -660,7 +885,7 @@ public class CWBController implements Serializable {
 		}
 
 	}
-	
+
 	class CWBLoadNomenButtonListener implements ClickListener {
 
 		private static final long serialVersionUID = 1L;
@@ -668,8 +893,8 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
-			WSDataModelNomenProvider selectedWS = (WSDataModelNomenProvider) view.getNomenWSCombobox()
-					.getValue();
+			WSDataModelNomenProvider selectedWS = (WSDataModelNomenProvider) view
+					.getNomenWSCombobox().getValue();
 
 			DataModelNomenProviderWSClient client = null;
 			CWBDataModelNomen nomen = null;
@@ -715,7 +940,7 @@ public class CWBController implements Serializable {
 		}
 
 	}
-	
+
 	class CWBNomenWSComboBoxListener implements ValueChangeListener {
 
 		private static final long serialVersionUID = 1L;
@@ -777,19 +1002,27 @@ public class CWBController implements Serializable {
 		@Override
 		public void buttonClick(ClickEvent event) {
 
-			CWBDataModelFolkso folkso = model.getFolksonomy();
 			CWBDataModelNomen nomen = model.getNomenclature();
+			CWBDataModelFolkso folkso = model.getFolksonomy();
 
-			CWBWriter writer = new CWBWriter();
+			CWBNomenWriter nomenWriter = new CWBNomenOWLWriter();
+			CWBFolksoWriter folksoWriter = new CWBFolksoOWLWriter();
 
-			File onto1 = new File(Prop.DIR_TMP + File.separatorChar
-					+ Prop.FILENAME_SOURCE_ONTO + Prop.FMT_OWL);
+			File nomenFile = null;
+			File folksoFile = null;
 
-			File onto2 = new File(Prop.DIR_TMP + File.separatorChar
-					+ Prop.FILENAME_TARGET_ONTO + Prop.FMT_OWL);
-
-			writer.writeDataModel(nomen, onto2);
-			writer.writeDataModel(folkso, onto1);
+			try {
+				nomenFile = nomenWriter.write(nomen);
+				folksoFile = folksoWriter.write(folkso);
+			} catch (CWBNomenWriterException e) {
+				Notification.show(Msg.get("notif.err.nomen.write.capt"),
+						Msg.get("notif.err.nomen.write.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			} catch (CWBFolksoWriterException e) {
+				Notification.show(Msg.get("notif.err.folkso.write.capt"),
+						Msg.get("notif.err.folkso.write.txt"),
+						Notification.Type.ERROR_MESSAGE);
+			}
 
 			// WikimatchOntologyMatcher matcher = new
 			// WikimatchOntologyMatcher();
@@ -799,7 +1032,7 @@ public class CWBController implements Serializable {
 
 			YamOntologyMatcher matcher = new YamOntologyMatcher();
 			Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
-					onto1.getAbsolutePath(), onto2.getAbsolutePath());
+					nomenFile.getAbsolutePath(), folksoFile.getAbsolutePath());
 
 			// matcher.printAlignment();
 			model.addEquivalences(equivalences);
@@ -821,7 +1054,7 @@ public class CWBController implements Serializable {
 		// TODO clean code !
 		public void valueChange(ValueChangeEvent event) {
 
-			Set<Item> items = (Set<Item>) event.getProperty().getValue();
+			Set<?> items = (Set<?>) event.getProperty().getValue();
 
 			model.removeAllInstancesFolkso();
 			model.removeAllSelectedEquivalences();
@@ -832,18 +1065,21 @@ public class CWBController implements Serializable {
 					CWBEquivalence equivalence = (CWBEquivalence) item;
 					model.addSelectedEquivalence(equivalence);
 
-					OverpassWSClient overpassWSClient = new OverpassWSClient();
-					BDTopoWSClient bdTopoWSClient = new BDTopoWSClient();
+					InstancesNomenProviderWSClient bdTopoWSClient = new BDTopoWSClient();
+					InstancesFolksoProviderWSClient overpassWSClient = new OverpassWSClient();
 
 					try {
-						model.addInstancesFolkso(overpassWSClient
-								.getInstancesFolkso(equivalence.getConcept1()
-										.getFragment().toString(),
-										model.getBBox()));
+
 						model.addInstancesNomen(bdTopoWSClient
-								.getNomenInstances(equivalence.getConcept2()
+								.getNomenInstances(equivalence.getConcept1()
 										.getFragment().toString(),
 										model.getBBox()));
+
+						model.addInstancesFolkso(overpassWSClient
+								.getInstancesFolkso(equivalence.getConcept2()
+										.getFragment().toString(),
+										model.getBBox()));
+
 					} catch (OverpassWSClientException e) {
 						Notification.show(
 								Msg.get("notif.err.ws.overpass.capt"),
@@ -851,9 +1087,14 @@ public class CWBController implements Serializable {
 								Notification.Type.ERROR_MESSAGE);
 						e.printStackTrace();
 					} catch (BDTopoWSClientException e) {
-						Notification.show(Msg.get("notif.err.ws.bdtopo.capt"),
-								Msg.get("notif.err.ws.bdtopo.txt") + e.getMessage(),
+						Notification.show(
+								Msg.get("notif.err.ws.bdtopo.capt"),
+								Msg.get("notif.err.ws.bdtopo.txt")
+										+ e.getMessage(),
 								Notification.Type.ERROR_MESSAGE);
+						e.printStackTrace();
+					} catch (WSClientException e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 

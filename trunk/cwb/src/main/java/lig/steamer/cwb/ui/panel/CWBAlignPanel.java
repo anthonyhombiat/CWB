@@ -1,5 +1,7 @@
 package lig.steamer.cwb.ui.panel;
 
+import java.text.MessageFormat;
+
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBEquivalence;
 
@@ -16,14 +18,15 @@ import com.vaadin.ui.VerticalLayout;
 public class CWBAlignPanel extends Panel {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private final Table table = new Table();
 	private final BeanItemContainer<CWBEquivalence> container = new BeanItemContainer<CWBEquivalence>(
 			CWBEquivalence.class);
 
 	public CWBAlignPanel() {
 
-		super("Equivalences");
+		super(MessageFormat.format(Msg
+				.get("align.capt"), 0));
 
 		container
 				.addNestedContainerProperty(Msg
@@ -66,9 +69,11 @@ public class CWBAlignPanel extends Panel {
 		table.setMultiSelect(true);
 		table.setMultiSelectMode(MultiSelectMode.SIMPLE);
 		table.setImmediate(true);
+		
 		table.addGeneratedColumn(
 				Msg.get("matching.results.table.col.select"),
 				new CWBCheckBoxColumnGenerator());
+		
 		table.setVisibleColumns(
 				Msg.get("matching.results.table.col.select"),
 				Msg.get("matching.results.table.col.concept1")
@@ -78,6 +83,10 @@ public class CWBAlignPanel extends Panel {
 						+ "."
 						+ Msg.get("matching.results.table.col.concept.property.fragment"),
 				Msg.get("matching.results.table.col.confidence"));
+		
+//		table.setSortContainerPropertyId(Msg
+//				.get("matching.results.table.col.confidence"));
+		
 		table.setColumnAlignments(Align.CENTER, Align.LEFT, Align.LEFT, Align.CENTER);
 		table.refreshRowCache();
 		
@@ -88,10 +97,6 @@ public class CWBAlignPanel extends Panel {
 		this.setContent(layout);
 		this.setSizeFull();
 
-	}
-
-	public void reset() {
-		table.removeAllItems();
 	}
 
 	class CWBCheckBoxColumnGenerator implements ColumnGenerator {
@@ -117,7 +122,7 @@ public class CWBAlignPanel extends Panel {
 	/**
 	 * @return the BeanContainer
 	 */
-	public BeanItemContainer<CWBEquivalence> getContainer() {
+	public BeanItemContainer<CWBEquivalence> getDataModelContainer() {
 		return container;
 	}
 

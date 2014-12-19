@@ -29,17 +29,18 @@ public class Prop {
 
 	public static final String FILENAME_CONFIG = "config.xml";
 	public static final String FILENAME_TMP = "tmp";
-	public static final String FILENAME_SOURCE_ONTO = "source";
-	public static final String FILENAME_TARGET_ONTO = "target";
-	public static final String FILENAME_ONTO_ALIGNMENT = "alignment";
+	public static final String FILENAME_NOMEN = "nomenclature";
+	public static final String FILENAME_FOLKSO = "folksonomy";
+	public static final String FILENAME_ALIGNMENT = "alignment";
 
 	public static final String FMT_OWL = ".owl";
+	public static final String FMT_RDF = ".rdf";
 	public static final String FMT_CWB = ".cwb";
 
 	public static final String CWB_NAMESPACE = "http://cwb.imag.fr";
 
 	public static final String DEFAULT_PROJECT_NAME = "cwb-project";
-	public static final String DEFAULT_CHARSET = "UTF_8";
+	public static final String DEFAULT_CHARSET = "UTF-8";
 	public static final String DEFAULT_ONTO_FMT = "OWL";
 	
 	public static final LeafletBBox DEFAULT_MAP_BBOX = new LeafletBBox(45.154121, 5.678540,

@@ -20,7 +20,9 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem loadFolksoFromFileMenuItem;
 	private final MenuItem loadNomenFromWSMenuItem;
 	private final MenuItem loadNomenFromFileMenuItem;
-	
+	private final MenuItem loadAlignFromWSMenuItem;
+	private final MenuItem loadAlignFromFileMenuItem;
+
 	private final MenuItem mapMenuItem;
 
 	private final MenuItem aboutMenuItem;
@@ -31,70 +33,70 @@ public class CWBMenuBar extends MenuBar {
 		super();
 
 		this.setWidth(100, Unit.PERCENTAGE);
-		
+
 		/*
 		 * File
 		 */
 
-		MenuItem fileItem = this.addItem(Msg.get("main.menu.file"),
-				null, null);
+		MenuItem fileItem = this.addItem(Msg.get("main.menu.file"), null, null);
 
-		openMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.open"), null);
-		
-		saveMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.save"), null);
-		
-		closeMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.close"), null);
-		
+		openMenuItem = fileItem.addItem(Msg.get("main.menu.file.open"), null);
+
+		saveMenuItem = fileItem.addItem(Msg.get("main.menu.file.save"), null);
+
+		closeMenuItem = fileItem.addItem(Msg.get("main.menu.file.close"), null);
+
 		fileItem.addSeparator();
 
-		logoutMenuItem = fileItem.addItem(
-				Msg.get("main.menu.file.logout"), null);
+		logoutMenuItem = fileItem.addItem(Msg.get("main.menu.file.logout"),
+				null);
 
 		/*
 		 * Edit
 		 */
 
-		MenuItem editItem = this.addItem(Msg.get("main.menu.edit"),
-				null, null);
+		MenuItem editItem = this.addItem(Msg.get("main.menu.edit"), null, null);
 
-		undoMenuItem = editItem.addItem(
-				Msg.get("main.menu.edit.undo"), null);
+		undoMenuItem = editItem.addItem(Msg.get("main.menu.edit.undo"), null);
 		undoMenuItem.setEnabled(false);
 
-		redoMenuItem = editItem.addItem(
-				Msg.get("main.menu.edit.redo"), null);
+		redoMenuItem = editItem.addItem(Msg.get("main.menu.edit.redo"), null);
 		redoMenuItem.setEnabled(false);
 
 		/*
 		 * Data
 		 */
 
-		MenuItem dataItem = this.addItem(Msg.get("main.menu.data"),
-				null);
+		MenuItem dataItem = this.addItem(Msg.get("main.menu.data"), null);
 
-		loadFolksoFromWSMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.folkso.ws"), null);
-		
-		loadFolksoFromFileMenuItem = dataItem.addItem(
-				Msg.get("main.menu.data.load.folkso.file"), null);
-		
-		dataItem.addSeparator();
-		
 		loadNomenFromWSMenuItem = dataItem.addItem(
 				Msg.get("main.menu.data.load.nomen.ws"), null);
 
 		loadNomenFromFileMenuItem = dataItem.addItem(
 				Msg.get("main.menu.data.load.nomen.file"), null);
 
+		dataItem.addSeparator();
+
+		loadFolksoFromWSMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.folkso.ws"), null);
+
+		loadFolksoFromFileMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.folkso.file"), null);
+
+		dataItem.addSeparator();
+
+		loadAlignFromWSMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.align.ws"), null);
+
+		loadAlignFromFileMenuItem = dataItem.addItem(
+				Msg.get("main.menu.data.load.align.file"), null);
+
 		/*
 		 * Indicators
 		 */
 
 		this.addItem(Msg.get("main.menu.indicators"), null);
-		
+
 		/*
 		 * Map
 		 */
@@ -106,25 +108,23 @@ public class CWBMenuBar extends MenuBar {
 		 */
 
 		MenuItem windowItem = this.addItem(Msg.get("main.menu.window"), null);
-		
-		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.capt"), null);
+
+		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.capt"),
+				null);
 		mapMenuItem.setCheckable(true);
 		mapMenuItem.setChecked(true);
-		
+
 		/*
 		 * Help
 		 */
 
-		MenuItem helpItem = this.addItem(Msg.get("main.menu.help"),
-				null, null);
+		MenuItem helpItem = this.addItem(Msg.get("main.menu.help"), null, null);
 
-		docMenuItem = helpItem.addItem(
-				Msg.get("main.menu.help.doc"), null);
-		
+		docMenuItem = helpItem.addItem(Msg.get("main.menu.help.doc"), null);
+
 		helpItem.addSeparator();
-		
-		aboutMenuItem = helpItem.addItem(
-				Msg.get("main.menu.help.about"), null);
+
+		aboutMenuItem = helpItem.addItem(Msg.get("main.menu.help.about"), null);
 	}
 
 	/**
@@ -140,28 +140,28 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getSaveMenuItem() {
 		return saveMenuItem;
 	}
-	
+
 	/**
 	 * @return the closeMenuItem
 	 */
 	public MenuItem getCloseMenuItem() {
 		return closeMenuItem;
 	}
-	
+
 	/**
 	 * @return the logoutMenuItem
 	 */
 	public MenuItem getLogoutMenuItem() {
 		return logoutMenuItem;
 	}
-	
+
 	/**
 	 * @return the docItem
 	 */
 	public MenuItem getDocMenuItem() {
 		return docMenuItem;
 	}
-	
+
 	/**
 	 * @return the aboutItem
 	 */
@@ -175,7 +175,7 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getLoadFolksoFromWSMenuItem() {
 		return loadFolksoFromWSMenuItem;
 	}
-	
+
 	/**
 	 * @return the loadFolksoFromFileMenuItem
 	 */
@@ -189,7 +189,7 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getLoadNomenFromWSMenuItem() {
 		return loadNomenFromWSMenuItem;
 	}
-	
+
 	/**
 	 * @return the loadNomenclatureMenuItem
 	 */
@@ -197,6 +197,20 @@ public class CWBMenuBar extends MenuBar {
 		return loadNomenFromFileMenuItem;
 	}
 	
+	/**
+	 * @return the loadAlignFromWSMenuItem
+	 */
+	public MenuItem getLoadAlignFromWSMenuItem() {
+		return loadAlignFromWSMenuItem;
+	}
+
+	/**
+	 * @return the loadAlignFromFileMenuItem
+	 */
+	public MenuItem getLoadAlignFromFileMenuItem() {
+		return loadAlignFromFileMenuItem;
+	}
+
 	/**
 	 * @return the redoMenuItem
 	 */
@@ -210,12 +224,12 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getUndoMenuItem() {
 		return undoMenuItem;
 	}
-	
+
 	/**
 	 * @return the mapMenuItem
 	 */
 	public MenuItem getMapMenuItem() {
 		return mapMenuItem;
 	}
-	
+
 }

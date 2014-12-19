@@ -1,20 +1,24 @@
 package lig.steamer.cwb.util.archive;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
  * Utility that zip or unzip files and directories.
- * http://www.journaldev.com/957/java-zip-example-to-zip-single-file-and-a-directory-recursively
+ * from http://stackoverflow.com/questions/981578/how-to-unzip-files-recursively-in-java
  */
 public class ZipUtility {
 
@@ -22,42 +26,68 @@ public class ZipUtility {
 
 	List<String> filesListInDir = new ArrayList<String>();
 	
-	public void unzip(String zipFilePath, String destDir) {
-        File dir = new File(destDir);
-        // create output directory if it doesn't exist
-        if(!dir.exists()) dir.mkdirs();
-        FileInputStream fis;
-        //buffer for read and write data to file
-        byte[] buffer = new byte[1024];
-        try {
-            fis = new FileInputStream(zipFilePath);
-            ZipInputStream zis = new ZipInputStream(fis);
-            ZipEntry ze = zis.getNextEntry();
-            while(ze != null){
-                String fileName = ze.getName();
-                File newFile = new File(destDir + File.separator + fileName);
-                System.out.println("Unzipping to "+newFile.getAbsolutePath());
-                //create directories for sub directories in zip
-                new File(newFile.getParent()).mkdirs();
-                FileOutputStream fos = new FileOutputStream(newFile);
-                int len;
-                while ((len = zis.read(buffer)) > 0) {
-                fos.write(buffer, 0, len);
-                }
-                fos.close();
-                //close this ZipEntry
-                zis.closeEntry();
-                ze = zis.getNextEntry();
-            }
-            //close last ZipEntry
-            zis.closeEntry();
-            zis.close();
-            fis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         
-    }
+	public void unzip(File source, File destination) throws ZipException, IOException {
+		
+	    System.out.println("Unzipping " + source.getName() + " to " + destination.getAbsolutePath() + "...");
+	    int BUFFER = 2048;
+
+	    ZipFile zip = new ZipFile(source);
+
+	    destination.getParentFile().mkdirs();
+	    Enumeration<? extends ZipEntry> zipFileEntries = zip.entries();
+
+	    // Process each entry
+	    while (zipFileEntries.hasMoreElements())
+	    {
+	        // grab a zip file entry
+	        ZipEntry entry = (ZipEntry) zipFileEntries.nextElement();
+	        String currentEntry = entry.getName();
+	        File destFile = new File(destination, currentEntry);
+	        //destFile = new File(newPath, destFile.getName());
+	        File destinationParent = destFile.getParentFile();
+
+	        // create the parent directory structure if needed
+	        destinationParent.mkdirs();
+
+	        if (!entry.isDirectory())
+	        {
+	            BufferedInputStream is = new BufferedInputStream(zip.getInputStream(entry));
+	            int currentByte;
+	            // establish buffer for writing file
+	            byte data[] = new byte[BUFFER];
+
+	            // write the current file to disk
+	            FileOutputStream fos = new FileOutputStream(destFile);
+	            BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER);
+
+	            // read and write until last byte is encountered
+	            while ((currentByte = is.read(data, 0, BUFFER)) != -1) {
+	                dest.write(data, 0, currentByte);
+	            }
+	            dest.close();
+	            fos.close();
+	            is.close();
+	        }else{
+	            //Create directory
+	            destFile.mkdirs();
+	        }
+
+	        if (currentEntry.endsWith(".zip"))
+	        {
+	            // found a zip file, try to open
+	        	unzip(destFile, destinationParent);
+	            if(!destFile.delete()){
+	                System.out.println("Could not delete zip");
+	            }
+	        }
+	    }
+	    zip.close();
+	    System.out.println("Done Unzipping: " + source.getName());
+	}
+	
+	public void unzip(String source, String destination) throws ZipException, IOException {
+		unzip(new File(source), new File(destination));
+	}
 
 	/**
 	 * This method zips the directory

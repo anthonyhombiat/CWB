@@ -3,6 +3,7 @@ package lig.steamer.cwb.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Observable;
 
 public class CWBModel extends Observable implements Serializable {
@@ -11,20 +12,17 @@ public class CWBModel extends Observable implements Serializable {
 
 	private CWBDataModelFolkso folksonomy;
 	private CWBDataModelNomen nomenclature;
-	
-	private Collection<CWBEquivalence> equivalences;
-	private Collection<CWBEquivalence> selectedEquivalences;
-	
+
+	private CWBAlignment alignment;
+
 	private Collection<CWBInstanceFolkso> instancesFolkso;
 	private Collection<CWBInstanceNomen> instancesNomen;
-	
+
 	private CWBBBox bbox;
 
 	private Boolean isReadyForMatching;
-	
+
 	public CWBModel() {
-		equivalences = new ArrayList<CWBEquivalence>();
-		selectedEquivalences = new ArrayList<CWBEquivalence>();
 		instancesFolkso = new ArrayList<CWBInstanceFolkso>();
 		instancesNomen = new ArrayList<CWBInstanceNomen>();
 		isReadyForMatching = false;
@@ -44,7 +42,7 @@ public class CWBModel extends Observable implements Serializable {
 		this.folksonomy = folksonomy;
 		setChanged();
 		notifyObservers(folksonomy);
-		if(this.folksonomy != null && this.nomenclature != null){
+		if (this.folksonomy != null && this.nomenclature != null) {
 			setReadyForMatching(true);
 		}
 	}
@@ -63,87 +61,13 @@ public class CWBModel extends Observable implements Serializable {
 		this.nomenclature = nomenclature;
 		setChanged();
 		notifyObservers(nomenclature);
-		if(this.folksonomy != null && this.nomenclature != null){
+		if (this.folksonomy != null && this.nomenclature != null) {
 			setReadyForMatching(true);
 		}
 	}
-	
-	/**
-	 * @return the equivalences
-	 */
-	public Collection<CWBEquivalence> getEquivalences() {
-		return equivalences;
-	}
-	
-	private boolean addEquivalence(CWBEquivalence equivalence) {
-		if (!equivalences.contains(equivalence)) {
-			equivalences.add(equivalence);
-			return true;
-		}
-		return false;
-	}
 
-	private boolean removeEquivalence(CWBEquivalence equivalence) {
-		if (equivalences.contains(equivalence)) {
-			equivalences.remove(equivalence);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean addEquivalences(Collection<CWBEquivalence> equivalences) {
-		boolean hasChanged = false;
-		for (CWBEquivalence equivalence : equivalences) {
-			if (addEquivalence(equivalence)) {
-				hasChanged = true;
-			}
-		}
-		setChanged();
-		notifyObservers(equivalences);
-		return hasChanged;
-	}
-
-	public boolean removeEquivalences(Collection<CWBEquivalence> equivalences) {
-		boolean hasChanged = false;
-		for (CWBEquivalence equivalence : equivalences) {
-			if (removeEquivalence(equivalence)) {
-				hasChanged = true;
-			}
-		}
-		setChanged();
-		notifyObservers(equivalences);
-		return hasChanged;
-	}
-	
-	/**
-	 * @return the equivalences
-	 */
-	public Collection<CWBEquivalence> getSelectedEquivalences() {
-		return selectedEquivalences;
-	}
-	
-	public boolean addSelectedEquivalence(CWBEquivalence selectedEquivalence) {
-		if (!selectedEquivalences.contains(selectedEquivalence)) {
-			selectedEquivalences.add(selectedEquivalence);
-			return true;
-		}
-		return false;
-	}
-
-	public boolean removeSelectedEquivalence(CWBEquivalence selectedEquivalence) {
-		if (selectedEquivalences.contains(selectedEquivalence)) {
-			selectedEquivalences.remove(selectedEquivalence);
-			return true;
-		}
-		return false;
-	}
-	
-	public void removeAllSelectedEquivalences(){
-		this.selectedEquivalences = new ArrayList<CWBEquivalence>();
-	}
-	
-	public boolean isEmpty(){
-		return folksonomy != null || nomenclature != null;
+	public boolean isEmpty() {
+		return folksonomy == null && nomenclature == null && alignment == null;
 	}
 
 	/**
@@ -152,7 +76,7 @@ public class CWBModel extends Observable implements Serializable {
 	public Collection<CWBInstanceFolkso> getInstancesFolkso() {
 		return instancesFolkso;
 	}
-	
+
 	private boolean addInstanceFolkso(CWBInstanceFolkso instanceFolkso) {
 		if (!instancesFolkso.contains(instanceFolkso)) {
 			instancesFolkso.add(instanceFolkso);
@@ -164,7 +88,8 @@ public class CWBModel extends Observable implements Serializable {
 	/**
 	 * @param instancesFolkso the instancesFolkso to set
 	 */
-	public boolean addInstancesFolkso(Collection<CWBInstanceFolkso> instancesFolkso) {
+	public boolean addInstancesFolkso(
+			Collection<CWBInstanceFolkso> instancesFolkso) {
 		boolean hasChanged = false;
 		for (CWBInstanceFolkso instanceFolkso : instancesFolkso) {
 			if (addInstanceFolkso(instanceFolkso)) {
@@ -175,8 +100,8 @@ public class CWBModel extends Observable implements Serializable {
 		notifyObservers(instancesFolkso);
 		return hasChanged;
 	}
-	
-	public void removeAllInstancesFolkso(){
+
+	public void removeAllInstancesFolkso() {
 		this.instancesFolkso = new ArrayList<CWBInstanceFolkso>();
 		setChanged();
 		notifyObservers(this.instancesFolkso);
@@ -189,7 +114,6 @@ public class CWBModel extends Observable implements Serializable {
 		return instancesNomen;
 	}
 
-	
 	private boolean addInstanceNomen(CWBInstanceNomen instanceNomen) {
 		if (!instancesNomen.contains(instanceNomen)) {
 			instancesNomen.add(instanceNomen);
@@ -197,7 +121,7 @@ public class CWBModel extends Observable implements Serializable {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @param instancesNomen the instancesNomen to set
 	 */
@@ -212,8 +136,8 @@ public class CWBModel extends Observable implements Serializable {
 		notifyObservers(instancesNomen);
 		return hasChanged;
 	}
-	
-	public void removeAllInstancesNomen(){
+
+	public void removeAllInstancesNomen() {
 		this.instancesNomen = new ArrayList<CWBInstanceNomen>();
 		setChanged();
 		notifyObservers(instancesNomen);
@@ -247,6 +171,63 @@ public class CWBModel extends Observable implements Serializable {
 		setChanged();
 		notifyObservers(isReadyForMatching);
 		this.isReadyForMatching = isReadyForMatching;
+	}
+
+	/**
+	 * @return the alignment
+	 */
+	public CWBAlignment getAlignment() {
+		return alignment;
+	}
+
+	/**
+	 * @param alignment the alignment to set
+	 */
+	public void setAlignment(CWBAlignment alignment) {
+		this.alignment = alignment;
+		setChanged();
+		notifyObservers(alignment);
+	}
+
+	public Collection<CWBEquivalence> getSelectedEquivalences() {
+		if (alignment == null) {
+			return new HashSet<CWBEquivalence>();
+		}
+		return alignment.getSelectedEquivalences();
+	}
+
+	public boolean addEquivalences(Collection<CWBEquivalence> equivalences) {
+		if (alignment != null) {
+			boolean hasChanged = alignment.addEquivalences(equivalences);
+			setChanged();
+			notifyObservers(alignment.getEquivalences());
+			return hasChanged;
+		}
+		return false;
+	}
+
+	public boolean removeEquivalences(Collection<CWBEquivalence> equivalences) {
+		if (alignment != null) {
+			boolean hasChanged = alignment.removeEquivalences(equivalences);
+			setChanged();
+			notifyObservers(alignment.getEquivalences());
+			return hasChanged;
+		}
+		return false;
+	}
+
+	public boolean removeAllSelectedEquivalences() {
+		if (alignment != null) {
+			return alignment.removeAllSelectedEquivalences();
+		}
+		return false;
+	}
+
+	public boolean addSelectedEquivalence(CWBEquivalence equivalence) {
+		if (alignment != null) {
+			return alignment.selectedEquivalence(equivalence);
+		}
+		return false;
 	}
 
 }

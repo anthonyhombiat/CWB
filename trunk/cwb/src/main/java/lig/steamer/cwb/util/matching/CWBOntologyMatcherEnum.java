@@ -1,6 +1,6 @@
 package lig.steamer.cwb.util.matching;
 
-public enum OntologyMatcher {
+public enum CWBOntologyMatcherEnum {
 
 	RIMOM, WIKIMATCH, YAM;
 	

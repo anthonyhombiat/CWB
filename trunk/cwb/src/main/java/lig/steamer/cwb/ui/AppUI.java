@@ -1,5 +1,6 @@
 package lig.steamer.cwb.ui;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
@@ -8,9 +9,9 @@ import javax.servlet.annotation.WebServlet;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
+import lig.steamer.cwb.model.CWBAlignment;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
-import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
 import lig.steamer.cwb.model.CWBInstanceNomen;
 import lig.steamer.cwb.model.CWBModel;
@@ -19,6 +20,8 @@ import lig.steamer.cwb.ui.menu.CWBMenuBar;
 import lig.steamer.cwb.ui.panel.CWBAlignPanel;
 import lig.steamer.cwb.ui.panel.CWBFolksoPanel;
 import lig.steamer.cwb.ui.panel.CWBNomenPanel;
+import lig.steamer.cwb.ui.window.CWBLoadAlignFromFileWindow;
+import lig.steamer.cwb.ui.window.CWBLoadAlignFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBLoadFolksoFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadFolksoFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBLoadNomenFromFileWindow;
@@ -63,10 +66,12 @@ public class AppUI extends UI {
 	private final CWBMenuBar menuBar = new CWBMenuBar();
 
 	private final CWBOpenProjectWindow openProjectWindow = new CWBOpenProjectWindow();
-	private final CWBLoadFolksoFromWSWindow loadFolksoFromWSWindow = new CWBLoadFolksoFromWSWindow();
 	private final CWBLoadNomenFromFileWindow loadNomenFromFileWindow = new CWBLoadNomenFromFileWindow();
 	private final CWBLoadNomenFromWSWindow loadNomenFromWSWindow = new CWBLoadNomenFromWSWindow();
 	private final CWBLoadFolksoFromFileWindow loadFolksoFromFileWindow = new CWBLoadFolksoFromFileWindow();
+	private final CWBLoadFolksoFromWSWindow loadFolksoFromWSWindow = new CWBLoadFolksoFromWSWindow();
+	private final CWBLoadAlignFromFileWindow loadAlignFromFileWindow = new CWBLoadAlignFromFileWindow();
+	private final CWBLoadAlignFromWSWindow loadAlignFromWSWindow = new CWBLoadAlignFromWSWindow();
 
 	private final CWBFolksoPanel folksoPanel = new CWBFolksoPanel();
 	private final CWBNomenPanel nomenPanel = new CWBNomenPanel();
@@ -96,8 +101,8 @@ public class AppUI extends UI {
 		absoluteLayout.addComponent(mainTitle, "right: 2%; top: -3px;");
 
 		HorizontalLayout horizontalLayout = new HorizontalLayout();
-		horizontalLayout.addComponent(folksoPanel);
 		horizontalLayout.addComponent(nomenPanel);
+		horizontalLayout.addComponent(folksoPanel);
 		horizontalLayout.setSpacing(true);
 		horizontalLayout.setSizeFull();
 
@@ -144,19 +149,13 @@ public class AppUI extends UI {
 		model = new CWBModel();
 		model.addObserver(new CWBFolksoObserver());
 		model.addObserver(new CWBNomenObserver());
-		model.addObserver(new CWBEquivalencesObserver());
+		model.addObserver(new CWBAlignmentObserver());
 		model.addObserver(new CWBInstancesFolksoObserver());
 		model.addObserver(new CWBInstancesNomenObserver());
 		model.addObserver(new CWBIsReadyForMatchingObserver());
 
 		new CWBController(model, this);
 
-	}
-
-	public void clear() {
-		nomenPanel.clear();
-		folksoPanel.clear();
-		map.clear();
 	}
 
 	/**********************************/
@@ -171,20 +170,36 @@ public class AppUI extends UI {
 		return openProjectWindow;
 	}
 
+	public Window getLoadFolksoFromFileWindow() {
+		return loadFolksoFromFileWindow;
+	}
+
+	public Window getLoadFolksoFromWSWindow() {
+		return loadFolksoFromWSWindow;
+	}
+
+	public Window getLoadNomenFromFileWindow() {
+		return loadNomenFromFileWindow;
+	}
+
 	public Window getLoadNomenFromWSWindow() {
 		return loadNomenFromWSWindow;
 	}
-	
+
+	public Window getLoadAlignFromFileWindow() {
+		return loadAlignFromFileWindow;
+	}
+
+	public Window getLoadAlignFromWSWindow() {
+		return loadAlignFromWSWindow;
+	}
+
 	public ComboBox getNomenWSCombobox() {
 		return loadNomenFromWSWindow.getComboBox();
 	}
 
 	public Button getLoadNomenFromWSButton() {
 		return loadNomenFromWSWindow.getLoadButton();
-	}
-	
-	public Window getLoadFolksoFromWSWindow() {
-		return loadFolksoFromWSWindow;
 	}
 
 	public ComboBox getFolksoWSCombobox() {
@@ -193,14 +208,6 @@ public class AppUI extends UI {
 
 	public Button getLoadFolksoFromWSButton() {
 		return loadFolksoFromWSWindow.getLoadButton();
-	}
-
-	public CWBLoadFolksoFromFileWindow getLoadFolksoFromFileWindow() {
-		return loadFolksoFromFileWindow;
-	}
-
-	public CWBLoadNomenFromFileWindow getLoadNomenFromFileWindow() {
-		return loadNomenFromFileWindow;
 	}
 
 	public CWBNomenPanel getNomenPanel() {
@@ -226,7 +233,7 @@ public class AppUI extends UI {
 	public void addLoadFolksoFromWSWindowButtonListener(ClickListener listener) {
 		loadFolksoFromWSWindow.getLoadButton().addClickListener(listener);
 	}
-	
+
 	public void addLoadNomenFromWSWindowButtonListener(ClickListener listener) {
 		loadNomenFromWSWindow.getLoadButton().addClickListener(listener);
 	}
@@ -262,7 +269,11 @@ public class AppUI extends UI {
 	public void addLoadFolksoFromFileMenuItemCommand(Command command) {
 		menuBar.getLoadFolksoFromFileMenuItem().setCommand(command);
 	}
-	
+
+	public void addLoadAlignFromWSMenuItemCommand(Command command) {
+		menuBar.getLoadAlignFromWSMenuItem().setCommand(command);
+	}
+
 	public void addLoadNomenFromWSMenuItemCommand(Command command) {
 		menuBar.getLoadNomenFromWSMenuItem().setCommand(command);
 	}
@@ -271,25 +282,12 @@ public class AppUI extends UI {
 		menuBar.getLoadNomenFromFileMenuItem().setCommand(command);
 	}
 
-	public void addLoadFolksoFromWSButtonListener(ClickListener listener) {
-		folksoPanel.getLoadFromWSButton().addClickListener(listener);
+	public void addLoadAlignFromFileMenuItemCommand(Command command) {
+		menuBar.getLoadAlignFromFileMenuItem().setCommand(command);
 	}
 
-	public void addLoadFolksoFromFileButtonListener(ClickListener listener) {
-		folksoPanel.getLoadFromFileButton().addClickListener(listener);
-	}
-
-	public void addLoadNomenFromFileButtonListener(ClickListener listener) {
-		nomenPanel.getLoadFromFileButton().addClickListener(listener);
-	}
-	
-	public void addLoadNomenFromWSButtonListener(ClickListener listener) {
-		nomenPanel.getLoadFromWSButton().addClickListener(listener);
-	}
-	
 	public void addNomenWSComboBoxListener(ValueChangeListener listener) {
-		loadNomenFromWSWindow.getComboBox().addValueChangeListener(
-				listener);
+		loadNomenFromWSWindow.getComboBox().addValueChangeListener(listener);
 	}
 
 	public void addMapMenuItemCommand(Command command) {
@@ -297,8 +295,7 @@ public class AppUI extends UI {
 	}
 
 	public void addFolksoWSComboBoxListener(ValueChangeListener listener) {
-		loadFolksoFromWSWindow.getComboBox().addValueChangeListener(
-				listener);
+		loadFolksoFromWSWindow.getComboBox().addValueChangeListener(listener);
 	}
 
 	public void addOpenProjectUploadReceiver(Receiver receiver) {
@@ -392,6 +389,39 @@ public class AppUI extends UI {
 				listener);
 	}
 
+	public void addLoadAlignFromFileUploadReceiver(Receiver receiver) {
+		loadAlignFromFileWindow.getUploadComponent().setReceiver(receiver);
+	}
+
+	public void addLoadAlignFromFileUploadSucceededListener(
+			SucceededListener listener) {
+		loadAlignFromFileWindow.getUploadComponent().addSucceededListener(
+				listener);
+	}
+
+	public void addLoadAlignFromFileUploadFailedListener(FailedListener listener) {
+		loadAlignFromFileWindow.getUploadComponent()
+				.addFailedListener(listener);
+	}
+
+	public void addLoadAlignFromFileUploadProgressListener(
+			ProgressListener listener) {
+		loadAlignFromFileWindow.getUploadComponent().addProgressListener(
+				listener);
+	}
+
+	public void addLoadAlignFromFileUploadFinishedListener(
+			FinishedListener listener) {
+		loadAlignFromFileWindow.getUploadComponent().addFinishedListener(
+				listener);
+	}
+
+	public void addLoadAlignFromFileUploadStartedListener(
+			StartedListener listener) {
+		loadAlignFromFileWindow.getUploadComponent().addStartedListener(
+				listener);
+	}
+
 	public void addMatchButtonListener(ClickListener listener) {
 		matchButton.addClickListener(listener);
 	}
@@ -421,8 +451,17 @@ public class AppUI extends UI {
 		@Override
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataModelFolkso) {
-				CWBDataModelFolkso folkso = (CWBDataModelFolkso) arg;
-				folksoPanel.setFolkso(folkso);
+				if (arg != null) {
+					System.out.println("folkso changed !");
+					CWBDataModelFolkso folkso = (CWBDataModelFolkso) arg;
+					folksoPanel.getDataModelContainer().addAll(
+							folkso.getConcepts());
+					folksoPanel.getTable().sort();
+					folksoPanel.getTable().refreshRowCache();
+					folksoPanel.setCaption(MessageFormat.format(Msg
+							.get("folkso.capt"), folkso.getConcepts().size(),
+							folkso.getNamespace().toString()));
+				}
 			}
 		}
 
@@ -433,34 +472,39 @@ public class AppUI extends UI {
 		@Override
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataModelNomen) {
-				CWBDataModelNomen nomen = (CWBDataModelNomen) arg;
-				nomenPanel.setNomen(nomen);
+				if (arg != null) {
+					System.out.println("nomen changed !");
+					CWBDataModelNomen nomen = (CWBDataModelNomen) arg;
+					nomenPanel.getDataModelContainer().addAll(
+							nomen.getConcepts());
+					nomenPanel.getTable().sort();
+					nomenPanel.getTable().refreshRowCache();
+					nomenPanel.setCaption(MessageFormat.format(
+							Msg.get("nomen.capt"), nomen.getConcepts().size(),
+							nomen.getNamespace().toString()));
+				}
 			}
 		}
 
 	}
 
-	class CWBEquivalencesObserver implements Observer {
+	class CWBAlignmentObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
-			if (arg instanceof Collection<?>) {
-				Collection<?> collec = (Collection<?>) arg;
-				if (collec.size() > 0) {
-					boolean isEquivalences = true;
-					for (Object obj : collec) {
-						if (!(obj instanceof CWBEquivalence)) {
-							isEquivalences = false;
-							break;
-						}
-					}
-					if (isEquivalences) {
-						alignPanel.getTable().setEnabled(true);
-						alignPanel.getContainer().removeAllItems();
-						alignPanel.getContainer().addAll(
-								(Collection<CWBEquivalence>) collec);
-						alignPanel.getTable().refreshRowCache();
-					}
+			if (arg instanceof CWBAlignment) {
+				if (arg != null) {
+					CWBAlignment align = (CWBAlignment) arg;
+					alignPanel.getTable().setEnabled(true);
+					alignPanel.getDataModelContainer().removeAllItems();
+					alignPanel.getDataModelContainer().addAll(
+							align.getEquivalences());
+					alignPanel.getTable().refreshRowCache();
+					alignPanel.getTable().sort();
+					alignPanel
+							.setCaption(MessageFormat.format(Msg
+									.get("align.capt"), align.getEquivalences()
+									.size()));
 				}
 			}
 		}
@@ -471,9 +515,10 @@ public class AppUI extends UI {
 
 		@Override
 		public void update(Observable o, Object arg) {
+			System.out.println("instances folkso changed");
 			if (arg instanceof Collection<?>) {
 				Collection<?> collec = (Collection<?>) arg;
-				
+				System.out.println("instances folkso are collection");
 				boolean isInstancesFolkso = true;
 
 				for (Object obj : collec) {
@@ -484,10 +529,14 @@ public class AppUI extends UI {
 				}
 
 				if (isInstancesFolkso) {
+					System.out
+							.println("instances nomen are instances of folkso");
 					map.getClusterFolkso().removeAllComponents();
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceFolkso) {
 							CWBInstanceFolkso instance = (CWBInstanceFolkso) obj;
+							System.out.println("instance folkso: "
+									+ instance.getLabel());
 							map.addMarkerFolkso(instance);
 						}
 					}
@@ -501,7 +550,9 @@ public class AppUI extends UI {
 
 		@Override
 		public void update(Observable o, Object arg) {
+			System.out.println("instances nomen changed");
 			if (arg instanceof Collection<?>) {
+				System.out.println("instances nomen are collection");
 				Collection<?> collec = (Collection<?>) arg;
 				boolean isInstancesNomen = true;
 				for (Object obj : collec) {
@@ -511,10 +562,14 @@ public class AppUI extends UI {
 					}
 				}
 				if (isInstancesNomen) {
+					System.out
+							.println("instances nomen are instances of nomen");
 					map.getClusterNomen().removeAllComponents();
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceNomen) {
 							CWBInstanceNomen instance = (CWBInstanceNomen) obj;
+							System.out.println("instance nomen: "
+									+ instance.getLabel());
 							map.addMarkerNomen(instance);
 						}
 					}

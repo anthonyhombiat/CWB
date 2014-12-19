@@ -21,7 +21,7 @@ import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.util.matching.CWBOntologyAlignmentVisitor;
 import lig.steamer.cwb.util.matching.CWBOntologyMatcher;
-import lig.steamer.cwb.util.matching.OntologyFormat;
+import lig.steamer.cwb.util.matching.CWBOntologyFormatEnum;
 
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
@@ -33,10 +33,14 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
+
+
+import de.tudarmstadt.ke.sw.matching.wikimatch.matcher.OaeiWikiMatch;
 //import de.tudarmstadt.ke.sw.matching.wikimatch.matcher.OaeiWikiMatch;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 // Alignment API implementation classes
 import fr.inrialpes.exmo.align.impl.renderer.OWLAxiomsRendererVisitor;
+import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 
 /**
  * @author Anthony Hombiat Ontology matcher that provides methods to generate
@@ -53,14 +57,37 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 		alignment = new WikimatchOntologyAlignment();
 	}
 
+	@Override
+	public Collection<CWBEquivalence> getEquivalences(String sourceURI,
+			String targetURI) {
+
+		LOGGER.log(Level.INFO, "Matching " + sourceURI + " with " + targetURI
+				+ "...");
+		
+		// workaround URI bug
+		File f1 = new File(sourceURI);
+		File f2 = new File(targetURI);
+		
+		match(f1.toURI(), f2.toURI());
+
+		CWBOntologyAlignmentVisitor visitor = new CWBOntologyAlignmentVisitor();
+		try {
+			alignment.accept(visitor);
+		} catch (AlignmentException e) {
+			e.printStackTrace();
+		}
+
+		LOGGER.log(Level.INFO, "Matching done.");
+		
+		return visitor.getEquivalences();
+	}
+	
 	/**
 	 * Matches the two ontologies referenced by the gievn URIs.
 	 * @param ontologyUri1, the first ontology URI
 	 * @param ontologyUri2, the second ontology URI
 	 */
 	public void match(URI ontologyUri1, URI ontologyUri2) {
-
-		LOGGER.log(Level.INFO, "Matching the given ontologies...");
 
 		URI onto1 = ontologyUri1;
 		URI onto2 = ontologyUri2;
@@ -69,8 +96,6 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 			// Run alignment
 			alignment.init(onto1, onto2);
 			alignment.align((Alignment) null, new Properties());
-
-			LOGGER.log(Level.INFO, "Matching done.");
 
 		} catch (AlignmentException e) {
 			e.printStackTrace();
@@ -103,23 +128,22 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 	public void printAlignment(String outputFilename, String outputFileFormat,
 			String outputFileCharset) {
 
-		String absolutePath = Prop.DIR_OUTPUT + File.separatorChar
-				+ Prop.FILENAME_ONTO_ALIGNMENT
-				+ Prop.FMT_OWL;
-
-		LOGGER.log(Level.INFO, "Printing alignment to " + absolutePath + "...");
+		LOGGER.log(Level.INFO, "Printing alignment to " + outputFilename + "...");
 
 		try {
 
 			PrintWriter writer = new PrintWriter(new BufferedWriter(
-					new OutputStreamWriter(new FileOutputStream(absolutePath),
+					new OutputStreamWriter(new FileOutputStream(outputFilename),
 							outputFileCharset)), true);
 
 			// Selecting the right renderer
 			AlignmentVisitor renderer = null;
-			switch (OntologyFormat.valueOf(outputFileFormat)) {
+			switch (CWBOntologyFormatEnum.valueOf(outputFileFormat)) {
 			case OWL:
 				renderer = new OWLAxiomsRendererVisitor(writer);
+				break;
+			case RDF:
+				renderer = new RDFRendererVisitor(writer);
 				break;
 			default:
 				writer.close();
@@ -142,7 +166,7 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 			e.printStackTrace();
 		}
 
-		LOGGER.log(Level.INFO, "Alignment printed to " + absolutePath + ".");
+		LOGGER.log(Level.INFO, "Alignment printed to " + outputFilename + ".");
 
 	}
 
@@ -179,22 +203,6 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 		this.alignment = alignment;
 	}
 
-	@Override
-	public Collection<CWBEquivalence> getEquivalences(String sourceURI,
-			String targetURI) {
-
-		match(sourceURI, targetURI);
-
-		CWBOntologyAlignmentVisitor visitor = new CWBOntologyAlignmentVisitor();
-		try {
-			alignment.accept(visitor);
-		} catch (AlignmentException e) {
-			e.printStackTrace();
-		}
-
-		return visitor.getEquivalences();
-	}
-
 	private class WikimatchOntologyAlignment extends URIAlignment implements
 			AlignmentProcess {
 
@@ -219,26 +227,26 @@ public class WikimatchOntologyMatcher implements CWBOntologyMatcher {
 					.createOntologyModel(OntModelSpec.OWL_MEM);
 			onto2.read(getOntology2URI().toString());
 
-//			OaeiWikiMatch matcher = new OaeiWikiMatch();
-//			Alignment result = matcher.align(onto1, onto2, new URIAlignment());
-//
-//			Enumeration<Cell> cells = result.getElements();
-//			while (cells.hasMoreElements()) {
-//
-//				Cell c = cells.nextElement();
-//				this.addAlignCell(c.getObject1(), c.getObject2(), c
-//						.getRelation().getRelation().toString(),
-//						c.getStrength());
-//
-//				LOGGER.log(Level.INFO, c.getObject1AsURI().getFragment()
-//						.toString()
-//						+ " "
-//						+ c.getRelation().getRelation()
-//						+ " "
-//						+ c.getObject2AsURI().getFragment().toString()
-//						+ " ("
-//						+ String.format("%.2f", c.getStrength()) + ") ");
-//			}
+			OaeiWikiMatch matcher = new OaeiWikiMatch();
+			Alignment result = matcher.align(onto1, onto2, new URIAlignment());
+
+			Enumeration<Cell> cells = result.getElements();
+			while (cells.hasMoreElements()) {
+
+				Cell c = cells.nextElement();
+				this.addAlignCell(c.getObject1(), c.getObject2(), c
+						.getRelation().getRelation().toString(),
+						c.getStrength());
+
+				LOGGER.log(Level.INFO, c.getObject1AsURI().getFragment()
+						.toString()
+						+ " "
+						+ c.getRelation().getRelation()
+						+ " "
+						+ c.getObject2AsURI().getFragment().toString()
+						+ " ("
+						+ String.format("%.2f", c.getStrength()) + ") ");
+			}
 
 		}
 	}

@@ -1,4 +1,4 @@
-package lig.steamer.cwb.io.write;
+package lig.steamer.cwb.io.write.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 import javax.xml.bind.DatatypeConverter;
 
+import lig.steamer.cwb.io.write.CWBDataModelVisitor;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModel;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
@@ -42,10 +43,10 @@ import org.semanticweb.owlapi.vocab.OWL2Datatype;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat;
 
-public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
+public class CWBDataModelOWLRenderer implements CWBDataModelVisitor {
 
 	private static Logger LOGGER = Logger
-			.getLogger(CWBDataModelOwlRenderer.class.getName());
+			.getLogger(CWBDataModelOWLRenderer.class.getName());
 
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
@@ -54,7 +55,7 @@ public class CWBDataModelOwlRenderer implements CWBDataModelVisitor {
 
 	private IRI iri;
 
-	public CWBDataModelOwlRenderer(IRI iri) {
+	public CWBDataModelOWLRenderer(IRI iri) {
 
 		this.iri = iri;
 		this.manager = OWLManager.createOWLOntologyManager();

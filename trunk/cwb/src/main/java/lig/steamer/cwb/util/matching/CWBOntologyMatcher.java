@@ -11,13 +11,15 @@ import lig.steamer.cwb.model.CWBEquivalence;
  */
 public interface CWBOntologyMatcher {
 
-
 	/**
-	 * Returns the collection of equivalences between the source and the target ontologies
+	 * Returns the collection of equivalences between the source and the target
+	 * ontologies
 	 * @param sourceURI, the source ontology URI
 	 * @param targetURI, the target ontology URI
-	 * @return the collection of equivalences between the source and the target ontologies
+	 * @return the collection of equivalences between the source and the target
+	 * ontologies
 	 */
-	public Collection<CWBEquivalence> getEquivalences(String sourceURI, String targetURI);
-	
+	public Collection<CWBEquivalence> getEquivalences(String sourceURI,
+			String targetURI);
+
 }

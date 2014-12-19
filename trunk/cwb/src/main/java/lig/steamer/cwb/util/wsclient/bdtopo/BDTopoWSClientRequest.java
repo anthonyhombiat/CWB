@@ -98,13 +98,6 @@ public class BDTopoWSClientRequest implements WSClientRequest {
 
 	}
 
-	/**
-	 * @return the url
-	 */
-	public URL getUrl() {
-		return url;
-	}
-
 	private static String buildOGCFilter(String property, String value,
 			CWBBBox bbox) {
 		String filter = "<ogc:Filter xmlns:ogc='http://www.opengis.net/ogc' xmlns:gml='http://www.opengis.net/gml'><ogc:And>";
@@ -126,6 +119,13 @@ public class BDTopoWSClientRequest implements WSClientRequest {
 				+ "'><gml:coordinates>" + bbox.getSouth() + ","
 				+ bbox.getWest() + " " + bbox.getNorth() + "," + bbox.getEast()
 				+ "</gml:coordinates></gml:Box></ogc:BBOX>";
+	}
+	
+	/**
+	 * @Override
+	 */
+	public URL getUrl() {
+		return url;
 	}
 
 }
