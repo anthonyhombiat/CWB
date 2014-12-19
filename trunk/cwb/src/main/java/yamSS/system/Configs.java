@@ -5,8 +5,15 @@ import java.io.File;
 import lig.steamer.cwb.Prop;
 
 public class Configs {
-	public static String BASEDIR = Prop.DIR_CLASSES + File.separatorChar
-			+ Prop.PACK_YAM_RESOURCES + File.separatorChar;
+	
+	/**
+	 * MODIFS ANTHONY 13/10/2014 !!!
+	 */
+	public static String BASEDIR = "D:\\anthony_docs\\workspace_kepler\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\cwb\\WEB-INF\\classes"+
+			File.separatorChar + "yam" + File.separatorChar + "resources" + File.separatorChar;
+	 
+//	public static String BASEDIR = Prop.DIR_CLASSES + File.separatorChar
+//			+ Prop.PACK_YAM_RESOURCES + File.separatorChar;
 
 	public static boolean RUNFAST = false;
 	public static boolean USING_ML = false;
@@ -15,8 +22,8 @@ public class Configs {
 
 	public static boolean USING_INFERENCE_IN_SF = true;
 
-	public static double LOW_INST_THRESHOLD = 0.3;
-	public static double HIGH_INST_THRESHOLD = 0.85;
+	public static double LOW_INST_THRESHOLD = 0.3; // default: 0.3
+	public static double HIGH_INST_THRESHOLD = 0.85; // default: 0.85
 
 	public static String EQUIVALENT = "=";
 	public static String SUBSUMPTION = "<";
@@ -159,24 +166,24 @@ public class Configs {
 
 	// special similarity score
 	public static float UN_MATCHED = 0.0f;
-	public static float MATCHED = 1.0f;
+	public static float MATCHED = 1.0f; // default: 1.0f
 	public static float UN_KNOWN = -Float.MAX_VALUE;
-	public static float AVERAGE = 0.5f;
+	public static float AVERAGE = 0.5f; // default: 0.5f
 
 	public static int NOT_IS_A = Integer.MAX_VALUE;
 
 	// threshold
-	public static float NAME_THRESHOLD = 0.85f;
-	public static float SOFT_THRESHOLD = 0.8f;
-	public static float LABEL_THRESHOLD = 0.8f;
-	public static float VDOC_THRESHOLD = 0.7f;
-	public static float COMMENT_THRESHOLD = 0.7f;
+	public static float NAME_THRESHOLD = 0.85f; // default: 0.85
+	public static float SOFT_THRESHOLD = 0.8f; // default: 0.8
+	public static float LABEL_THRESHOLD = 0.8f; // default: 0.8
+	public static float VDOC_THRESHOLD = 0.7f; // default: 0.7
+	public static float COMMENT_THRESHOLD = 0.7f; // default: 0.7
 
-	public static float E_THRESHOLD = 0.7f;
-	public static float S_THRESHOLD = 0.7f;
+	public static float E_THRESHOLD = 0.7f; // default: 0.7
+	public static float S_THRESHOLD = 0.7f; // default: 0.7
 
 	// priority threshold
-	public static float P_THRESHOLD = 0.9f;
+	public static float P_THRESHOLD = 0.9f; // default: 0.9
 
 	// special similarity score return by wordnet matcher
 
@@ -190,8 +197,8 @@ public class Configs {
 	public static int MIN_LEN = 3;
 
 	// Main contribution Percentage
-	public static float MCP = 0.75f;
-	public static float ADJ_THRESHOLD = 0.7f;
+	public static float MCP = 0.75f; // default: 0.75
+	public static float ADJ_THRESHOLD = 0.7f; // default: 0.7
 
 	// type of structure metric
 	public static int S_PATH = 1;

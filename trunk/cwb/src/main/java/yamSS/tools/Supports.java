@@ -376,6 +376,7 @@ public class Supports {
 	}
 
 	public static String getEntityLabelFromURI(String uriStr) {
+		System.out.println(uriStr);
 		if (uriStr.indexOf("#") >= 0)
 			return uriStr.split("#")[1];
 		return uriStr;
