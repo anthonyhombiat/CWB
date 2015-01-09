@@ -92,7 +92,7 @@ public class OverpassWSClient implements DataModelFolksoProviderWSClient,
 
 				folkso.addConcept(concept);
 				
-				LOGGER.log(Level.INFO, concept.getFragment());
+				LOGGER.log(Level.INFO, "Concept retrieved: " + concept.getFragment());
 
 			}
 
@@ -237,7 +237,7 @@ public class OverpassWSClient implements DataModelFolksoProviderWSClient,
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getInstancesFolkso(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
 			CWBBBox bbox) throws OverpassWSClientException {
 		return this.getFolksoInstances(value, bbox, DEFAULT_LOCALE,
 				DEFAULT_THRESHOLD, DEFAULT_OUTPUT_FMT);

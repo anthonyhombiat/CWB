@@ -52,11 +52,6 @@ public class CWBMap extends LMap {
 		this.addComponent(clusterNomen);
 	}
 
-	public void clear() {
-		clusterFolkso.removeAllComponents();
-		clusterNomen.removeAllComponents();
-	}
-
 	public boolean addMarkerFolkso(CWBInstanceFolkso instance) {
 
 		LMarker marker = new LMarker(instance.getPoint());

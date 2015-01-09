@@ -78,6 +78,7 @@ public class CWBModel extends Observable implements Serializable {
 	}
 
 	private boolean addInstanceFolkso(CWBInstanceFolkso instanceFolkso) {
+		System.out.println("adding folkso instance " + instanceFolkso.toString());
 		if (!instancesFolkso.contains(instanceFolkso)) {
 			instancesFolkso.add(instanceFolkso);
 			return true;
@@ -115,6 +116,7 @@ public class CWBModel extends Observable implements Serializable {
 	}
 
 	private boolean addInstanceNomen(CWBInstanceNomen instanceNomen) {
+		System.out.println("adding nomen instance " + instanceNomen.toString());
 		if (!instancesNomen.contains(instanceNomen)) {
 			instancesNomen.add(instanceNomen);
 			return true;
@@ -225,7 +227,14 @@ public class CWBModel extends Observable implements Serializable {
 
 	public boolean addSelectedEquivalence(CWBEquivalence equivalence) {
 		if (alignment != null) {
-			return alignment.selectedEquivalence(equivalence);
+			return alignment.selectEquivalence(equivalence);
+		}
+		return false;
+	}
+
+	public boolean removeSelectedEquivalence(CWBEquivalence equivalence) {
+		if (alignment != null) {
+			return alignment.unselectEquivalence(equivalence);
 		}
 		return false;
 	}

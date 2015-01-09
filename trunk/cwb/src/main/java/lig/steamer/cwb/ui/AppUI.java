@@ -2,6 +2,7 @@ package lig.steamer.cwb.ui;
 
 import java.text.MessageFormat;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
 import lig.steamer.cwb.model.CWBAlignment;
+import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
@@ -41,6 +43,7 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -48,11 +51,7 @@ import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.Upload.FailedListener;
-import com.vaadin.ui.Upload.FinishedListener;
-import com.vaadin.ui.Upload.ProgressListener;
 import com.vaadin.ui.Upload.Receiver;
-import com.vaadin.ui.Upload.StartedListener;
 import com.vaadin.ui.Upload.SucceededListener;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
@@ -230,14 +229,6 @@ public class AppUI extends UI {
 	/*** ADD LISTENER METHODS ***/
 	/****************************/
 
-	public void addLoadFolksoFromWSWindowButtonListener(ClickListener listener) {
-		loadFolksoFromWSWindow.getLoadButton().addClickListener(listener);
-	}
-
-	public void addLoadNomenFromWSWindowButtonListener(ClickListener listener) {
-		loadNomenFromWSWindow.getLoadButton().addClickListener(listener);
-	}
-
 	public void addOpenMenuItemCommand(Command command) {
 		menuBar.getOpenMenuItem().setCommand(command);
 	}
@@ -286,6 +277,14 @@ public class AppUI extends UI {
 		menuBar.getLoadAlignFromFileMenuItem().setCommand(command);
 	}
 
+	public void addLoadFolksoFromWSWindowButtonListener(ClickListener listener) {
+		loadFolksoFromWSWindow.getLoadButton().addClickListener(listener);
+	}
+
+	public void addLoadNomenFromWSWindowButtonListener(ClickListener listener) {
+		loadNomenFromWSWindow.getLoadButton().addClickListener(listener);
+	}
+
 	public void addNomenWSComboBoxListener(ValueChangeListener listener) {
 		loadNomenFromWSWindow.getComboBox().addValueChangeListener(listener);
 	}
@@ -306,22 +305,6 @@ public class AppUI extends UI {
 		openProjectWindow.getUploadComponent().addSucceededListener(listener);
 	}
 
-	public void addOpenProjectUploadFailedListener(FailedListener listener) {
-		openProjectWindow.getUploadComponent().addFailedListener(listener);
-	}
-
-	public void addOpenProjectUploadProgressListener(ProgressListener listener) {
-		openProjectWindow.getUploadComponent().addProgressListener(listener);
-	}
-
-	public void addOpenProjectUploadFinishedListener(FinishedListener listener) {
-		openProjectWindow.getUploadComponent().addFinishedListener(listener);
-	}
-
-	public void addOpenProjectUploadStartedListener(StartedListener listener) {
-		openProjectWindow.getUploadComponent().addStartedListener(listener);
-	}
-
 	public void addLoadNomenFromFileUploadReceiver(Receiver receiver) {
 		loadNomenFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
@@ -329,29 +312,6 @@ public class AppUI extends UI {
 	public void addLoadNomenFromFileUploadSucceededListener(
 			SucceededListener listener) {
 		loadNomenFromFileWindow.getUploadComponent().addSucceededListener(
-				listener);
-	}
-
-	public void addLoadNomenFromFileUploadFailedListener(FailedListener listener) {
-		loadNomenFromFileWindow.getUploadComponent()
-				.addFailedListener(listener);
-	}
-
-	public void addLoadNomenFromFileUploadProgressListener(
-			ProgressListener listener) {
-		loadNomenFromFileWindow.getUploadComponent().addProgressListener(
-				listener);
-	}
-
-	public void addLoadNomenFromFileUploadFinishedListener(
-			FinishedListener listener) {
-		loadNomenFromFileWindow.getUploadComponent().addFinishedListener(
-				listener);
-	}
-
-	public void addLoadNomenFromFileUploadStartedListener(
-			StartedListener listener) {
-		loadNomenFromFileWindow.getUploadComponent().addStartedListener(
 				listener);
 	}
 
@@ -365,30 +325,6 @@ public class AppUI extends UI {
 				listener);
 	}
 
-	public void addLoadFolksoFromFileUploadFailedListener(
-			FailedListener listener) {
-		loadFolksoFromFileWindow.getUploadComponent().addFailedListener(
-				listener);
-	}
-
-	public void addLoadFolksoFromFileUploadProgressListener(
-			ProgressListener listener) {
-		loadFolksoFromFileWindow.getUploadComponent().addProgressListener(
-				listener);
-	}
-
-	public void addLoadFolksoFromFileUploadFinishedListener(
-			FinishedListener listener) {
-		loadFolksoFromFileWindow.getUploadComponent().addFinishedListener(
-				listener);
-	}
-
-	public void addLoadFolksoFromFileUploadStartedListener(
-			StartedListener listener) {
-		loadFolksoFromFileWindow.getUploadComponent().addStartedListener(
-				listener);
-	}
-
 	public void addLoadAlignFromFileUploadReceiver(Receiver receiver) {
 		loadAlignFromFileWindow.getUploadComponent().setReceiver(receiver);
 	}
@@ -399,29 +335,6 @@ public class AppUI extends UI {
 				listener);
 	}
 
-	public void addLoadAlignFromFileUploadFailedListener(FailedListener listener) {
-		loadAlignFromFileWindow.getUploadComponent()
-				.addFailedListener(listener);
-	}
-
-	public void addLoadAlignFromFileUploadProgressListener(
-			ProgressListener listener) {
-		loadAlignFromFileWindow.getUploadComponent().addProgressListener(
-				listener);
-	}
-
-	public void addLoadAlignFromFileUploadFinishedListener(
-			FinishedListener listener) {
-		loadAlignFromFileWindow.getUploadComponent().addFinishedListener(
-				listener);
-	}
-
-	public void addLoadAlignFromFileUploadStartedListener(
-			StartedListener listener) {
-		loadAlignFromFileWindow.getUploadComponent().addStartedListener(
-				listener);
-	}
-
 	public void addMatchButtonListener(ClickListener listener) {
 		matchButton.addClickListener(listener);
 	}
@@ -429,6 +342,11 @@ public class AppUI extends UI {
 	public void addMatchingResultsTableValueChangedListener(
 			ValueChangeListener listener) {
 		alignPanel.getTable().addValueChangeListener(listener);
+	}
+
+	public void addMatchingResultsTableCheckboxesListener(
+			ValueChangeListener listener) {
+		alignPanel.setCheckboxListener(listener);
 	}
 
 	public void addMapMoveEndListener(LeafletMoveEndListener listener) {
@@ -454,6 +372,7 @@ public class AppUI extends UI {
 				if (arg != null) {
 					System.out.println("folkso changed !");
 					CWBDataModelFolkso folkso = (CWBDataModelFolkso) arg;
+					folksoPanel.getDataModelContainer().removeAllItems();
 					folksoPanel.getDataModelContainer().addAll(
 							folkso.getConcepts());
 					folksoPanel.getTable().sort();
@@ -475,6 +394,7 @@ public class AppUI extends UI {
 				if (arg != null) {
 					System.out.println("nomen changed !");
 					CWBDataModelNomen nomen = (CWBDataModelNomen) arg;
+					nomenPanel.getDataModelContainer().removeAllItems();
 					nomenPanel.getDataModelContainer().addAll(
 							nomen.getConcepts());
 					nomenPanel.getTable().sort();
@@ -492,6 +412,7 @@ public class AppUI extends UI {
 
 		@Override
 		public void update(Observable o, Object arg) {
+			System.out.println("alignment changed");
 			if (arg instanceof CWBAlignment) {
 				if (arg != null) {
 					CWBAlignment align = (CWBAlignment) arg;
@@ -505,6 +426,7 @@ public class AppUI extends UI {
 							.setCaption(MessageFormat.format(Msg
 									.get("align.capt"), align.getEquivalences()
 									.size()));
+
 				}
 			}
 		}
@@ -518,9 +440,7 @@ public class AppUI extends UI {
 			System.out.println("instances folkso changed");
 			if (arg instanceof Collection<?>) {
 				Collection<?> collec = (Collection<?>) arg;
-				System.out.println("instances folkso are collection");
 				boolean isInstancesFolkso = true;
-
 				for (Object obj : collec) {
 					if (!(obj instanceof CWBInstanceFolkso)) {
 						isInstancesFolkso = false;
@@ -529,14 +449,12 @@ public class AppUI extends UI {
 				}
 
 				if (isInstancesFolkso) {
-					System.out
-							.println("instances nomen are instances of folkso");
 					map.getClusterFolkso().removeAllComponents();
+					System.out.println("instances folkso: ");
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceFolkso) {
 							CWBInstanceFolkso instance = (CWBInstanceFolkso) obj;
-							System.out.println("instance folkso: "
-									+ instance.getLabel());
+							System.out.println("=> " + instance.getLabel());
 							map.addMarkerFolkso(instance);
 						}
 					}
@@ -552,7 +470,6 @@ public class AppUI extends UI {
 		public void update(Observable o, Object arg) {
 			System.out.println("instances nomen changed");
 			if (arg instanceof Collection<?>) {
-				System.out.println("instances nomen are collection");
 				Collection<?> collec = (Collection<?>) arg;
 				boolean isInstancesNomen = true;
 				for (Object obj : collec) {
@@ -562,14 +479,12 @@ public class AppUI extends UI {
 					}
 				}
 				if (isInstancesNomen) {
-					System.out
-							.println("instances nomen are instances of nomen");
 					map.getClusterNomen().removeAllComponents();
+					System.out.println("instances nomen: ");
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceNomen) {
 							CWBInstanceNomen instance = (CWBInstanceNomen) obj;
-							System.out.println("instance nomen: "
-									+ instance.getLabel());
+							System.out.println("=> " + instance.getLabel());
 							map.addMarkerNomen(instance);
 						}
 					}

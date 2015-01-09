@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 import lig.steamer.cwb.Msg;
@@ -30,13 +31,13 @@ import lig.steamer.cwb.io.write.impl.exception.CWBAlignmentWriterException;
 import lig.steamer.cwb.io.write.impl.exception.CWBFolksoWriterException;
 import lig.steamer.cwb.io.write.impl.exception.CWBNomenWriterException;
 import lig.steamer.cwb.model.CWBAlignment;
-import lig.steamer.cwb.model.CWBBBox;
+import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.model.CWBModel;
-import lig.steamer.cwb.model.LeafletBBox;
 import lig.steamer.cwb.ui.AppUI;
+import lig.steamer.cwb.ui.map.CWBMap;
 import lig.steamer.cwb.ui.window.CWBAboutWindow;
 import lig.steamer.cwb.util.archive.ZipUtility;
 import lig.steamer.cwb.util.browser.BrowserHomepageProvider;
@@ -60,6 +61,7 @@ import org.vaadin.addon.leaflet.LeafletMoveEndEvent;
 import org.vaadin.addon.leaflet.LeafletMoveEndListener;
 import org.vaadin.dialogs.ConfirmDialog;
 
+import com.vaadin.data.Item;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.FileResource;
@@ -69,16 +71,10 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.JavaScript;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.Upload.FailedEvent;
-import com.vaadin.ui.Upload.FailedListener;
-import com.vaadin.ui.Upload.FinishedEvent;
-import com.vaadin.ui.Upload.FinishedListener;
-import com.vaadin.ui.Upload.ProgressListener;
 import com.vaadin.ui.Upload.Receiver;
-import com.vaadin.ui.Upload.StartedEvent;
-import com.vaadin.ui.Upload.StartedListener;
 import com.vaadin.ui.Upload.SucceededEvent;
 import com.vaadin.ui.Upload.SucceededListener;
 
@@ -94,6 +90,7 @@ public class CWBController implements Serializable {
 		this.model = model;
 		this.view = view;
 
+		// Menu item listeners
 		view.addOpenMenuItemCommand(new CWBOpenMenuItemCommand());
 		view.addSaveMenuItemCommand(new CWBSaveMenuItemCommand());
 		view.addCloseMenuItemCommand(new CWBCloseMenuItemCommand());
@@ -108,43 +105,28 @@ public class CWBController implements Serializable {
 		view.addLoadAlignFromFileMenuItemCommand(new CWBLoadAlignFromFileMenuItemCommand());
 		view.addMapMenuItemCommand(new CWBMapMenuItemCommand());
 
+		// Upload receivers
 		view.addOpenProjectUploadReceiver(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadStartedListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadFinishedListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadProgressListener(new CWBOpenProjectUploader());
-		view.addOpenProjectUploadFailedListener(new CWBOpenProjectUploader());
 		view.addOpenProjectUploadSucceededListener(new CWBOpenProjectUploader());
+		view.addLoadNomenFromFileUploadReceiver(new CWBLoadNomenFromFileUploader());
+		view.addLoadNomenFromFileUploadSucceededListener(new CWBLoadNomenFromFileUploader());
+		view.addLoadFolksoFromFileUploadReceiver(new CWBLoadFolksoFromFileUploader());
+		view.addLoadFolksoFromFileUploadSucceededListener(new CWBLoadFolksoFromFileUploader());
+		view.addLoadAlignFromFileUploadReceiver(new CWBLoadAlignFromFileUploader());
+		view.addLoadAlignFromFileUploadSucceededListener(new CWBLoadAlignFromFileUploader());
 
+		// Web Services combo box listeners
 		view.addLoadFolksoFromWSWindowButtonListener(new CWBLoadFolksoButtonListener());
 		view.addLoadNomenFromWSWindowButtonListener(new CWBLoadNomenButtonListener());
-
 		view.addFolksoWSComboBoxListener(new CWBFolksoWSComboBoxListener());
 		view.addNomenWSComboBoxListener(new CWBNomenWSComboBoxListener());
 
-		view.addLoadNomenFromFileUploadReceiver(new CWBLoadNomenFromFileUploader());
-		view.addLoadNomenFromFileUploadStartedListener(new CWBLoadNomenFromFileUploader());
-		view.addLoadNomenFromFileUploadFinishedListener(new CWBLoadNomenFromFileUploader());
-		view.addLoadNomenFromFileUploadProgressListener(new CWBLoadNomenFromFileUploader());
-		view.addLoadNomenFromFileUploadFailedListener(new CWBLoadNomenFromFileUploader());
-		view.addLoadNomenFromFileUploadSucceededListener(new CWBLoadNomenFromFileUploader());
-
-		view.addLoadFolksoFromFileUploadReceiver(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadStartedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadFinishedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadProgressListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadFailedListener(new CWBLoadFolksoFromFileUploader());
-		view.addLoadFolksoFromFileUploadSucceededListener(new CWBLoadFolksoFromFileUploader());
-
-		view.addLoadAlignFromFileUploadReceiver(new CWBLoadAlignFromFileUploader());
-		view.addLoadAlignFromFileUploadStartedListener(new CWBLoadAlignFromFileUploader());
-		view.addLoadAlignFromFileUploadFinishedListener(new CWBLoadAlignFromFileUploader());
-		view.addLoadAlignFromFileUploadProgressListener(new CWBLoadAlignFromFileUploader());
-		view.addLoadAlignFromFileUploadFailedListener(new CWBLoadAlignFromFileUploader());
-		view.addLoadAlignFromFileUploadSucceededListener(new CWBLoadAlignFromFileUploader());
-
+		// Matching listeners
 		view.addMatchButtonListener(new CWBMatchButtonListener());
 		view.addMatchingResultsTableValueChangedListener(new CWBMatchingResultsTableValueChangeListener());
+		view.addMatchingResultsTableCheckboxesListener(new CWBMatchingResultsTableCheckboxListener());
 
+		// Map listeners
 		view.addMapMoveEndListener(new CWBMoveEndListener());
 
 	}
@@ -473,9 +455,7 @@ public class CWBController implements Serializable {
 
 	}
 
-	class CWBOpenProjectUploader implements Receiver, ProgressListener,
-			FailedListener, SucceededListener, StartedListener,
-			FinishedListener {
+	class CWBOpenProjectUploader implements Receiver, SucceededListener {
 
 		private static final long serialVersionUID = 1L;
 
@@ -576,27 +556,9 @@ public class CWBController implements Serializable {
 			view.getOpenProjectWindow().close();
 
 		}
-
-		@Override
-		public void uploadFinished(FinishedEvent event) {
-		}
-
-		@Override
-		public void uploadFailed(FailedEvent event) {
-		}
-
-		@Override
-		public void updateProgress(long readBytes, long contentLength) {
-		}
-
-		@Override
-		public void uploadStarted(StartedEvent event) {
-		}
 	}
 
-	class CWBLoadNomenFromFileUploader implements Receiver, ProgressListener,
-			FailedListener, SucceededListener, StartedListener,
-			FinishedListener {
+	class CWBLoadNomenFromFileUploader implements Receiver, SucceededListener {
 
 		private static final long serialVersionUID = 1L;
 
@@ -625,11 +587,6 @@ public class CWBController implements Serializable {
 		}
 
 		@Override
-		public void uploadFinished(FinishedEvent event) {
-
-		}
-
-		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
 			File file = new File(Prop.DIR_TMP + File.separatorChar
@@ -637,7 +594,7 @@ public class CWBController implements Serializable {
 
 			CWBNomenReader reader = new CWBNomenOWLReader();
 			CWBDataModelNomen nomen = null;
-			
+
 			try {
 				nomen = reader.read(file);
 			} catch (CWBNomenReaderException e) {
@@ -658,26 +615,9 @@ public class CWBController implements Serializable {
 			view.getLoadNomenFromFileWindow().close();
 
 		}
-
-		@Override
-		public void uploadFailed(FailedEvent event) {
-
-		}
-
-		@Override
-		public void updateProgress(long readBytes, long contentLength) {
-
-		}
-
-		@Override
-		public void uploadStarted(StartedEvent event) {
-
-		}
 	}
 
-	class CWBLoadFolksoFromFileUploader implements Receiver, ProgressListener,
-			FailedListener, SucceededListener, StartedListener,
-			FinishedListener {
+	class CWBLoadFolksoFromFileUploader implements Receiver, SucceededListener {
 
 		private static final long serialVersionUID = 1L;
 
@@ -703,11 +643,6 @@ public class CWBController implements Serializable {
 			}
 
 			return fos;
-		}
-
-		@Override
-		public void uploadFinished(FinishedEvent event) {
-
 		}
 
 		@Override
@@ -738,26 +673,9 @@ public class CWBController implements Serializable {
 			view.getLoadFolksoFromFileWindow().close();
 
 		}
-
-		@Override
-		public void uploadFailed(FailedEvent event) {
-
-		}
-
-		@Override
-		public void updateProgress(long readBytes, long contentLength) {
-
-		}
-
-		@Override
-		public void uploadStarted(StartedEvent event) {
-
-		}
 	}
 
-	class CWBLoadAlignFromFileUploader implements Receiver, ProgressListener,
-			FailedListener, SucceededListener, StartedListener,
-			FinishedListener {
+	class CWBLoadAlignFromFileUploader implements Receiver, SucceededListener {
 
 		private static final long serialVersionUID = 1L;
 
@@ -786,11 +704,6 @@ public class CWBController implements Serializable {
 		}
 
 		@Override
-		public void uploadFinished(FinishedEvent event) {
-
-		}
-
-		@Override
 		public void uploadSucceeded(SucceededEvent event) {
 
 			File file = new File(Prop.DIR_TMP + File.separatorChar
@@ -816,21 +729,6 @@ public class CWBController implements Serializable {
 
 			// Close pop-up window
 			view.getLoadAlignFromFileWindow().close();
-
-		}
-
-		@Override
-		public void uploadFailed(FailedEvent event) {
-
-		}
-
-		@Override
-		public void updateProgress(long readBytes, long contentLength) {
-
-		}
-
-		@Override
-		public void uploadStarted(StartedEvent event) {
 
 		}
 	}
@@ -957,36 +855,11 @@ public class CWBController implements Serializable {
 
 		@Override
 		public void onMoveEnd(LeafletMoveEndEvent event) {
-			CWBBBox bbox = new LeafletBBox(event.getBounds());
 
-			model.setBBox(bbox);
-			model.removeAllInstancesFolkso();
-
-			for (CWBEquivalence equivalence : model.getSelectedEquivalences()) {
-
-				OverpassWSClient overpassWSClient = new OverpassWSClient();
-				BDTopoWSClient bdTopoWSClient = new BDTopoWSClient();
-
-				try {
-					model.addInstancesFolkso(overpassWSClient
-							.getInstancesFolkso(equivalence.getConcept1()
-									.getFragment().toString(), model.getBBox()));
-					model.addInstancesNomen(bdTopoWSClient.getNomenInstances(
-							equivalence.getConcept2().getFragment().toString(),
-							model.getBBox()));
-				} catch (OverpassWSClientException e) {
-					Notification.show(Msg.get("notif.err.ws.overpass.capt"),
-							Msg.get("notif.err.ws.overpass.txt"),
-							Notification.Type.ERROR_MESSAGE);
-					e.printStackTrace();
-				} catch (BDTopoWSClientException e) {
-					Notification.show(Msg.get("notif.err.ws.bdtopo.capt"),
-							Msg.get("notif.err.ws.bdtopo.txt"),
-							Notification.Type.ERROR_MESSAGE);
-					e.printStackTrace();
-				}
-
+			if (view.getMap().getZoomLevel() < CWBMap.DEFAULT_ZOOM_LEVEL) {
+				view.getMap().setZoomLevel(CWBMap.DEFAULT_ZOOM_LEVEL);
 			}
+
 		}
 
 	}
@@ -1051,53 +924,111 @@ public class CWBController implements Serializable {
 		private static final long serialVersionUID = 1L;
 
 		@Override
-		// TODO clean code !
 		public void valueChange(ValueChangeEvent event) {
 
-			Set<?> items = (Set<?>) event.getProperty().getValue();
+			Object item = event.getProperty().getValue();
 
 			model.removeAllInstancesFolkso();
-			model.removeAllSelectedEquivalences();
 
-			for (Object item : items) {
-				if (item instanceof CWBEquivalence) {
+			if (item instanceof CWBEquivalence) {
 
-					CWBEquivalence equivalence = (CWBEquivalence) item;
-					model.addSelectedEquivalence(equivalence);
+				CWBEquivalence equivalence = (CWBEquivalence) item;
 
-					InstancesNomenProviderWSClient bdTopoWSClient = new BDTopoWSClient();
-					InstancesFolksoProviderWSClient overpassWSClient = new OverpassWSClient();
+				InstancesNomenProviderWSClient bdTopoWSClient = new BDTopoWSClient();
+				InstancesFolksoProviderWSClient overpassWSClient = new OverpassWSClient();
 
-					try {
+				try {
 
-						model.addInstancesNomen(bdTopoWSClient
-								.getNomenInstances(equivalence.getConcept1()
-										.getFragment().toString(),
-										model.getBBox()));
+					model.addInstancesNomen(bdTopoWSClient
+							.getNomenInstances(equivalence.getConcept1()
+									.getFragment().toString()));
 
-						model.addInstancesFolkso(overpassWSClient
-								.getInstancesFolkso(equivalence.getConcept2()
-										.getFragment().toString(),
-										model.getBBox()));
+					model.addInstancesFolkso(overpassWSClient
+							.getFolksoInstances(equivalence.getConcept2()
+									.getFragment().toString()));
 
-					} catch (OverpassWSClientException e) {
-						Notification.show(
-								Msg.get("notif.err.ws.overpass.capt"),
-								Msg.get("notif.err.ws.overpass.txt"),
-								Notification.Type.ERROR_MESSAGE);
-						e.printStackTrace();
-					} catch (BDTopoWSClientException e) {
-						Notification.show(
-								Msg.get("notif.err.ws.bdtopo.capt"),
-								Msg.get("notif.err.ws.bdtopo.txt")
-										+ e.getMessage(),
-								Notification.Type.ERROR_MESSAGE);
-						e.printStackTrace();
-					} catch (WSClientException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				} catch (OverpassWSClientException e) {
+					Notification.show(Msg.get("notif.err.ws.overpass.capt"),
+							Msg.get("notif.err.ws.overpass.txt"),
+							Notification.Type.ERROR_MESSAGE);
+					e.printStackTrace();
+				} catch (BDTopoWSClientException e) {
+					Notification
+							.show(Msg.get("notif.err.ws.bdtopo.capt"),
+									Msg.get("notif.err.ws.bdtopo.txt")
+											+ e.getMessage(),
+									Notification.Type.ERROR_MESSAGE);
+					e.printStackTrace();
+				} catch (WSClientException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				// select equivalence 1st concept in nomenclature
+				Iterator<?> itNomen = view.getNomenPanel().getTable()
+						.getItemIds().iterator();
+				while (itNomen.hasNext()) {
+					CWBConcept currentConcept = (CWBConcept) itNomen.next();
+					if (((CWBConcept) currentConcept).equals(equivalence
+							.getConcept1())) {
+						view.getNomenPanel().getTable().select(currentConcept);
+						break;
 					}
+				}
+				
+				// select equivalence 1st concept in folksonomy
+				Iterator<?> itFolkso = view.getFolksoPanel().getTable()
+						.getItemIds().iterator();
+				while (itFolkso.hasNext()) {
+					CWBConcept currentConcept = (CWBConcept) itFolkso.next();
+					if (((CWBConcept) currentConcept).equals(equivalence
+							.getConcept2())) {
+						view.getFolksoPanel().getTable().select(currentConcept);
+						break;
+					}
+				}
 
+			}
+		}
+	}
+
+	class CWBMatchingResultsTableCheckboxListener implements
+			ValueChangeListener {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public void valueChange(ValueChangeEvent event) {
+
+			Object property = event.getProperty();
+
+			if (property instanceof CheckBox) {
+
+				CheckBox checkbox = (CheckBox) property;
+
+				Iterator<?> it = view.getAlignPanel().getTable().getItemIds()
+						.iterator();
+
+				while (it.hasNext()) {
+
+					Object currentElement = it.next();
+
+					if (currentElement instanceof CWBEquivalence) {
+						if (currentElement.toString().equals(
+								checkbox.getStyleName())) {
+							if (checkbox.getValue()) {
+								model.addSelectedEquivalence((CWBEquivalence) currentElement);
+							} else {
+								model.removeSelectedEquivalence((CWBEquivalence) currentElement);
+							}
+							System.out.println("equivalences selected:");
+							for (CWBEquivalence selectedEquiv : model
+									.getSelectedEquivalences()) {
+								System.out.println(selectedEquiv);
+							}
+							break;
+						}
+					}
 				}
 			}
 		}

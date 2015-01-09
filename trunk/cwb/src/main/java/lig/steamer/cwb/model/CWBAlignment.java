@@ -79,7 +79,7 @@ public class CWBAlignment {
 		return selectedEquivalences;
 	}
 	
-	public boolean selectedEquivalence(CWBEquivalence selectedEquivalence) {
+	public boolean selectEquivalence(CWBEquivalence selectedEquivalence) {
 		if(equivalences.containsKey(selectedEquivalence)){
 			if(equivalences.get(selectedEquivalence) == false){
 				equivalences.put(selectedEquivalence, true);

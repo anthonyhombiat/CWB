@@ -42,7 +42,7 @@ public interface InstancesFolksoProviderWSClient {
 	 * @return the instances
 	 * @throws WSClientException
 	 */
-	public Collection<CWBInstanceFolkso> getInstancesFolkso(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
 			CWBBBox bbox) throws WSClientException;
 
 	/**

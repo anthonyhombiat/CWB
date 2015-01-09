@@ -53,10 +53,7 @@ public class CWBHierarchicalDataModelContainer<BEANTYPE> extends
                 result.add(candidateId);
         }
         
-        if (result.size() > 0)
-            return result;
-        else
-            return null;
+        return result;
 	}
 
 	@Override

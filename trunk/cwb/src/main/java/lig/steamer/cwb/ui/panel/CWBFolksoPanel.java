@@ -6,6 +6,7 @@ import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBConcept;
 
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
+import com.vaadin.ui.themes.Reindeer;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.VerticalLayout;
@@ -28,13 +29,13 @@ public class CWBFolksoPanel extends Panel {
 		table.setContainerDataSource(dataModelContainer);
 		table.setItemCaptionMode(ItemCaptionMode.PROPERTY);
 		table.setItemCaptionPropertyId(Msg.get("folkso.table.col.fragment"));
-
+		table.addStyleName(Reindeer.TABLE_BORDERLESS);
 		table.setColumnCollapsingAllowed(true);
 		table.setColumnReorderingAllowed(true);
-		table.setSizeFull();
 		table.setSelectable(true);
-		table.setMultiSelect(true);
 
+		table.setSizeFull();
+		
 		table.setVisibleColumns(Msg.get("folkso.table.col.iri"),
 				Msg.get("folkso.table.col.fragment"),
 				Msg.get("folkso.table.col.labels"),
@@ -45,8 +46,8 @@ public class CWBFolksoPanel extends Panel {
 		table.setColumnCollapsed(Msg.get("folkso.table.col.descriptions"),
 				true);
 
-//		table.setSortContainerPropertyId(Msg
-//				.get("folkso.table.col.fragment"));
+		table.setSortContainerPropertyId(Msg
+				.get("folkso.table.col.fragment"));
 
 		VerticalLayout layout = new VerticalLayout();
 		layout.addComponent(table);

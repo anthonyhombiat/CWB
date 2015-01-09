@@ -38,7 +38,7 @@ public class CWBOpenProjectWindow extends Window {
 		rootLayout.addComponent(uploadPanel);
 
 		this.setWidth(400, Unit.PIXELS);
-		this.setHeight(300, Unit.PIXELS);
+		this.setHeight(200, Unit.PIXELS);
 		this.center();
 		this.setModal(true);
 		this.setContent(rootLayout);

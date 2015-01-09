@@ -76,7 +76,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 					nomen.addConcept(concept);
 				}
 
-				LOGGER.log(Level.INFO, concept.getFragment());
+				LOGGER.log(Level.INFO, "Concept retrieved: " + concept.getFragment());
 
 			}
 

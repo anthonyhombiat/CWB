@@ -5,15 +5,15 @@ import java.text.MessageFormat;
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBEquivalence;
 
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.shared.ui.MultiSelectMode;
 import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.Table.Align;
 import com.vaadin.ui.Table.ColumnGenerator;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.Reindeer;
 
 public class CWBAlignPanel extends Panel {
 
@@ -22,6 +22,7 @@ public class CWBAlignPanel extends Panel {
 	private final Table table = new Table();
 	private final BeanItemContainer<CWBEquivalence> container = new BeanItemContainer<CWBEquivalence>(
 			CWBEquivalence.class);
+	private ValueChangeListener checkboxListener;
 
 	public CWBAlignPanel() {
 
@@ -30,65 +31,77 @@ public class CWBAlignPanel extends Panel {
 
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept1")
+						.get("align.table.col.concept1")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.fragment"));
+						+ Msg.get("align.table.col.concept.property.fragment"));
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept2")
+						.get("align.table.col.concept2")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.fragment"));
+						+ Msg.get("align.table.col.concept.property.fragment"));
 
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept1")
+						.get("align.table.col.concept1")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.labels"));
+						+ Msg.get("align.table.col.concept.property.labels"));
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept2")
+						.get("align.table.col.concept2")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.labels"));
+						+ Msg.get("align.table.col.concept.property.labels"));
 
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept1")
+						.get("align.table.col.concept1")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.descriptions"));
+						+ Msg.get("align.table.col.concept.property.descriptions"));
 		container
 				.addNestedContainerProperty(Msg
-						.get("matching.results.table.col.concept2")
+						.get("align.table.col.concept2")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.descriptions"));
+						+ Msg.get("align.table.col.concept.property.descriptions"));
 
 		table.setContainerDataSource(container);
 		table.setSizeFull();
+		table.addStyleName(Reindeer.TABLE_BORDERLESS);
 		table.setColumnCollapsingAllowed(true);
 		table.setColumnReorderingAllowed(true);
 		table.setSelectable(true);
-		table.setMultiSelect(true);
-		table.setMultiSelectMode(MultiSelectMode.SIMPLE);
 		table.setImmediate(true);
 		
 		table.addGeneratedColumn(
-				Msg.get("matching.results.table.col.select"),
-				new CWBCheckBoxColumnGenerator());
+				Msg.get("align.table.col.select"),
+				new ColumnGenerator(){
+
+					private static final long serialVersionUID = 1L;
+
+					@Override
+					public Object generateCell(Table source, Object itemId,
+							Object columnId) {
+						CheckBox checkbox = new CheckBox();
+						checkbox.addValueChangeListener(checkboxListener);
+						checkbox.addStyleName(itemId.toString());
+						return checkbox;
+					}
+					
+				});
 		
 		table.setVisibleColumns(
-				Msg.get("matching.results.table.col.select"),
-				Msg.get("matching.results.table.col.concept1")
+				Msg.get("align.table.col.select"),
+				Msg.get("align.table.col.concept1")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.fragment"),
-				Msg.get("matching.results.table.col.concept2")
+						+ Msg.get("align.table.col.concept.property.fragment"),
+				Msg.get("align.table.col.concept2")
 						+ "."
-						+ Msg.get("matching.results.table.col.concept.property.fragment"),
-				Msg.get("matching.results.table.col.confidence"));
+						+ Msg.get("align.table.col.concept.property.fragment"),
+				Msg.get("align.table.col.confidence"));
 		
-//		table.setSortContainerPropertyId(Msg
-//				.get("matching.results.table.col.confidence"));
+		table.setSortContainerPropertyId(Msg
+				.get("align.table.col.confidence"));
+		table.setSortAscending(false);
 		
 		table.setColumnAlignments(Align.CENTER, Align.LEFT, Align.LEFT, Align.CENTER);
-		table.refreshRowCache();
 		
 		VerticalLayout layout = new VerticalLayout();
 		layout.setSizeFull();
@@ -97,19 +110,6 @@ public class CWBAlignPanel extends Panel {
 		this.setContent(layout);
 		this.setSizeFull();
 
-	}
-
-	class CWBCheckBoxColumnGenerator implements ColumnGenerator {
-		private static final long serialVersionUID = 1L;
-
-		public CWBCheckBoxColumnGenerator() {
-		}
-
-		@Override
-		public Component generateCell(Table source, Object itemId,
-				Object columnId) {
-			return new CheckBox();
-		}
 	}
 
 	/**
@@ -124,6 +124,20 @@ public class CWBAlignPanel extends Panel {
 	 */
 	public BeanItemContainer<CWBEquivalence> getDataModelContainer() {
 		return container;
+	}
+
+	/**
+	 * @return the checkboxListener
+	 */
+	public ValueChangeListener getCheckboxListener() {
+		return checkboxListener;
+	}
+
+	/**
+	 * @param checkboxListener the checkboxListener to set
+	 */
+	public void setCheckboxListener(ValueChangeListener checkboxListener) {
+		this.checkboxListener = checkboxListener;
 	}
 
 }

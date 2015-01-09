@@ -9,6 +9,7 @@ import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.Reindeer;
 
 public class CWBNomenPanel extends Panel {
 
@@ -28,12 +29,12 @@ public class CWBNomenPanel extends Panel {
 		table.setContainerDataSource(dataModelContainer);
 		table.setItemCaptionMode(ItemCaptionMode.PROPERTY);
 		table.setItemCaptionPropertyId(Msg.get("nomen.table.col.fragment"));
-
+		table.addStyleName(Reindeer.TABLE_BORDERLESS);
 		table.setColumnCollapsingAllowed(true);
 		table.setColumnReorderingAllowed(true);
-		table.setSizeFull();
 		table.setSelectable(true);
-		table.setMultiSelect(true);
+		
+		table.setSizeFull();
 
 		table.setVisibleColumns(Msg.get("nomen.table.col.iri"),
 				Msg.get("nomen.table.col.fragment"),
@@ -45,8 +46,8 @@ public class CWBNomenPanel extends Panel {
 		table.setColumnCollapsed(Msg.get("nomen.table.col.descriptions"),
 				true);
 
-//		table.setSortContainerPropertyId(Msg
-//				.get("nomen.table.col.fragment"));
+		table.setSortContainerPropertyId(Msg
+				.get("nomen.table.col.fragment"));
 		
 		VerticalLayout layout = new VerticalLayout();
 		layout.addComponent(table);
