@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Set;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.Prop;
@@ -61,17 +60,16 @@ import org.vaadin.addon.leaflet.LeafletMoveEndEvent;
 import org.vaadin.addon.leaflet.LeafletMoveEndListener;
 import org.vaadin.dialogs.ConfirmDialog;
 
-import com.vaadin.data.Item;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.JavaScript;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Upload.Receiver;
