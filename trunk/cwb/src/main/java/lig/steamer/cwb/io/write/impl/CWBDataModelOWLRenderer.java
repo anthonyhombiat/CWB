@@ -49,9 +49,7 @@ public class CWBDataModelOWLRenderer implements CWBDataModelVisitor {
 
 	private OWLDataFactory factory;
 	private OWLOntologyManager manager;
-
 	private OWLOntology dataModelOntology;
-
 	private IRI iri;
 
 	public CWBDataModelOWLRenderer(IRI iri) {

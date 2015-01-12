@@ -3,12 +3,17 @@ package lig.steamer.cwb.ui.map;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
 import lig.steamer.cwb.model.CWBInstanceNomen;
 
+import org.vaadin.addon.leaflet.LFeatureGroup;
+import org.vaadin.addon.leaflet.LLayerGroup;
 import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LMarker;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;
@@ -17,6 +22,7 @@ import org.vaadin.addon.leaflet.markercluster.LMarkerClusterGroup;
 
 import com.vaadin.server.FileResource;
 import com.vaadin.server.Resource;
+import com.vaadin.ui.Component;
 import com.vividsolutions.jts.geom.Coordinate;
 
 public class CWBMap extends LMap {
@@ -30,9 +36,12 @@ public class CWBMap extends LMap {
 	
 	private final LeafletLayer baseLayer;
 
-	private final LMarkerClusterGroup clusterFolkso = new LMarkerClusterGroup();
-	private final LMarkerClusterGroup clusterNomen = new LMarkerClusterGroup();
-
+	private final LMarkerClusterGroup folksoCluster = new LMarkerClusterGroup();
+	private final LMarkerClusterGroup nomenCluster = new LMarkerClusterGroup();
+	
+	private final Collection <LMarker> folksoMarkers = new ArrayList<LMarker>();
+	private final Collection <LMarker> nomenMarkers = new ArrayList<LMarker>();
+	
 	public CWBMap() {
 
 		super();
@@ -46,10 +55,8 @@ public class CWBMap extends LMap {
 		this.setMaxBounds(Prop.DEFAULT_MAP_BBOX.getBounds());
 		this.setSizeFull();
 		
-		// /!\ Order matters because of css color workaround via :first-child
-		// pseudo-selector
-		this.addComponent(clusterFolkso);
-		this.addComponent(clusterNomen);
+//		this.addComponent(folksoCluster);
+//		this.addComponent(nomenCluster);
 	}
 
 	public boolean addMarkerFolkso(CWBInstanceFolkso instance) {
@@ -71,7 +78,8 @@ public class CWBMap extends LMap {
 		}
 
 		marker.setCaption(instance.getLabel());
-		clusterFolkso.addComponent(marker);
+		folksoMarkers.add(marker);
+		this.addComponent(marker);
 
 		return true;
 	}
@@ -93,25 +101,55 @@ public class CWBMap extends LMap {
 			e.printStackTrace();
 			return false;
 		}
-
+		nomenMarkers.add(marker);
 		marker.setCaption(instance.getLabel());
-		clusterNomen.addComponent(marker);
+		this.addComponent(marker);
 
 		return true;
+	}
+	
+	public void removeFolksoMarkers(){
+		Iterator<Component> it = this.getComponentIterator();
+		Collection<Component> toBeDeleted = new ArrayList<Component>();
+		while(it.hasNext()){
+			Component currentComponent = it.next();
+			if(folksoMarkers.contains(currentComponent)){
+				toBeDeleted.add(currentComponent);
+			}
+		}
+		for(Component c : toBeDeleted){
+			folksoMarkers.remove(c);
+			this.removeComponent(c);
+		}
+	}
+	
+	public void removeNomenMarkers(){
+		Iterator<Component> it = this.getComponentIterator();
+		Collection<Component> toBeDeleted = new ArrayList<Component>();
+		while(it.hasNext()){
+			Component currentComponent = it.next();
+			if(nomenMarkers.contains(currentComponent)){
+				toBeDeleted.add(currentComponent);
+			}
+		}
+		for(Component c : toBeDeleted){
+			nomenMarkers.remove(c);
+			this.removeComponent(c);
+		}
 	}
 
 	/**
 	 * @return the cluster for the folksonomy's concepts
 	 */
-	public LMarkerClusterGroup getClusterFolkso() {
-		return clusterFolkso;
+	public LMarkerClusterGroup getFolksoCluster() {
+		return folksoCluster;
 	}
 
 	/**
 	 * @return the cluster for the nomenclature's concepts
 	 */
-	public LMarkerClusterGroup getClusterNomen() {
-		return clusterNomen;
+	public LMarkerClusterGroup getNomenCluster() {
+		return nomenCluster;
 	}
 
 }

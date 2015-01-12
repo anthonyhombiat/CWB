@@ -449,7 +449,7 @@ public class AppUI extends UI {
 				}
 
 				if (isInstancesFolkso) {
-					map.getClusterFolkso().removeAllComponents();
+					map.removeFolksoMarkers();
 					System.out.println("instances folkso: ");
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceFolkso) {
@@ -479,7 +479,7 @@ public class AppUI extends UI {
 					}
 				}
 				if (isInstancesNomen) {
-					map.getClusterNomen().removeAllComponents();
+					map.removeNomenMarkers();
 					System.out.println("instances nomen: ");
 					for (Object obj : collec) {
 						if (obj instanceof CWBInstanceNomen) {
