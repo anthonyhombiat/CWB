@@ -33,18 +33,18 @@
    * markers from nomenclature instances markers.
    */
   
-  .marker-cluster, 
-  .marker-cluster div, 
-  .marker-cluster div span {
+  .folkso-feature-group .marker-cluster, 
+  .folkso-feature-group .marker-cluster div, 
+  .folkso-feature-group .marker-cluster div span {
 		background-color: #89C819;
   		background-image:radial-gradient(#a9e839, #89C819);
 		opacity: 0.9;
   		color: black;
 	}
   
-  .marker-cluster:first-child, 
-  .marker-cluster:first-child div, 
-  .marker-cluster:first-child div span {
+  .nomen-feature-group .marker-cluster, 
+  .nomen-feature-group .marker-cluster div, 
+  .nomen-feature-group .marker-cluster div span {
 		background-color: #42aAd3;
 		background-image:radial-gradient(#62cAf3, #42aAd3);
 		opacity: 0.9;

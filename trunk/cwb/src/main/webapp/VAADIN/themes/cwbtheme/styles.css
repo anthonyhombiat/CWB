@@ -7098,14 +7098,14 @@ body .cwbtheme.v-app .v-app-loading {
 	font-size: 16px;
 }
 
-.cwbtheme .marker-cluster, .cwbtheme .marker-cluster div, .cwbtheme .marker-cluster div span {
+.cwbtheme .folkso-feature-group .marker-cluster, .cwbtheme .folkso-feature-group .marker-cluster div, .cwbtheme .folkso-feature-group .marker-cluster div span {
 	background-color: #89C819;
 	background-image: radial-gradient(#a9e839, #89C819);
 	opacity: 0.9;
 	color: black;
 }
 
-.cwbtheme .marker-cluster:first-child, .cwbtheme .marker-cluster:first-child div, .cwbtheme .marker-cluster:first-child div span {
+.cwbtheme .nomen-feature-group .marker-cluster, .cwbtheme .nomen-feature-group .marker-cluster div, .cwbtheme .nomen-feature-group .marker-cluster div span {
 	background-color: #42aAd3;
 	background-image: radial-gradient(#62cAf3, #42aAd3);
 	opacity: 0.9;

@@ -10,7 +10,7 @@
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_55"/>
   <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.3/gson-2.3.jar"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar" sourcepath="M2_REPO/junit/junit/4.11/junit-4.11-sources.jar">
     <attributes>
@@ -98,6 +98,7 @@
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/align/procalign/4.6/procalign-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/ontowrap/4.6/ontowrap-4.6.jar"/>
   <classpathentry kind="var" path="M2_REPO/fr/inrialpes/exmo/ontosim/2.4/ontosim-2.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/de/tudarmstadt/ke/sw/matching/wikimatch/1.0/wikimatch-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/ekaw/bda/yam/2012/yam-2012.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sf/jung/jung-3d-demos/2.0.1/jung-3d-demos-2.0.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01.jar"/>
@@ -400,7 +401,4 @@
   <classpathentry kind="var" path="M2_REPO/org/vaadin/addons/v-leaflet-markercluster/0.4.5/v-leaflet-markercluster-0.4.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/vaadin/addons/g-leaflet-markercluster/0.4.5/g-leaflet-markercluster-0.4.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/vaadin/addon/confirmdialog/2.0.5/confirmdialog-2.0.5.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/vaadin/addon/v-ol3/0.1.1/v-ol3-0.1.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/vaadin/gwt-ol3/0.1.0/gwt-ol3-0.1.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/de/grundid/opendatalab/geojson-jackson/1.2/geojson-jackson-1.2.jar"/>
 </classpath>
