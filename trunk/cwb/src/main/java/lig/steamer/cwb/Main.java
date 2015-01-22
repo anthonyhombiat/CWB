@@ -1,7 +1,11 @@
 package lig.steamer.cwb;
 
+import java.net.URI;
 import java.util.Collection;
 
+import lig.steamer.cwb.io.write.impl.CWBAlignmentRDFWriter;
+import lig.steamer.cwb.io.write.impl.exception.CWBAlignmentWriterException;
+import lig.steamer.cwb.model.CWBAlignment;
 import lig.steamer.cwb.model.CWBEquivalence;
 import lig.steamer.cwb.util.matching.CWBOntologyMatcher;
 import lig.steamer.cwb.util.matching.impl.YamOntologyMatcher;
@@ -10,24 +14,32 @@ public class Main {
 	
 	public static String OUTPUT_DIR = "D:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\alignments\\"; 
 	
-	public static String BPE_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\bpe\\bpe.owl";
-	public static String TOPO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\topo\\topo.owl";
-	public static String TAGINFO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\osm\\taginfo\\taginfo.owl";
-	public static String OSMONTO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\osm\\OSMonto_amenity.owl";
-	public static String LGD_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\osm\\lgd_amenity_no_individuals_utf8.owl";
-	public static String OSN_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\ontologies\\osm\\osn-amenity.owl";
+	public static String BPE_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\bpe\\bpe.owl";
+	public static String TOPO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\topo\\topo.owl";
+	public static String TAGINFO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\osm\\taginfo\\taginfo_amenity_100.owl";
+	public static String OSMONTO_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\osm\\OSMonto_amenity.owl";
+	public static String LGD_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\osm\\lgd_amenity_no_individuals_utf8.owl";
+	public static String OSN_URI = "d:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\ontologies\\osm\\osn-k-amenity-only_v.owl";
 
 	public static void main(String[] args)  {
 
 		long startTime = System.currentTimeMillis();
 		
-//		CWBOntologyMatcher matcher = new YamOntologyMatcher();
+//		CWBOntologyMatcher matcher = new WikimatchOntologyMatcher();
 		CWBOntologyMatcher matcher = new YamOntologyMatcher();
 		
 		Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
-				BPE_URI, TAGINFO_URI);
+				TOPO_URI, OSN_URI);
 		
-//		matcher.printAlignment("D:\\anthony_docs\\workspace_kepler\\cwb\\src\\resources\\alignments\\yam\\insee-bpe_vs_taginfo-amenity-100.rdf", "RDF");
+		CWBAlignment alignment = new CWBAlignment(URI.create("http://ign.bdtopo.fr"), URI.create("http://spatial.ucd.ie/lod/osn/proposed_term"));
+		alignment.addEquivalences(equivalences);
+		
+		CWBAlignmentRDFWriter writer = new CWBAlignmentRDFWriter();
+		try {
+			writer.write(alignment, "D:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\alignments\\yam", "ign-topo-za_vs_osn-amenity_v2");
+		} catch (CWBAlignmentWriterException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println(equivalences.size() + " equivalence(s) found");
 		for(CWBEquivalence equivalence : equivalences){
