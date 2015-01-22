@@ -1,8 +1,6 @@
 package lig.steamer.cwb.ui;
 
 import java.text.MessageFormat;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,9 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
 import lig.steamer.cwb.model.CWBAlignment;
-import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
+import lig.steamer.cwb.model.CWBDataSetFolkso;
+import lig.steamer.cwb.model.CWBDataSetNomen;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
 import lig.steamer.cwb.model.CWBInstanceNomen;
 import lig.steamer.cwb.model.CWBModel;
@@ -43,7 +42,6 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -149,8 +147,8 @@ public class AppUI extends UI {
 		model.addObserver(new CWBFolksoObserver());
 		model.addObserver(new CWBNomenObserver());
 		model.addObserver(new CWBAlignmentObserver());
-		model.addObserver(new CWBInstancesFolksoObserver());
-		model.addObserver(new CWBInstancesNomenObserver());
+		model.addObserver(new CWBDatasetFolksoObserver());
+		model.addObserver(new CWBDatasetNomenObserver());
 		model.addObserver(new CWBIsReadyForMatchingObserver());
 
 		new CWBController(model, this);
@@ -412,8 +410,8 @@ public class AppUI extends UI {
 
 		@Override
 		public void update(Observable o, Object arg) {
-			System.out.println("alignment changed");
 			if (arg instanceof CWBAlignment) {
+				System.out.println("alignment changed");
 				if (arg != null) {
 					CWBAlignment align = (CWBAlignment) arg;
 					alignPanel.getTable().setEnabled(true);
@@ -433,61 +431,34 @@ public class AppUI extends UI {
 
 	}
 
-	class CWBInstancesFolksoObserver implements Observer {
+	class CWBDatasetFolksoObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
-			System.out.println("instances folkso changed");
-			if (arg instanceof Collection<?>) {
-				Collection<?> collec = (Collection<?>) arg;
-				boolean isInstancesFolkso = true;
-				for (Object obj : collec) {
-					if (!(obj instanceof CWBInstanceFolkso)) {
-						isInstancesFolkso = false;
-						break;
-					}
-				}
-
-				if (isInstancesFolkso) {
-					map.removeFolksoMarkers();
-					System.out.println("instances folkso: ");
-					for (Object obj : collec) {
-						if (obj instanceof CWBInstanceFolkso) {
-							CWBInstanceFolkso instance = (CWBInstanceFolkso) obj;
-							System.out.println("=> " + instance.getLabel());
-							map.addMarkerFolkso(instance);
-						}
-					}
+			if (arg instanceof CWBDataSetFolkso) {
+				map.removeFolksoMarkers();
+				System.out.println("instances folkso: ");
+				for (CWBInstanceFolkso instance : ((CWBDataSetFolkso) arg)
+						.getInstances()) {
+					System.out.println("=> " + instance.getLabel());
+					map.addMarkerFolkso(instance);
 				}
 
 			}
 		}
 	}
 
-	class CWBInstancesNomenObserver implements Observer {
+	class CWBDatasetNomenObserver implements Observer {
 
 		@Override
 		public void update(Observable o, Object arg) {
-			System.out.println("instances nomen changed");
-			if (arg instanceof Collection<?>) {
-				Collection<?> collec = (Collection<?>) arg;
-				boolean isInstancesNomen = true;
-				for (Object obj : collec) {
-					if (!(obj instanceof CWBInstanceNomen)) {
-						isInstancesNomen = false;
-						break;
-					}
-				}
-				if (isInstancesNomen) {
-					map.removeNomenMarkers();
-					System.out.println("instances nomen: ");
-					for (Object obj : collec) {
-						if (obj instanceof CWBInstanceNomen) {
-							CWBInstanceNomen instance = (CWBInstanceNomen) obj;
-							System.out.println("=> " + instance.getLabel());
-							map.addMarkerNomen(instance);
-						}
-					}
+			if (arg instanceof CWBDataSetNomen) {
+				map.removeNomenMarkers();
+				System.out.println("instances nomen: ");
+				for (CWBInstanceNomen instance : ((CWBDataSetNomen) arg)
+						.getInstances()) {
+					System.out.println("=> " + instance.getLabel());
+					map.addMarkerNomen(instance);
 				}
 			}
 		}

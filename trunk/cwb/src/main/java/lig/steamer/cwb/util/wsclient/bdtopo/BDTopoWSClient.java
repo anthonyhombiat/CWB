@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -100,7 +101,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 	}
 
 	@Override
-	public Collection<CWBInstanceNomen> getNomenInstances(String value,
+	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
 			CWBBBox bbox, double threshold, String outputFormat)
 			throws BDTopoWSClientException {
 
@@ -110,7 +111,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 			
 			List<CWBInstanceNomen> instances = new ArrayList<CWBInstanceNomen>();
 
-			BDTopoWSClientRequest request = new BDTopoWSClientRequest(DEFAULT_PROP, value, bbox, outputFormat);
+			BDTopoWSClientRequest request = new BDTopoWSClientRequest(DEFAULT_PROP, concept.getLabelByLanguage(Locale.FRENCH), bbox, outputFormat);
 			URL url = request.getUrl();
 
 			System.out.println(url.toString());
@@ -150,24 +151,24 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 	}
 
 	@Override
-	public Collection<CWBInstanceNomen> getNomenInstances(String value)
+	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept)
 			throws BDTopoWSClientException {
-		return getNomenInstances(value, Prop.DEFAULT_MAP_BBOX,
+		return getNomenInstances(concept, Prop.DEFAULT_MAP_BBOX,
 				DEFAULT_THRESHOLD, DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
-	public Collection<CWBInstanceNomen> getNomenInstances(String value,
+	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
 			CWBBBox bbox) throws BDTopoWSClientException {
-		return getNomenInstances(value, bbox, DEFAULT_THRESHOLD,
+		return getNomenInstances(concept, bbox, DEFAULT_THRESHOLD,
 				DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
-	public Collection<CWBInstanceNomen> getNomenInstances(String value,
+	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
 			CWBBBox bbox, double threshold)
 			throws BDTopoWSClientException {
-		return getNomenInstances(value, bbox, threshold,
+		return getNomenInstances(concept, bbox, threshold,
 				DEFAULT_OUTPUT_FMT);
 	}
 

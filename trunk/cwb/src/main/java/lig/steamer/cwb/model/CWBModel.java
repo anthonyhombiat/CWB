@@ -1,7 +1,6 @@
 package lig.steamer.cwb.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Observable;
@@ -10,21 +9,21 @@ public class CWBModel extends Observable implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private CWBDataModelFolkso folksonomy;
 	private CWBDataModelNomen nomenclature;
+	private CWBDataModelFolkso folksonomy;
 
 	private CWBAlignment alignment;
-
-	private Collection<CWBInstanceFolkso> instancesFolkso;
-	private Collection<CWBInstanceNomen> instancesNomen;
+	
+	private CWBDataSetNomen datasetNomen;
+	private CWBDataSetFolkso datasetFolkso;
 
 	private CWBBBox bbox;
 
 	private Boolean isReadyForMatching;
 
 	public CWBModel() {
-		instancesFolkso = new ArrayList<CWBInstanceFolkso>();
-		instancesNomen = new ArrayList<CWBInstanceNomen>();
+		datasetNomen = new CWBDataSetNomen();
+		datasetFolkso = new CWBDataSetFolkso();
 		isReadyForMatching = false;
 	}
 
@@ -74,16 +73,7 @@ public class CWBModel extends Observable implements Serializable {
 	 * @return the instancesFolkso
 	 */
 	public Collection<CWBInstanceFolkso> getInstancesFolkso() {
-		return instancesFolkso;
-	}
-
-	private boolean addInstanceFolkso(CWBInstanceFolkso instanceFolkso) {
-		System.out.println("adding folkso instance " + instanceFolkso.toString());
-		if (!instancesFolkso.contains(instanceFolkso)) {
-			instancesFolkso.add(instanceFolkso);
-			return true;
-		}
-		return false;
+		return datasetFolkso.getInstances();
 	}
 
 	/**
@@ -91,58 +81,39 @@ public class CWBModel extends Observable implements Serializable {
 	 */
 	public boolean addInstancesFolkso(
 			Collection<CWBInstanceFolkso> instancesFolkso) {
-		boolean hasChanged = false;
-		for (CWBInstanceFolkso instanceFolkso : instancesFolkso) {
-			if (addInstanceFolkso(instanceFolkso)) {
-				hasChanged = true;
-			}
-		}
+		boolean hasChanged = datasetFolkso.addInstances(instancesFolkso);
 		setChanged();
-		notifyObservers(instancesFolkso);
+		notifyObservers(datasetFolkso);
 		return hasChanged;
 	}
 
 	public void removeAllInstancesFolkso() {
-		this.instancesFolkso = new ArrayList<CWBInstanceFolkso>();
+		datasetFolkso.removeAllInstances();
 		setChanged();
-		notifyObservers(this.instancesFolkso);
+		notifyObservers(datasetFolkso);
 	}
 
 	/**
 	 * @return the instancesNomen
 	 */
 	public Collection<CWBInstanceNomen> getInstancesNomen() {
-		return instancesNomen;
-	}
-
-	private boolean addInstanceNomen(CWBInstanceNomen instanceNomen) {
-		System.out.println("adding nomen instance " + instanceNomen.toString());
-		if (!instancesNomen.contains(instanceNomen)) {
-			instancesNomen.add(instanceNomen);
-			return true;
-		}
-		return false;
+		return datasetNomen.getInstances();
 	}
 
 	/**
 	 * @param instancesNomen the instancesNomen to set
 	 */
 	public boolean addInstancesNomen(Collection<CWBInstanceNomen> instancesNomen) {
-		boolean hasChanged = false;
-		for (CWBInstanceNomen instanceNomen : instancesNomen) {
-			if (addInstanceNomen(instanceNomen)) {
-				hasChanged = true;
-			}
-		}
+		boolean hasChanged = datasetNomen.addInstances(instancesNomen);
 		setChanged();
-		notifyObservers(instancesNomen);
+		notifyObservers(datasetNomen);
 		return hasChanged;
 	}
 
 	public void removeAllInstancesNomen() {
-		this.instancesNomen = new ArrayList<CWBInstanceNomen>();
+		datasetNomen.removeAllInstances();
 		setChanged();
-		notifyObservers(instancesNomen);
+		notifyObservers(datasetNomen);
 	}
 
 	/**

@@ -1,14 +1,15 @@
 package lig.steamer.cwb.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
-public class CWBDataSetFolkso extends CWBDataSet<CWBDataModelFolkso, CWBInstanceFolkso> {
+public class CWBDataSetFolkso extends CWBDataSet<CWBInstanceFolkso> {
 
 	private Collection<CWBInstanceFolkso> instances;
-	private CWBDataModelFolkso dataModel;
 	
 	public CWBDataSetFolkso(){
 		super();
+		instances = new ArrayList<CWBInstanceFolkso>();
 	}
 
 	@Override
@@ -54,13 +55,12 @@ public class CWBDataSetFolkso extends CWBDataSet<CWBDataModelFolkso, CWBInstance
 	}
 
 	@Override
-	public CWBDataModelFolkso getDataModel() {
-		return dataModel;
-	}
-
-	@Override
-	public void setDataModel(CWBDataModelFolkso dataModel) {
-		this.dataModel = dataModel;
+	public boolean removeAllInstances() {
+		if(instances.isEmpty()){
+			return false;
+		}
+		instances = new ArrayList<CWBInstanceFolkso>();
+		return true;
 	}
 	
 }

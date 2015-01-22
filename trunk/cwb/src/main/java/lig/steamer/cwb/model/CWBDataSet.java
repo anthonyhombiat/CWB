@@ -3,7 +3,7 @@ package lig.steamer.cwb.model;
 import java.util.Collection;
 import java.util.Date;
 
-public abstract class CWBDataSet<V extends CWBDataModel, T extends CWBInstance> {
+public abstract class CWBDataSet<T extends CWBInstance> {
 
 	private String title;
 	private String description;
@@ -73,6 +73,8 @@ public abstract class CWBDataSet<V extends CWBDataModel, T extends CWBInstance> 
 	
 	public abstract boolean removeInstances(Collection<T> instances);
 	
+	public abstract boolean removeAllInstances();
+	
 	/**
 	 * @return the creationDate
 	 */
@@ -100,16 +102,6 @@ public abstract class CWBDataSet<V extends CWBDataModel, T extends CWBInstance> 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-
-	/**
-	 * @return the dataModel
-	 */
-	public abstract V getDataModel();
-
-	/**
-	 * @param dataModel the dataModel to set
-	 */
-	public abstract void setDataModel(V dataModel);
 
 	/**
 	 * @return the title

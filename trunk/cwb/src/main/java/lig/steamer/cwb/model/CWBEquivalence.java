@@ -45,10 +45,8 @@ public class CWBEquivalence implements Serializable, CWBDataModelVisitable {
 	public boolean equals(Object o) {
 		if (o instanceof CWBEquivalence) {
 			CWBEquivalence equivalence = (CWBEquivalence) o;
-			return ((this.concept1.equals(equivalence.getConcept1()) && this.concept2
-					.equals(equivalence.getConcept2())) || (this.concept1
-					.equals(equivalence.getConcept2()) && this.concept2
-					.equals(equivalence.getConcept1())))
+			return this.concept1.equals(equivalence.getConcept1()) && this.concept2
+					.equals(equivalence.getConcept2()) 
 					&& this.confidence == equivalence.getConfidence();
 		}
 		return false;

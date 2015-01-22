@@ -12,8 +12,6 @@ import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
 import lig.steamer.cwb.model.CWBInstanceNomen;
 
-import org.vaadin.addon.leaflet.LFeatureGroup;
-import org.vaadin.addon.leaflet.LLayerGroup;
 import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LMarker;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;
@@ -54,6 +52,8 @@ public class CWBMap extends LMap {
 		this.setCenter(DEFAULT_CENTER.x, DEFAULT_CENTER.y);
 		this.setMaxBounds(Prop.DEFAULT_MAP_BBOX.getBounds());
 		this.setSizeFull();
+		
+		System.out.println("NELat: " + getBounds());
 		
 //		this.addComponent(folksoCluster);
 //		this.addComponent(nomenCluster);
@@ -101,8 +101,8 @@ public class CWBMap extends LMap {
 			e.printStackTrace();
 			return false;
 		}
-		nomenMarkers.add(marker);
 		marker.setCaption(instance.getLabel());
+		nomenMarkers.add(marker);
 		this.addComponent(marker);
 
 		return true;

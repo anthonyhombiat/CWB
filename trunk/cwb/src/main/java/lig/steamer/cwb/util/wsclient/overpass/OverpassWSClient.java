@@ -179,7 +179,7 @@ public class OverpassWSClient implements DataModelFolksoProviderWSClient,
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox, Locale locale, double threshold, String outputFormat)
 			throws OverpassWSClientException {
 
@@ -190,7 +190,7 @@ public class OverpassWSClient implements DataModelFolksoProviderWSClient,
 			List<CWBInstanceFolkso> instances = new ArrayList<CWBInstanceFolkso>();
 
 			OverpassWSClientRequest request = new OverpassWSClientRequest(DEFAULT_TAG_KEY,
-					value, bbox, locale, outputFormat);
+					concept.getFragment().toString(), bbox, locale, outputFormat);
 			URL url = request.getUrl();
 
 			System.out.println(url.toString());
@@ -230,31 +230,31 @@ public class OverpassWSClient implements DataModelFolksoProviderWSClient,
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getFolksoInstances(String value)
+	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept)
 			throws OverpassWSClientException {
-		return this.getFolksoInstances(value, Prop.DEFAULT_MAP_BBOX, DEFAULT_LOCALE,
+		return this.getFolksoInstances(concept, Prop.DEFAULT_MAP_BBOX, DEFAULT_LOCALE,
 				DEFAULT_THRESHOLD, DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox) throws OverpassWSClientException {
-		return this.getFolksoInstances(value, bbox, DEFAULT_LOCALE,
+		return this.getFolksoInstances(concept, bbox, DEFAULT_LOCALE,
 				DEFAULT_THRESHOLD, DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox, Locale locale) throws OverpassWSClientException {
-		return this.getFolksoInstances(value, bbox, locale, DEFAULT_THRESHOLD,
+		return this.getFolksoInstances(concept, bbox, locale, DEFAULT_THRESHOLD,
 				DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
-	public Collection<CWBInstanceFolkso> getFolksoInstances(String value,
+	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox, Locale locale, double threshold)
 			throws OverpassWSClientException {
-		return this.getFolksoInstances(value, bbox, locale, threshold,
+		return this.getFolksoInstances(concept, bbox, locale, threshold,
 				DEFAULT_OUTPUT_FMT);
 	}
 }
