@@ -22,7 +22,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Depression'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bank'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2896654009819031</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.20307371020317078</measure>
     </Cell>
   </map>
   <map>
@@ -30,15 +30,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Mairie'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#town_hall'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4105551242828369</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#college'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.38121497631073</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.28788846731185913</measure>
     </Cell>
   </map>
   <map>
@@ -46,7 +38,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Borne'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#telephone'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.30749765038490295</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21562448143959045</measure>
     </Cell>
   </map>
   <map>
@@ -54,15 +46,15 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-fret-uniquement'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#charging_station'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2897638976573944</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.20314568281173706</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#transport'/>
-      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#amenity'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-hospitalier'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8087069392204285</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.28802937269210815</measure>
     </Cell>
   </map>
   <map>
@@ -70,7 +62,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bus_station'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4104827642440796</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2877938449382782</measure>
     </Cell>
   </map>
   <map>
@@ -78,7 +70,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#swimming_pool'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4106377363204956</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.28786224126815796</measure>
     </Cell>
   </map>
   <map>
@@ -86,7 +78,15 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#parking'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4104827642440796</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2877938449382782</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#university'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.20490819215774536</measure>
     </Cell>
   </map>
   <map>
@@ -94,15 +94,23 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#library'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.33948880434036255</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2379976511001587</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#hospital'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Caserne-de-pompiers'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#fire_station'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.41073936223983765</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.28788846731185913</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#administratif-militaire'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#amenity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8712074160575867</measure>
     </Cell>
   </map>
   <map>
@@ -110,7 +118,15 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Montagne'/>
       <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#bench'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.310995489358902</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2180303931236267</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Bureau-ou-hotel-des-postes'/>
+      <entity2 rdf:resource='https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl#post_office'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22995615005493164</measure>
     </Cell>
   </map>
 </Alignment>

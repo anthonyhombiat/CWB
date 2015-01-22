@@ -19,16 +19,24 @@
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
-      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Mairie'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#townhall'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Mairie'/>
-      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#townhall'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#prison'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-hospitalier'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -43,14 +51,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Marche'/>
-      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#marketplace'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
       <entity2 rdf:resource='http://taginfo.openstreetmap.fr#swimming_pool'/>
       <relation>=</relation>
@@ -59,8 +59,32 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#hospital'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Marche'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#marketplace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Caserne-de-pompiers'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#fire_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Point-d-eau'/>
+      <entity2 rdf:resource='http://taginfo.openstreetmap.fr#water_point'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

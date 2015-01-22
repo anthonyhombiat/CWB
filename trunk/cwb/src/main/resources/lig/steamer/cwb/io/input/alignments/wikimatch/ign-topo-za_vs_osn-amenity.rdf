@@ -7,103 +7,30 @@
   <xml>yes</xml>
   <level>0</level>
   <type>**</type>
-  <method>lig.steamer.cwb.util.matching.impl.WikimatchOntologyMatcher$WikimatchOntologyAlignment</method>
   <onto1>
-    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/topo/topo.owl">
-      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/topo/topo.owl</location>
+    <Ontology rdf:about="http://ign.bdtopo.fr">
+      <location>http://ign.bdtopo.fr</location>
     </Ontology>
   </onto1>
   <onto2>
-    <Ontology rdf:about="file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/osn-amenity.owl">
-      <location>file:/d:/anthony_docs/workspace_kepler/cwb/src/resources/ontologies/osm/osn-amenity.owl</location>
+    <Ontology rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term">
+      <location>http://spatial.ucd.ie/lod/osn/proposed_term</location>
     </Ontology>
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#social_facility'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06625258799171843</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1028858218318695</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:social_facility'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06625258799171843</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.29901960784313725</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
       <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:social_facility'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06625258799171843</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:museum'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.18242491657397109</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Mairie'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:city_hall'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0847145488029466</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Croix'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:cross'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.18188976377952756</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Infrastructure-routiere'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Sidewalk_as_separate_way'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.09289617486338798</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Col'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#wilderness_mountain_buildings'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08579088471849866</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Divers-commercial'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:station'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07357512953367876</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Enseignement-primaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:kindergarten'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11916461916461916</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1524163568773234</measure>
     </Cell>
   </map>
   <map>
@@ -111,175 +38,7 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
       <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:prison'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.16767676767676767</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:social_facility'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21052631578947367</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Prison'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.17078189300411523</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.10384615384615385</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#social_facility'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21052631578947367</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:social_facility'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21052631578947367</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19656019656019655</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11129848229342328</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-voyageurs-et-fret'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:station'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08830845771144279</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_stop'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0771513353115727</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:station'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07926829268292683</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14772727272727273</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Alpine_hut'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08169934640522876</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:shelter'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0755287009063444</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:shelter'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0755287009063444</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-voyageurs-uniquement'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:station'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.13653846153846153</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:parking'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14626218851570963</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14626218851570963</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Borne'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Street_Furniture'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.06542056074766354</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#building'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14583333333333334</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#k:building'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.14583333333333334</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.12125748502994012</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15053763440860216</measure>
     </Cell>
   </map>
   <map>
@@ -287,7 +46,63 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-hospitalier'/>
       <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08097928436911488</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.08333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15204678362573099</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1513157894736842</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.22355769230769232</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Village-de-vacances'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:love_hotel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07129094412331406</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1121751025991792</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Refuge'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:shelter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07763975155279502</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Enseignement-primaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:kindergarten'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.11672683513838748</measure>
     </Cell>
   </map>
 </Alignment>

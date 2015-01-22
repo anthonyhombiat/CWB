@@ -7,18 +7,11 @@
 ]>
 <rdf:RDF
  xmlns:owl="http://www.w3.org/2002/07/owl#"
- xmlns:name="http://spatial.ucd.ie/lod/osn/proposed_term#k:name:"
  xmlns:output="http://spatial.ucd.ie/lod/osn/proposed_term#k:amenity?output="
- xmlns:ref="http://spatial.ucd.ie/lod/osn/proposed_term#k:ref:"
- xmlns:school="http://spatial.ucd.ie/lod/osn/proposed_term#k:school:"
  xmlns:proposed_term="http://spatial.ucd.ie/lod/osn/proposed_term#"
- xmlns:k="http://spatial.ucd.ie/lod/osn/proposed_term#k:"
- xmlns:post_office="http://spatial.ucd.ie/lod/osn/proposed_term#k:post_office:"
  xmlns:Amenity="http://spatial.ucd.ie/lod/osn/proposed_term#Amenity:"
  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
- xmlns:bicycle="http://spatial.ucd.ie/lod/osn/proposed_term#k:service:bicycle:"
- xmlns:parking="http://spatial.ucd.ie/lod/osn/proposed_term#k:parking:"
  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
  xmlns:v="http://spatial.ucd.ie/lod/osn/proposed_term#v:"
  xmlns:Key="http://spatial.ucd.ie/lod/osn/proposed_term#Key:"
@@ -26,1767 +19,894 @@
 >
 <owl:Ontology rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term">
 </owl:Ontology>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Advice_point">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Advice_point">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Alpine_hut">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Amenity:mortuary">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Amenity:mortuary">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Animal_shelters_and_animal_boarding_facilities">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Animal_shelters_and_animal_boarding_facilities">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Auctioneer">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Authority">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Authority">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bell">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bell">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bench">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bench">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bikesharing_station">
 </owl:Class>
-
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Bikesharing_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Blood_donation">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Blood_donation">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Boat_Rental">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Boat_Rental">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Car_wash">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Car_wash">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Charging_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Charging_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Clock">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Clock">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#College_Campus_(further_education)">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#College_Campus_(further_education)">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Community_Centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Community_Centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Conference_Centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Conference_Centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Dog_off-leash_area">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Embassy">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Embassy">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Ferry_Terminal">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Ferry_Terminal">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Fire_Hydrant">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Fire_Hydrant">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Fitness_Center">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Fitness_Center">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Harbour">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Ice_cream">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Ice_cream">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Inspection_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Inspection_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Karaoke_box">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Karaoke_box">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Key:Surveillance">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Love_Hotel">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Love_Hotel">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Marketplace">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Marketplace">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Meditation_centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Meditation_centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Money_transfer">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Money_transfer">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Muster_point">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Muster_point">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Playground_Equipment">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Prison">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Prison">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Public_Transport">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Sidewalk_as_separate_way">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Street_Furniture">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Street_Furniture">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Table_soccer">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Tactile_paving">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Teahouse">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Teahouse">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Thing">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Trade_school">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Trade_school">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Trailer_Park">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Trailer_Park">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#University_Campus_(tertiary_education)">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#University_Campus_(tertiary_education)">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Vehicle_Ramp">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Vehicle_Ramp">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Veterinary">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Veterinary">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Village_Hall">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Village_Hall">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Watering_place">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Watering_place">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#Wilderness_hut">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#access_restrictions_1.5">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#advertising">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#apiary">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#baby_hatch">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#baby_hatch">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#building">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#dance">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#driving_school">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#driving_school">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#exercise_point">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#exercise_point">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#grit_bin">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#grit_bin">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:amenity?output=xml">
 </owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:bar">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:beacon">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:beds">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:bench">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:bicycle_parking">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:brand">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:brewery">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:building">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:buoy">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:capacity">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:club">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:collection_times">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:country">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:cuisine">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:currency">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:cyclestreets_id">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:denomination">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:diet">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:dispensing">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:drink">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:drinking_water">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:drive_in">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:drive_through">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:emergency">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:fair_trade">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:fee">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:female">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:franchise">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:fuel">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:gambling">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:gluten_free">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:healthcare">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:highway">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:information">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:internet_access">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:lactose_free">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:landuse">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:lcn">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:level">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:male">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:max_age">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:maxstay">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:min_age">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:name">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:name:uk">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:ncn">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:network">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:opening_hours">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:operator">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:organic">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:parking">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:parking:lane">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:payment">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:phone">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:pitlatrine">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:post_office:type">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:public_transport">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:radar_transponder">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:radio_transponder">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:rcn">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:real_ale">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:real_cider">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:recycling_type">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:ref:bufa">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:ref:isil">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:ref:mobil-parken.de">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:ref:vatin">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:religion">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:reservation">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:room">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:rooms">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:royal_cypher">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:school:FR">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:service">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:service:bicycle:rental">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:shelter">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:shelter_type">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:shop">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:site">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:snowmobile">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:social_facility">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:speech_output">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:sport">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:stars">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:surveillance">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:takeaway">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:type">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:unisex">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:vending">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:waste">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:wheelchair">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#k:www.prezzibenzina.it">
-</owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#landcover">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#lavoir">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#lavoir">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#measurement_station">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#monastery">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#monastery">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#parking_garage">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#parking_garage">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#recycling_type">
 </owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#rootConcept">
-</owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#scuba_diving">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#scuba_diving2">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#sea_bath">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#seafood_shop">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#social_facility">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#social_facility">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#supervised">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#training">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#training">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:Kneippbecken">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:Kneippbecken">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:Prefeitura_de_Ponta_Grossa_-_PR">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:alcohol">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_boarding">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_boarding">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_shelter">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_shelter">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:any">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:architect">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:architect_office">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:architect_office">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:arts_centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:arts_centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:assisted_living">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:astronomical_observatory">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:astronomical_observatory">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:atm">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:atm">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:audiologist">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:audiologist">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:baby_hatch">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:baby_hatch">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bank">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bank">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bar">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bar">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:basic_hut">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:basketball">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bbq">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bbq">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:beach_resort">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bench">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bench">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_parking">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_parking">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_rental">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_rental">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_tube">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:biergarten">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:biergarten">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:billards">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bird_hide">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:boat_storage">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:boat_storage">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:books">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:brothel">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:brothel">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:buoy">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bureau_de_change">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bureau_de_change">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_stop">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cafe">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cafe">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_rental">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_rental">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_sharing">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_sharing">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_wash">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:car_wash">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:caravan_site">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:casino">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:casino">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cemetery">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:charging_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:charging_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:chemist">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:church">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cinema">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cinema">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:city_hall">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:civic">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:clinic">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:clinic">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:clock">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:clock">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_guard">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_guard">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_radar_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_radar_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:coffee_shop">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:college">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:college">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:community_centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:community_centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:compressed_air">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:compressed_air">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:convenience">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:courthouse">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:courthouse">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crematorium">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crematorium">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:cross">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crucifix">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crucifix">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crypt">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:crypt">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:customs">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:customs">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dance">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:darts">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dead_pub">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dead_pub">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dentist">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dentist">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:diving">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:doctors">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:doctors">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dog_park">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dojo">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:dojo">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:drinking_water">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:drinking_water">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:drive-through">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:driving_school">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:driving_school">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:drugstore">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:embassy">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:embassy">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:employment_agency">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ev_charging">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ev_charging">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fast_food">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fast_food">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:feeding_place">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:feeding_place">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ferry">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ferry_terminal">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ferry_terminal">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:festival_grounds">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:festival_grounds">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_hydrant">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_hydrant">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fitness_station">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:food_bank">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:food_court">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:food_court">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:foot">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fountain">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fountain">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fuel">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:fuel">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:game_feeding">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:game_feeding">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:garages">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:grave_yard">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:grave_yard">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:grit_bin">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:grit_bin">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:group_home">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don%27t_use)">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don%27t_use)">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don't_use)">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don't_use)">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:harbourmaster">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:harbourmaster">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hearing_aids">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hiking">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hunting">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hunting_stand">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:hunting_stand">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ice_cream">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ice_cream">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:kindergarten">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:kindergarten">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:kneipp_water_cure">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:kneipp_water_cure">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:lean_to">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:library">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:library">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:life_ring">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:life_ring">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:lifeboat_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:lifeboat_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:lighthouse">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:limited">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:love_hotel">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:love_hotel">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:manor">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:marina">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:marketplace">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:marketplace">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:medical_supply">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:milk_dispenser">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:milk_dispenser">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:mormon">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:museum">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:nightclub">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:nightclub">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:outreach">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_aisle">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_entrance">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_entrance">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_space">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_space">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:pharmacy">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:pharmacy">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:phone">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:picnic_site">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:place_of_worship">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:place_of_worship">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:platform">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:playground">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:police">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:police">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_box">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_box">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_office">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_office">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_point">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:post_point">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:prison">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:prison">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:pub">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:pub">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:public_bath">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:public_bath">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:raised_hide">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:recycling">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:recycling">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:register_office">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:register_office">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:rescue_box">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:rescue_box">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:restaurant">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:restaurant">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:roof">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:sauna">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:sauna">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:school">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:school">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:scuba_diving">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:seafood">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:septic_tank">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:service">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:shelter">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:shelter">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:ship">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:shower">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:shower">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:site">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:social_centre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:social_centre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:social_facility">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:social_facility">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:spa">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:spa">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:speed_camera_use_relation:enforcement_instead!">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:sports_centre">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:spring">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:stable">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:station">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:stop_area">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:stripclub">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:stripclub">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:studio">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:studio">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:supermarket">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:swingerclub">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:swingerclub">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:table_soccer">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi_point">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi_point">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:telephone">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:telephone">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:theatre">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:theatre">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:tobacco">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:toilets">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:toilets">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:townhall">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:townhall">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:travel_agent">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:university">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:university">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:user_defined">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:user_defined">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:vending_machine">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:vending_machine">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:veterinary">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:veterinary">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_basket">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_basket">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_disposal">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_disposal">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_transfer_station">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_transfer_station">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:water_point">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:watering_place">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:watering_place">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:wilderness_hut">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:witchdoctor">
-</owl:Class>
-
-<owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#v:yes">
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#vending_machine">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#vending_machine">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#veterinary">
 </owl:Class>
-
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#waldhuette">
 </owl:Class>
-
 <rdf:Description rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#waldhuette">
   <rdfs:subClassOf>http://spatial.ucd.ie/lod/osn/term/k:amenity</rdfs:subClassOf>
-</owl:Class>
-
+</rdf:Description>
 <owl:Class rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term#wilderness_mountain_buildings">
 </owl:Class>
-
 
 
 

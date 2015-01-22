@@ -1,0 +1,759 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY v "http://spatial.ucd.ie/lod/osn/proposed_term#v:" >
+]>
+
+
+<rdf:RDF xmlns="http://spatial.ucd.ie/lod/osn/proposed_term#"
+     xml:base="http://spatial.ucd.ie/lod/osn/proposed_term"
+     xmlns:v="http://spatial.ucd.ie/lod/osn/proposed_term#v:"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:Kneippbecken -->
+
+    <owl:Class rdf:about="#v:Kneippbecken"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_boarding -->
+
+    <owl:Class rdf:about="#v:animal_boarding"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:animal_shelter -->
+
+    <owl:Class rdf:about="#v:animal_shelter"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:architect_office -->
+
+    <owl:Class rdf:about="#v:architect_office"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:arts_centre -->
+
+    <owl:Class rdf:about="#v:arts_centre"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:astronomical_observatory -->
+
+    <owl:Class rdf:about="#v:astronomical_observatory"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:atm -->
+
+    <owl:Class rdf:about="#v:atm"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:audiologist -->
+
+    <owl:Class rdf:about="#v:audiologist"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:baby_hatch -->
+
+    <owl:Class rdf:about="#v:baby_hatch"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bank -->
+
+    <owl:Class rdf:about="#v:bank"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bar -->
+
+    <owl:Class rdf:about="#v:bar"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bbq -->
+
+    <owl:Class rdf:about="#v:bbq"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bench -->
+
+    <owl:Class rdf:about="#v:bench"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_parking -->
+
+    <owl:Class rdf:about="#v:bicycle_parking"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bicycle_rental -->
+
+    <owl:Class rdf:about="#v:bicycle_rental"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:biergarten -->
+
+    <owl:Class rdf:about="#v:biergarten"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:boat_storage -->
+
+    <owl:Class rdf:about="#v:boat_storage"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:brothel -->
+
+    <owl:Class rdf:about="#v:brothel"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bureau_de_change -->
+
+    <owl:Class rdf:about="#v:bureau_de_change"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station -->
+
+    <owl:Class rdf:about="#v:bus_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:cafe -->
+
+    <owl:Class rdf:about="#v:cafe"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:car_rental -->
+
+    <owl:Class rdf:about="#v:car_rental"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:car_sharing -->
+
+    <owl:Class rdf:about="#v:car_sharing"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:car_wash -->
+
+    <owl:Class rdf:about="#v:car_wash"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:casino -->
+
+    <owl:Class rdf:about="#v:casino"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:charging_station -->
+
+    <owl:Class rdf:about="#v:charging_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:cinema -->
+
+    <owl:Class rdf:about="#v:cinema"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:clinic -->
+
+    <owl:Class rdf:about="#v:clinic"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:clock -->
+
+    <owl:Class rdf:about="#v:clock"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_guard -->
+
+    <owl:Class rdf:about="#v:coast_guard"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:coast_radar_station -->
+
+    <owl:Class rdf:about="#v:coast_radar_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:college -->
+
+    <owl:Class rdf:about="#v:college"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:community_centre -->
+
+    <owl:Class rdf:about="#v:community_centre"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:compressed_air -->
+
+    <owl:Class rdf:about="#v:compressed_air"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:courthouse -->
+
+    <owl:Class rdf:about="#v:courthouse"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:crematorium -->
+
+    <owl:Class rdf:about="#v:crematorium"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:crucifix -->
+
+    <owl:Class rdf:about="#v:crucifix"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:crypt -->
+
+    <owl:Class rdf:about="#v:crypt"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:customs -->
+
+    <owl:Class rdf:about="#v:customs"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:dead_pub -->
+
+    <owl:Class rdf:about="#v:dead_pub"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:dentist -->
+
+    <owl:Class rdf:about="#v:dentist"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:doctors -->
+
+    <owl:Class rdf:about="#v:doctors"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:dojo -->
+
+    <owl:Class rdf:about="#v:dojo"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:drinking_water -->
+
+    <owl:Class rdf:about="#v:drinking_water"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:driving_school -->
+
+    <owl:Class rdf:about="#v:driving_school"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:embassy -->
+
+    <owl:Class rdf:about="#v:embassy"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:ev_charging -->
+
+    <owl:Class rdf:about="#v:ev_charging"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:fast_food -->
+
+    <owl:Class rdf:about="#v:fast_food"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:feeding_place -->
+
+    <owl:Class rdf:about="#v:feeding_place"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:ferry_terminal -->
+
+    <owl:Class rdf:about="#v:ferry_terminal"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:festival_grounds -->
+
+    <owl:Class rdf:about="#v:festival_grounds"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_hydrant -->
+
+    <owl:Class rdf:about="#v:fire_hydrant"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_station -->
+
+    <owl:Class rdf:about="#v:fire_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:food_court -->
+
+    <owl:Class rdf:about="#v:food_court"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:fountain -->
+
+    <owl:Class rdf:about="#v:fountain"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:fuel -->
+
+    <owl:Class rdf:about="#v:fuel"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:game_feeding -->
+
+    <owl:Class rdf:about="#v:game_feeding"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:garages -->
+
+    <owl:Class rdf:about="#v:garages"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:grave_yard -->
+
+    <owl:Class rdf:about="#v:grave_yard"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:grit_bin -->
+
+    <owl:Class rdf:about="#v:grit_bin"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don%27t_use) -->
+
+    <owl:Class rdf:about="#v:gym_(Don%27t_use)"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:gym_(Don&#39;t_use) -->
+
+    <owl:Class rdf:about="#v:gym_(Don&#39;t_use)"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:harbourmaster -->
+
+    <owl:Class rdf:about="#v:harbourmaster"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:hunting_stand -->
+
+    <owl:Class rdf:about="#v:hunting_stand"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:ice_cream -->
+
+    <owl:Class rdf:about="#v:ice_cream"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:kindergarten -->
+
+    <owl:Class rdf:about="#v:kindergarten"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:kneipp_water_cure -->
+
+    <owl:Class rdf:about="#v:kneipp_water_cure"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:library -->
+
+    <owl:Class rdf:about="#v:library"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:life_ring -->
+
+    <owl:Class rdf:about="#v:life_ring"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:lifeboat_station -->
+
+    <owl:Class rdf:about="#v:lifeboat_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:love_hotel -->
+
+    <owl:Class rdf:about="#v:love_hotel"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:marketplace -->
+
+    <owl:Class rdf:about="#v:marketplace"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:milk_dispenser -->
+
+    <owl:Class rdf:about="#v:milk_dispenser"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:nightclub -->
+
+    <owl:Class rdf:about="#v:nightclub"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:nursing_home -->
+
+    <owl:Class rdf:about="#v:nursing_home"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:parking -->
+
+    <owl:Class rdf:about="#v:parking"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_aisle -->
+
+    <owl:Class rdf:about="#v:parking_aisle"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_entrance -->
+
+    <owl:Class rdf:about="#v:parking_entrance"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:parking_space -->
+
+    <owl:Class rdf:about="#v:parking_space"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:pharmacy -->
+
+    <owl:Class rdf:about="#v:pharmacy"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:place_of_worship -->
+
+    <owl:Class rdf:about="#v:place_of_worship"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:police -->
+
+    <owl:Class rdf:about="#v:police"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:post_box -->
+
+    <owl:Class rdf:about="#v:post_box"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:post_office -->
+
+    <owl:Class rdf:about="#v:post_office"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:post_point -->
+
+    <owl:Class rdf:about="#v:post_point"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:prison -->
+
+    <owl:Class rdf:about="#v:prison"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:pub -->
+
+    <owl:Class rdf:about="#v:pub"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:public_bath -->
+
+    <owl:Class rdf:about="#v:public_bath"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:public_building -->
+
+    <owl:Class rdf:about="#v:public_building"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:recycling -->
+
+    <owl:Class rdf:about="#v:recycling"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:register_office -->
+
+    <owl:Class rdf:about="#v:register_office"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:rescue_box -->
+
+    <owl:Class rdf:about="#v:rescue_box"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:restaurant -->
+
+    <owl:Class rdf:about="#v:restaurant"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:retirement_home -->
+
+    <owl:Class rdf:about="#v:retirement_home"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:sauna -->
+
+    <owl:Class rdf:about="#v:sauna"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:school -->
+
+    <owl:Class rdf:about="#v:school"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:security_booth -->
+
+    <owl:Class rdf:about="#v:security_booth"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:shelter -->
+
+    <owl:Class rdf:about="#v:shelter"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:shower -->
+
+    <owl:Class rdf:about="#v:shower"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:social_centre -->
+
+    <owl:Class rdf:about="#v:social_centre"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:social_facility -->
+
+    <owl:Class rdf:about="#v:social_facility"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:spa -->
+
+    <owl:Class rdf:about="#v:spa"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:stripclub -->
+
+    <owl:Class rdf:about="#v:stripclub"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:studio -->
+
+    <owl:Class rdf:about="#v:studio"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool -->
+
+    <owl:Class rdf:about="#v:swimming_pool"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:swingerclub -->
+
+    <owl:Class rdf:about="#v:swingerclub"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi -->
+
+    <owl:Class rdf:about="#v:taxi"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:taxi_point -->
+
+    <owl:Class rdf:about="#v:taxi_point"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:telephone -->
+
+    <owl:Class rdf:about="#v:telephone"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:theatre -->
+
+    <owl:Class rdf:about="#v:theatre"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:toilets -->
+
+    <owl:Class rdf:about="#v:toilets"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:townhall -->
+
+    <owl:Class rdf:about="#v:townhall"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:university -->
+
+    <owl:Class rdf:about="#v:university"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:user_defined -->
+
+    <owl:Class rdf:about="#v:user_defined"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:vending_machine -->
+
+    <owl:Class rdf:about="#v:vending_machine"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:veterinary -->
+
+    <owl:Class rdf:about="#v:veterinary"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_basket -->
+
+    <owl:Class rdf:about="#v:waste_basket"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_disposal -->
+
+    <owl:Class rdf:about="#v:waste_disposal"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:waste_transfer_station -->
+
+    <owl:Class rdf:about="#v:waste_transfer_station"/>
+    
+
+
+    <!-- http://spatial.ucd.ie/lod/osn/proposed_term#v:watering_place -->
+
+    <owl:Class rdf:about="#v:watering_place"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

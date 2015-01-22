@@ -6,39 +6,47 @@
 <Alignment>
   <xml>yes</xml>
   <level>0</level>
-  <type>11</type>
+  <type>**</type>
   <onto1>
-    <Ontology rdf:about="http://ign.bdtopo.fr">
+    <Ontology rdf:about="null">
       <location>http://ign.bdtopo.fr</location>
     </Ontology>
   </onto1>
   <onto2>
-    <Ontology rdf:about="http://spatial.ucd.ie/lod/osn/proposed_term">
+    <Ontology rdf:about="null">
       <location>http://spatial.ucd.ie/lod/osn/proposed_term</location>
     </Ontology>
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Caserne-de-pompiers'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:fire_station'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9948301315307617</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9981439709663391</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Croix'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:cross'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Parking'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:parking'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9963219165802002</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Gare-routiere'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:bus_station'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9981581568717957</measure>
     </Cell>
   </map>
   <map>
     <Cell>
       <entity1 rdf:resource='http://ign.bdtopo.fr#Marche'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Marketplace'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:marketplace'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9966647624969482</measure>
     </Cell>
   </map>
   <map>
@@ -46,39 +54,15 @@
       <entity1 rdf:resource='http://ign.bdtopo.fr#Piscine'/>
       <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:swimming_pool'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9952563643455505</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9983295798301697</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Hopital'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:hospital'/>
+      <entity1 rdf:resource='http://ign.bdtopo.fr#Etablissement-penitentiaire'/>
+      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:prison'/>
       <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Construction'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#building'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Peage'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#Bell'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://ign.bdtopo.fr#Musee'/>
-      <entity2 rdf:resource='http://spatial.ucd.ie/lod/osn/proposed_term#v:museum'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.990607500076294</measure>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9966647624969482</measure>
     </Cell>
   </map>
 </Alignment>
