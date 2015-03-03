@@ -10,6 +10,7 @@ import java.util.Collection;
 import lig.steamer.cwb.util.wsclient.WSNodeFolkso;
 import lig.steamer.cwb.util.wsclient.WSServerResponse;
 import lig.steamer.cwb.util.wsclient.overpass.exception.OverpassWSServerResponseException;
+import lig.steamer.cwb.util.wsclient.overpass.exception.OverpassWSServerResponseForbiddenTypeException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +24,12 @@ public class OverpassWSServerResponse implements WSServerResponse<WSNodeFolkso> 
 	private static final String KEY_RESPONSE_NAME = "name";
 	private static final String KEY_RESPONSE_LAT = "lat";
 	private static final String KEY_RESPONSE_LON = "lon";
+	private static final String KEY_RESPONSE_ID = "id";
+	private static final String KEY_RESPONSE_TYPE = "type";
+	private static final String KEY_RESPONSE_CENTER = "center";
+	
+	private static final String VALUE_RESPONSE_TYPE_NODE = "node";
+	private static final String VALUE_RESPONSE_TYPE_WAY = "way";
 
 	private final Collection<WSNodeFolkso> nodes = new ArrayList<WSNodeFolkso>();
 
@@ -52,6 +59,7 @@ public class OverpassWSServerResponse implements WSServerResponse<WSNodeFolkso> 
 			for (int i = 0; i < data.length(); i++) {
 
 				JSONObject current = data.getJSONObject(i);
+				
 				JSONObject currentTags = current
 						.getJSONObject(KEY_RESPONSE_TAGS);
 
@@ -60,10 +68,29 @@ public class OverpassWSServerResponse implements WSServerResponse<WSNodeFolkso> 
 					name = currentTags.getString(KEY_RESPONSE_NAME);
 				}catch(Exception e){}
 				
-				WSNodeFolkso node = new WSNodeFolkso(
-						current.getDouble(KEY_RESPONSE_LAT),
-						current.getDouble(KEY_RESPONSE_LON),
-						name);
+				WSNodeFolkso node;
+				
+				String type = current.getString(KEY_RESPONSE_TYPE);
+				switch(type){
+					case VALUE_RESPONSE_TYPE_NODE:
+						node = new WSNodeFolkso(
+								current.getString(KEY_RESPONSE_ID),
+								current.getDouble(KEY_RESPONSE_LAT),
+								current.getDouble(KEY_RESPONSE_LON),
+								name);
+						break;
+					case VALUE_RESPONSE_TYPE_WAY:
+						JSONObject center = current
+						.getJSONObject(KEY_RESPONSE_CENTER);
+						
+						node = new WSNodeFolkso(
+								current.getString(KEY_RESPONSE_ID),
+								center.getDouble(KEY_RESPONSE_LAT),
+								center.getDouble(KEY_RESPONSE_LON),
+								name);
+								break;
+					default: throw new OverpassWSServerResponseForbiddenTypeException();
+				}
 
 				node.addTag(currentTags.getString(KEY_RESPONSE_AMENITY));
 
@@ -72,7 +99,7 @@ public class OverpassWSServerResponse implements WSServerResponse<WSNodeFolkso> 
 
 			br.close();
 
-		} catch (IOException | JSONException e) {
+		} catch (IOException | JSONException | OverpassWSServerResponseForbiddenTypeException e) {
 			throw new OverpassWSServerResponseException(e);
 		}
 

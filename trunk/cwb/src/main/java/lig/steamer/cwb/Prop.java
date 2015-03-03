@@ -2,8 +2,6 @@ package lig.steamer.cwb;
 
 import java.io.File;
 
-import lig.steamer.cwb.model.LeafletBBox;
-
 import com.vaadin.server.VaadinService;
 
 public class Prop {
@@ -43,10 +41,13 @@ public class Prop {
 	public static final String DEFAULT_CHARSET = "UTF-8";
 	public static final String DEFAULT_ONTO_FMT = "OWL";
 	public static final String DEFAULT_ALIGN_FMT = "RDF";
-	
-	public static final LeafletBBox DEFAULT_MAP_BBOX = new LeafletBBox(45.154121, 5.678540,
-			45.213760, 5.753120); // Grenoble bbox
 
+	public static final boolean DEFAULT_BUFFER_VISIBILITY = true;
+	public static final double DEFAULT_BUFFER_SIZE = 50;
+	public static final int DEFAULT_BUFFER_STROKE_SIZE = 2;
+	public static final double DEFAULT_BUFFER_STROKE_OPACITY = 0.8;
+	public static final double DEFAULT_BUFFER_FILL_OPACITY = 0.5;
+	
 	private Prop() {
 	}
 

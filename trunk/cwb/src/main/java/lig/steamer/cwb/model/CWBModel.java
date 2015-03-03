@@ -5,6 +5,11 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Observable;
 
+import lig.steamer.cwb.util.wsclient.CWBDatasetFolksoProviderWSClient;
+import lig.steamer.cwb.util.wsclient.CWBDatasetNomenProviderWSClient;
+import lig.steamer.cwb.util.wsclient.bdtopo.BDTopoWSClient;
+import lig.steamer.cwb.util.wsclient.overpass.OverpassWSClient;
+
 public class CWBModel extends Observable implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,18 +18,34 @@ public class CWBModel extends Observable implements Serializable {
 	private CWBDataModelFolkso folksonomy;
 
 	private CWBAlignment alignment;
-	
+
+	private CWBDatasetNomenProviderWSClient datasetNomenProvider;
+	private CWBDatasetFolksoProviderWSClient datasetFolksoProvider;
+
 	private CWBDataSetNomen datasetNomen;
 	private CWBDataSetFolkso datasetFolkso;
 
-	private CWBBBox bbox;
+	private CWBStudyArea studyArea;
+
+	private CWBBuffer buffer;
 
 	private Boolean isReadyForMatching;
 
 	public CWBModel() {
-		datasetNomen = new CWBDataSetNomen();
-		datasetFolkso = new CWBDataSetFolkso();
-		isReadyForMatching = false;
+		init();
+	}
+
+	public void init() {
+		setFolksonomy(new CWBDataModelFolkso(null));
+		setNomenclature(new CWBDataModelNomen(null));
+		setAlignment(new CWBAlignment(null, null));
+		setDatasetNomen(new CWBDataSetNomen());
+		setDatasetFolkso(new CWBDataSetFolkso());
+		setReadyForMatching(false);
+		setStudyArea(CWBStudyArea.GRENOBLE);
+		setDatasetNomenProvider(new BDTopoWSClient());
+		setDatasetFolksoProvider(new OverpassWSClient());
+		setBuffer(new CWBBuffer());
 	}
 
 	/**
@@ -41,9 +62,8 @@ public class CWBModel extends Observable implements Serializable {
 		this.folksonomy = folksonomy;
 		setChanged();
 		notifyObservers(folksonomy);
-		if (this.folksonomy != null && this.nomenclature != null) {
-			setReadyForMatching(true);
-		}
+		setReadyForMatching(!folksonomy.getConcepts().isEmpty()
+				&& !nomenclature.getConcepts().isEmpty());
 	}
 
 	/**
@@ -60,13 +80,14 @@ public class CWBModel extends Observable implements Serializable {
 		this.nomenclature = nomenclature;
 		setChanged();
 		notifyObservers(nomenclature);
-		if (this.folksonomy != null && this.nomenclature != null) {
-			setReadyForMatching(true);
-		}
+		setReadyForMatching(!folksonomy.getConcepts().isEmpty()
+				&& !nomenclature.getConcepts().isEmpty());
 	}
 
 	public boolean isEmpty() {
-		return folksonomy == null && nomenclature == null && alignment == null;
+		return folksonomy.getConcepts().isEmpty()
+				&& nomenclature.getConcepts().isEmpty()
+				&& alignment.getEquivalences().isEmpty();
 	}
 
 	/**
@@ -117,17 +138,19 @@ public class CWBModel extends Observable implements Serializable {
 	}
 
 	/**
-	 * @return the bbox
+	 * @return the studyArea
 	 */
-	public CWBBBox getBBox() {
-		return bbox;
+	public CWBStudyArea getStudyArea() {
+		return studyArea;
 	}
 
 	/**
-	 * @param bbox the bbox to set
+	 * @param studyArea the studyArea to set
 	 */
-	public void setBBox(CWBBBox bbox) {
-		this.bbox = bbox;
+	public void setStudyArea(CWBStudyArea studyArea) {
+		this.studyArea = studyArea;
+		setChanged();
+		notifyObservers(studyArea);
 	}
 
 	/**
@@ -141,9 +164,9 @@ public class CWBModel extends Observable implements Serializable {
 	 * @param isReadyForMatching the isReadyForMatching to set
 	 */
 	public void setReadyForMatching(Boolean isReadyForMatching) {
+		this.isReadyForMatching = isReadyForMatching;
 		setChanged();
 		notifyObservers(isReadyForMatching);
-		this.isReadyForMatching = isReadyForMatching;
 	}
 
 	/**
@@ -208,6 +231,80 @@ public class CWBModel extends Observable implements Serializable {
 			return alignment.unselectEquivalence(equivalence);
 		}
 		return false;
+	}
+
+	/**
+	 * @return the datasetNomenProvider
+	 */
+	public CWBDatasetNomenProviderWSClient getDatasetNomenProvider() {
+		return datasetNomenProvider;
+	}
+
+	/**
+	 * @param datasetNomenProvider the CWBDatasetNomenProvider to set
+	 */
+	public void setDatasetNomenProvider(
+			CWBDatasetNomenProviderWSClient datasetNomenProvider) {
+		this.datasetNomenProvider = datasetNomenProvider;
+	}
+
+	/**
+	 * @return the datasetFolksoProvider
+	 */
+	public CWBDatasetFolksoProviderWSClient getDatasetFolksoProvider() {
+		return datasetFolksoProvider;
+	}
+
+	/**
+	 * @param datasetFolksoProvider the CWBDatasetFolksoProvider to set
+	 */
+	public void setDatasetFolksoProvider(
+			CWBDatasetFolksoProviderWSClient datasetFolksoProvider) {
+		this.datasetFolksoProvider = datasetFolksoProvider;
+	}
+
+	/**
+	 * @return the buffer
+	 */
+	public CWBBuffer getBuffer() {
+		return buffer;
+	}
+
+	/**
+	 * @param buffer the buffer to set
+	 */
+	public void setBuffer(CWBBuffer buffer) {
+		this.buffer = buffer;
+		setChanged();
+		notifyObservers(buffer);
+	}
+
+	/**
+	 * @return the datasetNomen
+	 */
+	public CWBDataSetNomen getDatasetNomen() {
+		return datasetNomen;
+	}
+
+	/**
+	 * @param datasetNomen the datasetNomen to set
+	 */
+	public void setDatasetNomen(CWBDataSetNomen datasetNomen) {
+		this.datasetNomen = datasetNomen;
+	}
+
+	/**
+	 * @return the datasetFolkso
+	 */
+	public CWBDataSetFolkso getDatasetFolkso() {
+		return datasetFolkso;
+	}
+
+	/**
+	 * @param datasetFolkso the datasetFolkso to set
+	 */
+	public void setDatasetFolkso(CWBDataSetFolkso datasetFolkso) {
+		this.datasetFolkso = datasetFolkso;
 	}
 
 }

@@ -29,14 +29,14 @@ public class Main {
 		CWBOntologyMatcher matcher = new YamOntologyMatcher();
 		
 		Collection<CWBEquivalence> equivalences = matcher.getEquivalences(
-				TOPO_URI, OSN_URI);
+				BPE_URI, OSMONTO_URI);
 		
-		CWBAlignment alignment = new CWBAlignment(URI.create("http://ign.bdtopo.fr"), URI.create("http://spatial.ucd.ie/lod/osn/proposed_term"));
+		CWBAlignment alignment = new CWBAlignment(URI.create("http://rdf.insee.fr/def/territoire/bpe"), URI.create("https://raw.github.com/doroam/planning-do-roam/master/Ontology/tags.owl"));
 		alignment.addEquivalences(equivalences);
 		
 		CWBAlignmentRDFWriter writer = new CWBAlignmentRDFWriter();
 		try {
-			writer.write(alignment, "D:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\alignments\\yam", "ign-topo-za_vs_osn-amenity_v2");
+			writer.write(alignment, "D:\\anthony_docs\\workspace_kepler\\cwb\\src\\main\\resources\\lig\\steamer\\cwb\\io\\input\\alignments\\yam", "insee-bpe_vs_osmonto-amenity");
 		} catch (CWBAlignmentWriterException e) {
 			e.printStackTrace();
 		}

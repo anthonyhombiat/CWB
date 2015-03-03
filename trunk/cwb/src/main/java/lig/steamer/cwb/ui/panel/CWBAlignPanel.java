@@ -3,6 +3,7 @@ package lig.steamer.cwb.ui.panel;
 import java.text.MessageFormat;
 
 import lig.steamer.cwb.Msg;
+import lig.steamer.cwb.model.CWBAlignment;
 import lig.steamer.cwb.model.CWBEquivalence;
 
 import com.vaadin.data.Property.ValueChangeListener;
@@ -110,6 +111,18 @@ public class CWBAlignPanel extends Panel {
 		this.setContent(layout);
 		this.setSizeFull();
 
+	}
+	
+	public void loadAlignment(CWBAlignment alignment){
+		table.setEnabled(true);
+		container.removeAllItems();
+		container.addAll(
+				alignment.getEquivalences());
+		table.refreshRowCache();
+		table.sort();
+		setCaption(MessageFormat.format(Msg
+						.get("align.capt"), alignment.getEquivalences()
+						.size()));
 	}
 
 	/**

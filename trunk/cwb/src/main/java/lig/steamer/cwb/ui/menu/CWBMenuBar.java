@@ -23,8 +23,13 @@ public class CWBMenuBar extends MenuBar {
 	private final MenuItem loadAlignFromWSMenuItem;
 	private final MenuItem loadAlignFromFileMenuItem;
 
-	private final MenuItem mapMenuItem;
+	private final MenuItem dataProviderMenuItem;
+	private final MenuItem bufferOptionsMenuItem;
+	private final MenuItem studyAreaMenuItem;
 
+	private final MenuItem mapMenuItem;
+	private final MenuItem modelMenuItem;
+	
 	private final MenuItem aboutMenuItem;
 	private final MenuItem docMenuItem;
 
@@ -38,93 +43,116 @@ public class CWBMenuBar extends MenuBar {
 		 * File
 		 */
 
-		MenuItem fileItem = this.addItem(Msg.get("main.menu.file"), null, null);
+		MenuItem fileItem = this.addItem(
+				Msg.get("main.menu.file"), null, null);
 
-		openMenuItem = fileItem.addItem(Msg.get("main.menu.file.open"), null);
+		openMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.open"), null);
 
-		saveMenuItem = fileItem.addItem(Msg.get("main.menu.file.save"), null);
+		saveMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.save"), null);
 
-		closeMenuItem = fileItem.addItem(Msg.get("main.menu.file.close"), null);
+		closeMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.close"), null);
 
 		fileItem.addSeparator();
 
-		logoutMenuItem = fileItem.addItem(Msg.get("main.menu.file.logout"),
-				null);
+		logoutMenuItem = fileItem.addItem(
+				Msg.get("main.menu.file.logout"), null);
 
 		/*
 		 * Edit
 		 */
 
-		MenuItem editItem = this.addItem(Msg.get("main.menu.edit"), null, null);
+		MenuItem editItem = this.addItem(
+				Msg.get("main.menu.edit"), null, null);
 
-		undoMenuItem = editItem.addItem(Msg.get("main.menu.edit.undo"), null);
+		undoMenuItem = editItem.addItem(
+				Msg.get("main.menu.edit.undo"), null);
 		undoMenuItem.setEnabled(false);
 
-		redoMenuItem = editItem.addItem(Msg.get("main.menu.edit.redo"), null);
+		redoMenuItem = editItem.addItem(
+				Msg.get("main.menu.edit.redo"), null);
 		redoMenuItem.setEnabled(false);
 
 		/*
-		 * Data
+		 * Data model
 		 */
 
-		MenuItem dataItem = this.addItem(Msg.get("main.menu.data"), null);
+		MenuItem datamodelItem = this.addItem(
+				Msg.get("main.menu.data"), null);
 
-		loadNomenFromWSMenuItem = dataItem.addItem(
+		loadNomenFromWSMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.nomen.ws"), null);
 
-		loadNomenFromFileMenuItem = dataItem.addItem(
+		loadNomenFromFileMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.nomen.file"), null);
 
-		dataItem.addSeparator();
+		datamodelItem.addSeparator();
 
-		loadFolksoFromWSMenuItem = dataItem.addItem(
+		loadFolksoFromWSMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.folkso.ws"), null);
 
-		loadFolksoFromFileMenuItem = dataItem.addItem(
+		loadFolksoFromFileMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.folkso.file"), null);
 
-		dataItem.addSeparator();
+		datamodelItem.addSeparator();
 
-		loadAlignFromWSMenuItem = dataItem.addItem(
+		loadAlignFromWSMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.align.ws"), null);
 
-		loadAlignFromFileMenuItem = dataItem.addItem(
+		loadAlignFromFileMenuItem = datamodelItem.addItem(
 				Msg.get("main.menu.data.load.align.file"), null);
-
-		/*
-		 * Indicators
-		 */
-
-		this.addItem(Msg.get("main.menu.indicators"), null);
 
 		/*
 		 * Map
 		 */
 
-		this.addItem(Msg.get("main.menu.map"), null);
+		MenuItem mapItem = this.addItem(
+				Msg.get("main.menu.map"), null);
+		
+		studyAreaMenuItem = mapItem.addItem(
+				Msg.get("main.menu.map.area"), null);
+		
+		dataProviderMenuItem = mapItem.addItem(
+				Msg.get("main.menu.map.data"), null);
 
+		bufferOptionsMenuItem = mapItem.addItem(
+				Msg.get("main.menu.map.buffer"), null);
+				
 		/*
 		 * Window
 		 */
 
-		MenuItem windowItem = this.addItem(Msg.get("main.menu.window"), null);
+		MenuItem windowItem = this.addItem(
+				Msg.get("main.menu.window"), null);
 
-		mapMenuItem = windowItem.addItem(Msg.get("main.menu.window.map.capt"),
+		mapMenuItem = windowItem.addItem(
+				Msg.get("main.menu.window.map.capt"),
 				null);
 		mapMenuItem.setCheckable(true);
 		mapMenuItem.setChecked(true);
+		
+		modelMenuItem = windowItem.addItem(
+				Msg.get("main.menu.window.datamodels.capt"),
+				null);
+		modelMenuItem.setCheckable(true);
+		modelMenuItem.setChecked(true);
 
 		/*
 		 * Help
 		 */
 
-		MenuItem helpItem = this.addItem(Msg.get("main.menu.help"), null, null);
+		MenuItem helpItem = this.addItem(
+				Msg.get("main.menu.help"), null, null);
 
-		docMenuItem = helpItem.addItem(Msg.get("main.menu.help.doc"), null);
+		docMenuItem = helpItem.addItem(
+				Msg.get("main.menu.help.doc"), null);
 
 		helpItem.addSeparator();
 
-		aboutMenuItem = helpItem.addItem(Msg.get("main.menu.help.about"), null);
+		aboutMenuItem = helpItem.addItem(
+				Msg.get("main.menu.help.about"), null);
 	}
 
 	/**
@@ -196,7 +224,7 @@ public class CWBMenuBar extends MenuBar {
 	public MenuItem getLoadNomenFromFileMenuItem() {
 		return loadNomenFromFileMenuItem;
 	}
-	
+
 	/**
 	 * @return the loadAlignFromWSMenuItem
 	 */
@@ -230,6 +258,34 @@ public class CWBMenuBar extends MenuBar {
 	 */
 	public MenuItem getMapMenuItem() {
 		return mapMenuItem;
+	}
+
+	/**
+	 * @return the dataProviderMenuItem
+	 */
+	public MenuItem getdataProviderMenuItem() {
+		return dataProviderMenuItem;
+	}
+
+	/**
+	 * @return the bufferOptionsMenuItem
+	 */
+	public MenuItem getBufferOptionsMenuItem() {
+		return bufferOptionsMenuItem;
+	}
+
+	/**
+	 * @return the studyAreaMenuItem
+	 */
+	public MenuItem getStudyAreaMenuItem() {
+		return studyAreaMenuItem;
+	}
+
+	/**
+	 * @return the modelMenuItem
+	 */
+	public MenuItem getModelMenuItem() {
+		return modelMenuItem;
 	}
 
 }

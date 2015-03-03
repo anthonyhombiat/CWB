@@ -6,8 +6,8 @@ import org.vaadin.addon.leaflet.shared.Point;
 
 public class CWBInstanceFolkso extends CWBInstance {
 
-	public CWBInstanceFolkso(Point point, String label, Collection<String> tags) {
-		super(point, label, tags);
+	public CWBInstanceFolkso(String id, Point point, String label, Collection<String> tags) {
+		super(id, point, label, tags);
 	}
 
 }

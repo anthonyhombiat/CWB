@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.util.wsclient.DataModelFolksoProviderWSClient;
-import lig.steamer.cwb.util.wsclient.exception.WSClientException;
+import lig.steamer.cwb.util.wsclient.exception.WSDataModelFolksoClientException;
 import lig.steamer.cwb.util.wsclient.http.HttpMethod;
 import lig.steamer.cwb.util.wsclient.http.HttpRequest;
 import lig.steamer.cwb.util.wsclient.taginfo.exception.TaginfoClientException;
@@ -124,11 +124,11 @@ public class TaginfoWSClient implements DataModelFolksoProviderWSClient {
 	}
 
 	@Override
-	public CWBDataModelFolkso getDataModelFolkso() throws WSClientException {
+	public CWBDataModelFolkso getDataModelFolkso() throws WSDataModelFolksoClientException {
 		try {
 			return getTagsByKey(DEFAULT_TAG_KEY);
 		} catch (TaginfoClientException e) {
-			throw new WSClientException(e.getMessage(), e);
+			throw new WSDataModelFolksoClientException(e.getMessage(), e);
 		}
 	}
 

@@ -1,12 +1,12 @@
 package lig.steamer.cwb.util.wsclient;
 
-public enum MappingWS {
-
-	OPEN_STREET_MAP("OpenStreetMap");
+public enum WSDatasetFolksoProvider {
+	
+	OVERPASS("OSM Overpass");
 	
 	private String name = "";
 
-	MappingWS(String name) {
+	WSDatasetFolksoProvider(String name) {
 		this.name = name;
 	}
 

@@ -8,14 +8,16 @@ import org.vaadin.addon.leaflet.shared.Point;
 
 public abstract class CWBInstance {
 
+	private String id;
 	private Point point;
 	private Collection<String> tags = new ArrayList<String>();
 	private String label;
 	
-	public CWBInstance(Point point, String label, Collection<String> tags){
-		this.point = point;
-		this.label = label;
-		this.tags = tags;
+	public CWBInstance(String id, Point point, String label, Collection<String> tags){
+		setId(id);
+		setPoint(point);
+		setLabel(label);
+		setTags(tags);
 	}
 
 	/**
@@ -63,6 +65,20 @@ public abstract class CWBInstance {
 	@Override
 	public String toString(){
 		return this.getLabel();
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }

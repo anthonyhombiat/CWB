@@ -63,4 +63,14 @@
     
 
     <inherits name="org.vaadin.addon.leaflet.markercluster.Widgetset" />
+
+    
+
+    
+
+    
+
+    
+
+    <inherits name="org.vaadin.alump.fancylayouts.gwt.FancyLayoutsWidgetset" />
 </module>

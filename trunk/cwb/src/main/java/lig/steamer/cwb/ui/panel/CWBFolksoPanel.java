@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.model.CWBConcept;
+import lig.steamer.cwb.model.CWBDataModelFolkso;
 
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.themes.Reindeer;
@@ -22,10 +23,10 @@ public class CWBFolksoPanel extends Panel {
 
 		super(MessageFormat.format(Msg.get("folkso.capt"), 0,
 				Msg.get("folkso.empty")));
-		
+
 		dataModelContainer = new CWBHierarchicalDataModelContainer<CWBConcept>(
 				CWBConcept.class, "parent");
-		
+
 		table.setContainerDataSource(dataModelContainer);
 		table.setItemCaptionMode(ItemCaptionMode.PROPERTY);
 		table.setItemCaptionPropertyId(Msg.get("folkso.table.col.fragment"));
@@ -35,7 +36,7 @@ public class CWBFolksoPanel extends Panel {
 		table.setSelectable(true);
 
 		table.setSizeFull();
-		
+
 		table.setVisibleColumns(Msg.get("folkso.table.col.iri"),
 				Msg.get("folkso.table.col.fragment"),
 				Msg.get("folkso.table.col.labels"),
@@ -43,11 +44,9 @@ public class CWBFolksoPanel extends Panel {
 
 		table.setColumnCollapsed(Msg.get("folkso.table.col.iri"), true);
 		table.setColumnCollapsed(Msg.get("folkso.table.col.labels"), true);
-		table.setColumnCollapsed(Msg.get("folkso.table.col.descriptions"),
-				true);
+		table.setColumnCollapsed(Msg.get("folkso.table.col.descriptions"), true);
 
-		table.setSortContainerPropertyId(Msg
-				.get("folkso.table.col.fragment"));
+		table.setSortContainerPropertyId(Msg.get("folkso.table.col.fragment"));
 
 		VerticalLayout layout = new VerticalLayout();
 		layout.addComponent(table);
@@ -56,6 +55,20 @@ public class CWBFolksoPanel extends Panel {
 		this.setContent(layout);
 		this.setSizeFull();
 
+	}
+
+	public void loadFolksonomy(CWBDataModelFolkso folkso) {
+		dataModelContainer.removeAllItems();
+		if (folkso.getConcepts().size() > 0) {
+			dataModelContainer.addAll(folkso.getConcepts());
+			table.sort();
+			table.refreshRowCache();
+			setCaption(MessageFormat.format(Msg.get("folkso.capt"), folkso
+					.getConcepts().size(), folkso.getNamespace()));
+		} else {
+			setCaption(MessageFormat.format(Msg.get("folkso.capt"), 0,
+					Msg.get("folkso.empty")));
+		}
 	}
 
 	/**

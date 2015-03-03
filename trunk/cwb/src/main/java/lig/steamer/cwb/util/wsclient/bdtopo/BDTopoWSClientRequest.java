@@ -101,7 +101,7 @@ public class BDTopoWSClientRequest implements WSClientRequest {
 
 		String ogcPropertyFilter;
 
-		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("[^a-zA-Z0-9 ]", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(value);
 
 		if (m.find()) {

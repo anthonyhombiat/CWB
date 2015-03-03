@@ -10,15 +10,15 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lig.steamer.cwb.Prop;
 import lig.steamer.cwb.model.CWBBBox;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBInstanceNomen;
+import lig.steamer.cwb.util.wsclient.CWBDatasetNomenProviderWSClient;
 import lig.steamer.cwb.util.wsclient.DataModelNomenProviderWSClient;
-import lig.steamer.cwb.util.wsclient.InstancesNomenProviderWSClient;
 import lig.steamer.cwb.util.wsclient.WSNodeNomen;
-import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoWSClientException;
+import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoDataModelWSClientException;
+import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoDatasetWSClientException;
 import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoWSClientURISyntaxException;
 import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoWSMalformedURLException;
 import lig.steamer.cwb.util.wsclient.bdtopo.exception.BDTopoWSServerResponseException;
@@ -29,7 +29,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.vaadin.addon.leaflet.shared.Point;
 
 public class BDTopoWSClient implements DataModelNomenProviderWSClient,
-		InstancesNomenProviderWSClient {
+		CWBDatasetNomenProviderWSClient {
 
 	private static Logger LOGGER = Logger.getLogger(BDTopoWSClient.class
 			.getName());
@@ -44,7 +44,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 
 	}
 
-	public CWBDataModelNomen getDataModelNomen(String outputFormat) throws BDTopoWSClientException {
+	public CWBDataModelNomen getDataModelNomen(String outputFormat) throws BDTopoDataModelWSClientException {
 
 		LOGGER.log(Level.INFO, "Querying the IGN BD TOPO web service...");
 
@@ -91,19 +91,19 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 		} catch (IOException | BDTopoWSServerResponseException
 				| BDTopoWSClientURISyntaxException
 				| BDTopoWSMalformedURLException e) {
-			throw new BDTopoWSClientException(e);
+			throw new BDTopoDataModelWSClientException(e);
 		}
 	}
 
 	@Override
-	public CWBDataModelNomen getDataModelNomen() throws BDTopoWSClientException {
+	public CWBDataModelNomen getDataModelNomen() throws BDTopoDataModelWSClientException {
 		return getDataModelNomen(DEFAULT_OUTPUT_FMT);
 	}
 
 	@Override
 	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
 			CWBBBox bbox, double threshold, String outputFormat)
-			throws BDTopoWSClientException {
+			throws BDTopoDatasetWSClientException {
 
 		LOGGER.log(Level.INFO, "Querying the IGN BD TOPO web service...");
 		
@@ -127,7 +127,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 
 			for (WSNodeNomen node : response.getNodes()) {
 
-				instances.add(new CWBInstanceNomen(new Point(node.getLat(),
+				instances.add(new CWBInstanceNomen(node.getId(), new Point(node.getLat(),
 						node.getLon()), node.getName(), new ArrayList<String>()));
 
 				LOGGER.log(Level.INFO, node.getCategory()
@@ -145,21 +145,14 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 		} catch (IOException | BDTopoWSServerResponseException
 				| BDTopoWSClientURISyntaxException
 				| BDTopoWSMalformedURLException e) {
-			throw new BDTopoWSClientException(e);
+			throw new BDTopoDatasetWSClientException(e);
 		}
 		
 	}
 
 	@Override
-	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept)
-			throws BDTopoWSClientException {
-		return getNomenInstances(concept, Prop.DEFAULT_MAP_BBOX,
-				DEFAULT_THRESHOLD, DEFAULT_OUTPUT_FMT);
-	}
-
-	@Override
 	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
-			CWBBBox bbox) throws BDTopoWSClientException {
+			CWBBBox bbox) throws BDTopoDatasetWSClientException {
 		return getNomenInstances(concept, bbox, DEFAULT_THRESHOLD,
 				DEFAULT_OUTPUT_FMT);
 	}
@@ -167,7 +160,7 @@ public class BDTopoWSClient implements DataModelNomenProviderWSClient,
 	@Override
 	public Collection<CWBInstanceNomen> getNomenInstances(CWBConcept concept,
 			CWBBBox bbox, double threshold)
-			throws BDTopoWSClientException {
+			throws BDTopoDatasetWSClientException {
 		return getNomenInstances(concept, bbox, threshold,
 				DEFAULT_OUTPUT_FMT);
 	}

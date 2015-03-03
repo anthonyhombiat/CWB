@@ -3,11 +3,13 @@ package lig.steamer.cwb.util.wsclient;
 
 public abstract class WSNode {
 
+	private final String id;
 	private final String name;
 	private final double lat;
 	private final double lon;
 	
-	public WSNode(double lat, double lon, String name){
+	public WSNode(String id, double lat, double lon, String name){
+		this.id = id;
 		this.lat = lat;
 		this.lon = lon;
 		this.name = name;
@@ -32,6 +34,13 @@ public abstract class WSNode {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
 	}
 	
 }

@@ -3,12 +3,12 @@ package lig.steamer.cwb.util.wsclient;
 import java.util.Collection;
 import java.util.Locale;
 
+import lig.steamer.cwb.model.CWBBBox;
 import lig.steamer.cwb.model.CWBConcept;
 import lig.steamer.cwb.model.CWBInstanceFolkso;
-import lig.steamer.cwb.model.CWBBBox;
-import lig.steamer.cwb.util.wsclient.exception.WSClientException;
+import lig.steamer.cwb.util.wsclient.exception.WSDatasetFolksoClientException;
 
-public interface InstancesFolksoProviderWSClient {
+public interface CWBDatasetFolksoProviderWSClient {
 
 	/**
 	 * Returns the folksonomy instances corresponding to the given concept
@@ -20,20 +20,11 @@ public interface InstancesFolksoProviderWSClient {
 	 * @param threshold, the threshold
 	 * @param outputFormat, the output format
 	 * @return the instances
-	 * @throws WSClientException
+	 * @throws WSDatasetFolksoClientException
 	 */
 	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox, Locale locale, double threshold, String outputFormat)
-			throws WSClientException;
-
-	/**
-	 * Returns the folksonomy instances corresponding to the given concept.
-	 * @param concept, the CWB concept
-	 * @return the instances
-	 * @throws WSClientException
-	 */
-	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept)
-			throws WSClientException;
+			throws WSDatasetFolksoClientException;
 
 	/**
 	 * Returns the folksonomy instances corresponding to the given concept
@@ -41,10 +32,10 @@ public interface InstancesFolksoProviderWSClient {
 	 * @param concept, the CWB concept
 	 * @param bbox
 	 * @return the instances
-	 * @throws WSClientException
+	 * @throws WSDatasetFolksoClientException
 	 */
 	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
-			CWBBBox bbox) throws WSClientException;
+			CWBBBox bbox) throws WSDatasetFolksoClientException;
 
 	/**
 	 * Returns the folksonomy instances corresponding to the given concept
@@ -53,10 +44,10 @@ public interface InstancesFolksoProviderWSClient {
 	 * @param bbox
 	 * @param locale
 	 * @return the instances
-	 * @throws WSClientException
+	 * @throws WSDatasetFolksoClientException
 	 */
 	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
-			CWBBBox bbox, Locale locale) throws WSClientException;
+			CWBBBox bbox, Locale locale) throws WSDatasetFolksoClientException;
 
 	/**
 	 * Returns the folksonomy instances corresponding to the given concept
@@ -66,10 +57,10 @@ public interface InstancesFolksoProviderWSClient {
 	 * @param locale
 	 * @param threshold
 	 * @return the instances
-	 * @throws WSClientException
+	 * @throws WSDatasetFolksoClientException
 	 */
 	public Collection<CWBInstanceFolkso> getFolksoInstances(CWBConcept concept,
 			CWBBBox bbox, Locale locale, double threshold)
-			throws WSClientException;
+			throws WSDatasetFolksoClientException;
 
 }

@@ -23,6 +23,7 @@ public class BDTopoWSServerResponse implements WSServerResponse<WSNodeNomen> {
 	private static final String KEY_RESPONSE_GEOM = "geometry";
 	private static final String KEY_RESPONSE_COOR = "coordinates";
 	private static final String KEY_RESPONSE_TAG = "nature";
+	private static final String KEY_RESPONSE_ID = "id";
 
 	private final Collection<WSNodeNomen> nodes = new ArrayList<WSNodeNomen>();
 
@@ -58,7 +59,8 @@ public class BDTopoWSServerResponse implements WSServerResponse<WSNodeNomen> {
 
 				JSONObject prop = current.getJSONObject(KEY_RESPONSE_PROP);
 
-				WSNodeNomen node = new WSNodeNomen(coordinate.getDouble(0),
+				WSNodeNomen node = new WSNodeNomen(
+						prop.getString(KEY_RESPONSE_ID), coordinate.getDouble(0),
 						coordinate.getDouble(1),
 						prop.getString(KEY_RESPONSE_TOPO),
 						prop.getString(KEY_RESPONSE_TAG));

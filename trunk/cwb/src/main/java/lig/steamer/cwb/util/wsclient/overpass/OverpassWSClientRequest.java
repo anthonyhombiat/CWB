@@ -62,15 +62,17 @@ public class OverpassWSClientRequest implements WSClientRequest {
 
 	private String buildGetByKeyURLParameters(String key, CWBBBox bbox,
 			String outputFormat) {
-		return String.format("[out:%s];node[\"%s\"](%s,%s,%s,%s);out;",
+		return String.format("[out:%s];(node[\"%s\"](%s,%s,%s,%s);way[\"%s\"](%s,%s,%s,%s););out center;",
 				outputFormat, key, bbox.getSouth(), bbox.getWest(),
+				bbox.getNorth(), bbox.getEast(), key, bbox.getSouth(), bbox.getWest(),
 				bbox.getNorth(), bbox.getEast());
 	}
 
 	private String buildGetByKeyValueURLParameters(String key, String value,
 			CWBBBox bbox, String outputFormat) {
-		return String.format("[out:%s];node[\"%s\"=\"%s\"](%s,%s,%s,%s);out;",
+		return String.format("[out:%s];(node[\"%s\"=\"%s\"](%s,%s,%s,%s);way[\"%s\"=\"%s\"](%s,%s,%s,%s););out center;",
 				outputFormat, key, value, bbox.getSouth(), bbox.getWest(),
+				bbox.getNorth(), bbox.getEast(), key, value, bbox.getSouth(), bbox.getWest(),
 				bbox.getNorth(), bbox.getEast());
 	}
 

@@ -1,6 +1,5 @@
 package lig.steamer.cwb.ui;
 
-import java.text.MessageFormat;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -9,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.controller.CWBController;
 import lig.steamer.cwb.model.CWBAlignment;
+import lig.steamer.cwb.model.CWBBuffer;
 import lig.steamer.cwb.model.CWBDataModelFolkso;
 import lig.steamer.cwb.model.CWBDataModelNomen;
 import lig.steamer.cwb.model.CWBDataSetFolkso;
 import lig.steamer.cwb.model.CWBDataSetNomen;
-import lig.steamer.cwb.model.CWBInstanceFolkso;
-import lig.steamer.cwb.model.CWBInstanceNomen;
 import lig.steamer.cwb.model.CWBModel;
-import lig.steamer.cwb.ui.map.CWBMap;
+import lig.steamer.cwb.model.CWBStudyArea;
 import lig.steamer.cwb.ui.menu.CWBMenuBar;
 import lig.steamer.cwb.ui.panel.CWBAlignPanel;
 import lig.steamer.cwb.ui.panel.CWBFolksoPanel;
+import lig.steamer.cwb.ui.panel.CWBMapPanel;
 import lig.steamer.cwb.ui.panel.CWBNomenPanel;
+import lig.steamer.cwb.ui.window.CWBBufferOptionsWindow;
 import lig.steamer.cwb.ui.window.CWBLoadAlignFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadAlignFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBLoadFolksoFromFileWindow;
@@ -28,8 +28,13 @@ import lig.steamer.cwb.ui.window.CWBLoadFolksoFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBLoadNomenFromFileWindow;
 import lig.steamer.cwb.ui.window.CWBLoadNomenFromWSWindow;
 import lig.steamer.cwb.ui.window.CWBOpenProjectWindow;
+import lig.steamer.cwb.ui.window.CWBSelectDataProviderWindow;
+import lig.steamer.cwb.ui.window.CWBSelectStudyAreaWindow;
 
+import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LeafletMoveEndListener;
+import org.vaadin.alump.fancylayouts.FancyNotifications;
+import org.vaadin.alump.fancylayouts.gwt.client.shared.FancyNotificationsState.Position;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
@@ -38,16 +43,18 @@ import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.MarginInfo;
-import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.Slider;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Upload.Receiver;
 import com.vaadin.ui.Upload.SucceededListener;
@@ -69,11 +76,19 @@ public class AppUI extends UI {
 	private final CWBLoadFolksoFromWSWindow loadFolksoFromWSWindow = new CWBLoadFolksoFromWSWindow();
 	private final CWBLoadAlignFromFileWindow loadAlignFromFileWindow = new CWBLoadAlignFromFileWindow();
 	private final CWBLoadAlignFromWSWindow loadAlignFromWSWindow = new CWBLoadAlignFromWSWindow();
+	private final CWBSelectStudyAreaWindow selectStudyAreaWindow = new CWBSelectStudyAreaWindow();
+	private final CWBSelectDataProviderWindow selectDataProviderWindow = new CWBSelectDataProviderWindow();
+	private final CWBBufferOptionsWindow bufferOptionsWindow = new CWBBufferOptionsWindow();
 
+	private final VerticalLayout modelLayout = new VerticalLayout();
+	
 	private final CWBFolksoPanel folksoPanel = new CWBFolksoPanel();
 	private final CWBNomenPanel nomenPanel = new CWBNomenPanel();
 	private final CWBAlignPanel alignPanel = new CWBAlignPanel();
-	private final CWBMap map = new CWBMap();
+
+	private final FancyNotifications notifs = new FancyNotifications();
+
+	private CWBMapPanel mapPanel;
 
 	private final Button matchButton = new Button();
 
@@ -87,15 +102,19 @@ public class AppUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
 
-		AbsoluteLayout absoluteLayout = new AbsoluteLayout();
-		absoluteLayout.setWidth("20%");
-		absoluteLayout.setHeight("0px");
-		absoluteLayout.setStyleName("header-layout");
+		// init model
+		model = new CWBModel();
+		model.addObserver(new CWBFolksoObserver());
+		model.addObserver(new CWBNomenObserver());
+		model.addObserver(new CWBAlignmentObserver());
+		model.addObserver(new CWBDatasetFolksoObserver());
+		model.addObserver(new CWBDatasetNomenObserver());
+		model.addObserver(new CWBIsReadyForMatchingObserver());
+		model.addObserver(new CWBBufferOptionsObserver());
+		model.addObserver(new CWBStudyAreaObserver());
 
 		Label mainTitle = new Label(Msg.get("main.title"));
 		mainTitle.setStyleName(Reindeer.LABEL_H1);
-
-		absoluteLayout.addComponent(mainTitle, "right: 2%; top: -3px;");
 
 		HorizontalLayout horizontalLayout = new HorizontalLayout();
 		horizontalLayout.addComponent(nomenPanel);
@@ -106,50 +125,42 @@ public class AppUI extends UI {
 		matchButton.setEnabled(false);
 		matchButton.setCaption(Msg.get("matching.button"));
 
-		final VerticalLayout leftLayout = new VerticalLayout();
-		leftLayout.addComponent(horizontalLayout);
-		leftLayout.setExpandRatio(horizontalLayout, 0.58f);
-		leftLayout.addComponent(matchButton);
-		leftLayout.setComponentAlignment(matchButton, Alignment.MIDDLE_CENTER);
-		leftLayout.setExpandRatio(matchButton, 0.02f);
-		leftLayout.addComponent(alignPanel);
-		leftLayout.setExpandRatio(alignPanel, 0.4f);
-		leftLayout.setSizeFull();
-		leftLayout.setSpacing(true);
+		modelLayout.addComponent(horizontalLayout);
+		modelLayout.setExpandRatio(horizontalLayout, 0.58f);
+		modelLayout.addComponent(matchButton);
+		modelLayout.setComponentAlignment(matchButton, Alignment.MIDDLE_CENTER);
+		modelLayout.setExpandRatio(matchButton, 0.02f);
+		modelLayout.addComponent(alignPanel);
+		modelLayout.setExpandRatio(alignPanel, 0.4f);
+		modelLayout.setSizeFull();
+		modelLayout.setSpacing(true);
 
-		final VerticalLayout mapLayout = new VerticalLayout();
-		mapLayout.setSizeFull();
-		mapLayout.addComponent(map);
-
-		final Panel mapPanel = new Panel(Msg.get("map.capt"), mapLayout);
-		mapPanel.setSizeFull();
+		mapPanel = new CWBMapPanel(model.getStudyArea(), model.getBuffer());
 
 		final HorizontalLayout centralLayout = new HorizontalLayout();
-		centralLayout.addComponent(leftLayout);
+		centralLayout.addComponent(modelLayout);
 		centralLayout.addComponent(mapPanel);
-		centralLayout.setExpandRatio(leftLayout, 0.5f);
+		centralLayout.setExpandRatio(modelLayout, 0.5f);
 		centralLayout.setExpandRatio(mapPanel, 0.5f);
 		centralLayout.setSizeFull();
 		centralLayout.setSpacing(true);
 		centralLayout.setMargin(new MarginInfo(true, true, false, true));
 
+		final CssLayout notifLayout = new CssLayout();
+		notifs.setPosition(Position.BOTTOM_RIGHT);
+		notifs.setClickClose(true);
+		notifLayout.addComponent(notifs);
+
 		final VerticalLayout rootLayout = new VerticalLayout();
 		rootLayout.setSizeFull();
-		rootLayout.addComponent(absoluteLayout);
+		rootLayout.addComponent(mainTitle);
 		rootLayout.addComponent(menuBar);
 		rootLayout.addComponent(centralLayout);
 		rootLayout.setExpandRatio(centralLayout, 0.9f);
+		rootLayout.addComponent(notifLayout);
 		rootLayout.setStyleName(Reindeer.LAYOUT_BLUE);
 
 		setContent(rootLayout);
-
-		model = new CWBModel();
-		model.addObserver(new CWBFolksoObserver());
-		model.addObserver(new CWBNomenObserver());
-		model.addObserver(new CWBAlignmentObserver());
-		model.addObserver(new CWBDatasetFolksoObserver());
-		model.addObserver(new CWBDatasetNomenObserver());
-		model.addObserver(new CWBIsReadyForMatchingObserver());
 
 		new CWBController(model, this);
 
@@ -191,6 +202,18 @@ public class AppUI extends UI {
 		return loadAlignFromWSWindow;
 	}
 
+	public Window getSelectStudyAreaWindow() {
+		return selectStudyAreaWindow;
+	}
+
+	public Window getSelectDataProviderWindow() {
+		return selectDataProviderWindow;
+	}
+
+	public Window getBufferOptionsWindow() {
+		return bufferOptionsWindow;
+	}
+
 	public ComboBox getNomenWSCombobox() {
 		return loadNomenFromWSWindow.getComboBox();
 	}
@@ -207,6 +230,38 @@ public class AppUI extends UI {
 		return loadFolksoFromWSWindow.getLoadButton();
 	}
 
+	public Button getDataProviderOkButton() {
+		return selectDataProviderWindow.getOkButton();
+	}
+
+	public Button getStudyAreaOkButton() {
+		return selectStudyAreaWindow.getOkButton();
+	}
+
+	public Button getBufferOptionsOkButton() {
+		return bufferOptionsWindow.getOkButton();
+	}
+
+	public ComboBox getStudyAreaComboBox() {
+		return selectStudyAreaWindow.getComboBox();
+	}
+
+	public ComboBox getDataProviderNomenComboBox() {
+		return selectDataProviderWindow.getNomenDataProviderComboBox();
+	}
+
+	public ComboBox getDataProviderFolksoComboBox() {
+		return selectDataProviderWindow.getFolksoDataProviderComboBox();
+	}
+
+	public CheckBox getBufferDisplayCheckBox() {
+		return bufferOptionsWindow.getBufferDisplayCheckBox();
+	}
+
+	public Slider getBufferSizeSlider() {
+		return bufferOptionsWindow.getBufferSizeSlider();
+	}
+
 	public CWBNomenPanel getNomenPanel() {
 		return nomenPanel;
 	}
@@ -219,10 +274,18 @@ public class AppUI extends UI {
 		return alignPanel;
 	}
 
-	public CWBMap getMap() {
-		return map;
+	public LMap getMap() {
+		return mapPanel.getMap();
+	}
+	
+	public VerticalLayout getModelLayout(){
+		return modelLayout;
 	}
 
+	public Panel getMapPanel(){
+		return mapPanel;
+	}
+	
 	/****************************/
 	/*** ADD LISTENER METHODS ***/
 	/****************************/
@@ -275,6 +338,26 @@ public class AppUI extends UI {
 		menuBar.getLoadAlignFromFileMenuItem().setCommand(command);
 	}
 
+	public void addStudyAreaMenuItemCommand(Command command) {
+		menuBar.getStudyAreaMenuItem().setCommand(command);
+	}
+
+	public void addDataProviderMenuItemCommand(Command command) {
+		menuBar.getdataProviderMenuItem().setCommand(command);
+	}
+
+	public void addBufferOptionsMenuItemCommand(Command command) {
+		menuBar.getBufferOptionsMenuItem().setCommand(command);
+	}
+
+	public void addMapMenuItemCommand(Command command) {
+		menuBar.getMapMenuItem().setCommand(command);
+	}
+	
+	public void addModelMenuItemCommand(Command command) {
+		menuBar.getModelMenuItem().setCommand(command);
+	}
+
 	public void addLoadFolksoFromWSWindowButtonListener(ClickListener listener) {
 		loadFolksoFromWSWindow.getLoadButton().addClickListener(listener);
 	}
@@ -285,10 +368,6 @@ public class AppUI extends UI {
 
 	public void addNomenWSComboBoxListener(ValueChangeListener listener) {
 		loadNomenFromWSWindow.getComboBox().addValueChangeListener(listener);
-	}
-
-	public void addMapMenuItemCommand(Command command) {
-		menuBar.getMapMenuItem().setCommand(command);
 	}
 
 	public void addFolksoWSComboBoxListener(ValueChangeListener listener) {
@@ -333,6 +412,35 @@ public class AppUI extends UI {
 				listener);
 	}
 
+	public void addDataProviderWindowButtonListener(ClickListener listener) {
+		selectDataProviderWindow.getOkButton().addClickListener(listener);
+	}
+
+	public void addStudyAreaWindowButtonListener(ClickListener listener) {
+		selectStudyAreaWindow.getOkButton().addClickListener(listener);
+	}
+
+	public void addBufferOptionsWindowButtonListener(ClickListener listener) {
+		bufferOptionsWindow.getOkButton().addClickListener(listener);
+	}
+
+	public void addStudyAreaComboboxValueChangedListener(
+			ValueChangeListener listener) {
+		selectStudyAreaWindow.getComboBox().addValueChangeListener(listener);
+	}
+
+	public void addDataProviderNomenComboboxValueChangedListener(
+			ValueChangeListener listener) {
+		selectDataProviderWindow.getNomenDataProviderComboBox()
+				.addValueChangeListener(listener);
+	}
+
+	public void addDataProviderFolksoComboboxValueChangedListener(
+			ValueChangeListener listener) {
+		selectDataProviderWindow.getFolksoDataProviderComboBox()
+				.addValueChangeListener(listener);
+	}
+
 	public void addMatchButtonListener(ClickListener listener) {
 		matchButton.addClickListener(listener);
 	}
@@ -348,7 +456,20 @@ public class AppUI extends UI {
 	}
 
 	public void addMapMoveEndListener(LeafletMoveEndListener listener) {
-		map.addMoveEndListener(listener);
+		mapPanel.getMap().addMoveEndListener(listener);
+	}
+
+	/******************/
+	/** NOTIFICATIONS */
+	/******************/
+
+	public void info(String title, String description) {
+		notifs.showNotification(null, title, description);
+	}
+
+	public void err(String title, String description) {
+		notifs.showNotification(null, title, description, null,
+				"fancy-notif-error");
 	}
 
 	class CWBIsReadyForMatchingObserver implements Observer {
@@ -368,16 +489,7 @@ public class AppUI extends UI {
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataModelFolkso) {
 				if (arg != null) {
-					System.out.println("folkso changed !");
-					CWBDataModelFolkso folkso = (CWBDataModelFolkso) arg;
-					folksoPanel.getDataModelContainer().removeAllItems();
-					folksoPanel.getDataModelContainer().addAll(
-							folkso.getConcepts());
-					folksoPanel.getTable().sort();
-					folksoPanel.getTable().refreshRowCache();
-					folksoPanel.setCaption(MessageFormat.format(Msg
-							.get("folkso.capt"), folkso.getConcepts().size(),
-							folkso.getNamespace().toString()));
+					folksoPanel.loadFolksonomy((CWBDataModelFolkso) arg);
 				}
 			}
 		}
@@ -390,16 +502,7 @@ public class AppUI extends UI {
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataModelNomen) {
 				if (arg != null) {
-					System.out.println("nomen changed !");
-					CWBDataModelNomen nomen = (CWBDataModelNomen) arg;
-					nomenPanel.getDataModelContainer().removeAllItems();
-					nomenPanel.getDataModelContainer().addAll(
-							nomen.getConcepts());
-					nomenPanel.getTable().sort();
-					nomenPanel.getTable().refreshRowCache();
-					nomenPanel.setCaption(MessageFormat.format(
-							Msg.get("nomen.capt"), nomen.getConcepts().size(),
-							nomen.getNamespace().toString()));
+					nomenPanel.loadNomenclature((CWBDataModelNomen) arg);
 				}
 			}
 		}
@@ -411,20 +514,8 @@ public class AppUI extends UI {
 		@Override
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBAlignment) {
-				System.out.println("alignment changed");
 				if (arg != null) {
-					CWBAlignment align = (CWBAlignment) arg;
-					alignPanel.getTable().setEnabled(true);
-					alignPanel.getDataModelContainer().removeAllItems();
-					alignPanel.getDataModelContainer().addAll(
-							align.getEquivalences());
-					alignPanel.getTable().refreshRowCache();
-					alignPanel.getTable().sort();
-					alignPanel
-							.setCaption(MessageFormat.format(Msg
-									.get("align.capt"), align.getEquivalences()
-									.size()));
-
+					alignPanel.loadAlignment((CWBAlignment) arg);
 				}
 			}
 		}
@@ -436,14 +527,11 @@ public class AppUI extends UI {
 		@Override
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataSetFolkso) {
-				map.removeFolksoMarkers();
-				System.out.println("instances folkso: ");
-				for (CWBInstanceFolkso instance : ((CWBDataSetFolkso) arg)
-						.getInstances()) {
-					System.out.println("=> " + instance.getLabel());
-					map.addMarkerFolkso(instance);
-				}
-
+				CWBDataSetFolkso dataset = (CWBDataSetFolkso) arg;
+				mapPanel.removeAllFolksoMarkers();
+				mapPanel.addMarkersFolkso(dataset);
+				mapPanel.drawFolksoBufferPolygons();
+				mapPanel.updateInstanceInfoPanel();
 			}
 		}
 	}
@@ -453,15 +541,39 @@ public class AppUI extends UI {
 		@Override
 		public void update(Observable o, Object arg) {
 			if (arg instanceof CWBDataSetNomen) {
-				map.removeNomenMarkers();
-				System.out.println("instances nomen: ");
-				for (CWBInstanceNomen instance : ((CWBDataSetNomen) arg)
-						.getInstances()) {
-					System.out.println("=> " + instance.getLabel());
-					map.addMarkerNomen(instance);
-				}
+				CWBDataSetNomen dataset = (CWBDataSetNomen) arg;
+				mapPanel.removeAllNomenMarkers();
+				mapPanel.addMarkersNomen(dataset);
+				mapPanel.drawNomenBufferPolygons();
+				mapPanel.updateInstanceInfoPanel();
 			}
 		}
+	}
+
+	class CWBBufferOptionsObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof CWBBuffer) {
+				mapPanel.setBuffer((CWBBuffer) arg);
+				mapPanel.drawNomenBufferPolygons();
+				mapPanel.drawFolksoBufferPolygons();
+				mapPanel.updateInstanceInfoPanel();
+			}
+		}
+
+	}
+
+	class CWBStudyAreaObserver implements Observer {
+
+		@Override
+		public void update(Observable o, Object arg) {
+			if (arg instanceof CWBStudyArea) {
+				CWBStudyArea studyArea = (CWBStudyArea) arg;
+				mapPanel.setStudyArea(studyArea);
+			}
+		}
+
 	}
 
 }

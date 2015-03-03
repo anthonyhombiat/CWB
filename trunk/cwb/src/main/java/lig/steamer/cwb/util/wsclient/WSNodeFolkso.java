@@ -7,13 +7,13 @@ public class WSNodeFolkso extends WSNode {
 
 	private Collection<String> tags;
 	
-	public WSNodeFolkso(double lat, double lon, String name, Collection<String> tags){
-		super(lat, lon, name);
+	public WSNodeFolkso(String id, double lat, double lon, String name, Collection<String> tags){
+		super(id, lat, lon, name);
 		this.tags = tags;
 	}
 	
-	public WSNodeFolkso(double lat, double lon, String name){
-		this(lat, lon, name, new ArrayList<String>());
+	public WSNodeFolkso(String id, double lat, double lon, String name){
+		this(id, lat, lon, name, new ArrayList<String>());
 	}
 
 	/**

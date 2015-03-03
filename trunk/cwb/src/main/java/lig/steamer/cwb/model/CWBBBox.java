@@ -1,45 +1,79 @@
 package lig.steamer.cwb.model;
 
-public interface CWBBBox {
+
+public class CWBBBox {
+
+	private double south;
+	private double west;
+	private double north;
+	private double east;
+
+	public CWBBBox(double south, double west, double north, double east) {
+		this.south = south;
+		this.west = west;
+		this.north = north;
+		this.east = east;
+	}
 
 	/**
 	 * @return the south
 	 */
-	public double getSouth();
+	public double getSouth() {
+		return south;
+	}
 
 	/**
 	 * @param south the south to set
 	 */
-	public void setSouth(double south);
+	public void setSouth(double south) {
+		this.south = south;
+	}
 
 	/**
 	 * @return the west
 	 */
-	public double getWest();
+	public double getWest() {
+		return west;
+	}
 
 	/**
 	 * @param west the west to set
 	 */
-	public void setWest(double west);
+	public void setWest(double west) {
+		this.west = west;
+	}
 
 	/**
 	 * @return the north
 	 */
-	public double getNorth();
+	public double getNorth() {
+		return north;
+	}
 
 	/**
 	 * @param north the north to set
 	 */
-	public void setNorth(double north);
+	public void setNorth(double north) {
+		this.north = north;
+	}
 
 	/**
 	 * @return the east
 	 */
-	public double getEast();
+	public double getEast() {
+		return east;
+	}
 
 	/**
 	 * @param east the east to set
 	 */
-	public void setEast(double east);
+	public void setEast(double east) {
+		this.east = east;
+	}
 	
+	@Override
+	public String toString(){
+		return south + "," + west + "," + north + "," + east;
+	}
+
 }

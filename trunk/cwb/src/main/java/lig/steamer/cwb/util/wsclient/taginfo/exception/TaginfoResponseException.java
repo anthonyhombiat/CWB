@@ -1,6 +1,8 @@
 package lig.steamer.cwb.util.wsclient.taginfo.exception;
 
-public class TaginfoResponseException extends Exception {
+import lig.steamer.cwb.util.wsclient.exception.WSDataModelFolksoClientException;
+
+public class TaginfoResponseException extends WSDataModelFolksoClientException {
 
 	private static final long serialVersionUID = 1L;
 	

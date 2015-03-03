@@ -19,10 +19,10 @@ public class CWBFolksoOWLWriter implements CWBFolksoWriter {
 		File file = new File(outputDir + File.separatorChar + outputFilename
 				+ outputFileFormat);
 
-		file.mkdir();
-		
-		folksonomy.acceptCWBDataModelVisitor(new CWBDataModelOWLRenderer(IRI
-				.create(file)));
+		if (folksonomy != null && !folksonomy.getConcepts().isEmpty()) {
+			folksonomy.acceptCWBDataModelVisitor(new CWBDataModelOWLRenderer(
+					IRI.create(file)));
+		}
 
 		return file;
 

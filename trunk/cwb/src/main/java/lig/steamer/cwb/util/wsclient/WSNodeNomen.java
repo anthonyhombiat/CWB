@@ -5,8 +5,8 @@ public class WSNodeNomen extends WSNode {
 	
 	private final String category;
 	
-	public WSNodeNomen(double lat, double lon, String name, String category){
-		super(lat, lon, name);
+	public WSNodeNomen(String id, double lat, double lon, String name, String category){
+		super(id, lat, lon, name);
 		this.category = category;
 	}
 

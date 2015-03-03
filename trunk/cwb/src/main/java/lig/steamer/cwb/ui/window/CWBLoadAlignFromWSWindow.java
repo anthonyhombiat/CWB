@@ -3,11 +3,9 @@ package lig.steamer.cwb.ui.window;
 import lig.steamer.cwb.Msg;
 
 import com.vaadin.shared.ui.combobox.FilteringMode;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Window;
 
 public class CWBLoadAlignFromWSWindow extends Window {
@@ -19,36 +17,27 @@ public class CWBLoadAlignFromWSWindow extends Window {
 
 	public CWBLoadAlignFromWSWindow() {
 
-		super(Msg.get("load.align.ws.capt"));
-
-		Label loadFromText = new Label(Msg.get("load.align.ws.from"));
-		loadFromText.setSizeUndefined();
+		super(Msg.get("window.load.align.ws.capt"));
 		
-		tagWSComboBox = new ComboBox();
+		tagWSComboBox = new ComboBox(Msg.get("window.load.align.ws.from"));
 		tagWSComboBox.setTextInputAllowed(true);
 		tagWSComboBox.setFilteringMode(FilteringMode.CONTAINS);
 		tagWSComboBox.setInputPrompt(Msg
-				.get("load.align.ws.combo.placeholder"));
+				.get("window.load.align.ws.combo.ph"));
 
-		loadButton = new Button(Msg.get("load.align.ws.button"));
+		loadButton = new Button(Msg.get("window.load.align.ws.button"));
 		loadButton.setEnabled(false);
 		
-		VerticalLayout rootLayout = new VerticalLayout();
-		rootLayout.setMargin(true);
-		rootLayout.setSizeFull();
-		rootLayout.addComponent(loadFromText);
-		rootLayout.addComponent(tagWSComboBox);
-		rootLayout.addComponent(loadButton);
-		rootLayout.setComponentAlignment(loadFromText, Alignment.MIDDLE_CENTER);
-		rootLayout.setComponentAlignment(tagWSComboBox, Alignment.MIDDLE_CENTER);
-		rootLayout.setComponentAlignment(loadButton, Alignment.MIDDLE_CENTER);
+		final FormLayout layout = new FormLayout();
+		layout.setMargin(true);
+		layout.setSpacing(true);
+		layout.setSizeUndefined();
+		layout.addComponent(tagWSComboBox);
+		layout.addComponent(loadButton);
 
-		this.setWidth(350, Unit.PIXELS);
-		this.setHeight(200, Unit.PIXELS);
 		this.center();
 		this.setModal(true);
-		this.setContent(rootLayout);
-
+		this.setContent(layout);
 	}
 
 	/**

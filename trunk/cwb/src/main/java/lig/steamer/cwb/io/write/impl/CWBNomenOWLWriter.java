@@ -16,12 +16,13 @@ public class CWBNomenOWLWriter implements CWBNomenWriter {
 			String outputFilename, String outputFileFormat,
 			String outputFileCharset) throws CWBNomenWriterException {
 
-		File file = new File(outputDir + File.separatorChar + outputFilename + outputFileFormat);
+		File file = new File(outputDir + File.separatorChar + outputFilename
+				+ outputFileFormat);
 
-		file.mkdir();
-		
-		nomenclature.acceptCWBDataModelVisitor(new CWBDataModelOWLRenderer(IRI
-				.create(file)));
+		if (nomenclature != null && !nomenclature.getConcepts().isEmpty()) {
+			nomenclature.acceptCWBDataModelVisitor(new CWBDataModelOWLRenderer(
+					IRI.create(file)));
+		}
 
 		return file;
 	}

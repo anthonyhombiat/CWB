@@ -1,12 +1,12 @@
 package lig.steamer.cwb.util.wsclient;
 
-public enum WSDataModelFolksoProvider {
+public enum WSDatasetNomenProvider {
 	
-	TAGINFO("OSM Taginfo");
+	BDTOPO("IGN TOPO DB");
 	
 	private String name = "";
 
-	WSDataModelFolksoProvider(String name) {
+	WSDatasetNomenProvider(String name) {
 		this.name = name;
 	}
 

@@ -4,11 +4,9 @@ import lig.steamer.cwb.Msg;
 import lig.steamer.cwb.util.wsclient.WSDataModelNomenProvider;
 
 import com.vaadin.shared.ui.combobox.FilteringMode;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Window;
 
 public class CWBLoadNomenFromWSWindow extends Window {
@@ -20,40 +18,30 @@ public class CWBLoadNomenFromWSWindow extends Window {
 
 	public CWBLoadNomenFromWSWindow() {
 
-		super(Msg.get("load.nomen.ws.capt"));
-
-		Label loadFromText = new Label(Msg.get("load.nomen.ws.from"));
-		loadFromText.setSizeUndefined();
+		super(Msg.get("window.load.nomen.ws.capt"));
 		
-		nomenWSComboBox = new ComboBox();
+		nomenWSComboBox = new ComboBox(Msg.get("window.load.nomen.ws.from"));
 		nomenWSComboBox.setTextInputAllowed(true);
 		nomenWSComboBox.setFilteringMode(FilteringMode.CONTAINS);
 		nomenWSComboBox.setInputPrompt(Msg
-				.get("load.nomen.ws.combo.placeholder"));
+				.get("window.load.nomen.ws.combo.ph"));
 
 		for (WSDataModelNomenProvider ws : WSDataModelNomenProvider.values()) {
 			nomenWSComboBox.addItem(ws);
 		}
 
-		loadButton = new Button(Msg.get("load.nomen.ws.button"));
+		loadButton = new Button(Msg.get("window.load.nomen.ws.button"));
 		loadButton.setEnabled(false);
 		
-		VerticalLayout rootLayout = new VerticalLayout();
-		rootLayout.setMargin(true);
-		rootLayout.setSizeFull();
-		rootLayout.addComponent(loadFromText);
-		rootLayout.addComponent(nomenWSComboBox);
-		rootLayout.addComponent(loadButton);
-		rootLayout.setComponentAlignment(loadFromText, Alignment.MIDDLE_CENTER);
-		rootLayout.setComponentAlignment(nomenWSComboBox, Alignment.MIDDLE_CENTER);
-		rootLayout.setComponentAlignment(loadButton, Alignment.MIDDLE_CENTER);
+		final FormLayout layout = new FormLayout();
+		layout.setMargin(true);
+		layout.setSizeUndefined();
+		layout.addComponent(nomenWSComboBox);
+		layout.addComponent(loadButton);
 
-		this.setWidth(350, Unit.PIXELS);
-		this.setHeight(200, Unit.PIXELS);
 		this.center();
 		this.setModal(true);
-		this.setContent(rootLayout);
-
+		this.setContent(layout);
 	}
 
 	/**

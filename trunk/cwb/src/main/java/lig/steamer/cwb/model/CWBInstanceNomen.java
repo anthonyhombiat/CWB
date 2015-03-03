@@ -6,8 +6,8 @@ import org.vaadin.addon.leaflet.shared.Point;
 
 public class CWBInstanceNomen extends CWBInstance {
 
-	public CWBInstanceNomen(Point point, String label, Collection<String> tags) {
-		super(point, label, tags);
+	public CWBInstanceNomen(String id, Point point, String label, Collection<String> tags) {
+		super(id, point, label, tags);
 	}
 
 }

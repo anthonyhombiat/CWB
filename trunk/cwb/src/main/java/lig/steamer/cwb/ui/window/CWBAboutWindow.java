@@ -4,11 +4,11 @@ import lig.steamer.cwb.Msg;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.Button.ClickEvent;
 
 public class CWBAboutWindow extends Window {
 
@@ -16,12 +16,12 @@ public class CWBAboutWindow extends Window {
 
 	public CWBAboutWindow() {
 
-		super(Msg.get("about.capt"));
+		super(Msg.get("window.about.capt"));
 
-		Label aboutText = new Label(Msg.get("about.txt"));
+		Label aboutText = new Label(Msg.get("window.about.txt"));
 
 		Button closeButton = new Button(
-				Msg.get("about.button.capt"),
+				Msg.get("window.about.button"),
 				new ClickListener() {
 
 					private static final long serialVersionUID = 1L;
@@ -32,17 +32,17 @@ public class CWBAboutWindow extends Window {
 					}
 				});
 		
-		VerticalLayout rootLayout = new VerticalLayout();
-		rootLayout.setMargin(true);
-		rootLayout.addComponent(aboutText);
-		rootLayout.addComponent(closeButton);
-		rootLayout.setComponentAlignment(closeButton, Alignment.MIDDLE_CENTER);
+		final VerticalLayout layout = new VerticalLayout();
+		layout.setMargin(true);
+		layout.setSpacing(true);
+		layout.addComponent(aboutText);
+		layout.addComponent(closeButton);
+		layout.setComponentAlignment(closeButton, Alignment.MIDDLE_CENTER);
 
 		this.setWidth(500, Unit.PIXELS);
 		this.center();
 		this.setModal(true);
-		this.setContent(rootLayout);
-
+		this.setContent(layout);
 	}
 
 }
