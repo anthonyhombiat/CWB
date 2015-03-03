@@ -206,6 +206,13 @@
 		<!-- <scope>provided</scope> -->
 		<!-- </dependency> -->
 
+		<!-- FancyLayouts Notifications addon for Vaadin (stackable notifications) -->
+		<dependency>
+			<groupId>org.vaadin.alump.fancylayouts</groupId>
+			<artifactId>fancylayouts-addon</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
 		<!-- Leaflet add-on for Vaadin -->
 		<dependency>
 			<groupId>org.vaadin.addon</groupId>
@@ -247,7 +254,7 @@
 	<properties>
 		<project.name>Citizen Welfare Builder</project.name>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>7.2.0</vaadin.version>
+		<vaadin.version>7.3.10</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 	</properties>
 
